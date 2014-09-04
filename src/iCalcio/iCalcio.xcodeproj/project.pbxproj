@@ -13,6 +13,7 @@
 		F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F3246619B8C6D4002F93CF /* Main.storyboard */; };
 		F8F3246A19B8C6D4002F93CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8F3246919B8C6D4002F93CF /* Images.xcassets */; };
 		F8F3247619B8C6D4002F93CF /* iCalcioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */; };
+		F8F3248019B8CBB7002F93CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3247F19B8CBB7002F93CF /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		F8F3246F19B8C6D4002F93CF /* iCalcioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCalcioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F3247419B8C6D4002F93CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCalcioTests.swift; sourceTree = "<group>"; };
+		F8F3247F19B8CBB7002F93CF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				F8F3246019B8C6D4002F93CF /* AppDelegate.swift */,
 				F8F3246219B8C6D4002F93CF /* FirstViewController.swift */,
 				F8F3246419B8C6D4002F93CF /* SecondViewController.swift */,
+				F8F3247F19B8CBB7002F93CF /* HomeViewController.swift */,
 				F8F3246619B8C6D4002F93CF /* Main.storyboard */,
 				F8F3246919B8C6D4002F93CF /* Images.xcassets */,
 				F8F3245E19B8C6D4002F93CF /* Supporting Files */,
@@ -214,6 +217,7 @@
 				F8F3246519B8C6D4002F93CF /* SecondViewController.swift in Sources */,
 				F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */,
 				F8F3246319B8C6D4002F93CF /* FirstViewController.swift in Sources */,
+				F8F3248019B8CBB7002F93CF /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
