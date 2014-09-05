@@ -100,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="293"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Home-->
         <scene sceneID="BAc-7Q-zRf">
             <objects>
-                <tableViewController id="OQa-QR-kTz" customClass="HomeViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Home" id="OQa-QR-kTz" customClass="HomeViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ttp-Hj-YGy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="1050" y="994"/>
         </scene>
-        <!--Home-->
+        <!--HomeNavigation-->
         <scene sceneID="PG8-YS-Fdl">
             <objects>
-                <navigationController id="8Tx-gA-8ky" sceneMemberID="viewController">
+                <navigationController title="HomeNavigation" id="8Tx-gA-8ky" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="7P8-km-JkG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CvT-v2-nLe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

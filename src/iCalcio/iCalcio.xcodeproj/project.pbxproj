@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8BFE86119B9B4D0003BB4AC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE85F19B9B4D0003BB4AC /* FirstViewController.swift */; };
+		F8BFE86219B9B4D0003BB4AC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86019B9B4D0003BB4AC /* SecondViewController.swift */; };
+		F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */; };
 		F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3246019B8C6D4002F93CF /* AppDelegate.swift */; };
-		F8F3246319B8C6D4002F93CF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3246219B8C6D4002F93CF /* FirstViewController.swift */; };
-		F8F3246519B8C6D4002F93CF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3246419B8C6D4002F93CF /* SecondViewController.swift */; };
 		F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F3246619B8C6D4002F93CF /* Main.storyboard */; };
 		F8F3246A19B8C6D4002F93CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8F3246919B8C6D4002F93CF /* Images.xcassets */; };
 		F8F3247619B8C6D4002F93CF /* iCalcioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */; };
-		F8F3248019B8CBB7002F93CF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3247F19B8CBB7002F93CF /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +27,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F8BFE85F19B9B4D0003BB4AC /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		F8BFE86019B9B4D0003BB4AC /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F8F3245B19B8C6D4002F93CF /* iCalcio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCalcio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F3245F19B8C6D4002F93CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F3246019B8C6D4002F93CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8F3246219B8C6D4002F93CF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		F8F3246419B8C6D4002F93CF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F8F3246719B8C6D4002F93CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F8F3246919B8C6D4002F93CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F8F3246919B8C6D4002F93CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../Images.xcassets; sourceTree = "<group>"; };
 		F8F3246F19B8C6D4002F93CF /* iCalcioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCalcioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F3247419B8C6D4002F93CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCalcioTests.swift; sourceTree = "<group>"; };
-		F8F3247F19B8CBB7002F93CF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +58,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8BFE85B19B9B38E003BB4AC /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F8F3246619B8C6D4002F93CF /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		F8BFE85E19B9B4D0003BB4AC /* _todelete */ = {
+			isa = PBXGroup;
+			children = (
+				F8F3246919B8C6D4002F93CF /* Images.xcassets */,
+				F8BFE85F19B9B4D0003BB4AC /* FirstViewController.swift */,
+				F8BFE86019B9B4D0003BB4AC /* SecondViewController.swift */,
+			);
+			name = _todelete;
+			path = Classes/_todelete;
+			sourceTree = "<group>";
+		};
+		F8BFE86319B9B505003BB4AC /* About */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = About;
+			path = Classes/About;
+			sourceTree = "<group>";
+		};
+		F8BFE86719B9B6F8003BB4AC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			path = ../../../resources;
+			sourceTree = "<group>";
+		};
+		F8BFE86819B9B723003BB4AC /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			path = ../../lib;
+			sourceTree = "<group>";
+		};
+		F8BFE86A19B9BAC1003BB4AC /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				F8F3246019B8C6D4002F93CF /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		F8BFE86B19B9BAEF003BB4AC /* Championship */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Championship;
+			path = Classes/Championship;
+			sourceTree = "<group>";
+		};
+		F8BFE86C19B9BAFC003BB4AC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */,
+			);
+			name = Home;
+			path = Classes/Home;
+			sourceTree = "<group>";
+		};
 		F8F3245219B8C6D4002F93CF = {
 			isa = PBXGroup;
 			children = (
 				F8F3245D19B8C6D4002F93CF /* iCalcio */,
+				F8BFE86819B9B723003BB4AC /* Libraries */,
 				F8F3247219B8C6D4002F93CF /* iCalcioTests */,
 				F8F3245C19B8C6D4002F93CF /* Products */,
 			);
@@ -79,12 +148,13 @@
 		F8F3245D19B8C6D4002F93CF /* iCalcio */ = {
 			isa = PBXGroup;
 			children = (
-				F8F3246019B8C6D4002F93CF /* AppDelegate.swift */,
-				F8F3246219B8C6D4002F93CF /* FirstViewController.swift */,
-				F8F3246419B8C6D4002F93CF /* SecondViewController.swift */,
-				F8F3247F19B8CBB7002F93CF /* HomeViewController.swift */,
-				F8F3246619B8C6D4002F93CF /* Main.storyboard */,
-				F8F3246919B8C6D4002F93CF /* Images.xcassets */,
+				F8BFE86C19B9BAFC003BB4AC /* Home */,
+				F8BFE86B19B9BAEF003BB4AC /* Championship */,
+				F8BFE86A19B9BAC1003BB4AC /* AppDelegate */,
+				F8BFE86719B9B6F8003BB4AC /* Resources */,
+				F8BFE86319B9B505003BB4AC /* About */,
+				F8BFE85E19B9B4D0003BB4AC /* _todelete */,
+				F8BFE85B19B9B38E003BB4AC /* Storyboard */,
 				F8F3245E19B8C6D4002F93CF /* Supporting Files */,
 			);
 			path = iCalcio;
@@ -214,10 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8F3246519B8C6D4002F93CF /* SecondViewController.swift in Sources */,
+				F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */,
+				F8BFE86219B9B4D0003BB4AC /* SecondViewController.swift in Sources */,
+				F8BFE86119B9B4D0003BB4AC /* FirstViewController.swift in Sources */,
 				F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */,
-				F8F3246319B8C6D4002F93CF /* FirstViewController.swift in Sources */,
-				F8F3248019B8CBB7002F93CF /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +475,7 @@
 				F8F3247B19B8C6D4002F93CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8F3247C19B8C6D4002F93CF /* Build configuration list for PBXNativeTarget "iCalcioTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +484,7 @@
 				F8F3247E19B8C6D4002F93CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
