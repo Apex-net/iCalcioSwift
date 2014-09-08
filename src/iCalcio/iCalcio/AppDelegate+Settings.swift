@@ -7,3 +7,44 @@
 //
 
 import Foundation
+
+extension AppDelegate
+{
+    var appName : String
+        {
+            let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
+            let dict = NSDictionary(contentsOfFile: path!)
+            let keyValue : AnyObject = dict.valueForKey("CFBundleDisplayName")!
+            var stringNative :String = String()
+            if let nsString:NSString = keyValue as? NSString{
+                stringNative = nsString as String
+            }
+            return stringNative;
+        }
+    
+    var apiBaseUrl : String
+        {
+            let path = NSBundle.mainBundle().pathForResource("Urls", ofType: "plist")
+            let dict = NSDictionary(contentsOfFile: path!)
+            let keyValue : AnyObject = dict.valueForKey("ANBaseUrl")!
+            var stringNative :String = String()
+            if let nsString:NSString = keyValue as? NSString{
+                stringNative = nsString as String
+            }
+            return stringNative;
+    }
+
+    var teamName : String
+        {
+            let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
+            let dict = NSDictionary(contentsOfFile: path!)
+            let keyValue : AnyObject = dict.valueForKey("ANTeamName")!
+            var stringNative :String = String()
+            if let nsString:NSString = keyValue as? NSString{
+                stringNative = nsString as String
+            }
+            return stringNative;
+    }
+    
+
+}

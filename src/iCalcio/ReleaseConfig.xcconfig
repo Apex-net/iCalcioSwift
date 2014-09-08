@@ -5,3 +5,9 @@
 //  Created by Andrea Calisesi on 05/09/14.
 //  Copyright (c) 2014 Andrea Calisesi. All rights reserved.
 //
+
+// iCesena TestFlight release config
+//TEST_POSTFIX_BUNDLE = Test
+//TEST_PREFIX_NAME = Test
+//APP_TESTFLIGHT_TOKEN = ...
+

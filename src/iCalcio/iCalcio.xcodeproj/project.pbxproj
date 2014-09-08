@@ -10,9 +10,11 @@
 		F8BFE86119B9B4D0003BB4AC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE85F19B9B4D0003BB4AC /* FirstViewController.swift */; };
 		F8BFE86219B9B4D0003BB4AC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86019B9B4D0003BB4AC /* SecondViewController.swift */; };
 		F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */; };
+		F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */; };
+		F8BFE87D19BDB35F003BB4AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8BFE87C19BDB35F003BB4AC /* Images.xcassets */; };
+		F8BFE88119BDC6F9003BB4AC /* Urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8BFE88019BDC6F9003BB4AC /* Urls.plist */; };
 		F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3246019B8C6D4002F93CF /* AppDelegate.swift */; };
 		F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F3246619B8C6D4002F93CF /* Main.storyboard */; };
-		F8F3246A19B8C6D4002F93CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8F3246919B8C6D4002F93CF /* Images.xcassets */; };
 		F8F3247619B8C6D4002F93CF /* iCalcioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,11 +32,15 @@
 		F8BFE85F19B9B4D0003BB4AC /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F8BFE86019B9B4D0003BB4AC /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		F8BFE87119B9F8EE003BB4AC /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ReleaseConfig.xcconfig; path = ../ReleaseConfig.xcconfig; sourceTree = "<group>"; };
+		F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Settings.swift"; sourceTree = "<group>"; };
+		F8BFE87C19BDB35F003BB4AC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F8BFE88019BDC6F9003BB4AC /* Urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Urls.plist; sourceTree = "<group>"; };
 		F8F3245B19B8C6D4002F93CF /* iCalcio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCalcio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F3245F19B8C6D4002F93CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F3246019B8C6D4002F93CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8F3246719B8C6D4002F93CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F8F3246919B8C6D4002F93CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../Images.xcassets; sourceTree = "<group>"; };
 		F8F3246F19B8C6D4002F93CF /* iCalcioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCalcioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F3247419B8C6D4002F93CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCalcioTests.swift; sourceTree = "<group>"; };
@@ -69,7 +75,6 @@
 		F8BFE85E19B9B4D0003BB4AC /* _todelete */ = {
 			isa = PBXGroup;
 			children = (
-				F8F3246919B8C6D4002F93CF /* Images.xcassets */,
 				F8BFE85F19B9B4D0003BB4AC /* FirstViewController.swift */,
 				F8BFE86019B9B4D0003BB4AC /* SecondViewController.swift */,
 			);
@@ -88,6 +93,8 @@
 		F8BFE86719B9B6F8003BB4AC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F8BFE88019BDC6F9003BB4AC /* Urls.plist */,
+				F8BFE87719BDB24D003BB4AC /* images */,
 			);
 			name = Resources;
 			path = ../../../resources;
@@ -105,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				F8F3246019B8C6D4002F93CF /* AppDelegate.swift */,
+				F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */,
 			);
 			name = AppDelegate;
 			sourceTree = "<group>";
@@ -124,6 +132,14 @@
 			);
 			name = Home;
 			path = Classes/Home;
+			sourceTree = "<group>";
+		};
+		F8BFE87719BDB24D003BB4AC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F8BFE87C19BDB35F003BB4AC /* Images.xcassets */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		F8F3245219B8C6D4002F93CF = {
@@ -164,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				F8F3245F19B8C6D4002F93CF /* Info.plist */,
+				F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */,
+				F8BFE87119B9F8EE003BB4AC /* ReleaseConfig.xcconfig */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -266,7 +284,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */,
-				F8F3246A19B8C6D4002F93CF /* Images.xcassets in Resources */,
+				F8BFE87D19BDB35F003BB4AC /* Images.xcassets in Resources */,
+				F8BFE88119BDC6F9003BB4AC /* Urls.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */,
 				F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */,
 				F8BFE86219B9B4D0003BB4AC /* SecondViewController.swift in Sources */,
 				F8BFE86119B9B4D0003BB4AC /* FirstViewController.swift in Sources */,
@@ -402,6 +422,7 @@
 		};
 		F8F3247A19B8C6D4002F93CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -413,6 +434,7 @@
 		};
 		F8F3247B19B8C6D4002F93CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -424,6 +446,7 @@
 		};
 		F8F3247D19B8C6D4002F93CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -443,6 +466,7 @@
 		};
 		F8F3247E19B8C6D4002F93CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

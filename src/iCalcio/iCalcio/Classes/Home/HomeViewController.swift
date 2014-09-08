@@ -13,9 +13,10 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // title
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        self.title = !appDelegate.appName.isEmpty ? appDelegate.appName : NSLocalizedString("Home", comment: "")
         
-        
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

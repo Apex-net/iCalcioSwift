@@ -5,3 +5,13 @@
 //  Created by Andrea Calisesi on 05/09/14.
 //  Copyright (c) 2014 Andrea Calisesi. All rights reserved.
 //
+
+#include "ReleaseConfig.xcconfig"
+
+PRODUCT_NAME = ${TEST_PREFIX_NAME}iCesena
+BUNDLE_IDENTIFIER = com.apex-net.iCesena${TEST_POSTFIX_BUNDLE}
+BUNDLE_DISPLAY_NAME = ${TEST_PREFIX_NAME}iCesena
+
+TEAM_NAME = Cesena
+
+

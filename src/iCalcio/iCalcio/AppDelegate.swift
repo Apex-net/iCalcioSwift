@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        // only for debug:
+        println("app name: \(appName)")
+        println("base url: \(apiBaseUrl)")
+        
         return true
     }
 
