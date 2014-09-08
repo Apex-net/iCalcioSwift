@@ -31,7 +31,15 @@ extension AppDelegate
             if let nsString:NSString = keyValue as? NSString{
                 stringNative = nsString as String
             }
-            return stringNative;
+            let pathInfo = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
+            let dictInfo = NSDictionary(contentsOfFile: pathInfo!)
+            let keyValueInfo : AnyObject = dictInfo.valueForKey("ANUrlTeamName")!
+            var stringNativeInfo :String = String()
+            if let nsStringInfo:NSString = keyValueInfo as? NSString{
+                stringNativeInfo = nsStringInfo as String
+            }
+                
+            return stringNative + "/" + stringNativeInfo;
     }
 
     var teamName : String

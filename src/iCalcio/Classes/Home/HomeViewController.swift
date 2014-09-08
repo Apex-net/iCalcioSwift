@@ -15,7 +15,7 @@ class HomeViewController: UITableViewController {
         
         // title
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        self.title = !appDelegate.appName.isEmpty ? appDelegate.appName : NSLocalizedString("Home", comment: "")
+        self.navigationItem.title = !appDelegate.appName.isEmpty ? appDelegate.appName : NSLocalizedString("Home", comment: "")
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
