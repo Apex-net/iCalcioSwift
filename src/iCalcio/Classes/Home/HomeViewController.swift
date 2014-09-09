@@ -10,12 +10,17 @@ import UIKit
 
 class HomeViewController: UITableViewController {
 
+    private var sectionsList : [[[String : String]]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // title
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.navigationItem.title = !appDelegate.appName.isEmpty ? appDelegate.appName : NSLocalizedString("Home", comment: "")
+        
+        // Set Data
+        self.prepareArrayForTable()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,17 +33,54 @@ class HomeViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableView.reloadData()
+    }
 
+    // MARK: - Set Data for Table view
+    
+    private func prepareArrayForTable() {
+        
+        self.sectionsList.removeAll()
+        
+        // Append some arrays
+        var item : [String : String] = [:]
+        var teamItems : [[String : String]] = []
+        var championshipItems : [[String : String]] = []
+        
+        item = ["text" : "Squadra",  "image" : "895-user-group.png"]
+        teamItems.append(item)
+        item = ["text" : "Partite",  "image" : "851-calendar.png"]
+        teamItems.append(item)
+
+        item = ["text" : "Classifica",  "image" : "858-line-chart.png"]
+        championshipItems.append(item)
+        item = ["text" : "Cannonieri",  "image" : "784-target.png"]
+        championshipItems.append(item)
+        
+        self.sectionsList.append(teamItems)
+        self.sectionsList.append(championshipItems)
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
-        return 1
+        
+        let sections = self.sectionsList.count
+        return sections
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 3
+
+        let rows = self.sectionsList[section].count
+        
+        return rows
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -47,10 +89,41 @@ class HomeViewController: UITableViewController {
 
         // Configure the cell...
         
-        cell.textLabel!.text = "Elemento: \(indexPath.row) "
+        // get data for the cell
+        let dict = self.sectionsList[indexPath.section][indexPath.row]
+        
+        // set text
+        cell.textLabel!.text = dict["text"]
+
+        // set image
+        var imageName : String =  dict["image"]!
+        var image : UIImage = UIImage(named:imageName)
+        cell.imageView!.image = image
+        
+        // disclosure
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        
         return cell
     }
 
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        var title: String = ""
+        
+        switch section {
+            case 0:
+                let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                title = appDelegate.teamName
+            case 1:
+                title = NSLocalizedString("Campionato", comment: "")
+            default:
+                title = String()
+        }
+        
+        return title
+    }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {

@@ -104,10 +104,10 @@
         <scene sceneID="BAc-7Q-zRf">
             <objects>
                 <tableViewController title="Home" id="OQa-QR-kTz" customClass="HomeViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ttp-Hj-YGy">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ttp-Hj-YGy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Home" id="gtc-pU-Oqi">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -131,7 +131,7 @@
         <scene sceneID="PG8-YS-Fdl">
             <objects>
                 <navigationController title="HomeNavigation" id="8Tx-gA-8ky" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="7P8-km-JkG"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="750-home" id="7P8-km-JkG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CvT-v2-nLe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -166,7 +166,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="750-home" width="30" height="30"/>
+        <image name="first" width="250" height="40"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>
