@@ -32,8 +32,6 @@
 		F8641C9F19BF662400C4E8AF /* 755-filing-cabinet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9519BF662400C4E8AF /* 755-filing-cabinet@2x.png */; };
 		F8641CA019BF662400C4E8AF /* 1287-youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9619BF662400C4E8AF /* 1287-youtube.png */; };
 		F8641CA119BF662400C4E8AF /* 1287-youtube@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9719BF662400C4E8AF /* 1287-youtube@2x.png */; };
-		F8BFE86119B9B4D0003BB4AC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE85F19B9B4D0003BB4AC /* FirstViewController.swift */; };
-		F8BFE86219B9B4D0003BB4AC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86019B9B4D0003BB4AC /* SecondViewController.swift */; };
 		F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */; };
 		F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */; };
 		F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3246019B8C6D4002F93CF /* AppDelegate.swift */; };
@@ -77,8 +75,6 @@
 		F8641C9519BF662400C4E8AF /* 755-filing-cabinet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "755-filing-cabinet@2x.png"; path = "../../iCalcioSwift/resources/images/755-filing-cabinet@2x.png"; sourceTree = "<group>"; };
 		F8641C9619BF662400C4E8AF /* 1287-youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1287-youtube.png"; path = "../../iCalcioSwift/resources/images/1287-youtube.png"; sourceTree = "<group>"; };
 		F8641C9719BF662400C4E8AF /* 1287-youtube@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1287-youtube@2x.png"; path = "../../iCalcioSwift/resources/images/1287-youtube@2x.png"; sourceTree = "<group>"; };
-		F8BFE85F19B9B4D0003BB4AC /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		F8BFE86019B9B4D0003BB4AC /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Settings.swift"; sourceTree = "<group>"; };
@@ -115,16 +111,6 @@
 				F8F3246619B8C6D4002F93CF /* Main.storyboard */,
 			);
 			name = Storyboard;
-			sourceTree = "<group>";
-		};
-		F8BFE85E19B9B4D0003BB4AC /* _todelete */ = {
-			isa = PBXGroup;
-			children = (
-				F8BFE85F19B9B4D0003BB4AC /* FirstViewController.swift */,
-				F8BFE86019B9B4D0003BB4AC /* SecondViewController.swift */,
-			);
-			name = _todelete;
-			path = Classes/_todelete;
 			sourceTree = "<group>";
 		};
 		F8BFE86319B9B505003BB4AC /* About */ = {
@@ -236,7 +222,6 @@
 				F8BFE86A19B9BAC1003BB4AC /* AppDelegate */,
 				F8BFE86719B9B6F8003BB4AC /* Resources */,
 				F8BFE86319B9B505003BB4AC /* About */,
-				F8BFE85E19B9B4D0003BB4AC /* _todelete */,
 				F8BFE85B19B9B38E003BB4AC /* Storyboard */,
 				F8F3245E19B8C6D4002F93CF /* Supporting Files */,
 			);
@@ -395,8 +380,6 @@
 			files = (
 				F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */,
 				F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */,
-				F8BFE86219B9B4D0003BB4AC /* SecondViewController.swift in Sources */,
-				F8BFE86119B9B4D0003BB4AC /* FirstViewController.swift in Sources */,
 				F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
