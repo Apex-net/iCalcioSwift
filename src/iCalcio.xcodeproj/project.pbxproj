@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F8180C7E19BDCA2D008975BC /* ReleaseConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F8180C7D19BDCA2D008975BC /* ReleaseConfig.xcconfig */; };
 		F8180C8419BDCDF4008975BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8180C8319BDCDF4008975BC /* Images.xcassets */; };
-		F8180C8819BDCF1D008975BC /* Urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8180C8719BDCF1D008975BC /* Urls.plist */; };
 		F8641C7319BF16B700C4E8AF /* 750-home.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C6F19BF16B700C4E8AF /* 750-home.png */; };
 		F8641C7419BF16B700C4E8AF /* 750-home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C7019BF16B700C4E8AF /* 750-home@2x.png */; };
 		F8641C8219BF549400C4E8AF /* 784-target.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C7A19BF549400C4E8AF /* 784-target.png */; };
@@ -32,6 +31,7 @@
 		F8641C9F19BF662400C4E8AF /* 755-filing-cabinet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9519BF662400C4E8AF /* 755-filing-cabinet@2x.png */; };
 		F8641CA019BF662400C4E8AF /* 1287-youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9619BF662400C4E8AF /* 1287-youtube.png */; };
 		F8641CA119BF662400C4E8AF /* 1287-youtube@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9719BF662400C4E8AF /* 1287-youtube@2x.png */; };
+		F8641CA319BF701800C4E8AF /* Urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8641CA219BF701800C4E8AF /* Urls.plist */; };
 		F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */; };
 		F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */; };
 		F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3246019B8C6D4002F93CF /* AppDelegate.swift */; };
@@ -52,7 +52,6 @@
 /* Begin PBXFileReference section */
 		F8180C7D19BDCA2D008975BC /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
 		F8180C8319BDCDF4008975BC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../iCalcioSwift/resources/images/Images.xcassets; sourceTree = "<group>"; };
-		F8180C8719BDCF1D008975BC /* Urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Urls.plist; path = ../../iCalcioSwift/resources/Urls.plist; sourceTree = "<group>"; };
 		F8641C6F19BF16B700C4E8AF /* 750-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "750-home.png"; path = "../../iCalcioSwift/resources/images/750-home.png"; sourceTree = "<group>"; };
 		F8641C7019BF16B700C4E8AF /* 750-home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "750-home@2x.png"; path = "../../iCalcioSwift/resources/images/750-home@2x.png"; sourceTree = "<group>"; };
 		F8641C7A19BF549400C4E8AF /* 784-target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "784-target.png"; path = "../../iCalcioSwift/resources/images/784-target.png"; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		F8641C9519BF662400C4E8AF /* 755-filing-cabinet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "755-filing-cabinet@2x.png"; path = "../../iCalcioSwift/resources/images/755-filing-cabinet@2x.png"; sourceTree = "<group>"; };
 		F8641C9619BF662400C4E8AF /* 1287-youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1287-youtube.png"; path = "../../iCalcioSwift/resources/images/1287-youtube.png"; sourceTree = "<group>"; };
 		F8641C9719BF662400C4E8AF /* 1287-youtube@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1287-youtube@2x.png"; path = "../../iCalcioSwift/resources/images/1287-youtube@2x.png"; sourceTree = "<group>"; };
+		F8641CA219BF701800C4E8AF /* Urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Urls.plist; path = ../iCalcioSwift/resources/Urls.plist; sourceTree = "<group>"; };
 		F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Settings.swift"; sourceTree = "<group>"; };
@@ -124,6 +124,7 @@
 		F8BFE86719B9B6F8003BB4AC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F8641CA219BF701800C4E8AF /* Urls.plist */,
 				F8BFE87719BDB24D003BB4AC /* images */,
 			);
 			name = Resources;
@@ -189,7 +190,6 @@
 				F8641C8119BF549400C4E8AF /* 895-user-group@2x.png */,
 				F8641C6F19BF16B700C4E8AF /* 750-home.png */,
 				F8641C7019BF16B700C4E8AF /* 750-home@2x.png */,
-				F8180C8719BDCF1D008975BC /* Urls.plist */,
 				F8180C8319BDCDF4008975BC /* Images.xcassets */,
 			);
 			path = images;
@@ -341,6 +341,7 @@
 				F8641C8819BF549400C4E8AF /* 895-user-group.png in Resources */,
 				F8180C8419BDCDF4008975BC /* Images.xcassets in Resources */,
 				F8641C8919BF549400C4E8AF /* 895-user-group@2x.png in Resources */,
+				F8641CA319BF701800C4E8AF /* Urls.plist in Resources */,
 				F8641C9819BF662400C4E8AF /* 715-globe.png in Resources */,
 				F8641C8519BF549400C4E8AF /* 851-calendar@2x.png in Resources */,
 				F8641C9C19BF662400C4E8AF /* 724-info.png in Resources */,
@@ -354,7 +355,6 @@
 				F8180C7E19BDCA2D008975BC /* ReleaseConfig.xcconfig in Resources */,
 				F8641C8219BF549400C4E8AF /* 784-target.png in Resources */,
 				F8641C8419BF549400C4E8AF /* 851-calendar.png in Resources */,
-				F8180C8819BDCF1D008975BC /* Urls.plist in Resources */,
 				F8641C8C19BF5BEA00C4E8AF /* 874-newspaper.png in Resources */,
 				F8641C8319BF549400C4E8AF /* 784-target@2x.png in Resources */,
 				F8641C7419BF16B700C4E8AF /* 750-home@2x.png in Resources */,
