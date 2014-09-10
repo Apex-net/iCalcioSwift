@@ -100,9 +100,6 @@ class HomeViewController: UITableViewController {
         var image : UIImage = UIImage(named:imageName)
         cell.imageView!.image = image
         
-        // disclosure
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        
         return cell
     }
 

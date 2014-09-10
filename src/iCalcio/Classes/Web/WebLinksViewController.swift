@@ -13,16 +13,18 @@ class WebLinksViewController: UITableViewController {
 
     private var webLinks: Array<WebLink> = Array()
     
+    private var detailViewController: WebBrowserViewController? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // title
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.navigationItem.title = NSLocalizedString("Web ", comment: "") + appDelegate.teamName
-        
-        // Get Data
-        self.prepareArrayForTable()
 
+        // refresh
+        self.refresh()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,39 +37,38 @@ class WebLinksViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
     // MARK: - Get Data for Table view
     
-    private func prepareArrayForTable() {
-        
+    private func refresh() {
+ 
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/WebLinks.txt"
+        
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
                 if let err = error? {
                     println("Error: " + err.description)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    println("Array json:")
-                    println(JsonArray)
+                    //println("Array json:")
+                    //println(JsonArray)
 
                     if let parsedWebLinks = JsonArray as? [AnyObject] {
                         self.webLinks = parsedWebLinks
                             .map({ obj in WebLink(attributes: obj) })
                     }
-                    println("WebLink 0 link:")
-                    println(self.webLinks[0].link)
+                    //println("WebLink 0 link:")
+                    //println(self.webLinks[0].link)
                     
                     self.tableView.reloadData()
                     
                 }
             }
-            /*
-            .response { (request, response, data, error) in
-                println(request)
-                println(response)
-                println(error)
-            }
-            */
     }
     
     // MARK: - Table view data source
@@ -89,9 +90,9 @@ class WebLinksViewController: UITableViewController {
         // Configure the cell...
         let webLink = self.webLinks[indexPath.row]
         
-        // set text
+        // set texts
         cell.textLabel!.text = webLink.title
-
+        cell.detailTextLabel!.text = webLink.subTitle
 
         return cell
     }
@@ -131,14 +132,20 @@ class WebLinksViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        let indexPath = tableView.indexPathForSelectedRow()
+        let webLink = self.webLinks[indexPath!.row]
+        if segue.identifier == "toWebBrowser" {
+            let vc = segue.destinationViewController as WebBrowserViewController
+            vc.browserTitle = webLink.title
+            vc.navigationUrl = webLink.link
+        }
+        
+        
     }
-    */
 
 }
