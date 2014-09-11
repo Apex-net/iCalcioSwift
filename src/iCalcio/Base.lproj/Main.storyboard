@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Home-->
@@ -129,7 +130,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="lpr-H8-ntE" kind="show" identifier="toWebBrowser" id="CwP-so-qec"/>
+                                    <segue destination="f9a-b2-6eQ" kind="show" identifier="toWebBrowser" id="dRi-S3-cLM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -145,25 +146,40 @@
             <point key="canvasLocation" x="1889" y="1165"/>
         </scene>
         <!--WebBrowser-->
-        <scene sceneID="JMo-wj-ttg">
+        <scene sceneID="i6E-Gm-HjB">
             <objects>
-                <viewController title="WebBrowser" id="lpr-H8-ntE" userLabel="WebBrowser" customClass="WebBrowserViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="WebBrowser" id="f9a-b2-6eQ" customClass="WebBrowserViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3km-Rd-79h"/>
-                        <viewControllerLayoutGuide type="bottom" id="BJb-WB-3sx"/>
+                        <viewControllerLayoutGuide type="top" id="oFr-k5-pbs"/>
+                        <viewControllerLayoutGuide type="bottom" id="BYi-9m-hr3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2R7-O1-TUp">
+                    <view key="view" contentMode="scaleToFill" id="uvk-jP-Jww">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6P2-SL-dwp">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="f9a-b2-6eQ" id="DzY-kj-3N5"/>
+                                </connections>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="6P2-SL-dwp" secondAttribute="trailing" constant="-16" id="2Ly-CU-KBg"/>
+                            <constraint firstItem="6P2-SL-dwp" firstAttribute="leading" secondItem="uvk-jP-Jww" secondAttribute="leadingMargin" constant="-16" id="RZJ-WX-sbC"/>
+                            <constraint firstItem="6P2-SL-dwp" firstAttribute="top" secondItem="uvk-jP-Jww" secondAttribute="topMargin" id="ovu-MA-ZKo"/>
+                            <constraint firstItem="BYi-9m-hr3" firstAttribute="top" secondItem="6P2-SL-dwp" secondAttribute="bottom" id="qi7-bM-vR2"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="containerView" destination="2R7-O1-TUp" id="ZRB-m0-dBE"/>
+                        <outlet property="webView" destination="6P2-SL-dwp" id="gg5-WJ-uet"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KW5-1X-Iac" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g3c-Vb-DqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2930" y="1173"/>
+            <point key="canvasLocation" x="2670" y="1177"/>
         </scene>
         <!--Video-->
         <scene sceneID="lfq-3L-4aC">
