@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import WebKit
 import iAd
 
 class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerViewDelegate {
@@ -15,11 +14,11 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
     var browserTitle: String = ""
     var navigationUrl: String = ""
     
-    var adBannerView: ADBannerView = ADBannerView(adType: ADAdType.Banner)
-    
-    //@IBOutlet weak var webView: WKWebView!
+    private var adBannerView: ADBannerView = ADBannerView(adType: ADAdType.Banner)
     
     @IBOutlet weak var webView: UIWebView!
+    
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,14 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
         self.webView!.scalesPageToFit = true
         
         // setup Ads
-        //loadAds()
+        self.loadAds()
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.layoutAnimated(false)
         
     }
 
@@ -45,17 +51,29 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidLayoutSubviews() {
+        self.layoutAnimated(UIView.areAnimationsEnabled())
+        
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        if UIApplication.sharedApplication().networkActivityIndicatorVisible == true{
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        }
+    }
+    
     // MARK: - iAd banner managment
-    func loadAds(){
-        adBannerView = ADBannerView(frame: CGRect.zeroRect)
-        adBannerView.center = CGPoint(x: adBannerView.center.x, y: view.bounds.size.height - adBannerView.frame.size.height / 2)
+    private func loadAds(){
         adBannerView.delegate = self
-        adBannerView.hidden = true
         view.addSubview(adBannerView)
     }
 
-    func layoutAnimated(animated: Bool){
+    private func layoutAnimated(animated: Bool){
         
+        // offset for tabbar
+        let offsetHeightTabBar:CGFloat = 50
+        
+        // contentFrame as view bounds
         var contentFrame: CGRect = self.view.bounds
 
         // all we need to do is ask the banner for a size that fits into the layout area we are using
@@ -66,15 +84,15 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
         if adBannerView.bannerLoaded {
             // bring the ad into view
             contentFrame.size.height -= sizeForBanner.height // shrink down content frame to fit the banner below it
-            bannerFrame.origin.y = contentFrame.size.height
+            bannerFrame.origin.y = contentFrame.size.height - offsetHeightTabBar
             bannerFrame.size.height = sizeForBanner.height
             bannerFrame.size.width = sizeForBanner.width
             // if the ad is available and loaded, shrink down the content frame to fit the banner below it,
             // we do this by modifying the vertical bottom constraint constant to equal the banner's height
             //
-            //var verticalBottomConstraint:NSLayoutConstraint = self.bottomConstraint
-            //verticalBottomConstraint.constant = sizeForBanner.height
-            //self.view.layoutSubviews()
+            var verticalBottomConstraint:NSLayoutConstraint = self.bottomConstraint
+            verticalBottomConstraint.constant = sizeForBanner.height
+            self.view.layoutSubviews()
         
         }
         else {
@@ -83,16 +101,30 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
             
         }
         
+        UIView.animateWithDuration(animated ? 0.25 : 0.0, animations: {
+            self.webView.frame = contentFrame
+            self.webView.layoutIfNeeded()
+            self.adBannerView.frame = bannerFrame
+            }, completion: {
+                (value: Bool) in
+                //println(">>> Animation done.")
+        })
+
+        
     }
     
     // MARK: - ADBannerViewDelegate
     func bannerViewDidLoadAd(banner: ADBannerView!) {
         println("bannerViewDidLoadAd")
+        
+        self.layoutAnimated(true)
     }
 
     func bannerView(banner: ADBannerView!,
         didFailToReceiveAdWithError error: NSError!) {
         println("didFailToReceiveAdWithError: \(error.description)")
+            
+        self.layoutAnimated(true)
     }
 
     func bannerViewActionDidFinish(banner: ADBannerView!) {

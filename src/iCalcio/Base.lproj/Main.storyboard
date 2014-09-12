@@ -174,6 +174,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="qi7-bM-vR2" id="ANx-H6-2f5"/>
                         <outlet property="webView" destination="6P2-SL-dwp" id="gg5-WJ-uet"/>
                     </connections>
                 </viewController>
