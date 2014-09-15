@@ -14,6 +14,8 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
     var browserTitle: String = ""
     var navigationUrl: String = ""
     
+    var isNavBarEnabled: Bool = false
+    
     private var adBannerView: ADBannerView = ADBannerView(adType: ADAdType.Banner)
     
     @IBOutlet weak var webView: UIWebView!
@@ -36,6 +38,9 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
         
         // setup Ads
         self.loadAds()
+        
+        // init navbar for navigation
+        self.initNavBar()
         
     }
     
@@ -60,6 +65,32 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
         if UIApplication.sharedApplication().networkActivityIndicatorVisible == true{
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         }
+    }
+    
+    // MARK: - NavBar breowser managment
+    private func initNavBar()
+    {
+        if self.isNavBarEnabled {
+            let images: [UIImage] = [
+                UIImage(named: "765-arrow-left-toolbar.png"),
+                UIImage(named: "766-arrow-right-toolbar.png")
+            ]
+            var segment : UISegmentedControl = UISegmentedControl(items: images)
+            segment.addTarget(self, action: "selectedSegmentDidChange:", forControlEvents: UIControlEvents.ValueChanged)
+            
+            var segmentBarItem : UIBarButtonItem = UIBarButtonItem(customView: segment)
+            self.navigationItem.rightBarButtonItem = segmentBarItem
+            
+        }
+    
+    }
+
+    func selectedSegmentDidChange(sender:UISegmentedControl!)
+    {
+        println("method called")
+        
+        // todo [!]
+        
     }
     
     // MARK: - iAd banner managment
@@ -141,16 +172,30 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
     // MARK: - webView Delegate
     func webViewDidStartLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        self.navigationItem.title = NSLocalizedString("Caricamento...", comment: "")
+        
+        // enabling Back-Forward buttons [!]
+        
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        
+        self.navigationItem.title = self.browserTitle
+        
+        // enabling Back-Forward buttons [!]
+        
     }
 
     func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         
-        println("Error: " + error.description)
+        self.navigationItem.title = self.browserTitle
+        
+        // enabling Back-Forward buttons [!]
+        
+        println("Error webView: " + error.description)
     }
     /*
     // MARK: - Navigation

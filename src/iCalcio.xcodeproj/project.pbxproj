@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		F8180C7E19BDCA2D008975BC /* ReleaseConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F8180C7D19BDCA2D008975BC /* ReleaseConfig.xcconfig */; };
 		F8180C8419BDCDF4008975BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8180C8319BDCDF4008975BC /* Images.xcassets */; };
+		F81BF38E19C74F55005C12D4 /* 765-arrow-left-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38A19C74F55005C12D4 /* 765-arrow-left-toolbar.png */; };
+		F81BF38F19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38B19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png */; };
+		F81BF39019C74F55005C12D4 /* 766-arrow-right-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38C19C74F55005C12D4 /* 766-arrow-right-toolbar.png */; };
+		F81BF39119C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38D19C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png */; };
 		F8516D0919C0461000761A6B /* WebLinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8516D0819C0461000761A6B /* WebLinksViewController.swift */; };
 		F8516D0D19C0652100761A6B /* WebLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8516D0C19C0652100761A6B /* WebLink.swift */; };
 		F8641C7319BF16B700C4E8AF /* 750-home.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C6F19BF16B700C4E8AF /* 750-home.png */; };
@@ -76,6 +80,10 @@
 /* Begin PBXFileReference section */
 		F8180C7D19BDCA2D008975BC /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
 		F8180C8319BDCDF4008975BC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../iCalcioSwift/resources/images/Images.xcassets; sourceTree = "<group>"; };
+		F81BF38A19C74F55005C12D4 /* 765-arrow-left-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "765-arrow-left-toolbar.png"; path = "../../iCalcioSwift/resources/images/765-arrow-left-toolbar.png"; sourceTree = "<group>"; };
+		F81BF38B19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "765-arrow-left-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/765-arrow-left-toolbar@2x.png"; sourceTree = "<group>"; };
+		F81BF38C19C74F55005C12D4 /* 766-arrow-right-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "766-arrow-right-toolbar.png"; path = "../../iCalcioSwift/resources/images/766-arrow-right-toolbar.png"; sourceTree = "<group>"; };
+		F81BF38D19C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "766-arrow-right-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/766-arrow-right-toolbar@2x.png"; sourceTree = "<group>"; };
 		F8516CF419C0451200761A6B /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../libs/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		F8516D0819C0461000761A6B /* WebLinksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLinksViewController.swift; sourceTree = "<group>"; };
 		F8516D0C19C0652100761A6B /* WebLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLink.swift; sourceTree = "<group>"; };
@@ -216,6 +224,10 @@
 		F8BFE87719BDB24D003BB4AC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F81BF38A19C74F55005C12D4 /* 765-arrow-left-toolbar.png */,
+				F81BF38B19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png */,
+				F81BF38C19C74F55005C12D4 /* 766-arrow-right-toolbar.png */,
+				F81BF38D19C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png */,
 				F8641C8E19BF662400C4E8AF /* 715-globe.png */,
 				F8641C8F19BF662400C4E8AF /* 715-globe@2x.png */,
 				F8641C9019BF662400C4E8AF /* 723-location-arrow.png */,
@@ -409,10 +421,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F81BF38E19C74F55005C12D4 /* 765-arrow-left-toolbar.png in Resources */,
 				F8641C9F19BF662400C4E8AF /* 755-filing-cabinet@2x.png in Resources */,
 				F8641CA019BF662400C4E8AF /* 1287-youtube.png in Resources */,
 				F8641C9D19BF662400C4E8AF /* 724-info@2x.png in Resources */,
 				F8641C8819BF549400C4E8AF /* 895-user-group.png in Resources */,
+				F81BF39119C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png in Resources */,
 				F8180C8419BDCDF4008975BC /* Images.xcassets in Resources */,
 				F8641C8919BF549400C4E8AF /* 895-user-group@2x.png in Resources */,
 				F8641CA319BF701800C4E8AF /* Urls.plist in Resources */,
@@ -420,8 +434,10 @@
 				F8641C8519BF549400C4E8AF /* 851-calendar@2x.png in Resources */,
 				F8641C9C19BF662400C4E8AF /* 724-info.png in Resources */,
 				F8641C9A19BF662400C4E8AF /* 723-location-arrow.png in Resources */,
+				F81BF38F19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png in Resources */,
 				F8641C9E19BF662400C4E8AF /* 755-filing-cabinet.png in Resources */,
 				F8641C7319BF16B700C4E8AF /* 750-home.png in Resources */,
+				F81BF39019C74F55005C12D4 /* 766-arrow-right-toolbar.png in Resources */,
 				F8641C9919BF662400C4E8AF /* 715-globe@2x.png in Resources */,
 				F8641C9B19BF662400C4E8AF /* 723-location-arrow@2x.png in Resources */,
 				F8641C8619BF549400C4E8AF /* 858-line-chart.png in Resources */,

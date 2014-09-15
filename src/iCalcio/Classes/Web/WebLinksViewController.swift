@@ -143,6 +143,7 @@ class WebLinksViewController: UITableViewController {
             let vc = segue.destinationViewController as WebBrowserViewController
             vc.browserTitle = webLink.title
             vc.navigationUrl = webLink.link
+            vc.isNavBarEnabled = true
         }
         
         
