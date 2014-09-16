@@ -14,6 +14,8 @@ class ChannelVideosViewController: UITableViewController {
     var youtubeChannel: YoutubeChannel!
     private var youtubeVideos: Array<YoutubeVideo> = Array()
     
+    private var imageCache = [String : UIImage]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,15 +75,51 @@ class ChannelVideosViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ChannelVideo", forIndexPath: indexPath) as UITableViewCell
 
-        // todo: custom cell
-        
         // Configure the cell...
         let video = self.youtubeVideos[indexPath.row]
         
         // set texts
-        cell.textLabel!.text = video.idVideo
-        cell.detailTextLabel!.text = video.title
+        cell.textLabel!.text = video.title
+        cell.detailTextLabel!.text = video.updated.substringToIndex(advance(video.updated.startIndex, 10)) + " " + video.category!
         
+        // init image management
+        let urlString = video.thumbnailURLString
+        
+        // set a placeholder for image
+        cell.imageView?.image = UIImage(named: "thumbnail_placeholder")
+        
+        // Check our image cache for the existing key. This is just a dictionary of UIImages
+        var image = self.imageCache[urlString]
+        
+        if( image == nil ) {
+            // If the image does not exist, we need to download it
+            var imgURL: NSURL = NSURL(string: urlString)
+            
+            // Download an NSData representation of the image at the URL
+            let request: NSURLRequest = NSURLRequest(URL: imgURL)
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
+                if error == nil {
+                    image = UIImage(data: data)
+                    
+                    // Store the image in to our cache
+                    self.imageCache[urlString] = image
+                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
+                        cellToUpdate.imageView?.image = image
+                    }
+                }
+                else {
+                    println("Error: \(error.localizedDescription)")
+                }
+            })
+            
+        }
+        else {
+            dispatch_async(dispatch_get_main_queue(), {
+                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
+                    cellToUpdate.imageView?.image = image
+                }
+            })
+        }
 
         return cell
     }

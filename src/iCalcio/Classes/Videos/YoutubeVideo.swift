@@ -20,7 +20,7 @@ class YoutubeVideo{
     let rating: Double?
     let viewCount: Double?
     
-    let updated: String // todo: trasform to date
+    let updated: String
     
     let thumbnailURLString: String
     let videoURLString: String
@@ -37,7 +37,6 @@ class YoutubeVideo{
         self.rating = attributes.valueForKeyPath("rating") as? Double
         self.viewCount = attributes.valueForKeyPath("viewCount") as? Double
         
-        // todo: dateformatter???
         self.updated = attributes.valueForKeyPath("updated") as String
         
         self.thumbnailURLString = attributes.valueForKeyPath("thumbnail.sqDefault") as String

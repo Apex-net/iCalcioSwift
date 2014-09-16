@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F8180C7E19BDCA2D008975BC /* ReleaseConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F8180C7D19BDCA2D008975BC /* ReleaseConfig.xcconfig */; };
 		F8180C8419BDCDF4008975BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8180C8319BDCDF4008975BC /* Images.xcassets */; };
+		F818C00619C8E5A8002A99C5 /* thumbnail_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = F818C00519C8E5A8002A99C5 /* thumbnail_placeholder.png */; };
 		F81BF38E19C74F55005C12D4 /* 765-arrow-left-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38A19C74F55005C12D4 /* 765-arrow-left-toolbar.png */; };
 		F81BF38F19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38B19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png */; };
 		F81BF39019C74F55005C12D4 /* 766-arrow-right-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38C19C74F55005C12D4 /* 766-arrow-right-toolbar.png */; };
@@ -84,6 +85,7 @@
 /* Begin PBXFileReference section */
 		F8180C7D19BDCA2D008975BC /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
 		F8180C8319BDCDF4008975BC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../iCalcioSwift/resources/images/Images.xcassets; sourceTree = "<group>"; };
+		F818C00519C8E5A8002A99C5 /* thumbnail_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbnail_placeholder.png; path = ../../iCalcioSwift/resources/images/thumbnail_placeholder.png; sourceTree = "<group>"; };
 		F81BF38A19C74F55005C12D4 /* 765-arrow-left-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "765-arrow-left-toolbar.png"; path = "../../iCalcioSwift/resources/images/765-arrow-left-toolbar.png"; sourceTree = "<group>"; };
 		F81BF38B19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "765-arrow-left-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/765-arrow-left-toolbar@2x.png"; sourceTree = "<group>"; };
 		F81BF38C19C74F55005C12D4 /* 766-arrow-right-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "766-arrow-right-toolbar.png"; path = "../../iCalcioSwift/resources/images/766-arrow-right-toolbar.png"; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		F8BFE87719BDB24D003BB4AC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F818C00519C8E5A8002A99C5 /* thumbnail_placeholder.png */,
 				F81BF38A19C74F55005C12D4 /* 765-arrow-left-toolbar.png */,
 				F81BF38B19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png */,
 				F81BF38C19C74F55005C12D4 /* 766-arrow-right-toolbar.png */,
@@ -445,6 +448,7 @@
 				F81BF38E19C74F55005C12D4 /* 765-arrow-left-toolbar.png in Resources */,
 				F8641C9F19BF662400C4E8AF /* 755-filing-cabinet@2x.png in Resources */,
 				F8641CA019BF662400C4E8AF /* 1287-youtube.png in Resources */,
+				F818C00619C8E5A8002A99C5 /* thumbnail_placeholder.png in Resources */,
 				F8641C9D19BF662400C4E8AF /* 724-info@2x.png in Resources */,
 				F8641C8819BF549400C4E8AF /* 895-user-group.png in Resources */,
 				F81BF39119C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png in Resources */,
