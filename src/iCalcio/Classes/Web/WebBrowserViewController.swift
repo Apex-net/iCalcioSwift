@@ -18,6 +18,8 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
     
     private var adBannerView: ADBannerView = ADBannerView(adType: ADAdType.Banner)
     
+    private var segmentControl : UISegmentedControl = UISegmentedControl()
+    
     @IBOutlet weak var webView: UIWebView!
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -67,7 +69,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
         }
     }
     
-    // MARK: - NavBar breowser managment
+    // MARK: - NavBar browser managment
     private func initNavBar()
     {
         if self.isNavBarEnabled {
@@ -75,10 +77,10 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
                 UIImage(named: "765-arrow-left-toolbar.png"),
                 UIImage(named: "766-arrow-right-toolbar.png")
             ]
-            var segment : UISegmentedControl = UISegmentedControl(items: images)
-            segment.addTarget(self, action: "selectedSegmentDidChange:", forControlEvents: UIControlEvents.ValueChanged)
+            self.segmentControl  = UISegmentedControl(items: images)
+            self.segmentControl.addTarget(self, action: "selectedSegmentDidChange:", forControlEvents: UIControlEvents.ValueChanged)
             
-            var segmentBarItem : UIBarButtonItem = UIBarButtonItem(customView: segment)
+            let segmentBarItem : UIBarButtonItem = UIBarButtonItem(customView: self.segmentControl)
             self.navigationItem.rightBarButtonItem = segmentBarItem
             
         }
@@ -87,9 +89,29 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
 
     func selectedSegmentDidChange(sender:UISegmentedControl!)
     {
-        println("method called")
+        //println("selectedSegmentDidChange: method called")
         
-        // todo [!]
+        let segment : UISegmentedControl = sender
+        
+        switch (segment.selectedSegmentIndex) {
+        case 0:
+            // back
+            webView.goBack()
+        case 1:
+            // forward
+            webView.goForward()
+        default:
+            break
+        }
+        
+    }
+    
+    private func enableSegmentNavItems() {
+        
+        if self.isNavBarEnabled {
+            self.segmentControl.setEnabled(self.webView.canGoBack, forSegmentAtIndex: 0)
+            self.segmentControl.setEnabled(self.webView.canGoForward, forSegmentAtIndex: 1)
+        }
         
     }
     
@@ -175,7 +197,8 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
         
         self.navigationItem.title = NSLocalizedString("Caricamento...", comment: "")
         
-        // enabling Back-Forward buttons [!]
+        // Back-Forward buttons management
+        self.enableSegmentNavItems()
         
     }
     
@@ -184,7 +207,8 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
         
         self.navigationItem.title = self.browserTitle
         
-        // enabling Back-Forward buttons [!]
+        // Back-Forward buttons management
+        self.enableSegmentNavItems()
         
     }
 
@@ -193,7 +217,8 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
         
         self.navigationItem.title = self.browserTitle
         
-        // enabling Back-Forward buttons [!]
+        // Back-Forward buttons management
+        self.enableSegmentNavItems()
         
         println("Error webView: " + error.description)
     }
