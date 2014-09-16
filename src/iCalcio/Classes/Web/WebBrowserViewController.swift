@@ -16,9 +16,9 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
     
     var isNavBarEnabled: Bool = false
     
-    private var adBannerView: ADBannerView = ADBannerView(adType: ADAdType.Banner)
+    private var adBannerView: ADBannerView!
     
-    private var segmentControl : UISegmentedControl = UISegmentedControl()
+    private var segmentControl : UISegmentedControl!
     
     @IBOutlet weak var webView: UIWebView!
     
@@ -117,6 +117,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
     
     // MARK: - iAd banner managment
     private func loadAds(){
+        adBannerView = ADBannerView(adType: ADAdType.Banner)
         adBannerView.delegate = self
         view.addSubview(adBannerView)
     }
