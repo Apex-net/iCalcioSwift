@@ -1,51 +1,41 @@
 //
-//  WebLinksViewController.swift
+//  ChannelsViewController.swift
 //  iCalcio
 //
-//  Created by Andrea Calisesi on 10/09/14.
+//  Created by Andrea Calisesi on 16/09/14.
 //  Copyright (c) 2014 Andrea Calisesi. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 
-class WebLinksViewController: UITableViewController {
-
-    private var webLinks: Array<WebLink> = Array()
+class ChannelsViewController: UITableViewController {
+    
+    private var youtubeChannels: Array<YoutubeChannel> = Array()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // title
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        self.navigationItem.title = NSLocalizedString("Web ", comment: "") + appDelegate.teamName
-
+        self.navigationItem.title = NSLocalizedString("Youtube ", comment: "") + appDelegate.teamName
+        
         // refresh
         self.refresh()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
-    
+
     // MARK: - Get Data for Table view
     
     private func refresh() {
- 
+        
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let endpointUrl = appDelegate.apiBaseUrl + "/WebLinks.txt"
+        let endpointUrl = appDelegate.apiBaseUrl + "/YouTubeChannels.txt"
         
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
@@ -53,20 +43,15 @@ class WebLinksViewController: UITableViewController {
                 if let err = error? {
                     println("Error: " + err.description)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    //println("Array json:")
-                    //println(JsonArray)
-
-                    if let parsedWebLinks = JsonArray as? [AnyObject] {
-                        self.webLinks = parsedWebLinks
-                            .map({ obj in WebLink(attributes: obj) })
+                    if let parsedChannels = JsonArray as? [AnyObject] {
+                        self.youtubeChannels = parsedChannels
+                            .map({ obj in YoutubeChannel(attributes: obj) })
                     }
-                    //println("WebLink 0 link:")
-                    //println(self.webLinks[0].link)
                     
                     self.tableView.reloadData()
                     
                 }
-            }
+        }
     }
     
     // MARK: - Table view data source
@@ -78,19 +63,18 @@ class WebLinksViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return self.webLinks.count
+        return self.youtubeChannels.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("Web", forIndexPath: indexPath) as UITableViewCell
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("Channel", forIndexPath: indexPath) as UITableViewCell
+                
         // Configure the cell...
-        let webLink = self.webLinks[indexPath.row]
+        let channel = self.youtubeChannels[indexPath.row]
         
         // set texts
-        cell.textLabel!.text = webLink.title
-        cell.detailTextLabel!.text = webLink.subTitle
+        cell.textLabel!.text = channel.title
+        cell.detailTextLabel!.text = channel.subTitle
 
         return cell
     }
@@ -131,19 +115,17 @@ class WebLinksViewController: UITableViewController {
     */
 
     // MARK: - Navigation
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        let indexPath = tableView.indexPathForSelectedRow()
-        let webLink = self.webLinks[indexPath!.row]
-        if segue.identifier == "toWebBrowser" {
-            let vc = segue.destinationViewController as WebBrowserViewController
-            vc.browserTitle = webLink.title
-            vc.navigationUrl = webLink.link
-            vc.isNavBarEnabled = true
+        let indexPath = self.tableView.indexPathForSelectedRow()
+        let channel = self.youtubeChannels[indexPath!.row]
+        if segue.identifier == "toChannelVideo" {
+            let vc = segue.destinationViewController as ChannelVideosViewController
+            vc.youtubeChannel = channel
         }
-        
         
     }
 

@@ -54,5 +54,10 @@ extension AppDelegate
             return stringNative;
     }
     
+    var youtubeBaseUrl : String {
+        let stringNative: String = "http://gdata.youtube.com/feeds/api/users"
+                
+        return stringNative
+    }
 
 }

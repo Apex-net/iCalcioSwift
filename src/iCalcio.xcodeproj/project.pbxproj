@@ -37,10 +37,14 @@
 		F8641C9F19BF662400C4E8AF /* 755-filing-cabinet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9519BF662400C4E8AF /* 755-filing-cabinet@2x.png */; };
 		F8641CA019BF662400C4E8AF /* 1287-youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9619BF662400C4E8AF /* 1287-youtube.png */; };
 		F8641CA119BF662400C4E8AF /* 1287-youtube@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9719BF662400C4E8AF /* 1287-youtube@2x.png */; };
-		F8641CA319BF701800C4E8AF /* Urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8641CA219BF701800C4E8AF /* Urls.plist */; };
 		F8A7F0C119C0AEB30062DDA8 /* WebBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7F0C019C0AEB30062DDA8 /* WebBrowserViewController.swift */; };
 		F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */; };
 		F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */; };
+		F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */; };
+		F8ED42FB19C852B3007FD7F8 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED42FA19C852B3007FD7F8 /* ChannelsViewController.swift */; };
+		F8ED42FD19C87693007FD7F8 /* YoutubeChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED42FC19C87693007FD7F8 /* YoutubeChannel.swift */; };
+		F8ED42FF19C878E0007FD7F8 /* Urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8ED42FE19C878E0007FD7F8 /* Urls.plist */; };
+		F8ED430119C87AB9007FD7F8 /* ChannelVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED430019C87AB9007FD7F8 /* ChannelVideosViewController.swift */; };
 		F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3246019B8C6D4002F93CF /* AppDelegate.swift */; };
 		F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F3246619B8C6D4002F93CF /* Main.storyboard */; };
 		F8F3247619B8C6D4002F93CF /* iCalcioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */; };
@@ -109,11 +113,15 @@
 		F8641C9519BF662400C4E8AF /* 755-filing-cabinet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "755-filing-cabinet@2x.png"; path = "../../iCalcioSwift/resources/images/755-filing-cabinet@2x.png"; sourceTree = "<group>"; };
 		F8641C9619BF662400C4E8AF /* 1287-youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1287-youtube.png"; path = "../../iCalcioSwift/resources/images/1287-youtube.png"; sourceTree = "<group>"; };
 		F8641C9719BF662400C4E8AF /* 1287-youtube@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1287-youtube@2x.png"; path = "../../iCalcioSwift/resources/images/1287-youtube@2x.png"; sourceTree = "<group>"; };
-		F8641CA219BF701800C4E8AF /* Urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Urls.plist; path = ../iCalcioSwift/resources/Urls.plist; sourceTree = "<group>"; };
 		F8A7F0C019C0AEB30062DDA8 /* WebBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebBrowserViewController.swift; sourceTree = "<group>"; };
 		F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Settings.swift"; sourceTree = "<group>"; };
+		F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeVideo.swift; sourceTree = "<group>"; };
+		F8ED42FA19C852B3007FD7F8 /* ChannelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
+		F8ED42FC19C87693007FD7F8 /* YoutubeChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeChannel.swift; sourceTree = "<group>"; };
+		F8ED42FE19C878E0007FD7F8 /* Urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Urls.plist; path = ../iCalcioSwift/resources/Urls.plist; sourceTree = "<group>"; };
+		F8ED430019C87AB9007FD7F8 /* ChannelVideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelVideosViewController.swift; sourceTree = "<group>"; };
 		F8F3245B19B8C6D4002F93CF /* iCalcio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCalcio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F3245F19B8C6D4002F93CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F3246019B8C6D4002F93CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -180,7 +188,7 @@
 		F8BFE86719B9B6F8003BB4AC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F8641CA219BF701800C4E8AF /* Urls.plist */,
+				F8ED42FE19C878E0007FD7F8 /* Urls.plist */,
 				F8BFE87719BDB24D003BB4AC /* images */,
 			);
 			name = Resources;
@@ -255,6 +263,18 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		F8ED42F819C8521B007FD7F8 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				F8ED42FA19C852B3007FD7F8 /* ChannelsViewController.swift */,
+				F8ED42FC19C87693007FD7F8 /* YoutubeChannel.swift */,
+				F8ED430019C87AB9007FD7F8 /* ChannelVideosViewController.swift */,
+				F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */,
+			);
+			name = Videos;
+			path = Classes/Videos;
+			sourceTree = "<group>";
+		};
 		F8F3245219B8C6D4002F93CF = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +298,7 @@
 		F8F3245D19B8C6D4002F93CF /* iCalcio */ = {
 			isa = PBXGroup;
 			children = (
+				F8ED42F819C8521B007FD7F8 /* Videos */,
 				F8516D0719C045DD00761A6B /* Web */,
 				F8BFE86C19B9BAFC003BB4AC /* Home */,
 				F8BFE86B19B9BAEF003BB4AC /* Championship */,
@@ -429,13 +450,13 @@
 				F81BF39119C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png in Resources */,
 				F8180C8419BDCDF4008975BC /* Images.xcassets in Resources */,
 				F8641C8919BF549400C4E8AF /* 895-user-group@2x.png in Resources */,
-				F8641CA319BF701800C4E8AF /* Urls.plist in Resources */,
 				F8641C9819BF662400C4E8AF /* 715-globe.png in Resources */,
 				F8641C8519BF549400C4E8AF /* 851-calendar@2x.png in Resources */,
 				F8641C9C19BF662400C4E8AF /* 724-info.png in Resources */,
 				F8641C9A19BF662400C4E8AF /* 723-location-arrow.png in Resources */,
 				F81BF38F19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png in Resources */,
 				F8641C9E19BF662400C4E8AF /* 755-filing-cabinet.png in Resources */,
+				F8ED42FF19C878E0007FD7F8 /* Urls.plist in Resources */,
 				F8641C7319BF16B700C4E8AF /* 750-home.png in Resources */,
 				F81BF39019C74F55005C12D4 /* 766-arrow-right-toolbar.png in Resources */,
 				F8641C9919BF662400C4E8AF /* 715-globe@2x.png in Resources */,
@@ -469,11 +490,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */,
+				F8ED42FB19C852B3007FD7F8 /* ChannelsViewController.swift in Sources */,
 				F8516D0919C0461000761A6B /* WebLinksViewController.swift in Sources */,
+				F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */,
 				F8A7F0C119C0AEB30062DDA8 /* WebBrowserViewController.swift in Sources */,
 				F8516D0D19C0652100761A6B /* WebLink.swift in Sources */,
+				F8ED42FD19C87693007FD7F8 /* YoutubeChannel.swift in Sources */,
 				F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */,
 				F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */,
+				F8ED430119C87AB9007FD7F8 /* ChannelVideosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
