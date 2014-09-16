@@ -77,7 +77,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
                 UIImage(named: "765-arrow-left-toolbar.png"),
                 UIImage(named: "766-arrow-right-toolbar.png")
             ]
-            self.segmentControl  = UISegmentedControl(items: images)
+            self.segmentControl = UISegmentedControl(items: images)
             self.segmentControl.addTarget(self, action: "selectedSegmentDidChange:", forControlEvents: UIControlEvents.ValueChanged)
             
             let segmentBarItem : UIBarButtonItem = UIBarButtonItem(customView: self.segmentControl)
