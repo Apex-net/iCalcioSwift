@@ -41,7 +41,7 @@ class ChannelsViewController: UITableViewController {
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
                 if let err = error? {
-                    println("Error: " + err.description)
+                    println("Error: " + err.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
                     if let parsedChannels = JsonArray as? [AnyObject] {
                         self.youtubeChannels = parsedChannels

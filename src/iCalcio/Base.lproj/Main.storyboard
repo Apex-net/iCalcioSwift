@@ -235,7 +235,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChannelVideo" textLabel="KYe-HT-QWT" detailTextLabel="uwN-dq-ZNj" style="IBUITableViewCellStyleSubtitle" id="2tw-iQ-bvd">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ChannelVideo" textLabel="KYe-HT-QWT" detailTextLabel="uwN-dq-ZNj" style="IBUITableViewCellStyleSubtitle" id="2tw-iQ-bvd">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2tw-iQ-bvd" id="kw7-GI-bBt">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -254,6 +254,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Fxg-93-LXB" kind="show" identifier="toPlayVideo" id="sEC-Cx-53f"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -265,6 +268,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIO-qs-eTb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2813" y="2167"/>
+        </scene>
+        <!--Play Video View Controller-->
+        <scene sceneID="mHQ-iJ-ZYW">
+            <objects>
+                <viewController id="Fxg-93-LXB" customClass="PlayVideoViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n1s-sS-ByX"/>
+                        <viewControllerLayoutGuide type="bottom" id="GLG-lx-Pl8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LHN-MC-ols">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdt-yL-q0h" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="fdt-yL-q0h" secondAttribute="trailing" constant="-16" id="2AC-VH-eS1"/>
+                            <constraint firstItem="fdt-yL-q0h" firstAttribute="bottom" secondItem="LHN-MC-ols" secondAttribute="bottomMargin" id="CAc-mX-zzP"/>
+                            <constraint firstItem="fdt-yL-q0h" firstAttribute="top" secondItem="LHN-MC-ols" secondAttribute="topMargin" id="jMa-Ay-aWt"/>
+                            <constraint firstItem="fdt-yL-q0h" firstAttribute="leading" secondItem="LHN-MC-ols" secondAttribute="leadingMargin" constant="-16" id="sv3-uj-AGV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playerView" destination="fdt-yL-q0h" id="yI3-Eb-GN7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W4L-Tj-gq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3541" y="2196"/>
         </scene>
         <!--Stadium-->
         <scene sceneID="uCf-JM-7ju">

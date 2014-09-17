@@ -176,7 +176,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
 
     func bannerView(banner: ADBannerView!,
         didFailToReceiveAdWithError error: NSError!) {
-        println("didFailToReceiveAdWithError: \(error.description)")
+        println("didFailToReceiveAdWithError: \(error.localizedDescription)")
             
         self.layoutAnimated(true)
     }
@@ -221,7 +221,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate, ADBannerVie
         // Back-Forward buttons management
         self.enableSegmentNavItems()
         
-        println("Error webView: " + error.description)
+        println("Error webView: " + error.localizedDescription)
     }
     /*
     // MARK: - Navigation

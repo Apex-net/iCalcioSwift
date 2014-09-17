@@ -20,7 +20,7 @@ class ChannelVideosViewController: UITableViewController {
         super.viewDidLoad()
         
         // title
-        self.navigationItem.title = self.youtubeChannel?.title
+        self.navigationItem.title = self.youtubeChannel.title
         
         // refresh
         self.refresh()
@@ -47,7 +47,7 @@ class ChannelVideosViewController: UITableViewController {
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
                 if let err = error? {
-                    println("Error: " + err.description)
+                    println("Error: " + err.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data.items"){
                     if let parsedVideos = JsonArray as? [AnyObject] {
                         self.youtubeVideos = parsedVideos
@@ -159,14 +159,20 @@ class ChannelVideosViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        let indexPath = self.tableView.indexPathForSelectedRow()
+        let video = self.youtubeVideos[indexPath!.row]
+        if segue.identifier == "toPlayVideo" {
+            let vc = segue.destinationViewController as PlayVideoViewController
+            vc.youtubeVideo = video
+        }
+        
     }
-    */
 
 }
