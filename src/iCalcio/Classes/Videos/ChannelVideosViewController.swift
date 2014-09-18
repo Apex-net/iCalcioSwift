@@ -22,6 +22,9 @@ class ChannelVideosViewController: UITableViewController {
         // title
         self.navigationItem.title = self.youtubeChannel.title
         
+        // Refresh Button
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refreshChannelVideos:")
+        
         // refresh
         self.refresh()
 
@@ -58,6 +61,12 @@ class ChannelVideosViewController: UITableViewController {
                     
                 }
         }
+    }
+    
+    func refreshChannelVideos(sender:AnyObject!)
+    {
+        println("refreshChannelVideos: method called")
+        
     }
 
     // MARK: - Table view data source
