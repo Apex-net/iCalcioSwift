@@ -187,6 +187,7 @@
 		47FE327F5A664C7FB398C774 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8516CF419C0451200761A6B /* Alamofire.xcodeproj */,
 				8F7183084E45485AAF92B2A9 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -341,7 +342,6 @@
 				F8BFE86819B9B723003BB4AC /* Libraries */,
 				F8F3247219B8C6D4002F93CF /* iCalcioTests */,
 				F8F3245C19B8C6D4002F93CF /* Products */,
-				F8516CF419C0451200761A6B /* Alamofire.xcodeproj */,
 				47FE327F5A664C7FB398C774 /* Frameworks */,
 			);
 			sourceTree = "<group>";

@@ -22,11 +22,14 @@ class ChannelVideosViewController: UITableViewController {
         // title
         self.navigationItem.title = self.youtubeChannel.title
         
-        // Refresh Button
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refreshChannelVideos:")
+        // init refresh control
+        let refreshControl:UIRefreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: NSLocalizedString("Pull to refresh", comment: ""))
+        refreshControl.addTarget(self, action: "refreshAction:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refreshControl
         
-        // refresh
-        self.refresh()
+        // refresh data
+        self.refresh("30")
 
     }
 
@@ -37,14 +40,14 @@ class ChannelVideosViewController: UITableViewController {
     
     // MARK: - Get Data for Table view
     
-    private func refresh() {
+    private func refresh(maxResults: String) {
         
         // Call Youtube API
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let endpointUrl = appDelegate.youtubeBaseUrl + "/" + "\(youtubeChannel.channel)"
-            + "/uploads?alt=jsonc&v=2&orderby=updated&start-index=1&max-results=" + "30"
-        //println(endpointUrl)
+            + "/uploads?alt=jsonc&v=2&orderby=updated&start-index=1&max-results=" + maxResults
+        println("endpointUrl youtube API upload videos:  \(endpointUrl)")
 
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
@@ -56,16 +59,21 @@ class ChannelVideosViewController: UITableViewController {
                         self.youtubeVideos = parsedVideos
                             .map({ obj in YoutubeVideo(attributes: obj) })
                     }
-                    
                     self.tableView.reloadData()
                     
                 }
+                // end refreshing
+                if self.refreshControl?.refreshing == true {
+                    self.refreshControl?.endRefreshing()
+                }
+
         }
     }
     
-    func refreshChannelVideos(sender:AnyObject!)
+    func refreshAction(sender:AnyObject!)
     {
         println("refreshChannelVideos: method called")
+        self.refresh("50")
         
     }
 

@@ -20,8 +20,14 @@ class ChannelsViewController: UITableViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.navigationItem.title = NSLocalizedString("Youtube ", comment: "") + appDelegate.teamName
         
-        // refresh
-        self.refresh()
+        // init refresh control
+        let refreshControl:UIRefreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: NSLocalizedString("Pull to refresh", comment: ""))
+        refreshControl.addTarget(self, action: "refreshAction:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refreshControl
+        
+        // refresh data
+        self.refreshData()
         
     }
 
@@ -32,7 +38,7 @@ class ChannelsViewController: UITableViewController {
 
     // MARK: - Get Data for Table view
     
-    private func refresh() {
+    private func refreshData() {
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/YouTubeChannels.txt"
@@ -47,11 +53,20 @@ class ChannelsViewController: UITableViewController {
                         self.youtubeChannels = parsedChannels
                             .map({ obj in YoutubeChannel(attributes: obj) })
                     }
-                    
+                    // tableview reloading
                     self.tableView.reloadData()
                     
                 }
+                // end refreshing
+                if self.refreshControl?.refreshing == true {
+                    self.refreshControl?.endRefreshing()
+                }
         }
+    }
+
+    // RefreshControl selector
+    func refreshAction(sender:AnyObject) {
+        self.refreshData()
     }
     
     // MARK: - Table view data source

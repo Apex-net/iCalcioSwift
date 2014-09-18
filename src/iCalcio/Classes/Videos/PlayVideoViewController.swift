@@ -19,8 +19,8 @@ class PlayVideoViewController: UIViewController, YTPlayerViewDelegate {
 
         // Do any additional setup after loading the view.
         
-        // only for test
         /*
+        // only for test
         let playerView1: YTPlayerView = YTPlayerView()
         let returnValue1 = playerView1.loadWithVideoId("BuB95_FfsSs")
         println("retun \(returnValue1) ")
