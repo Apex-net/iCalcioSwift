@@ -47,7 +47,7 @@ class ChannelVideosViewController: UITableViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let endpointUrl = appDelegate.youtubeBaseUrl + "/" + "\(youtubeChannel.channel)"
             + "/uploads?alt=jsonc&v=2&orderby=updated&start-index=1&max-results=" + maxResults
-        println("endpointUrl youtube API upload videos:  \(endpointUrl)")
+        //println("endpointUrl youtube API upload videos:  \(endpointUrl)")
 
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in

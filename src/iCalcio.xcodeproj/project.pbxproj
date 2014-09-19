@@ -16,6 +16,8 @@
 		F81BF39119C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38D19C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png */; };
 		F8516D0919C0461000761A6B /* WebLinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8516D0819C0461000761A6B /* WebLinksViewController.swift */; };
 		F8516D0D19C0652100761A6B /* WebLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8516D0C19C0652100761A6B /* WebLink.swift */; };
+		F8551FFC19CC29B300ACBAC9 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8551FFB19CC29B300ACBAC9 /* AboutTableViewController.swift */; };
+		F855200119CC335C00ACBAC9 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F855200019CC335C00ACBAC9 /* NewsViewController.swift */; };
 		F8641C7319BF16B700C4E8AF /* 750-home.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C6F19BF16B700C4E8AF /* 750-home.png */; };
 		F8641C7419BF16B700C4E8AF /* 750-home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C7019BF16B700C4E8AF /* 750-home@2x.png */; };
 		F8641C8219BF549400C4E8AF /* 784-target.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C7A19BF549400C4E8AF /* 784-target.png */; };
@@ -109,6 +111,8 @@
 		F8516CF419C0451200761A6B /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../libs/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		F8516D0819C0461000761A6B /* WebLinksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLinksViewController.swift; sourceTree = "<group>"; };
 		F8516D0C19C0652100761A6B /* WebLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLink.swift; sourceTree = "<group>"; };
+		F8551FFB19CC29B300ACBAC9 /* AboutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
+		F855200019CC335C00ACBAC9 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		F8641C6F19BF16B700C4E8AF /* 750-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "750-home.png"; path = "../../iCalcioSwift/resources/images/750-home.png"; sourceTree = "<group>"; };
 		F8641C7019BF16B700C4E8AF /* 750-home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "750-home@2x.png"; path = "../../iCalcioSwift/resources/images/750-home@2x.png"; sourceTree = "<group>"; };
 		F8641C7A19BF549400C4E8AF /* 784-target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "784-target.png"; path = "../../iCalcioSwift/resources/images/784-target.png"; sourceTree = "<group>"; };
@@ -213,6 +217,23 @@
 			path = Classes/Web;
 			sourceTree = "<group>";
 		};
+		F8551FFE19CC29FF00ACBAC9 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Team;
+			path = Classes/Team;
+			sourceTree = "<group>";
+		};
+		F8551FFF19CC332000ACBAC9 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				F855200019CC335C00ACBAC9 /* NewsViewController.swift */,
+			);
+			name = News;
+			path = Classes/News;
+			sourceTree = "<group>";
+		};
 		F8BFE85B19B9B38E003BB4AC /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +245,7 @@
 		F8BFE86319B9B505003BB4AC /* About */ = {
 			isa = PBXGroup;
 			children = (
+				F8551FFB19CC29B300ACBAC9 /* AboutTableViewController.swift */,
 			);
 			name = About;
 			path = Classes/About;
@@ -358,13 +380,15 @@
 		F8F3245D19B8C6D4002F93CF /* iCalcio */ = {
 			isa = PBXGroup;
 			children = (
-				F8ED42F819C8521B007FD7F8 /* Videos */,
-				F8516D0719C045DD00761A6B /* Web */,
 				F8BFE86C19B9BAFC003BB4AC /* Home */,
+				F8551FFE19CC29FF00ACBAC9 /* Team */,
 				F8BFE86B19B9BAEF003BB4AC /* Championship */,
+				F8551FFF19CC332000ACBAC9 /* News */,
+				F8516D0719C045DD00761A6B /* Web */,
+				F8ED42F819C8521B007FD7F8 /* Videos */,
+				F8BFE86319B9B505003BB4AC /* About */,
 				F8BFE86A19B9BAC1003BB4AC /* AppDelegate */,
 				F8BFE86719B9B6F8003BB4AC /* Resources */,
-				F8BFE86319B9B505003BB4AC /* About */,
 				F8BFE85B19B9B38E003BB4AC /* Storyboard */,
 				F8F3245E19B8C6D4002F93CF /* Supporting Files */,
 			);
@@ -606,11 +630,13 @@
 				F8516D0919C0461000761A6B /* WebLinksViewController.swift in Sources */,
 				F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */,
 				F8A7F0C119C0AEB30062DDA8 /* WebBrowserViewController.swift in Sources */,
+				F855200119CC335C00ACBAC9 /* NewsViewController.swift in Sources */,
 				F8516D0D19C0652100761A6B /* WebLink.swift in Sources */,
 				F8ED42FD19C87693007FD7F8 /* YoutubeChannel.swift in Sources */,
 				F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */,
 				F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */,
 				F8ED430119C87AB9007FD7F8 /* ChannelVideosViewController.swift in Sources */,
+				F8551FFC19CC29B300ACBAC9 /* AboutTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

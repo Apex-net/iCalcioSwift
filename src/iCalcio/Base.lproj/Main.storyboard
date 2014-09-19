@@ -35,6 +35,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="pKh-fL-dPh"/>
+                    <connections>
+                        <segue destination="jkl-Dm-gDT" kind="show" identifier="toStadium" id="5qZ-A9-Ps9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ByE-2J-5hr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +63,7 @@
         <!--News-->
         <scene sceneID="N4b-L6-Que">
             <objects>
-                <tableViewController title="News" id="LeO-vG-EYA" sceneMemberID="viewController">
+                <tableViewController title="News" id="LeO-vG-EYA" customClass="NewsViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3Mj-cI-AyK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -327,73 +330,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbL-nY-Ujg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2064" y="3292"/>
-        </scene>
-        <!--StadiumNavigation-->
-        <scene sceneID="mwq-t3-VhQ">
-            <objects>
-                <navigationController title="StadiumNavigation" id="YaK-cS-nCx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Stadio" image="723-location-arrow" id="y2H-2I-ykv"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Of-ql-nT7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="jkl-Dm-gDT" kind="relationship" relationship="rootViewController" id="iLl-Xn-bb4"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jsN-2X-kPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="556" y="3340"/>
-        </scene>
-        <!--Storico-->
-        <scene sceneID="SRb-nk-8Br">
-            <objects>
-                <tableViewController title="Storico" id="ib8-pY-8pE" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jiS-ae-iay">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Storico" id="IRU-9Z-JIF">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IRU-9Z-JIF" id="cKt-rh-7Ql">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="ib8-pY-8pE" id="gDS-Gp-cXo"/>
-                            <outlet property="delegate" destination="ib8-pY-8pE" id="DkC-Y7-1zC"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="SsN-bw-RYZ"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4wR-kh-UoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1255" y="4380"/>
-        </scene>
-        <!--StoricoNavigation-->
-        <scene sceneID="42b-He-1W6">
-            <objects>
-                <navigationController title="StoricoNavigation" id="dY4-A8-Hhv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Storico" image="755-filing-cabinet" id="aqu-PI-Gis"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F4M-z9-fHp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="ib8-pY-8pE" kind="relationship" relationship="rootViewController" id="CcE-jY-pF9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J6I-ER-aUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-217" y="4388"/>
+            <point key="canvasLocation" x="3066" y="-1330"/>
         </scene>
         <!--About-->
         <scene sceneID="ZMC-86-wWk">
             <objects>
-                <tableViewController title="About" id="jjF-1q-FnL" sceneMemberID="viewController">
+                <tableViewController title="About" id="jjF-1q-FnL" customClass="AboutTableViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rnr-L2-MN3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -415,7 +357,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHd-bI-tVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-29" y="5312"/>
+            <point key="canvasLocation" x="1551" y="3732"/>
         </scene>
         <!--AboutNavigation-->
         <scene sceneID="LpS-zZ-OVY">
@@ -432,7 +374,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4k-0Q-giO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-845" y="5312"/>
+            <point key="canvasLocation" x="495" y="3716"/>
         </scene>
         <!--VideoNavigation-->
         <scene sceneID="DhU-U0-rC1">
@@ -483,8 +425,6 @@
                         <segue destination="Z8v-dZ-Efy" kind="relationship" relationship="viewControllers" id="LYw-wl-ul7"/>
                         <segue destination="hDV-Ng-kmc" kind="relationship" relationship="viewControllers" id="c4r-Mj-6U5"/>
                         <segue destination="k4u-rJ-z9s" kind="relationship" relationship="viewControllers" id="tyb-7F-VxQ"/>
-                        <segue destination="YaK-cS-nCx" kind="relationship" relationship="viewControllers" id="3Sd-wX-14z"/>
-                        <segue destination="dY4-A8-Hhv" kind="relationship" relationship="viewControllers" id="P0d-Mh-B7H"/>
                         <segue destination="89j-ep-TbF" kind="relationship" relationship="viewControllers" id="nlJ-Ew-NLa"/>
                     </connections>
                 </tabBarController>
@@ -496,10 +436,8 @@
     <resources>
         <image name="1287-youtube" width="250" height="40"/>
         <image name="715-globe" width="250" height="40"/>
-        <image name="723-location-arrow" width="250" height="40"/>
         <image name="724-info" width="250" height="40"/>
         <image name="750-home" width="250" height="40"/>
-        <image name="755-filing-cabinet" width="250" height="40"/>
         <image name="874-newspaper" width="250" height="40"/>
     </resources>
 </document>

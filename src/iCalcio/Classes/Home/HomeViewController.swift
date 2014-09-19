@@ -51,14 +51,16 @@ class HomeViewController: UITableViewController {
         var teamItems : [[String : String]] = []
         var championshipItems : [[String : String]] = []
         
-        item = ["text" : "Squadra",  "image" : "895-user-group.png"]
+        item = ["text" : "Squadra",  "image" : "895-user-group"]
         teamItems.append(item)
-        item = ["text" : "Partite",  "image" : "851-calendar.png"]
+        item = ["text" : "Partite",  "image" : "851-calendar"]
+        teamItems.append(item)
+        item = ["text" : "Stadio",  "image" : "723-location-arrow"]
         teamItems.append(item)
 
-        item = ["text" : "Classifica",  "image" : "858-line-chart.png"]
+        item = ["text" : "Classifica",  "image" : "858-line-chart"]
         championshipItems.append(item)
-        item = ["text" : "Cannonieri",  "image" : "784-target.png"]
+        item = ["text" : "Cannonieri",  "image" : "784-target"]
         championshipItems.append(item)
         
         self.sectionsList.append(teamItems)
