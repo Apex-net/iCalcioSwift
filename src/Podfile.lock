@@ -1,10 +1,21 @@
 PODS:
+  - MWFeedParser (1.0.1):
+    - MWFeedParser/FeedParser
+    - MWFeedParser/NSDate+InternetDateTime
+    - MWFeedParser/NSString+HTML
+  - MWFeedParser/FeedParser (1.0.1):
+    - MWFeedParser/NSDate+InternetDateTime
+    - MWFeedParser/NSString+HTML
+  - MWFeedParser/NSDate+InternetDateTime (1.0.1)
+  - MWFeedParser/NSString+HTML (1.0.1)
   - youtube-ios-player-helper (0.1.1)
 
 DEPENDENCIES:
+  - MWFeedParser (~> 1.0)
   - youtube-ios-player-helper (~> 0.1)
 
 SPEC CHECKSUMS:
+  MWFeedParser: 003cbf5398e99a7f2057fbe9583054fd1b84be72
   youtube-ios-player-helper: 53aecd0b4763a77e6890e9a7c55abb7b5c4bedea
 
 COCOAPODS: 0.33.1

@@ -14,6 +14,7 @@
 		F81BF38F19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38B19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png */; };
 		F81BF39019C74F55005C12D4 /* 766-arrow-right-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38C19C74F55005C12D4 /* 766-arrow-right-toolbar.png */; };
 		F81BF39119C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38D19C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png */; };
+		F844FBAE19D0315A0079555D /* RssLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F844FBAD19D0315A0079555D /* RssLink.swift */; };
 		F8516D0919C0461000761A6B /* WebLinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8516D0819C0461000761A6B /* WebLinksViewController.swift */; };
 		F8516D0D19C0652100761A6B /* WebLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8516D0C19C0652100761A6B /* WebLink.swift */; };
 		F8551FFC19CC29B300ACBAC9 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8551FFB19CC29B300ACBAC9 /* AboutTableViewController.swift */; };
@@ -108,6 +109,7 @@
 		F81BF38B19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "765-arrow-left-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/765-arrow-left-toolbar@2x.png"; sourceTree = "<group>"; };
 		F81BF38C19C74F55005C12D4 /* 766-arrow-right-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "766-arrow-right-toolbar.png"; path = "../../iCalcioSwift/resources/images/766-arrow-right-toolbar.png"; sourceTree = "<group>"; };
 		F81BF38D19C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "766-arrow-right-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/766-arrow-right-toolbar@2x.png"; sourceTree = "<group>"; };
+		F844FBAD19D0315A0079555D /* RssLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssLink.swift; sourceTree = "<group>"; };
 		F8516CF419C0451200761A6B /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../libs/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		F8516D0819C0461000761A6B /* WebLinksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLinksViewController.swift; sourceTree = "<group>"; };
 		F8516D0C19C0652100761A6B /* WebLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLink.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				F855200019CC335C00ACBAC9 /* NewsViewController.swift */,
+				F844FBAD19D0315A0079555D /* RssLink.swift */,
 			);
 			name = News;
 			path = Classes/News;
@@ -626,6 +629,7 @@
 			files = (
 				F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */,
 				F880B3C519C99F72000E1F62 /* PlayVideoViewController.swift in Sources */,
+				F844FBAE19D0315A0079555D /* RssLink.swift in Sources */,
 				F8ED42FB19C852B3007FD7F8 /* ChannelsViewController.swift in Sources */,
 				F8516D0919C0461000761A6B /* WebLinksViewController.swift in Sources */,
 				F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */,

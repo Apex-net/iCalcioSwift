@@ -12,5 +12,7 @@
 #endif
 
 #import "YTPlayerView.h"
+#import "MWFeedParser.h"
+#import "NSString+HTML.h"
 
 
