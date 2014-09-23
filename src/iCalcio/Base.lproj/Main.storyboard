@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="News" textLabel="oAR-or-WMw" detailTextLabel="8fk-Gf-ogh" style="IBUITableViewCellStyleSubtitle" id="WzB-BH-xEy">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="News" textLabel="oAR-or-WMw" detailTextLabel="8fk-Gf-ogh" style="IBUITableViewCellStyleSubtitle" id="WzB-BH-xEy">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WzB-BH-xEy" id="kuW-F1-mBM">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -88,6 +88,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="f9a-b2-6eQ" kind="show" identifier="toWebBrowser" id="atQ-fV-rpO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -454,4 +457,7 @@
         <image name="750-home" width="250" height="40"/>
         <image name="874-newspaper" width="250" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="atQ-fV-rpO"/>
+    </inferredMetricsTieBreakers>
 </document>

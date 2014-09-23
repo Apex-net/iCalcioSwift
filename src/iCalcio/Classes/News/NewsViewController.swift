@@ -12,8 +12,10 @@ import Alamofire
 class NewsViewController: UITableViewController, MWFeedParserDelegate {
 
     private var rssLinks: Array<RssLink> = Array()
-    var feedItems = [MWFeedItem]()
-    var countParsedFeeds:Int = 0
+    private var feedItems = [MWFeedItem]()
+    private var countParsedFeeds:Int = 0
+    private var sectionsList : [[String:AnyObject]] = []
+    private var feedParser : MWFeedParser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,20 +23,12 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
         // title
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.navigationItem.title = NSLocalizedString("News ", comment: "") + appDelegate.teamName
-        
-        // todo
-        // get all links
-        // get feeds and parse ()
-        // prepare sections/news
-        // show news in tableview
-        // 
-        
-        // links:
-        //
-        // https://github.com/mwaterfall/MWFeedParser
-        //
-        // https://github.com/wantedly/swift-rss-sample
-        // https://github.com/JigarM/Swift-RSSFeed
+
+        // init refresh control
+        let refreshControl:UIRefreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: NSLocalizedString("Pull to refresh", comment: ""))
+        refreshControl.addTarget(self, action: "refreshAction:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refreshControl
         
         // refresh data
         self.refreshData()
@@ -53,9 +47,15 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/feeds.txt"
         
+        // reset temp array
+        sectionsList.removeAll()
+        feedItems.removeAll()
+        
+        // stop current parser
+        self.feedParser?.stopParsing()
+        
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
                 if let err = error? {
                     println("Error: " + err.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
@@ -63,12 +63,6 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
                         self.rssLinks = parsedLinks
                             .map({ obj in RssLink(attributes: obj) })
                     }
-                    // tableview reloading
-                    //self.tableView.reloadData()
-                    
-                    // todo: stop current parser
-
-                    // 
                     
                     // Parse collection of feed urls
                     self.countParsedFeeds = 0
@@ -76,51 +70,79 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
                         self.parseFeed(item.link)
                     }
                 }
-                // end refreshing
-                //if self.refreshControl?.refreshing == true {
-                //    self.refreshControl?.endRefreshing()
-                //}
         }
+    }
+    
+    // RefreshControl selector
+    func refreshAction(sender:AnyObject) {
+        self.refreshData()
     }
     
     private func parseFeed(feedUrl:String) {
         let URL = NSURL(string: feedUrl)
-        let feedParser = MWFeedParser(feedURL: URL);
-        feedParser.delegate = self
-        feedParser.feedParseType = ParseTypeFull
-        feedParser.connectionType = ConnectionTypeAsynchronously
-        feedParser.parse()
+        self.feedParser = MWFeedParser(feedURL: URL);
+        self.feedParser.delegate = self
+        self.feedParser.feedParseType = ParseTypeFull
+        self.feedParser.connectionType = ConnectionTypeAsynchronously
+        self.feedParser.parse()
     }
     
     private func reloadTableViewWithParsedItems () {
-        //
-        var sortedItems:[MWFeedItem] = []
-        var sortedResults = sorted(self.feedItems, {
+        
+        // ordering feed items
+        var tempItems:[MWFeedItem] = []
+        let sortedResults = sorted(self.feedItems, {
             $0.date.compare($1.date) == NSComparisonResult.OrderedDescending
         })
-        println("sortedResults: \(sortedResults)")
-        
-        for item in sortedResults{
-            //
-            
-            
-        }
 
-        //
+        // date formatter for NSDate
+        let dateStringFormatter = NSDateFormatter()
+        dateStringFormatter.dateFormat = "dd/MM/yyyy"
+        
+        // create sectionlist array
+        var oldDate:String = String()
+        for item in sortedResults{
+            let newDate = dateStringFormatter.stringFromDate(item.date)
+            if newDate == oldDate {
+                // add to old section
+                tempItems.append(item)
+            }
+            else {
+                // close old section
+                if tempItems.count > 0 {
+                    let dict: [String: AnyObject] = ["section" : oldDate,  "data" : tempItems]
+                    sectionsList.append(dict)
+                }
+                // init new section
+                tempItems.removeAll()
+                tempItems.append(item)
+                // set old date
+                oldDate = newDate
+            }
+        }
+        if tempItems.count > 0 {
+            let dict: [String: AnyObject] = ["section" : oldDate,  "data" : tempItems]
+            sectionsList.append(dict)
+        }
+        //println("sectionsList \(sectionsList)")
+
+        // reload tableview
         self.tableView.reloadData()
+        
+        // end refreshing
+        if self.refreshControl?.refreshing == true {
+            self.refreshControl?.endRefreshing()
+        }
     }
 
     // MARK: - MWFeedParser Delegate
     
     func feedParserDidStart(parser: MWFeedParser) {
-        //UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
         println("feedParserDidStart")
     }
     
     func feedParserDidFinish(parser: MWFeedParser) {
-        //UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
         println("feedParserDidFinish")
-        
         self.countParsedFeeds++
         if self.countParsedFeeds == self.rssLinks.count {
             // it is the last feed
@@ -129,11 +151,9 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
     }
     
     func feedParser(parser: MWFeedParser, didParseFeedInfo info: MWFeedInfo) {
-        //println(info)
     }
     
     func feedParser(parser: MWFeedParser, didParseFeedItem item: MWFeedItem) {
-        //println(item)
         self.feedItems.append(item)
     }
     
@@ -145,12 +165,18 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
-        return 1
+        let sections = self.sectionsList.count
+        return sections
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return self.feedItems.count // temp [!]
+        var feedItems = [MWFeedItem]()
+        let arrayFeeds: AnyObject? = self.sectionsList[section]["data"]
+        if let lfeeds = arrayFeeds as? [MWFeedItem] {
+            feedItems = lfeeds
+        }
+        return feedItems.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -158,8 +184,16 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
 
         // Configure the cell...
         
-        // temp [!]
-        let feedItem = self.feedItems[indexPath.row]
+        // get data for the cell
+        var feedItems = [MWFeedItem]()
+        var feedItem = MWFeedItem()
+        if self.sectionsList.count > 0 {
+            let arrayFeeds: AnyObject? = self.sectionsList[indexPath.section]["data"]
+            if let arrayMWFeedItem = arrayFeeds as? [MWFeedItem] {
+                feedItems = arrayMWFeedItem
+            }
+            feedItem = feedItems[indexPath.row]
+        }
         
         // set texts
         cell.textLabel!.text = feedItem.title != nil ? feedItem.title.stringByConvertingHTMLToPlainText() : "[No Title]"
@@ -169,20 +203,47 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
 
         return cell
     }
+
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var title = String()
+        if self.sectionsList.count > 0 {
+            let titleSection: AnyObject? = self.sectionsList[section]["section"]
+            if let titleString = titleSection as? String {
+                title = titleString
+            }
+        }
+        return title
+    }
     
     // MARK: - Table view delegate
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 60
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        let indexPath = tableView.indexPathForSelectedRow()
+        var feedItems = [MWFeedItem]()
+        var feedItem = MWFeedItem()
+        if self.sectionsList.count > 0 {
+            let arrayFeeds: AnyObject? = self.sectionsList[indexPath!.section]["data"]
+            if let arrayMWFeedItem = arrayFeeds as? [MWFeedItem] {
+                feedItems = arrayMWFeedItem
+            }
+            feedItem = feedItems[indexPath!.row]
+        }
+        
+        if segue.identifier == "toWebBrowser" {
+            let vc = segue.destinationViewController as WebBrowserViewController
+            vc.browserTitle = feedItem.title
+            vc.navigationUrl = feedItem.link
+            vc.isNavBarEnabled = true
+        }
     }
-    */
 
 }
