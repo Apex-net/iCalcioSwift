@@ -41,6 +41,9 @@
 		F8641C9F19BF662400C4E8AF /* 755-filing-cabinet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9519BF662400C4E8AF /* 755-filing-cabinet@2x.png */; };
 		F8641CA019BF662400C4E8AF /* 1287-youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9619BF662400C4E8AF /* 1287-youtube.png */; };
 		F8641CA119BF662400C4E8AF /* 1287-youtube@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9719BF662400C4E8AF /* 1287-youtube@2x.png */; };
+		F87617AA19D45E5C00D3B947 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617A919D45E5C00D3B947 /* MatchesViewController.swift */; };
+		F87617AD19D45EB100D3B947 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617AC19D45EB100D3B947 /* PlayersViewController.swift */; };
+		F87617AF19D45EFC00D3B947 /* StadiumMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617AE19D45EFC00D3B947 /* StadiumMapViewController.swift */; };
 		F880B3C519C99F72000E1F62 /* PlayVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F880B3C419C99F72000E1F62 /* PlayVideoViewController.swift */; };
 		F89C555519CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555419CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png */; };
 		F89C555719CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555619CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png */; };
@@ -137,6 +140,9 @@
 		F8641C9519BF662400C4E8AF /* 755-filing-cabinet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "755-filing-cabinet@2x.png"; path = "../../iCalcioSwift/resources/images/755-filing-cabinet@2x.png"; sourceTree = "<group>"; };
 		F8641C9619BF662400C4E8AF /* 1287-youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1287-youtube.png"; path = "../../iCalcioSwift/resources/images/1287-youtube.png"; sourceTree = "<group>"; };
 		F8641C9719BF662400C4E8AF /* 1287-youtube@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1287-youtube@2x.png"; path = "../../iCalcioSwift/resources/images/1287-youtube@2x.png"; sourceTree = "<group>"; };
+		F87617A919D45E5C00D3B947 /* MatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
+		F87617AC19D45EB100D3B947 /* PlayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
+		F87617AE19D45EFC00D3B947 /* StadiumMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StadiumMapViewController.swift; sourceTree = "<group>"; };
 		F880B3C319C99844000E1F62 /* iCalcio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iCalcio-Bridging-Header.h"; sourceTree = "<group>"; };
 		F880B3C419C99F72000E1F62 /* PlayVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoViewController.swift; sourceTree = "<group>"; };
 		F89C555219CAE9DE00E61A1E /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; name = "iTunesArtwork@2x"; path = "../../iCalcioSwift/resources/images/iTunesArtwork@2x"; sourceTree = "<group>"; };
@@ -222,6 +228,9 @@
 		F8551FFE19CC29FF00ACBAC9 /* Team */ = {
 			isa = PBXGroup;
 			children = (
+				F87617A919D45E5C00D3B947 /* MatchesViewController.swift */,
+				F87617AC19D45EB100D3B947 /* PlayersViewController.swift */,
+				F87617AE19D45EFC00D3B947 /* StadiumMapViewController.swift */,
 			);
 			name = Team;
 			path = Classes/Team;
@@ -632,13 +641,16 @@
 				F844FBAE19D0315A0079555D /* RssLink.swift in Sources */,
 				F8ED42FB19C852B3007FD7F8 /* ChannelsViewController.swift in Sources */,
 				F8516D0919C0461000761A6B /* WebLinksViewController.swift in Sources */,
+				F87617AD19D45EB100D3B947 /* PlayersViewController.swift in Sources */,
 				F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */,
 				F8A7F0C119C0AEB30062DDA8 /* WebBrowserViewController.swift in Sources */,
 				F855200119CC335C00ACBAC9 /* NewsViewController.swift in Sources */,
 				F8516D0D19C0652100761A6B /* WebLink.swift in Sources */,
 				F8ED42FD19C87693007FD7F8 /* YoutubeChannel.swift in Sources */,
 				F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */,
+				F87617AF19D45EFC00D3B947 /* StadiumMapViewController.swift in Sources */,
 				F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */,
+				F87617AA19D45E5C00D3B947 /* MatchesViewController.swift in Sources */,
 				F8ED430119C87AB9007FD7F8 /* ChannelVideosViewController.swift in Sources */,
 				F8551FFC19CC29B300ACBAC9 /* AboutTableViewController.swift in Sources */,
 			);
