@@ -53,7 +53,8 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
         
         // stop current parser
         self.feedParser?.stopParsing()
-        
+
+        // call feeds API
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 if let err = error? {
