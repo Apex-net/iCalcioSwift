@@ -1,20 +1,20 @@
 //
-//  PlayersViewController.swift
+//  RankingViewController.swift
 //  iCalcio
 //
-//  Created by Andrea Calisesi on 25/09/14.
+//  Created by Andrea Calisesi on 26/09/14.
 //  Copyright (c) 2014 Andrea Calisesi. All rights reserved.
 //
 
 import UIKit
 
-class PlayersViewController: UITableViewController {
+class RankingsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = NSLocalizedString("Squadra", comment: "")
-
+        self.navigationItem.title = NSLocalizedString("Classifica", comment: "")
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

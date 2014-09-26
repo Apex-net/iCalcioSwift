@@ -14,6 +14,9 @@ class StadiumMapViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.navigationItem.title = NSLocalizedString("Stadio", comment: "")
+        
     }
 
     override func didReceiveMemoryWarning() {

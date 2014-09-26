@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5C924DF630A14031852F7F74 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7183084E45485AAF92B2A9 /* libPods.a */; };
+		F80C47DB19D5C48100186ED8 /* TopScorersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C47DA19D5C48100186ED8 /* TopScorersViewController.swift */; };
+		F80C47DE19D5C4C300186ED8 /* RankingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C47DD19D5C4C300186ED8 /* RankingsViewController.swift */; };
+		F80C47E019D5CC9D00186ED8 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C47DF19D5CC9D00186ED8 /* Match.swift */; };
 		F8180C8419BDCDF4008975BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8180C8319BDCDF4008975BC /* Images.xcassets */; };
 		F818C00619C8E5A8002A99C5 /* thumbnail_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = F818C00519C8E5A8002A99C5 /* thumbnail_placeholder.png */; };
 		F81BF38E19C74F55005C12D4 /* 765-arrow-left-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38A19C74F55005C12D4 /* 765-arrow-left-toolbar.png */; };
@@ -105,6 +108,9 @@
 /* Begin PBXFileReference section */
 		78C12538DDB2422AAB734368 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8F7183084E45485AAF92B2A9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F80C47DA19D5C48100186ED8 /* TopScorersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScorersViewController.swift; sourceTree = "<group>"; };
+		F80C47DD19D5C4C300186ED8 /* RankingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingsViewController.swift; sourceTree = "<group>"; };
+		F80C47DF19D5CC9D00186ED8 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		F8180C7D19BDCA2D008975BC /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
 		F8180C8319BDCDF4008975BC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../iCalcioSwift/resources/images/Images.xcassets; sourceTree = "<group>"; };
 		F818C00519C8E5A8002A99C5 /* thumbnail_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thumbnail_placeholder.png; path = ../../iCalcioSwift/resources/images/thumbnail_placeholder.png; sourceTree = "<group>"; };
@@ -231,6 +237,7 @@
 				F87617A919D45E5C00D3B947 /* MatchesViewController.swift */,
 				F87617AC19D45EB100D3B947 /* PlayersViewController.swift */,
 				F87617AE19D45EFC00D3B947 /* StadiumMapViewController.swift */,
+				F80C47DF19D5CC9D00186ED8 /* Match.swift */,
 			);
 			name = Team;
 			path = Classes/Team;
@@ -293,6 +300,8 @@
 		F8BFE86B19B9BAEF003BB4AC /* Championship */ = {
 			isa = PBXGroup;
 			children = (
+				F80C47DA19D5C48100186ED8 /* TopScorersViewController.swift */,
+				F80C47DD19D5C4C300186ED8 /* RankingsViewController.swift */,
 			);
 			name = Championship;
 			path = Classes/Championship;
@@ -638,6 +647,9 @@
 			files = (
 				F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */,
 				F880B3C519C99F72000E1F62 /* PlayVideoViewController.swift in Sources */,
+				F80C47DE19D5C4C300186ED8 /* RankingsViewController.swift in Sources */,
+				F80C47E019D5CC9D00186ED8 /* Match.swift in Sources */,
+				F80C47DB19D5C48100186ED8 /* TopScorersViewController.swift in Sources */,
 				F844FBAE19D0315A0079555D /* RssLink.swift in Sources */,
 				F8ED42FB19C852B3007FD7F8 /* ChannelsViewController.swift in Sources */,
 				F8516D0919C0461000761A6B /* WebLinksViewController.swift in Sources */,

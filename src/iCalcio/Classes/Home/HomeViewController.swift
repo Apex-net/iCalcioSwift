@@ -51,16 +51,16 @@ class HomeViewController: UITableViewController {
         var teamItems : [[String : String]] = []
         var championshipItems : [[String : String]] = []
         
-        item = ["text" : "Squadra",  "image" : "895-user-group"]
+        item = ["text" : NSLocalizedString("Squadra", comment: ""),  "image" : "895-user-group"]
         teamItems.append(item)
-        item = ["text" : "Partite",  "image" : "851-calendar"]
+        item = ["text" : NSLocalizedString("Partite", comment: ""),  "image" : "851-calendar"]
         teamItems.append(item)
-        item = ["text" : "Stadio",  "image" : "723-location-arrow"]
+        item = ["text" : NSLocalizedString("Stadio", comment: ""),  "image" : "723-location-arrow"]
         teamItems.append(item)
 
-        item = ["text" : "Classifica",  "image" : "858-line-chart"]
+        item = ["text" : NSLocalizedString("Classifica", comment: ""),  "image" : "858-line-chart"]
         championshipItems.append(item)
-        item = ["text" : "Cannonieri",  "image" : "784-target"]
+        item = ["text" : NSLocalizedString("Cannonieri", comment: ""),  "image" : "784-target"]
         championshipItems.append(item)
         
         self.sectionsList.append(teamItems)
@@ -141,7 +141,14 @@ class HomeViewController: UITableViewController {
             }
         case 1:
             // championship
-            break
+            switch indexPath.row {
+            case 0:
+                self.performSegueWithIdentifier("toRankings", sender: nil)
+            case 1:
+                self.performSegueWithIdentifier("toTopScorers", sender: nil)
+            default:
+                break
+            }
         default:
             break
         }
