@@ -125,7 +125,6 @@ class HomeViewController: UITableViewController {
     // MARK: - Table view delegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        // todo [!]
         switch indexPath.section {
         case 0:
             // team

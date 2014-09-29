@@ -335,7 +335,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Match" textLabel="kYT-ba-ZFm" detailTextLabel="TMP-pg-GUq" style="IBUITableViewCellStyleSubtitle" id="hje-Qr-ToZ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Match" textLabel="kYT-ba-ZFm" detailTextLabel="TMP-pg-GUq" style="IBUITableViewCellStyleSubtitle" id="hje-Qr-ToZ">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hje-Qr-ToZ" id="lTA-EH-dMR">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -354,6 +354,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="gl3-SE-vs3" kind="show" identifier="toDetailMatch" id="gGu-2V-cqH"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -366,6 +369,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbL-nY-Ujg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3262" y="-2342"/>
+        </scene>
+        <!--DetailMatch-->
+        <scene sceneID="y0Z-cK-O4D">
+            <objects>
+                <tableViewController title="DetailMatch" id="gl3-SE-vs3" customClass="DetailMatchViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Q1Q-kC-bRe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailMatch" textLabel="Fjl-Qp-gnU" style="IBUITableViewCellStyleDefault" id="1ID-8y-Di2">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1ID-8y-Di2" id="0f0-vb-Ljx">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fjl-Qp-gnU">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gl3-SE-vs3" id="SyW-ur-Y1C"/>
+                            <outlet property="delegate" destination="gl3-SE-vs3" id="cX6-jZ-RS4"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wRK-Gf-tkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3942" y="-2322"/>
         </scene>
         <!--Players-->
         <scene sceneID="elt-tr-QmA">

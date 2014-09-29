@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import Alamofire
 
 extension AppDelegate
 {
+
     var appName : String
         {
             let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
@@ -58,6 +60,34 @@ extension AppDelegate
         let stringNative: String = "http://gdata.youtube.com/feeds/api/users"
                 
         return stringNative
+    }
+    
+    func getTeamInfo() {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let endpointUrl = appDelegate.apiBaseUrl + "/GeneralInfo.txt"
+        
+        Alamofire.request(.GET, endpointUrl)
+            .responseJSON {(request, response, JSON, error) in
+                //println(JSON)
+                if let err = error? {
+                    println("Error: " + err.localizedDescription)
+                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
+                    if let parsedTeamInfomations = JsonArray as? [AnyObject] {
+                        self.teamInfomations = parsedTeamInfomations
+                            .map({ obj in TeamInfo(attributes: obj) })
+                    }
+                }
+        }
+    }
+    
+    var teamInformation : TeamInfo? {
+        
+        var teamInfo : TeamInfo?
+        if self.teamInfomations.count == 1 {
+            teamInfo = self.teamInfomations[0]
+        }
+        return teamInfo
     }
 
 }

@@ -12,7 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
-
+    
+    var teamInfomations: Array<TeamInfo> = Array()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // only for debug:
         println("app name: \(appName)")
         println("base url: \(apiBaseUrl)")
+        
+        // Get Team Info general
+        self.getTeamInfo()
         
         return true
     }
