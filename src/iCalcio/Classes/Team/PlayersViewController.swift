@@ -7,91 +7,150 @@
 //
 
 import UIKit
+import Alamofire
 
 class PlayersViewController: UITableViewController {
+    
+    private var playersList : [(role: Roles, players: Array<Player>)] = []
+    
+    private enum Roles: String {
+        case Portiere = "Portiere", Difensore = "Difensore", Centrocampista = "Centrocampista", Attaccante = "Attaccante", Indefinito = "Indefinito"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // title
         self.navigationItem.title = NSLocalizedString("Squadra", comment: "")
+        
+        // init refresh control
+        let refreshControl:UIRefreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: NSLocalizedString("Pull to refresh", comment: ""))
+        refreshControl.addTarget(self, action: "refreshAction:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refreshControl
+        
+        // refresh data
+        self.refreshData()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Get Data for Table view
+    
+    private func refreshData() {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let endpointUrl = appDelegate.apiBaseUrl + "/Players.txt"
+        
+        // reset temp array
+        playersList.removeAll()
+        
+        Alamofire.request(.GET, endpointUrl)
+            .responseJSON {(request, response, JSON, error) in
+                //println(JSON)
+                if let err = error? {
+                    println("Error: " + err.localizedDescription)
+                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
+                    if let parsedDicts = JsonArray as? [AnyObject] {
+                        //println(parsedDicts)
+                        for item in parsedDicts{
+                            var itemRole:Roles = Roles.Indefinito
+                            if let role:String = item.valueForKeyPath("role") as? String{
+                                switch role {
+                                case Roles.Portiere.toRaw():
+                                    itemRole = Roles.Portiere
+                                case Roles.Difensore.toRaw():
+                                    itemRole = Roles.Difensore
+                                case Roles.Centrocampista.toRaw():
+                                    itemRole = Roles.Centrocampista
+                                case Roles.Attaccante.toRaw():
+                                    itemRole = Roles.Attaccante
+                                default:
+                                    break
+                                }
+                            }
+                            var itemPlayers: Array<Player> = []
+                            if let players:[AnyObject] = item.valueForKeyPath("players") as? [AnyObject] {
+                                itemPlayers = players.map({ obj in Player(attributes: obj) })
+                            }
+                            let newData = (role: itemRole, players:itemPlayers)
+                            self.playersList.append(newData)
+                        }
+                    }
+                    
+                    // tableview reloading
+                    self.tableView.reloadData()
+                    
+                }
+                // end refreshing
+                if self.refreshControl?.refreshing == true {
+                    self.refreshControl?.endRefreshing()
+                }
+        }
+    }
+    
+    // RefreshControl selector
+    func refreshAction(sender:AnyObject) {
+        self.refreshData()
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
-        return 1
+        let sections = self.playersList.count
+        return sections
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 0
+        let sectionTupla = self.playersList[section]
+        var players = sectionTupla.players
+        
+        return players.count
     }
 
-    /*
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Player", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
-
+        
+        let player = self.playersList[indexPath.section].players[indexPath.row]
+        
+        // set texts
+        cell.textLabel!.text = player.name
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var title = String()
+        if self.playersList.count > 0 {
+            let titleSection: Roles = self.playersList[section].role
+            title = titleSection.toRaw()
+        }
+        return title
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView!, moveRowAtIndexPath fromIndexPath: NSIndexPath!, toIndexPath: NSIndexPath!) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView!, canMoveRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        let indexPath:NSIndexPath = self.tableView.indexPathForSelectedRow()!
+        let player = self.playersList[indexPath.section].players[indexPath.row]
+        if segue.identifier == "toDetailMatch" {
+            let vc = segue.destinationViewController as DetailPlayerViewController
+            // todo [!]
+            //vc.match = match
+        }
+        
     }
-    */
 
 }
