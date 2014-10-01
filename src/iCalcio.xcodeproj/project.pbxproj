@@ -69,6 +69,7 @@
 		F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */; };
 		F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */; };
 		F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */; };
+		F8D2F86A19DC0B13000A1478 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D2F86919DC0B13000A1478 /* Ranking.swift */; };
 		F8ED42FB19C852B3007FD7F8 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED42FA19C852B3007FD7F8 /* ChannelsViewController.swift */; };
 		F8ED42FD19C87693007FD7F8 /* YoutubeChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED42FC19C87693007FD7F8 /* YoutubeChannel.swift */; };
 		F8ED42FF19C878E0007FD7F8 /* Urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8ED42FE19C878E0007FD7F8 /* Urls.plist */; };
@@ -178,6 +179,7 @@
 		F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Settings.swift"; sourceTree = "<group>"; };
 		F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeVideo.swift; sourceTree = "<group>"; };
+		F8D2F86919DC0B13000A1478 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		F8ED42FA19C852B3007FD7F8 /* ChannelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
 		F8ED42FC19C87693007FD7F8 /* YoutubeChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeChannel.swift; sourceTree = "<group>"; };
 		F8ED42FE19C878E0007FD7F8 /* Urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Urls.plist; path = ../iCalcioSwift/resources/Urls.plist; sourceTree = "<group>"; };
@@ -312,8 +314,9 @@
 		F8BFE86B19B9BAEF003BB4AC /* Championship */ = {
 			isa = PBXGroup;
 			children = (
-				F80C47DA19D5C48100186ED8 /* TopScorersViewController.swift */,
 				F80C47DD19D5C4C300186ED8 /* RankingsViewController.swift */,
+				F8D2F86919DC0B13000A1478 /* Ranking.swift */,
+				F80C47DA19D5C48100186ED8 /* TopScorersViewController.swift */,
 			);
 			name = Championship;
 			path = Classes/Championship;
@@ -666,6 +669,7 @@
 				F80C47DB19D5C48100186ED8 /* TopScorersViewController.swift in Sources */,
 				F844FBAE19D0315A0079555D /* RssLink.swift in Sources */,
 				F8ED42FB19C852B3007FD7F8 /* ChannelsViewController.swift in Sources */,
+				F8D2F86A19DC0B13000A1478 /* Ranking.swift in Sources */,
 				F8516D0919C0461000761A6B /* WebLinksViewController.swift in Sources */,
 				F87617AD19D45EB100D3B947 /* PlayersViewController.swift in Sources */,
 				F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */,

@@ -147,8 +147,7 @@ class PlayersViewController: UITableViewController {
         let player = self.playersList[indexPath.section].players[indexPath.row]
         if segue.identifier == "toDetailMatch" {
             let vc = segue.destinationViewController as DetailPlayerViewController
-            // todo [!]
-            //vc.match = match
+            vc.player = player
         }
         
     }
