@@ -7,82 +7,149 @@
 //
 
 import UIKit
+import Alamofire
 
 class TopScorersViewController: UITableViewController {
+    
+    private var topScorersList : [(goals: String, players: Array<Player>)] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = NSLocalizedString("Cannonieri", comment: "")
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // init refresh control
+        let refreshControl:UIRefreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: NSLocalizedString("Pull to refresh", comment: ""))
+        refreshControl.addTarget(self, action: "refreshAction:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refreshControl
+        
+        // refresh data
+        self.refreshData()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Get Data for Table view
+    
+    private func refreshData() {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let endpointUrl = appDelegate.apiBaseUrl + "/TopScorers.txt"
+        
+        // reset temp array
+        topScorersList.removeAll()
+        
+        // todo
+        
+        Alamofire.request(.GET, endpointUrl)
+            .responseJSON {(request, response, JSON, error) in
+                //println(JSON)
+                if let err = error? {
+                    println("Error: " + err.localizedDescription)
+                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
+                    if let parsedArray = JsonArray as? [AnyObject] {
+                        let topScorers = parsedArray
+                            .map({ obj in Player(attributes: obj) })
+                        let sortedTopScorers = sorted(topScorers){$0.goals > $1.goals}
+                        var tempItems:Array<Player> = []
+                        var oldGoals:String = String()
+                        for item in sortedTopScorers{
+                            let newGoals = item.goals
+                            if newGoals == oldGoals {
+                                // add to old section
+                                tempItems.append(item)
+                            }
+                            else {
+                                // close old section
+                                if tempItems.count > 0 {
+                                    let newData = (goals: oldGoals, players: tempItems)
+                                    self.topScorersList.append(newData)
+                                }
+                                // init new section
+                                tempItems.removeAll()
+                                tempItems.append(item)
+                                // set oldGoals
+                                oldGoals = newGoals!
+                            }
+                        }
+                        if tempItems.count > 0 {
+                            let newData = (goals: oldGoals, players: tempItems)
+                            self.topScorersList.append(newData)
+                        }
+                    }
+                    
+                    // tableview reloading
+                    self.tableView.reloadData()
+                    
+                }
+                // end refreshing
+                if self.refreshControl?.refreshing == true {
+                    self.refreshControl?.endRefreshing()
+                }
+        }
+    }
+    
+    // RefreshControl selector
+    func refreshAction(sender:AnyObject) {
+        self.refreshData()
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
-        return 1
+        let sections = self.topScorersList.count
+        return sections
+        
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 0
+        let sectionTupla = self.topScorersList[section]
+        var topScorers = sectionTupla.players
+        
+        return topScorers.count
     }
 
-    /*
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("TopScorer", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
+        let player = self.topScorersList[indexPath.section].players[indexPath.row]
+        
+        // set texts
+        cell.textLabel!.text = player.name
+        cell.detailTextLabel!.text = player.team
+        
+        // set font for my team
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let teamName:String = appDelegate.teamName
+        let currentTeamName:String = player.team!
+        if currentTeamName.lowercaseString.rangeOfString(teamName.lowercaseString) != nil {
+            cell.textLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+            cell.detailTextLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        } else {
+            cell.textLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+            cell.detailTextLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        }
+
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var title = String()
+        if self.topScorersList.count > 0 {
+            let titleSection: String = self.topScorersList[section].goals
+            title = "\(titleSection) " +  NSLocalizedString("Goals", comment: "")
+        }
+        return title
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView!, moveRowAtIndexPath fromIndexPath: NSIndexPath!, toIndexPath: NSIndexPath!) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView!, canMoveRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

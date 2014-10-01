@@ -98,6 +98,12 @@ class PlayersViewController: UITableViewController {
         self.refreshData()
     }
 
+    // MARK: - Utilities
+    func formatPlayerName(playerName: String) -> String {
+        // todo
+        return ""
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
