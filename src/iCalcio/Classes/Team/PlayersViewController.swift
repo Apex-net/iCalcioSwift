@@ -101,7 +101,19 @@ class PlayersViewController: UITableViewController {
     // MARK: - Utilities
     func formatPlayerName(playerName: String) -> String {
         // todo
-        return ""
+        
+        let stringToSearch = "\t"
+        let dirtystring = playerName
+        var startIndex = dirtystring.startIndex
+        var endIndex = dirtystring.endIndex
+        if dirtystring.rangeOfString(stringToSearch) != nil {
+            startIndex = advance(startIndex, 1)
+            endIndex = advance(endIndex, -1)
+        }
+        let range = startIndex..<endIndex
+        let cleanString = dirtystring.substringWithRange( range )
+        
+        return cleanString
     }
     
     // MARK: - Table view data source
@@ -128,7 +140,7 @@ class PlayersViewController: UITableViewController {
         let player = self.playersList[indexPath.section].players[indexPath.row]
         
         // set texts
-        cell.textLabel!.text = player.name
+        cell.textLabel!.text = self.formatPlayerName(player.name)
         
         return cell
     }
