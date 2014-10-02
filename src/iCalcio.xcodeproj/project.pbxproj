@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C924DF630A14031852F7F74 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7183084E45485AAF92B2A9 /* libPods.a */; };
+		F802194419DD3E35006D4E6A /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F802194319DD3E35006D4E6A /* BannerViewController.m */; };
 		F80C47DB19D5C48100186ED8 /* TopScorersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C47DA19D5C48100186ED8 /* TopScorersViewController.swift */; };
 		F80C47DE19D5C4C300186ED8 /* RankingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C47DD19D5C4C300186ED8 /* RankingsViewController.swift */; };
 		F80C47E019D5CC9D00186ED8 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C47DF19D5CC9D00186ED8 /* Match.swift */; };
@@ -113,6 +114,8 @@
 /* Begin PBXFileReference section */
 		78C12538DDB2422AAB734368 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8F7183084E45485AAF92B2A9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F802194219DD3E35006D4E6A /* BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
+		F802194319DD3E35006D4E6A /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
 		F80C47DA19D5C48100186ED8 /* TopScorersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScorersViewController.swift; sourceTree = "<group>"; };
 		F80C47DD19D5C4C300186ED8 /* RankingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingsViewController.swift; sourceTree = "<group>"; };
 		F80C47DF19D5CC9D00186ED8 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
@@ -219,6 +222,16 @@
 				8F7183084E45485AAF92B2A9 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F802194019DD3E02006D4E6A /* Banners */ = {
+			isa = PBXGroup;
+			children = (
+				F802194219DD3E35006D4E6A /* BannerViewController.h */,
+				F802194319DD3E35006D4E6A /* BannerViewController.m */,
+			);
+			name = Banners;
+			path = Classes/Banners;
 			sourceTree = "<group>";
 		};
 		F8516CFF19C0453B00761A6B /* Products */ = {
@@ -416,6 +429,7 @@
 		F8F3245D19B8C6D4002F93CF /* iCalcio */ = {
 			isa = PBXGroup;
 			children = (
+				F802194019DD3E02006D4E6A /* Banners */,
 				F8BFE86C19B9BAFC003BB4AC /* Home */,
 				F8551FFE19CC29FF00ACBAC9 /* Team */,
 				F8BFE86B19B9BAEF003BB4AC /* Championship */,
@@ -666,6 +680,7 @@
 				F80C47DE19D5C4C300186ED8 /* RankingsViewController.swift in Sources */,
 				F8590C4C19DAA455000D6F67 /* Player.swift in Sources */,
 				F80C47E019D5CC9D00186ED8 /* Match.swift in Sources */,
+				F802194419DD3E35006D4E6A /* BannerViewController.m in Sources */,
 				F80C47DB19D5C48100186ED8 /* TopScorersViewController.swift in Sources */,
 				F844FBAE19D0315A0079555D /* RssLink.swift in Sources */,
 				F8ED42FB19C852B3007FD7F8 /* ChannelsViewController.swift in Sources */,
@@ -810,11 +825,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = iCalcio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -824,6 +841,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = iCalcio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
