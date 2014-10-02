@@ -55,7 +55,7 @@ class HomeViewController: UITableViewController {
         teamItems.append(item)
         item = ["text" : NSLocalizedString("Partite", comment: ""),  "image" : "851-calendar"]
         teamItems.append(item)
-        item = ["text" : NSLocalizedString("Stadio", comment: ""),  "image" : "723-location-arrow"]
+        item = ["text" : NSLocalizedString("Stadio", comment: ""),  "image" : "852-map"]
         teamItems.append(item)
 
         item = ["text" : NSLocalizedString("Classifica", comment: ""),  "image" : "858-line-chart"]
