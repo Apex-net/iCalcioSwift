@@ -22,19 +22,22 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     private var locationManager:CLLocationManager!
     private var isUpdateUserLocation:Bool = false
     private var segmentControl : UISegmentedControl!
+    private var segmentControlMapType: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         self.navigationItem.title = NSLocalizedString("Stadio", comment: "")
         
         // init
         self.initStadiumLocation()
 
-        // init zoom management
+        // init zoom type management
         self.initRightNavBar()
+        
+        // init map type management
+        self.initMapTypeNavBar()
         
     }
 
@@ -61,7 +64,7 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     func selectedSegmentDidChange(sender:UISegmentedControl!)
     {
-        println("selectedSegmentDidChange: method called")
+        //println("selectedSegmentDidChange: method called")
         
         let segment : UISegmentedControl = sender
         
@@ -80,7 +83,7 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     private func showStadiumLocation() {
         
-        // Stadium
+        // go to Stadium
         if self.mapLatitude != String() && self.mapLongitude != String() {
             // Map zoom in Stadium position
             let stadiumLatitude = NSString(string:self.mapLatitude).doubleValue
@@ -94,8 +97,7 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     private func showUserLocation() {
         
-        // goto my position
-        
+        // go to my position
         if isUpdateUserLocation {
             // Map zoom in my position
             let region:MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: mapView.userLocation.location.coordinate.latitude, longitude: mapView.userLocation.location.coordinate.longitude), span: MKCoordinateSpanMake(0.030, 0.030))
@@ -105,7 +107,6 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
     }
     
-
     // MARK: - MKMapView management
     private func initStadiumLocation() {
         
@@ -123,7 +124,7 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         }
         
         // set delegate mapview
-        mapView.delegate = self
+        self.mapView.delegate = self
         
         // Ensure that you can view your own location in the map view.
         self.mapView.showsUserLocation = true
@@ -141,8 +142,54 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         // goto intial stadium position
         self.showStadiumLocation()
         
-        // add annotation
+        // Add annotation (Red Pin)
+        if self.mapLatitude != String() && self.mapLongitude != String() {
+            // Stadium Annotation
+            let stadiumLatitude = NSString(string:self.mapLatitude).doubleValue
+            let stadiumLongitude = NSString(string:self.mapLongitude).doubleValue
+            var myHomePin = MKPointAnnotation()
+            myHomePin.coordinate = CLLocationCoordinate2D(latitude: stadiumLatitude, longitude: stadiumLongitude)
+            myHomePin.title = self.mapTitle
+            myHomePin.subtitle = NSLocalizedString("Stadio", comment: "")
+            self.mapView.addAnnotation(myHomePin)
+        }
         
+    }
+    
+    private func initMapTypeNavBar()
+    {
+        let images: [UIImage] = [
+            UIImage(named: "715-globe-toolbar"),
+            UIImage(named: "816-satellite-toolbar"),
+            UIImage(named: "881-globe-toolbar")
+        ]
+        self.segmentControlMapType = UISegmentedControl(items: images)
+        self.segmentControlMapType.addTarget(self, action: "selectedSegmentMapTypeDidChange:", forControlEvents: UIControlEvents.ValueChanged)
+        self.segmentControlMapType.selectedSegmentIndex = 0
+        
+        self.navigationItem.titleView = self.segmentControlMapType
+        
+    }
+    
+    func selectedSegmentMapTypeDidChange(sender:UISegmentedControl!)
+    {
+        //println("selectedSegmentMapTypeDidChange: method called")
+        let segment : UISegmentedControl = sender
+        
+        // Set current Map Type
+        switch (segment.selectedSegmentIndex) {
+        case 0:
+            // Standard
+            self.mapView.mapType = MKMapType.Standard
+        case 1:
+            // Satellite
+            self.mapView.mapType = MKMapType.Satellite
+        case 2:
+            // Hybrid
+            self.mapView.mapType = MKMapType.Hybrid
+        default:
+            break
+        }
     }
     
      // MARK: - MKMapView delegate

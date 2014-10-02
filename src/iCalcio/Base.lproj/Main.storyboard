@@ -152,7 +152,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="c6d-6E-ChI" secondAttribute="trailing" constant="-16" id="vJl-A2-0P6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Web" image="715-globe" id="4hY-r6-b7O"/>
+                    <tabBarItem key="tabBarItem" title="Web" image="706-cloud" id="4hY-r6-b7O"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwn-kp-f5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -861,6 +861,7 @@
     </scenes>
     <resources>
         <image name="1287-youtube" width="250" height="40"/>
+        <image name="706-cloud" width="30" height="30"/>
         <image name="715-globe" width="250" height="40"/>
         <image name="724-info" width="250" height="40"/>
         <image name="750-home" width="30" height="30"/>

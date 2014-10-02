@@ -51,6 +51,15 @@
 		F87617AD19D45EB100D3B947 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617AC19D45EB100D3B947 /* PlayersViewController.swift */; };
 		F87617AF19D45EFC00D3B947 /* StadiumMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617AE19D45EFC00D3B947 /* StadiumMapViewController.swift */; };
 		F880B3C519C99F72000E1F62 /* PlayVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F880B3C419C99F72000E1F62 /* PlayVideoViewController.swift */; };
+		F88615E119DE0F53000D1611 /* 715-globe-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615D819DE0F53000D1611 /* 715-globe-toolbar.png */; };
+		F88615E219DE0F53000D1611 /* 715-globe-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615D919DE0F53000D1611 /* 715-globe-toolbar@2x.png */; };
+		F88615E319DE0F53000D1611 /* 715-globe-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615DA19DE0F53000D1611 /* 715-globe-toolbar@3x.png */; };
+		F88615E419DE0F53000D1611 /* 816-satellite-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615DB19DE0F53000D1611 /* 816-satellite-toolbar.png */; };
+		F88615E519DE0F53000D1611 /* 816-satellite-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615DC19DE0F53000D1611 /* 816-satellite-toolbar@2x.png */; };
+		F88615E619DE0F53000D1611 /* 816-satellite-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615DD19DE0F53000D1611 /* 816-satellite-toolbar@3x.png */; };
+		F88615E719DE0F53000D1611 /* 881-globe-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615DE19DE0F53000D1611 /* 881-globe-toolbar.png */; };
+		F88615E819DE0F53000D1611 /* 881-globe-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615DF19DE0F53000D1611 /* 881-globe-toolbar@2x.png */; };
+		F88615E919DE0F53000D1611 /* 881-globe-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615E019DE0F53000D1611 /* 881-globe-toolbar@3x.png */; };
 		F89C555519CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555419CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png */; };
 		F89C555719CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555619CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png */; };
 		F89C555919CAEAB900E61A1E /* 715-globe@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555819CAEAB900E61A1E /* 715-globe@3x.png */; };
@@ -67,6 +76,9 @@
 		F89D686C19D963E2008F8B8E /* TeamInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D686B19D963E2008F8B8E /* TeamInfo.swift */; };
 		F89D686F19D9B735008F8B8E /* DetailMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D686E19D9B735008F8B8E /* DetailMatchViewController.swift */; };
 		F8A7F0C119C0AEB30062DDA8 /* WebBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7F0C019C0AEB30062DDA8 /* WebBrowserViewController.swift */; };
+		F8ADE7FF19DE12B10035D64E /* 706-cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = F8ADE7FC19DE12B10035D64E /* 706-cloud.png */; };
+		F8ADE80019DE12B10035D64E /* 706-cloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8ADE7FD19DE12B10035D64E /* 706-cloud@2x.png */; };
+		F8ADE80119DE12B10035D64E /* 706-cloud@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8ADE7FE19DE12B10035D64E /* 706-cloud@3x.png */; };
 		F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */; };
 		F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */; };
 		F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */; };
@@ -171,6 +183,15 @@
 		F87617AE19D45EFC00D3B947 /* StadiumMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StadiumMapViewController.swift; sourceTree = "<group>"; };
 		F880B3C319C99844000E1F62 /* iCalcio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iCalcio-Bridging-Header.h"; sourceTree = "<group>"; };
 		F880B3C419C99F72000E1F62 /* PlayVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoViewController.swift; sourceTree = "<group>"; };
+		F88615D819DE0F53000D1611 /* 715-globe-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "715-globe-toolbar.png"; path = "../../iCalcioSwift/resources/images/715-globe-toolbar.png"; sourceTree = "<group>"; };
+		F88615D919DE0F53000D1611 /* 715-globe-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "715-globe-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/715-globe-toolbar@2x.png"; sourceTree = "<group>"; };
+		F88615DA19DE0F53000D1611 /* 715-globe-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "715-globe-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/715-globe-toolbar@3x.png"; sourceTree = "<group>"; };
+		F88615DB19DE0F53000D1611 /* 816-satellite-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "816-satellite-toolbar.png"; path = "../../iCalcioSwift/resources/images/816-satellite-toolbar.png"; sourceTree = "<group>"; };
+		F88615DC19DE0F53000D1611 /* 816-satellite-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "816-satellite-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/816-satellite-toolbar@2x.png"; sourceTree = "<group>"; };
+		F88615DD19DE0F53000D1611 /* 816-satellite-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "816-satellite-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/816-satellite-toolbar@3x.png"; sourceTree = "<group>"; };
+		F88615DE19DE0F53000D1611 /* 881-globe-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "881-globe-toolbar.png"; path = "../../iCalcioSwift/resources/images/881-globe-toolbar.png"; sourceTree = "<group>"; };
+		F88615DF19DE0F53000D1611 /* 881-globe-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "881-globe-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/881-globe-toolbar@2x.png"; sourceTree = "<group>"; };
+		F88615E019DE0F53000D1611 /* 881-globe-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "881-globe-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/881-globe-toolbar@3x.png"; sourceTree = "<group>"; };
 		F89C555219CAE9DE00E61A1E /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; name = "iTunesArtwork@2x"; path = "../../iCalcioSwift/resources/images/iTunesArtwork@2x"; sourceTree = "<group>"; };
 		F89C555419CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "765-arrow-left-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/765-arrow-left-toolbar@3x.png"; sourceTree = "<group>"; };
 		F89C555619CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "766-arrow-right-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/766-arrow-right-toolbar@3x.png"; sourceTree = "<group>"; };
@@ -188,6 +209,9 @@
 		F89D686B19D963E2008F8B8E /* TeamInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamInfo.swift; sourceTree = "<group>"; };
 		F89D686E19D9B735008F8B8E /* DetailMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMatchViewController.swift; sourceTree = "<group>"; };
 		F8A7F0C019C0AEB30062DDA8 /* WebBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebBrowserViewController.swift; sourceTree = "<group>"; };
+		F8ADE7FC19DE12B10035D64E /* 706-cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "706-cloud.png"; path = "../../iCalcioSwift/resources/images/706-cloud.png"; sourceTree = "<group>"; };
+		F8ADE7FD19DE12B10035D64E /* 706-cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "706-cloud@2x.png"; path = "../../iCalcioSwift/resources/images/706-cloud@2x.png"; sourceTree = "<group>"; };
+		F8ADE7FE19DE12B10035D64E /* 706-cloud@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "706-cloud@3x.png"; path = "../../iCalcioSwift/resources/images/706-cloud@3x.png"; sourceTree = "<group>"; };
 		F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Settings.swift"; sourceTree = "<group>"; };
@@ -371,6 +395,18 @@
 			children = (
 				F89C555219CAE9DE00E61A1E /* iTunesArtwork@2x */,
 				F818C00519C8E5A8002A99C5 /* thumbnail_placeholder.png */,
+				F8ADE7FC19DE12B10035D64E /* 706-cloud.png */,
+				F8ADE7FD19DE12B10035D64E /* 706-cloud@2x.png */,
+				F8ADE7FE19DE12B10035D64E /* 706-cloud@3x.png */,
+				F88615D819DE0F53000D1611 /* 715-globe-toolbar.png */,
+				F88615D919DE0F53000D1611 /* 715-globe-toolbar@2x.png */,
+				F88615DA19DE0F53000D1611 /* 715-globe-toolbar@3x.png */,
+				F88615DB19DE0F53000D1611 /* 816-satellite-toolbar.png */,
+				F88615DC19DE0F53000D1611 /* 816-satellite-toolbar@2x.png */,
+				F88615DD19DE0F53000D1611 /* 816-satellite-toolbar@3x.png */,
+				F88615DE19DE0F53000D1611 /* 881-globe-toolbar.png */,
+				F88615DF19DE0F53000D1611 /* 881-globe-toolbar@2x.png */,
+				F88615E019DE0F53000D1611 /* 881-globe-toolbar@3x.png */,
 				F8EA44EB19DDD12600BB254A /* 722-location-pin-toolbar.png */,
 				F8EA44EC19DDD12600BB254A /* 722-location-pin-toolbar@2x.png */,
 				F8EA44ED19DDD12600BB254A /* 722-location-pin-toolbar@3x.png */,
@@ -621,6 +657,7 @@
 				F8641C9F19BF662400C4E8AF /* 755-filing-cabinet@2x.png in Resources */,
 				F89C556519CAEB9700E61A1E /* 851-calendar@3x.png in Resources */,
 				F89C555719CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png in Resources */,
+				F8ADE80019DE12B10035D64E /* 706-cloud@2x.png in Resources */,
 				F8EA44FA19DDD12600BB254A /* 852-map.png in Resources */,
 				F8641CA019BF662400C4E8AF /* 1287-youtube.png in Resources */,
 				F89C556B19CAEC1100E61A1E /* 750-home@3x.png in Resources */,
@@ -628,18 +665,27 @@
 				F818C00619C8E5A8002A99C5 /* thumbnail_placeholder.png in Resources */,
 				F8641C9D19BF662400C4E8AF /* 724-info@2x.png in Resources */,
 				F89C556319CAEB7D00E61A1E /* 784-target@3x.png in Resources */,
+				F88615E519DE0F53000D1611 /* 816-satellite-toolbar@2x.png in Resources */,
+				F88615E819DE0F53000D1611 /* 881-globe-toolbar@2x.png in Resources */,
 				F8641C8819BF549400C4E8AF /* 895-user-group.png in Resources */,
+				F8ADE80119DE12B10035D64E /* 706-cloud@3x.png in Resources */,
 				F81BF39119C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png in Resources */,
 				F89C555D19CAEAFE00E61A1E /* 724-info@3x.png in Resources */,
+				F88615E219DE0F53000D1611 /* 715-globe-toolbar@2x.png in Resources */,
 				F89C555F19CAEB3200E61A1E /* 755-filing-cabinet@3x.png in Resources */,
 				F8180C8419BDCDF4008975BC /* Images.xcassets in Resources */,
+				F88615E319DE0F53000D1611 /* 715-globe-toolbar@3x.png in Resources */,
 				F8EA44F719DDD12600BB254A /* 845-location-target-toolbar.png in Resources */,
 				F8641C8919BF549400C4E8AF /* 895-user-group@2x.png in Resources */,
 				F8641C9819BF662400C4E8AF /* 715-globe.png in Resources */,
+				F8ADE7FF19DE12B10035D64E /* 706-cloud.png in Resources */,
 				F8EA44F819DDD12600BB254A /* 845-location-target-toolbar@2x.png in Resources */,
 				F8641C8519BF549400C4E8AF /* 851-calendar@2x.png in Resources */,
+				F88615E419DE0F53000D1611 /* 816-satellite-toolbar.png in Resources */,
+				F88615E919DE0F53000D1611 /* 881-globe-toolbar@3x.png in Resources */,
 				F89C555919CAEAB900E61A1E /* 715-globe@3x.png in Resources */,
 				F89C555B19CAEAE600E61A1E /* 723-location-arrow@3x.png in Resources */,
+				F88615E619DE0F53000D1611 /* 816-satellite-toolbar@3x.png in Resources */,
 				F8641C9C19BF662400C4E8AF /* 724-info.png in Resources */,
 				F8EA44F419DDD12600BB254A /* 722-location-pin-toolbar.png in Resources */,
 				F8641C9A19BF662400C4E8AF /* 723-location-arrow.png in Resources */,
@@ -651,9 +697,11 @@
 				F89C555519CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png in Resources */,
 				F8641C7319BF16B700C4E8AF /* 750-home.png in Resources */,
 				F81BF39019C74F55005C12D4 /* 766-arrow-right-toolbar.png in Resources */,
+				F88615E719DE0F53000D1611 /* 881-globe-toolbar.png in Resources */,
 				F8641C9919BF662400C4E8AF /* 715-globe@2x.png in Resources */,
 				F8641C9B19BF662400C4E8AF /* 723-location-arrow@2x.png in Resources */,
 				F8641C8619BF549400C4E8AF /* 858-line-chart.png in Resources */,
+				F88615E119DE0F53000D1611 /* 715-globe-toolbar.png in Resources */,
 				F8641C8D19BF5BEA00C4E8AF /* 874-newspaper@2x.png in Resources */,
 				F8641C8219BF549400C4E8AF /* 784-target.png in Resources */,
 				F8641C8419BF549400C4E8AF /* 851-calendar.png in Resources */,
