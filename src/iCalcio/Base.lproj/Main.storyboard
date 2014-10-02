@@ -45,7 +45,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ByE-2J-5hr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930" y="-574"/>
+            <point key="canvasLocation" x="1872" y="-771.5"/>
         </scene>
         <!--HomeNavigation-->
         <scene sceneID="PG8-YS-Fdl">
@@ -62,14 +62,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWT-C3-IRv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978" y="-521"/>
+            <point key="canvasLocation" x="954" y="-741.5"/>
         </scene>
         <!--News-->
         <scene sceneID="N4b-L6-Que">
             <objects>
                 <tableViewController title="News" id="LeO-vG-EYA" customClass="NewsViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3Mj-cI-AyK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -106,7 +106,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9GT-ZW-K6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1955" y="329"/>
+            <point key="canvasLocation" x="2139" y="343"/>
         </scene>
         <!--NewsNavigation-->
         <scene sceneID="yxy-T1-rJa">
@@ -123,14 +123,47 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fuA-4o-CWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="871" y="349"/>
+            <point key="canvasLocation" x="1289" y="325"/>
+        </scene>
+        <!--Web Container-->
+        <scene sceneID="2iw-3a-g8g">
+            <objects>
+                <viewController title="Web Container" id="sDA-3J-UVr" customClass="BannerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mDc-I2-dkf"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Tb-JU-e5y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CGX-MG-cdl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6d-6E-ChI">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <segue destination="hDV-Ng-kmc" kind="embed" identifier="embedWeb" id="b99-FW-siA"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c6d-6E-ChI" firstAttribute="top" secondItem="CGX-MG-cdl" secondAttribute="topMargin" id="E7t-Ve-HTF"/>
+                            <constraint firstItem="3Tb-JU-e5y" firstAttribute="top" secondItem="c6d-6E-ChI" secondAttribute="bottom" id="erB-d4-08F"/>
+                            <constraint firstItem="c6d-6E-ChI" firstAttribute="leading" secondItem="CGX-MG-cdl" secondAttribute="leadingMargin" constant="-16" id="lsx-4a-VEF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="c6d-6E-ChI" secondAttribute="trailing" constant="-16" id="vJl-A2-0P6"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Web" image="715-globe" id="4hY-r6-b7O"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dwn-kp-f5Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="903" y="1132"/>
         </scene>
         <!--Web-->
         <scene sceneID="fDh-5T-E8D">
             <objects>
                 <tableViewController title="Web" id="QA4-aV-uv4" customClass="WebLinksViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="biR-SH-E3y">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -167,7 +200,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlR-Sn-eoW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1889" y="1165"/>
+            <point key="canvasLocation" x="2489" y="1185"/>
         </scene>
         <!--WebBrowser-->
         <scene sceneID="i6E-Gm-HjB">
@@ -178,7 +211,7 @@
                         <viewControllerLayoutGuide type="bottom" id="BYi-9m-hr3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uvk-jP-Jww">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6P2-SL-dwp">
@@ -204,14 +237,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3c-Vb-DqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2670" y="1177"/>
+            <point key="canvasLocation" x="3414" y="1088.5"/>
         </scene>
         <!--Channels-->
         <scene sceneID="lfq-3L-4aC">
             <objects>
                 <tableViewController title="Channels" id="78a-A7-W0R" customClass="ChannelsViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bLA-gS-nkM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -255,7 +288,7 @@
             <objects>
                 <tableViewController title="ChannelVideos" id="0lt-lI-VYJ" customClass="ChannelVideosViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oIN-HM-Jti">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -302,11 +335,11 @@
                         <viewControllerLayoutGuide type="bottom" id="GLG-lx-Pl8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LHN-MC-ols">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdt-yL-q0h" customClass="YTPlayerView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -577,14 +610,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jge-Kx-oqs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2918" y="404"/>
+            <point key="canvasLocation" x="2952" y="95.5"/>
         </scene>
         <!--About-->
         <scene sceneID="ZMC-86-wWk">
             <objects>
                 <tableViewController title="About" id="jjF-1q-FnL" customClass="AboutTableViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rnr-L2-MN3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -604,7 +637,40 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHd-bI-tVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1551" y="3732"/>
+            <point key="canvasLocation" x="-508" y="2929.5"/>
+        </scene>
+        <!--About Container-->
+        <scene sceneID="v6N-Sk-8tq">
+            <objects>
+                <viewController title="About Container" id="Fh6-La-mlm" customClass="BannerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CEv-RV-zlM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lxw-eg-qNf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZGf-3j-60T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocD-Na-6hq">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <segue destination="89j-ep-TbF" kind="embed" identifier="embedAbout" id="1g8-qx-ykB"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ocD-Na-6hq" firstAttribute="leading" secondItem="ZGf-3j-60T" secondAttribute="leadingMargin" constant="-16" id="GVx-DJ-c7B"/>
+                            <constraint firstItem="Lxw-eg-qNf" firstAttribute="top" secondItem="ocD-Na-6hq" secondAttribute="bottom" id="PlV-pV-QMc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ocD-Na-6hq" secondAttribute="trailing" constant="-16" id="tEo-D6-1Fw"/>
+                            <constraint firstItem="ocD-Na-6hq" firstAttribute="top" secondItem="ZGf-3j-60T" secondAttribute="topMargin" id="yJC-vZ-Ea9"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="About" image="724-info" id="0nx-Dh-T1w"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0qH-Nx-jns" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-668" y="1107"/>
         </scene>
         <!--AboutNavigation-->
         <scene sceneID="LpS-zZ-OVY">
@@ -621,7 +687,40 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4k-0Q-giO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="495" y="3716"/>
+            <point key="canvasLocation" x="-508" y="2095.5"/>
+        </scene>
+        <!--Video Container-->
+        <scene sceneID="naZ-b2-R4S">
+            <objects>
+                <viewController title="Video Container" id="HsX-Df-jDd" customClass="BannerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eIT-tl-o1D"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Qy-5l-cwz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2B4-r9-tma">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTZ-d9-2hd">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <segue destination="k4u-rJ-z9s" kind="embed" identifier="embedVideo" id="UEu-He-fus"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TTZ-d9-2hd" firstAttribute="leading" secondItem="2B4-r9-tma" secondAttribute="leadingMargin" constant="-16" id="O9Z-7s-2VN"/>
+                            <constraint firstItem="5Qy-5l-cwz" firstAttribute="top" secondItem="TTZ-d9-2hd" secondAttribute="bottom" id="Rgv-Xt-tz3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TTZ-d9-2hd" secondAttribute="trailing" constant="-16" id="cXx-HM-vAx"/>
+                            <constraint firstItem="TTZ-d9-2hd" firstAttribute="top" secondItem="2B4-r9-tma" secondAttribute="topMargin" id="kkG-pQ-SiW"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Video" image="1287-youtube" id="il1-FT-wdc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="njG-xE-Zan" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="244" y="2006"/>
         </scene>
         <!--VideoNavigation-->
         <scene sceneID="DhU-U0-rC1">
@@ -655,7 +754,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3n-EB-tZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077" y="1149"/>
+            <point key="canvasLocation" x="1721" y="1193"/>
         </scene>
         <!--Home Container-->
         <scene sceneID="dsW-VE-i0i">
@@ -688,7 +787,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pte-Ku-8kQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-555" y="-511"/>
+            <point key="canvasLocation" x="-245" y="-747"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -702,15 +801,48 @@
                     </tabBar>
                     <connections>
                         <segue destination="vbn-4i-ZwV" kind="relationship" relationship="viewControllers" id="Oct-6g-X9d"/>
-                        <segue destination="Z8v-dZ-Efy" kind="relationship" relationship="viewControllers" id="LYw-wl-ul7"/>
-                        <segue destination="hDV-Ng-kmc" kind="relationship" relationship="viewControllers" id="c4r-Mj-6U5"/>
-                        <segue destination="k4u-rJ-z9s" kind="relationship" relationship="viewControllers" id="tyb-7F-VxQ"/>
-                        <segue destination="89j-ep-TbF" kind="relationship" relationship="viewControllers" id="nlJ-Ew-NLa"/>
+                        <segue destination="Urd-nA-Xhx" kind="relationship" relationship="viewControllers" id="f2l-Bc-nfc"/>
+                        <segue destination="HsX-Df-jDd" kind="relationship" relationship="viewControllers" id="uPs-5x-HMp"/>
+                        <segue destination="sDA-3J-UVr" kind="relationship" relationship="viewControllers" id="qap-ah-vs6"/>
+                        <segue destination="Fh6-La-mlm" kind="relationship" relationship="viewControllers" id="mz4-ov-LsV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-342" y="318"/>
+        </scene>
+        <!--News Container-->
+        <scene sceneID="VpT-u2-5Ew">
+            <objects>
+                <viewController title="News Container" id="Urd-nA-Xhx" customClass="BannerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RBE-N7-6BW"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fm-4D-JRi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sZE-0a-pi4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFa-Hf-Fdh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <segue destination="Z8v-dZ-Efy" kind="embed" identifier="embedNews" id="5Zk-Ve-yL4"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="CFa-Hf-Fdh" secondAttribute="trailing" constant="-16" id="VPZ-Lz-dHA"/>
+                            <constraint firstItem="CFa-Hf-Fdh" firstAttribute="leading" secondItem="sZE-0a-pi4" secondAttribute="leadingMargin" constant="-16" id="rUv-71-k7b"/>
+                            <constraint firstItem="2fm-4D-JRi" firstAttribute="top" secondItem="CFa-Hf-Fdh" secondAttribute="bottom" id="w6i-ze-Wee"/>
+                            <constraint firstItem="CFa-Hf-Fdh" firstAttribute="top" secondItem="sZE-0a-pi4" secondAttribute="topMargin" id="yTj-TP-wEJ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="News" image="874-newspaper" id="nt3-94-CoV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yUz-6b-nK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="408" y="-60"/>
         </scene>
     </scenes>
     <resources>
@@ -721,6 +853,6 @@
         <image name="874-newspaper" width="250" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="atQ-fV-rpO"/>
+        <segue reference="dRi-S3-cLM"/>
     </inferredMetricsTieBreakers>
 </document>
