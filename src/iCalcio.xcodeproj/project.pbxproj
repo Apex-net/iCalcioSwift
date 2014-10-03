@@ -100,6 +100,8 @@
 		F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3246019B8C6D4002F93CF /* AppDelegate.swift */; };
 		F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F3246619B8C6D4002F93CF /* Main.storyboard */; };
 		F8F3247619B8C6D4002F93CF /* iCalcioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */; };
+		F8FF1D9119DE803F0070DA08 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8516D0419C0453B00761A6B /* Alamofire.framework */; };
+		F8FF1D9219DE803F0070DA08 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8516D0419C0453B00761A6B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,7 +133,28 @@
 			remoteGlobalIDString = F8F3245A19B8C6D4002F93CF;
 			remoteInfo = iCalcio;
 		};
+		F8FF1D9319DE803F0070DA08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8516CF419C0451200761A6B /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F8FF1D9519DE803F0070DA08 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F8FF1D9219DE803F0070DA08 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		78C12538DDB2422AAB734368 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -246,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8EA44EA19DDAEBA00BB254A /* MapKit.framework in Frameworks */,
+				F8FF1D9119DE803F0070DA08 /* Alamofire.framework in Frameworks */,
 				5C924DF630A14031852F7F74 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,11 +577,13 @@
 				F8F3245819B8C6D4002F93CF /* Frameworks */,
 				F8F3245919B8C6D4002F93CF /* Resources */,
 				7395C4A668C64F8D8B489198 /* Copy Pods Resources */,
+				F8FF1D9519DE803F0070DA08 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				F8516D0B19C04CD400761A6B /* PBXTargetDependency */,
+				F8FF1D9419DE803F0070DA08 /* PBXTargetDependency */,
 			);
 			name = iCalcio;
 			productName = iCalcio;
@@ -816,6 +842,11 @@
 			isa = PBXTargetDependency;
 			target = F8F3245A19B8C6D4002F93CF /* iCalcio */;
 			targetProxy = F8F3247019B8C6D4002F93CF /* PBXContainerItemProxy */;
+		};
+		F8FF1D9419DE803F0070DA08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = F8FF1D9319DE803F0070DA08 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

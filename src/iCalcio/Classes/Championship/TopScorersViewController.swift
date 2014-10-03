@@ -120,17 +120,21 @@ class TopScorersViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("TopScorer", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
-        let player = self.topScorersList[indexPath.section].players[indexPath.row]
+        
+        var player:Player?
+        if self.self.topScorersList.count > 0 {
+            player = self.topScorersList[indexPath.section].players[indexPath.row]
+        }
         
         // set texts
-        cell.textLabel!.text = player.name
-        cell.detailTextLabel!.text = player.team
+        cell.textLabel!.text = player?.name
+        cell.detailTextLabel!.text = player?.team
         
         // set font for my team
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let teamName:String = appDelegate.teamName
-        let currentTeamName:String = player.team!
-        if currentTeamName.lowercaseString.rangeOfString(teamName.lowercaseString) != nil {
+        let currentTeamName:String? = player?.team
+        if currentTeamName?.lowercaseString.rangeOfString(teamName.lowercaseString) != nil {
             cell.textLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
             cell.detailTextLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         } else {

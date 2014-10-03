@@ -6,9 +6,7 @@
 	<string>$(TEAM_NAME)</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location is required to find out where you are</string>
-	<key>NSLocationAlwaysUsageDescription
-NSLocationAlwaysUsageDescription
-</key>
+	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Location is required to find out where you are</string>
 	<key>ANUrlTeamName</key>
 	<string>$(URL_TEAM_NAME)</string>
