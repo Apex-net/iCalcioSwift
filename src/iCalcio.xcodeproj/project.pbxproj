@@ -102,6 +102,13 @@
 		F8F3247619B8C6D4002F93CF /* iCalcioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */; };
 		F8FF1D9119DE803F0070DA08 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8516D0419C0453B00761A6B /* Alamofire.framework */; };
 		F8FF1D9219DE803F0070DA08 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8516D0419C0453B00761A6B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8FF1D9719DEB9230070DA08 /* about-team.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1D9619DEB9230070DA08 /* about-team.png */; };
+		F8FF1DAA19DF04530070DA08 /* 730-envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1DA419DF04530070DA08 /* 730-envelope.png */; };
+		F8FF1DAB19DF04530070DA08 /* 730-envelope@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1DA519DF04530070DA08 /* 730-envelope@2x.png */; };
+		F8FF1DAC19DF04530070DA08 /* 730-envelope@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1DA619DF04530070DA08 /* 730-envelope@3x.png */; };
+		F8FF1DAD19DF04530070DA08 /* 1289-appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1DA719DF04530070DA08 /* 1289-appstore.png */; };
+		F8FF1DAE19DF04530070DA08 /* 1289-appstore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1DA819DF04530070DA08 /* 1289-appstore@2x.png */; };
+		F8FF1DAF19DF04530070DA08 /* 1289-appstore@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1DA919DF04530070DA08 /* 1289-appstore@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -261,6 +268,13 @@
 		F8F3246F19B8C6D4002F93CF /* iCalcioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCalcioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F3247419B8C6D4002F93CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCalcioTests.swift; sourceTree = "<group>"; };
+		F8FF1D9619DEB9230070DA08 /* about-team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about-team.png"; path = "../../iCalcioSwift/resources/images/about-team.png"; sourceTree = "<group>"; };
+		F8FF1DA419DF04530070DA08 /* 730-envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "730-envelope.png"; path = "../../iCalcioSwift/resources/images/730-envelope.png"; sourceTree = "<group>"; };
+		F8FF1DA519DF04530070DA08 /* 730-envelope@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "730-envelope@2x.png"; path = "../../iCalcioSwift/resources/images/730-envelope@2x.png"; sourceTree = "<group>"; };
+		F8FF1DA619DF04530070DA08 /* 730-envelope@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "730-envelope@3x.png"; path = "../../iCalcioSwift/resources/images/730-envelope@3x.png"; sourceTree = "<group>"; };
+		F8FF1DA719DF04530070DA08 /* 1289-appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1289-appstore.png"; path = "../../iCalcioSwift/resources/images/1289-appstore.png"; sourceTree = "<group>"; };
+		F8FF1DA819DF04530070DA08 /* 1289-appstore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1289-appstore@2x.png"; path = "../../iCalcioSwift/resources/images/1289-appstore@2x.png"; sourceTree = "<group>"; };
+		F8FF1DA919DF04530070DA08 /* 1289-appstore@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1289-appstore@3x.png"; path = "../../iCalcioSwift/resources/images/1289-appstore@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,7 +432,14 @@
 			isa = PBXGroup;
 			children = (
 				F89C555219CAE9DE00E61A1E /* iTunesArtwork@2x */,
+				F8FF1D9619DEB9230070DA08 /* about-team.png */,
 				F818C00519C8E5A8002A99C5 /* thumbnail_placeholder.png */,
+				F8FF1DA419DF04530070DA08 /* 730-envelope.png */,
+				F8FF1DA519DF04530070DA08 /* 730-envelope@2x.png */,
+				F8FF1DA619DF04530070DA08 /* 730-envelope@3x.png */,
+				F8FF1DA719DF04530070DA08 /* 1289-appstore.png */,
+				F8FF1DA819DF04530070DA08 /* 1289-appstore@2x.png */,
+				F8FF1DA919DF04530070DA08 /* 1289-appstore@3x.png */,
 				F8ADE7FC19DE12B10035D64E /* 706-cloud.png */,
 				F8ADE7FD19DE12B10035D64E /* 706-cloud@2x.png */,
 				F8ADE7FE19DE12B10035D64E /* 706-cloud@3x.png */,
@@ -699,12 +720,14 @@
 				F89C555D19CAEAFE00E61A1E /* 724-info@3x.png in Resources */,
 				F88615E219DE0F53000D1611 /* 715-globe-toolbar@2x.png in Resources */,
 				F89C555F19CAEB3200E61A1E /* 755-filing-cabinet@3x.png in Resources */,
+				F8FF1DAF19DF04530070DA08 /* 1289-appstore@3x.png in Resources */,
 				F8180C8419BDCDF4008975BC /* Images.xcassets in Resources */,
 				F88615E319DE0F53000D1611 /* 715-globe-toolbar@3x.png in Resources */,
 				F8EA44F719DDD12600BB254A /* 845-location-target-toolbar.png in Resources */,
 				F8641C8919BF549400C4E8AF /* 895-user-group@2x.png in Resources */,
 				F8641C9819BF662400C4E8AF /* 715-globe.png in Resources */,
 				F8ADE7FF19DE12B10035D64E /* 706-cloud.png in Resources */,
+				F8FF1D9719DEB9230070DA08 /* about-team.png in Resources */,
 				F8EA44F819DDD12600BB254A /* 845-location-target-toolbar@2x.png in Resources */,
 				F8641C8519BF549400C4E8AF /* 851-calendar@2x.png in Resources */,
 				F88615E419DE0F53000D1611 /* 816-satellite-toolbar.png in Resources */,
@@ -719,13 +742,17 @@
 				F8EA44F519DDD12600BB254A /* 722-location-pin-toolbar@2x.png in Resources */,
 				F8641C9E19BF662400C4E8AF /* 755-filing-cabinet.png in Resources */,
 				F8EA44FB19DDD12600BB254A /* 852-map@2x.png in Resources */,
+				F8FF1DAD19DF04530070DA08 /* 1289-appstore.png in Resources */,
+				F8FF1DAE19DF04530070DA08 /* 1289-appstore@2x.png in Resources */,
 				F8ED42FF19C878E0007FD7F8 /* Urls.plist in Resources */,
 				F89C555519CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png in Resources */,
 				F8641C7319BF16B700C4E8AF /* 750-home.png in Resources */,
 				F81BF39019C74F55005C12D4 /* 766-arrow-right-toolbar.png in Resources */,
 				F88615E719DE0F53000D1611 /* 881-globe-toolbar.png in Resources */,
+				F8FF1DAC19DF04530070DA08 /* 730-envelope@3x.png in Resources */,
 				F8641C9919BF662400C4E8AF /* 715-globe@2x.png in Resources */,
 				F8641C9B19BF662400C4E8AF /* 723-location-arrow@2x.png in Resources */,
+				F8FF1DAA19DF04530070DA08 /* 730-envelope.png in Resources */,
 				F8641C8619BF549400C4E8AF /* 858-line-chart.png in Resources */,
 				F88615E119DE0F53000D1611 /* 715-globe-toolbar.png in Resources */,
 				F8641C8D19BF5BEA00C4E8AF /* 874-newspaper@2x.png in Resources */,
@@ -737,6 +764,7 @@
 				F8641C8319BF549400C4E8AF /* 784-target@2x.png in Resources */,
 				F8641C7419BF16B700C4E8AF /* 750-home@2x.png in Resources */,
 				F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */,
+				F8FF1DAB19DF04530070DA08 /* 730-envelope@2x.png in Resources */,
 				F89C556719CAEBAE00E61A1E /* 858-line-chart@3x.png in Resources */,
 				F8641CA119BF662400C4E8AF /* 1287-youtube@2x.png in Resources */,
 				F89C556119CAEB5B00E61A1E /* 874-newspaper@3x.png in Resources */,

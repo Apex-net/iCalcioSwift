@@ -7,14 +7,32 @@
 //
 
 import UIKit
+import MessageUI
 
-class AboutTableViewController: UITableViewController {
-
+class AboutTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+    
+    @IBOutlet weak var appName: UILabel!
+    @IBOutlet weak var version: UILabel!
+    
+    @IBOutlet weak var mailto: UIButton!
+    @IBOutlet weak var appStore: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // title
         self.navigationItem.title = NSLocalizedString("About", comment: "")
+        
+        // init cell values
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        if !appDelegate.appName.isEmpty {
+            self.appName.text = appDelegate.appName
+        }
+        if !appDelegate.appVersion.isEmpty {
+            self.version.text = NSLocalizedString("Versione", comment: "") + ": " + appDelegate.appVersion
+        }
+        self.mailto.setTitle(NSLocalizedString("Contattaci", comment: ""), forState: UIControlState.Normal)
+        self.appStore.setTitle(NSLocalizedString("Vai sull'App Store", comment: ""), forState: UIControlState.Normal)
         
     }
 
@@ -24,63 +42,47 @@ class AboutTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    // no, there are some static cells
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // Return the number of sections.
-        return 1
+    // MARK: - Actions
+    @IBAction func didMailto(sender: AnyObject) {
+        // open email composer
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
-        return 3
-    }
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("About", forIndexPath: indexPath) as UITableViewCell
-
-        // Configure the cell...
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        // todo
+        mailComposerVC.setToRecipients(["info@apexnet.it"])
+        mailComposerVC.setSubject(NSLocalizedString("Richiesta informazioni", comment: ""))
+        let appname = self.appName.text!
+        let version = self.version.text!
+        mailComposerVC.setMessageBody("\(appname) - \(version)", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+
+    @IBAction func didAppleStore(sender: AnyObject) {
+        // go to Apple store
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        cell.textLabel?.text = appDelegate.appName + " todo..."
-
-        return cell
+        UIApplication.sharedApplication().openURL(NSURL(string: appDelegate.appAppleStoreURL))
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView!, moveRowAtIndexPath fromIndexPath: NSIndexPath!, toIndexPath: NSIndexPath!) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView!, canMoveRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

@@ -7,7 +7,7 @@
 //
 
 // iCesena TestFlight release config
-TEST_POSTFIX_BUNDLE = Test
-TEST_PREFIX_NAME = Test
+//TEST_POSTFIX_BUNDLE = Test
+//TEST_PREFIX_NAME = Test
 //APP_TESTFLIGHT_TOKEN = ...
 

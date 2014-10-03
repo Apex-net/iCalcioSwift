@@ -630,28 +630,98 @@
         <scene sceneID="ZMC-86-wWk">
             <objects>
                 <tableViewController title="About" id="jjF-1q-FnL" customClass="AboutTableViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Rnr-L2-MN3">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Rnr-L2-MN3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="About" id="4w7-vN-wKa">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4w7-vN-wKa" id="W5c-cW-pJA">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="VTA-wm-2QI" userLabel="App Section">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="About" rowHeight="100" id="4w7-vN-wKa">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4w7-vN-wKa" id="W5c-cW-pJA">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="about-team.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Xb-pO-IrU">
+                                                    <rect key="frame" x="8" y="8" width="80" height="80"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqx-Kb-fBz">
+                                                    <rect key="frame" x="126" y="26" width="206" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yq-Y5-KJg">
+                                                    <rect key="frame" x="126" y="55" width="206" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="L21-Dg-CHj" userLabel="Actions Section">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MailToUs" rowHeight="64" id="JUy-6q-qHA">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JUy-6q-qHA" id="n3q-lc-00g">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="730-envelope@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="tOp-sk-6Qo">
+                                                    <rect key="frame" x="26" y="14" width="48" height="35"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4f-fh-J8k">
+                                                    <rect key="frame" x="129" y="17" width="123" height="30"/>
+                                                    <state key="normal" title="Mailto">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didMailto:" destination="jjF-1q-FnL" eventType="touchUpInside" id="fnL-bN-ATm"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AppleStore" rowHeight="64" id="VeC-U0-S6o">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VeC-U0-S6o" id="Jz7-cU-KwV">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1289-appstore@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yec-cl-vJT">
+                                                    <rect key="frame" x="27" y="10" width="44" height="44"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zuw-u8-ZIs">
+                                                    <rect key="frame" x="125" y="17" width="129" height="30"/>
+                                                    <state key="normal" title="App Store">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didAppleStore:" destination="jjF-1q-FnL" eventType="touchUpInside" id="YMF-5w-YsX"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="jjF-1q-FnL" id="AEl-cd-M7G"/>
                             <outlet property="delegate" destination="jjF-1q-FnL" id="D84-6R-gmi"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="Nnw-8h-GRD"/>
+                    <connections>
+                        <outlet property="appName" destination="nqx-Kb-fBz" id="Hzy-EP-9HN"/>
+                        <outlet property="appStore" destination="Zuw-u8-ZIs" id="Eo7-Dp-KFZ"/>
+                        <outlet property="mailto" destination="L4f-fh-J8k" id="eLG-r3-3UJ"/>
+                        <outlet property="version" destination="2Yq-Y5-KJg" id="iUd-5S-5d8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHd-bI-tVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1396" y="2893.5"/>
+            <point key="canvasLocation" x="-1368" y="2892.5"/>
         </scene>
         <!--About Container-->
         <scene sceneID="v6N-Sk-8tq">
@@ -861,11 +931,14 @@
     </scenes>
     <resources>
         <image name="1287-youtube" width="250" height="40"/>
+        <image name="1289-appstore@3x.png" width="84" height="84"/>
         <image name="706-cloud" width="30" height="30"/>
         <image name="715-globe" width="250" height="40"/>
         <image name="724-info" width="250" height="40"/>
+        <image name="730-envelope@3x.png" width="84" height="54"/>
         <image name="750-home" width="30" height="30"/>
         <image name="874-newspaper" width="250" height="40"/>
+        <image name="about-team.png" width="152" height="152"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dRi-S3-cLM"/>

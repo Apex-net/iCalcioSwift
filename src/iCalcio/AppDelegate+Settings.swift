@@ -12,8 +12,7 @@ import Alamofire
 extension AppDelegate
 {
 
-    var appName : String
-        {
+    var appName : String{
             let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)
             let keyValue : AnyObject = dict.valueForKey("CFBundleDisplayName")!
@@ -22,10 +21,31 @@ extension AppDelegate
                 stringNative = nsString as String
             }
             return stringNative;
-        }
+    }
     
-    var apiBaseUrl : String
-        {
+    var appVersion : String{
+        let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
+            let dict = NSDictionary(contentsOfFile: path!)
+            let keyValue : AnyObject = dict.valueForKey("CFBundleVersion")!
+            var stringNative :String = String()
+            if let nsString:NSString = keyValue as? NSString{
+                stringNative = nsString as String
+            }
+            return stringNative;
+    }
+    
+    var appAppleStoreURL : String{
+        let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
+            let dict = NSDictionary(contentsOfFile: path!)
+            let keyValue : AnyObject = dict.valueForKey("AppStoreURL")!
+            var stringNative :String = String()
+            if let nsString:NSString = keyValue as? NSString{
+                stringNative = nsString as String
+            }
+            return stringNative;
+    }
+    
+    var apiBaseUrl : String{
             let path = NSBundle.mainBundle().pathForResource("Urls", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)
             let keyValue : AnyObject = dict.valueForKey("ANBaseUrl")!
@@ -44,8 +64,7 @@ extension AppDelegate
             return stringNative + "/" + stringNativeInfo;
     }
 
-    var teamName : String
-        {
+    var teamName : String{
             let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)
             let keyValue : AnyObject = dict.valueForKey("ANTeamName")!
