@@ -12,6 +12,8 @@ class DetailPlayerViewController: UITableViewController {
 
     var player: Player!
     
+    private var sectionsList : [[[String : String]]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,6 +21,9 @@ class DetailPlayerViewController: UITableViewController {
         self.navigationItem.title = self.player.name
         
         // todo : fill tableview cells with Player
+        
+        // Set Data
+        self.prepareArrayForTable()
 
     }
 
@@ -26,17 +31,54 @@ class DetailPlayerViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Set Data for Table view
+    
+    private func prepareArrayForTable() {
+        
+        self.sectionsList.removeAll()
+        
+        // Append some arrays
+        var item : [String : String] = [:]
+        var playerItems : [[String : String]] = []
+        
+        if let team = self.player.team {
+            item = ["text" : NSLocalizedString("Squadra", comment: ""),  "detailText" : team, "iSNote": "No"]
+            playerItems.append(item)
+        }
+        if let goals = self.player.goals {
+            item = ["text" : NSLocalizedString("Goals", comment: ""),  "detailText" : goals, "iSNote": "No"]
+            playerItems.append(item)
+        }
+        if let born = self.player.born {
+            item = ["text" : NSLocalizedString("Nato", comment: ""),  "detailText" : born, "iSNote": "No"]
+            playerItems.append(item)
+        }
+        if let weight = self.player.weight {
+            item = ["text" : NSLocalizedString("Peso", comment: ""),  "detailText" : weight, "iSNote": "No"]
+            playerItems.append(item)
+        }
+        if let description = self.player.description {
+            item = ["text" : NSLocalizedString("Note", comment: ""),  "detailText" : description, "iSNote": "Yes"]
+            playerItems.append(item)
+        }
+        
+        self.sectionsList.append(playerItems)
+        
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
-        return 1
+        let sections = self.sectionsList.count
+        return sections
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 0
+        let rows = self.sectionsList[section].count
+        return rows
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -44,7 +86,34 @@ class DetailPlayerViewController: UITableViewController {
 
         // Configure the cell...
 
+        // get data for the cell
+        let dict = self.sectionsList[indexPath.section][indexPath.row]
+        
+        // set text
+        cell.textLabel!.text = dict["text"]
+
+        cell.detailTextLabel!.text = dict["detailText"]
+        cell.detailTextLabel?.numberOfLines = 1
+        if dict["iSNote"] == "Yes" {
+            cell.detailTextLabel?.numberOfLines = 6
+            let detailText : NSString = dict["detailText"]!
+            cell.detailTextLabel!.text = detailText.stringByConvertingHTMLToPlainText()
+            cell.detailTextLabel?.sizeToFit()
+        }
+        
         return cell
+    }
+    
+    // MARK: - Table view delegate
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        var myHeight: CGFloat = 50
+        let dict = self.sectionsList[indexPath.section][indexPath.row]
+        if dict["iSNote"] == "Yes" {
+            myHeight = 140
+        }
+        
+        return myHeight
     }
 
     /*

@@ -81,7 +81,6 @@ class HomeViewController: UITableViewController {
         // Return the number of rows in the section.
 
         let rows = self.sectionsList[section].count
-        
         return rows
     }
 
