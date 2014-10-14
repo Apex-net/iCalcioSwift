@@ -164,7 +164,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		78C12538DDB2422AAB734368 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8F7183084E45485AAF92B2A9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F802194219DD3E35006D4E6A /* BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
 		F802194319DD3E35006D4E6A /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
@@ -243,7 +242,7 @@
 		F8ADE7FD19DE12B10035D64E /* 706-cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "706-cloud@2x.png"; path = "../../iCalcioSwift/resources/images/706-cloud@2x.png"; sourceTree = "<group>"; };
 		F8ADE7FE19DE12B10035D64E /* 706-cloud@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "706-cloud@3x.png"; path = "../../iCalcioSwift/resources/images/706-cloud@3x.png"; sourceTree = "<group>"; };
 		F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		F8BFE87019B9E1AE003BB4AC /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Settings.swift"; sourceTree = "<group>"; };
 		F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeVideo.swift; sourceTree = "<group>"; };
 		F8D2F86919DC0B13000A1478 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
@@ -306,6 +305,13 @@
 				8F7183084E45485AAF92B2A9 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89DD0FB3B86FBD69F68011AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		F802194019DD3E02006D4E6A /* Banners */ = {
@@ -526,6 +532,7 @@
 				F8F3247219B8C6D4002F93CF /* iCalcioTests */,
 				F8F3245C19B8C6D4002F93CF /* Products */,
 				47FE327F5A664C7FB398C774 /* Frameworks */,
+				89DD0FB3B86FBD69F68011AE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -562,8 +569,7 @@
 			children = (
 				F8180C7D19BDCA2D008975BC /* ReleaseConfig.xcconfig */,
 				F8F3245F19B8C6D4002F93CF /* Info.plist */,
-				F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */,
-				78C12538DDB2422AAB734368 /* Pods.xcconfig */,
+				F8BFE87019B9E1AE003BB4AC /* DebugConfig.xcconfig */,
 				F880B3C319C99844000E1F62 /* iCalcio-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
@@ -796,7 +802,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CAACB71067E94FDF8BBC165B /* Check Pods Manifest.lock */ = {
@@ -973,7 +979,7 @@
 		};
 		F8F3247A19B8C6D4002F93CF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */;
+			baseConfigurationReference = F8BFE87019B9E1AE003BB4AC /* DebugConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -991,7 +997,7 @@
 		};
 		F8F3247B19B8C6D4002F93CF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */;
+			baseConfigurationReference = F8180C7D19BDCA2D008975BC /* ReleaseConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1008,7 +1014,7 @@
 		};
 		F8F3247D19B8C6D4002F93CF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */;
+			baseConfigurationReference = F8BFE87019B9E1AE003BB4AC /* DebugConfig.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1028,7 +1034,7 @@
 		};
 		F8F3247E19B8C6D4002F93CF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8BFE87019B9E1AE003BB4AC /* Config.xcconfig */;
+			baseConfigurationReference = F8180C7D19BDCA2D008975BC /* ReleaseConfig.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

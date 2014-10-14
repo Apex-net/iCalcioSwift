@@ -18,4 +18,4 @@ SPEC CHECKSUMS:
   MWFeedParser: 003cbf5398e99a7f2057fbe9583054fd1b84be72
   youtube-ios-player-helper: 53aecd0b4763a77e6890e9a7c55abb7b5c4bedea
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.34.2

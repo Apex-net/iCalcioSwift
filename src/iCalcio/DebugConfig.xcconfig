@@ -6,12 +6,11 @@
 //  Copyright (c) 2014 Andrea Calisesi. All rights reserved.
 //
 
-#include "ReleaseConfig.xcconfig"
-#include "../Pods/Pods.xcconfig"
+#include "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"
 
-PRODUCT_NAME = ${TEST_PREFIX_NAME}iCesena
-BUNDLE_IDENTIFIER = com.apex-net.iCesena${TEST_POSTFIX_BUNDLE}
-BUNDLE_DISPLAY_NAME = ${TEST_PREFIX_NAME}iCesena
+PRODUCT_NAME = iCesena
+BUNDLE_IDENTIFIER = com.apex-net.iCesena
+BUNDLE_DISPLAY_NAME = iCesena
 
 TEAM_NAME = Cesena
 URL_TEAM_NAME = Cesena
