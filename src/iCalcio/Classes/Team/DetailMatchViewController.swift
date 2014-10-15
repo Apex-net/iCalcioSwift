@@ -12,7 +12,7 @@ class DetailMatchViewController: UITableViewController {
 
     var match: Match!
     
-    private var actionsList : [(text: String, action: Actions)] = []
+    private var actionsList : [(text: String, action: Actions, image: String)] = []
     
     private enum Actions {
         case AddToCalendar, AddNotification, toStadium
@@ -45,9 +45,9 @@ class DetailMatchViewController: UITableViewController {
         self.actionsList.removeAll()
         
         // Append tuples to arrays
-        self.actionsList.append(text:NSLocalizedString("Aggiungi al calendario", comment: ""), action: Actions.AddToCalendar)
-        self.actionsList.append(text:NSLocalizedString("Aggiungi notifica", comment: ""), action: Actions.AddNotification)
-        self.actionsList.append(text:NSLocalizedString("Allo stadio", comment: ""), action: Actions.toStadium)
+        self.actionsList.append(text:NSLocalizedString("Aggiungi al calendario", comment: ""), action: Actions.AddToCalendar, image:"851-calendar")
+        self.actionsList.append(text:NSLocalizedString("Aggiungi notifica", comment: ""), action: Actions.AddNotification, image:"719-alarm-clock")
+        self.actionsList.append(text:NSLocalizedString("Allo stadio", comment: ""), action: Actions.toStadium, image:"701-location")
     
     }
 
@@ -72,6 +72,13 @@ class DetailMatchViewController: UITableViewController {
         
         // set texts
         cell.textLabel!.text = actionItem.text
+        cell.textLabel!.textAlignment = NSTextAlignment.Center
+        cell.textLabel!.textColor = UIColor.blueColor()
+        
+        // set image
+        var imageName : String =  actionItem.image
+        var image : UIImage = UIImage(named:imageName)
+        cell.imageView!.image = image
         
         return cell
     }
@@ -88,30 +95,85 @@ class DetailMatchViewController: UITableViewController {
         
         let actionItem = self.actionsList[indexPath.row]
 
-        // [!] todo
         switch actionItem.action {
         case Actions.AddToCalendar:
-            // Calendar
+            // Add a Calendar event
+            // [!] todo
             println("TODO AddToCalendar")
         case Actions.AddNotification:
-            // Notification
-            println("TODO AddNotification")
+            // Add a scheduled Notification
+            self.scheduleLocalNotification()
         case Actions.toStadium:
-            // Stadium
-            println("TODO toStadium")
+            // Navigation to Stadium
+            self.performSegueWithIdentifier("toStadiumMap", sender: nil)
         default:
             break
         }
+        
     }
     
-    /*
+    // MARK: - Actions management
+    private func scheduleLocalNotification() {
+        
+        // init UILocalNotification
+        var localNotification:UILocalNotification = UILocalNotification()
+        
+        // Local notification management
+        let dateTimeFormatter = NSDateFormatter()
+        dateTimeFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let myStringDateTime = "\(self.match.date) \(self.match.hour)"
+        var dateTimeEvent = dateTimeFormatter.dateFromString(myStringDateTime)
+        if (dateTimeEvent != nil) {
+            
+            // only for debug:
+            // let fireDate = NSDate().dateByAddingTimeInterval(10)
+            let fireDate = dateTimeEvent?.dateByAddingTimeInterval(-(15*60))
+            localNotification.fireDate = fireDate
+            localNotification.timeZone = NSTimeZone.defaultTimeZone()
+            localNotification.alertAction = NSLocalizedString("Dettagli", comment: "")
+            localNotification.alertBody = NSLocalizedString("La partita \(self.match.description) \(myStringDateTime) comincia tra 15 minuti", comment: "")
+            localNotification.category = "EVENTKEY_MATCH";
+            
+            // Local notification inserting: alert for user
+            let alertController = UIAlertController(title: NSLocalizedString("Notifica", comment: ""), message: NSLocalizedString("Vuoi aggiungere un avviso 15 minuti prima che inizi la partita?", comment: ""), preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                // Nothing
+                UIApplication.sharedApplication().cancelLocalNotification(localNotification)
+                println("Local notification: canceled")
+            }
+            alertController.addAction(cancelAction)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                // Add local notification
+                UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+                println("Local notification: inserted")
+            }
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true){
+                // Completion code
+            }
+            
+        }
+        
+        
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        let indexPath = self.tableView.indexPathForSelectedRow()
+        let actionItem = self.actionsList[indexPath!.row]
+        if segue.identifier == "toStadiumMap" {
+            let vc = segue.destinationViewController as StadiumMapViewController
+            vc.mapTitle = self.match.stadiumName!
+            vc.mapLatitude = self.match.latitude!
+            vc.mapLongitude = self.match.longitude!
+            
+        }
+        
     }
-    */
 
 }

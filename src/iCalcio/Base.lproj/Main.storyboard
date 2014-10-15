@@ -432,6 +432,9 @@
                             <outlet property="delegate" destination="gl3-SE-vs3" id="cX6-jZ-RS4"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="wKR-8s-Jkp" kind="show" identifier="toStadiumMap" id="odv-9E-RWy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wRK-Gf-tkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -942,5 +945,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dRi-S3-cLM"/>
+        <segue reference="odv-9E-RWy"/>
     </inferredMetricsTieBreakers>
 </document>

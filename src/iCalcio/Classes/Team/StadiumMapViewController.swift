@@ -111,16 +111,18 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     private func initStadiumLocation() {
         
         // set defaults
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let teamInformation = appDelegate.teamInformation
-        if let stadiumName = teamInformation?.stadiumName {
-            self.mapTitle = stadiumName
-        }
-        if let stadiumLongitude = teamInformation?.stadiumLongitude {
-            self.mapLongitude = stadiumLongitude
-        }
-        if let stadiumLatitude = teamInformation?.stadiumLatitude {
-            self.mapLatitude = stadiumLatitude
+        if mapTitle == String() {
+            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            let teamInformation = appDelegate.teamInformation
+            if let stadiumName = teamInformation?.stadiumName {
+                self.mapTitle = stadiumName
+            }
+            if let stadiumLongitude = teamInformation?.stadiumLongitude {
+                self.mapLongitude = stadiumLongitude
+            }
+            if let stadiumLatitude = teamInformation?.stadiumLatitude {
+                self.mapLatitude = stadiumLatitude
+            }
         }
         
         // set delegate mapview

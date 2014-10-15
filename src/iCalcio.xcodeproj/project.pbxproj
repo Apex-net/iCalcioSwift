@@ -60,6 +60,13 @@
 		F88615E719DE0F53000D1611 /* 881-globe-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615DE19DE0F53000D1611 /* 881-globe-toolbar.png */; };
 		F88615E819DE0F53000D1611 /* 881-globe-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615DF19DE0F53000D1611 /* 881-globe-toolbar@2x.png */; };
 		F88615E919DE0F53000D1611 /* 881-globe-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615E019DE0F53000D1611 /* 881-globe-toolbar@3x.png */; };
+		F88B191119ED3A0100FC7542 /* 701-location.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B190B19ED3A0100FC7542 /* 701-location.png */; };
+		F88B191219ED3A0100FC7542 /* 701-location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B190C19ED3A0100FC7542 /* 701-location@2x.png */; };
+		F88B191319ED3A0100FC7542 /* 701-location@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B190D19ED3A0100FC7542 /* 701-location@3x.png */; };
+		F88B191419ED3A0100FC7542 /* 719-alarm-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B190E19ED3A0100FC7542 /* 719-alarm-clock.png */; };
+		F88B191519ED3A0100FC7542 /* 719-alarm-clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B190F19ED3A0100FC7542 /* 719-alarm-clock@2x.png */; };
+		F88B191619ED3A0100FC7542 /* 719-alarm-clock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B191019ED3A0100FC7542 /* 719-alarm-clock@3x.png */; };
+		F88B191919ED7A0500FC7542 /* AppDelegate+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88B191819ED7A0500FC7542 /* AppDelegate+Notifications.swift */; };
 		F89C555519CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555419CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png */; };
 		F89C555719CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555619CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png */; };
 		F89C555919CAEAB900E61A1E /* 715-globe@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555819CAEAB900E61A1E /* 715-globe@3x.png */; };
@@ -221,6 +228,13 @@
 		F88615DE19DE0F53000D1611 /* 881-globe-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "881-globe-toolbar.png"; path = "../../iCalcioSwift/resources/images/881-globe-toolbar.png"; sourceTree = "<group>"; };
 		F88615DF19DE0F53000D1611 /* 881-globe-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "881-globe-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/881-globe-toolbar@2x.png"; sourceTree = "<group>"; };
 		F88615E019DE0F53000D1611 /* 881-globe-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "881-globe-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/881-globe-toolbar@3x.png"; sourceTree = "<group>"; };
+		F88B190B19ED3A0100FC7542 /* 701-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "701-location.png"; path = "../../iCalcioSwift/resources/images/701-location.png"; sourceTree = "<group>"; };
+		F88B190C19ED3A0100FC7542 /* 701-location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "701-location@2x.png"; path = "../../iCalcioSwift/resources/images/701-location@2x.png"; sourceTree = "<group>"; };
+		F88B190D19ED3A0100FC7542 /* 701-location@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "701-location@3x.png"; path = "../../iCalcioSwift/resources/images/701-location@3x.png"; sourceTree = "<group>"; };
+		F88B190E19ED3A0100FC7542 /* 719-alarm-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "719-alarm-clock.png"; path = "../../iCalcioSwift/resources/images/719-alarm-clock.png"; sourceTree = "<group>"; };
+		F88B190F19ED3A0100FC7542 /* 719-alarm-clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "719-alarm-clock@2x.png"; path = "../../iCalcioSwift/resources/images/719-alarm-clock@2x.png"; sourceTree = "<group>"; };
+		F88B191019ED3A0100FC7542 /* 719-alarm-clock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "719-alarm-clock@3x.png"; path = "../../iCalcioSwift/resources/images/719-alarm-clock@3x.png"; sourceTree = "<group>"; };
+		F88B191819ED7A0500FC7542 /* AppDelegate+Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Notifications.swift"; sourceTree = "<group>"; };
 		F89C555219CAE9DE00E61A1E /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; name = "iTunesArtwork@2x"; path = "../../iCalcioSwift/resources/images/iTunesArtwork@2x"; sourceTree = "<group>"; };
 		F89C555419CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "765-arrow-left-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/765-arrow-left-toolbar@3x.png"; sourceTree = "<group>"; };
 		F89C555619CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "766-arrow-right-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/766-arrow-right-toolbar@3x.png"; sourceTree = "<group>"; };
@@ -410,6 +424,7 @@
 				F8F3246019B8C6D4002F93CF /* AppDelegate.swift */,
 				F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */,
 				F89D686B19D963E2008F8B8E /* TeamInfo.swift */,
+				F88B191819ED7A0500FC7542 /* AppDelegate+Notifications.swift */,
 			);
 			name = AppDelegate;
 			sourceTree = "<group>";
@@ -437,6 +452,12 @@
 		F8BFE87719BDB24D003BB4AC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F88B190B19ED3A0100FC7542 /* 701-location.png */,
+				F88B190C19ED3A0100FC7542 /* 701-location@2x.png */,
+				F88B190D19ED3A0100FC7542 /* 701-location@3x.png */,
+				F88B190E19ED3A0100FC7542 /* 719-alarm-clock.png */,
+				F88B190F19ED3A0100FC7542 /* 719-alarm-clock@2x.png */,
+				F88B191019ED3A0100FC7542 /* 719-alarm-clock@3x.png */,
 				F89C555219CAE9DE00E61A1E /* iTunesArtwork@2x */,
 				F8FF1D9619DEB9230070DA08 /* about-team.png */,
 				F818C00519C8E5A8002A99C5 /* thumbnail_placeholder.png */,
@@ -715,11 +736,14 @@
 				F8641CA019BF662400C4E8AF /* 1287-youtube.png in Resources */,
 				F89C556B19CAEC1100E61A1E /* 750-home@3x.png in Resources */,
 				F8EA44F619DDD12600BB254A /* 722-location-pin-toolbar@3x.png in Resources */,
+				F88B191319ED3A0100FC7542 /* 701-location@3x.png in Resources */,
+				F88B191119ED3A0100FC7542 /* 701-location.png in Resources */,
 				F818C00619C8E5A8002A99C5 /* thumbnail_placeholder.png in Resources */,
 				F8641C9D19BF662400C4E8AF /* 724-info@2x.png in Resources */,
 				F89C556319CAEB7D00E61A1E /* 784-target@3x.png in Resources */,
 				F88615E519DE0F53000D1611 /* 816-satellite-toolbar@2x.png in Resources */,
 				F88615E819DE0F53000D1611 /* 881-globe-toolbar@2x.png in Resources */,
+				F88B191619ED3A0100FC7542 /* 719-alarm-clock@3x.png in Resources */,
 				F8641C8819BF549400C4E8AF /* 895-user-group.png in Resources */,
 				F8ADE80119DE12B10035D64E /* 706-cloud@3x.png in Resources */,
 				F81BF39119C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png in Resources */,
@@ -747,6 +771,7 @@
 				F81BF38F19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png in Resources */,
 				F8EA44F519DDD12600BB254A /* 722-location-pin-toolbar@2x.png in Resources */,
 				F8641C9E19BF662400C4E8AF /* 755-filing-cabinet.png in Resources */,
+				F88B191219ED3A0100FC7542 /* 701-location@2x.png in Resources */,
 				F8EA44FB19DDD12600BB254A /* 852-map@2x.png in Resources */,
 				F8FF1DAD19DF04530070DA08 /* 1289-appstore.png in Resources */,
 				F8FF1DAE19DF04530070DA08 /* 1289-appstore@2x.png in Resources */,
@@ -768,11 +793,13 @@
 				F89C556919CAEBF900E61A1E /* 895-user-group@3x.png in Resources */,
 				F89C556D19CAEC5500E61A1E /* 1287-youtube@3x.png in Resources */,
 				F8641C8319BF549400C4E8AF /* 784-target@2x.png in Resources */,
+				F88B191419ED3A0100FC7542 /* 719-alarm-clock.png in Resources */,
 				F8641C7419BF16B700C4E8AF /* 750-home@2x.png in Resources */,
 				F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */,
 				F8FF1DAB19DF04530070DA08 /* 730-envelope@2x.png in Resources */,
 				F89C556719CAEBAE00E61A1E /* 858-line-chart@3x.png in Resources */,
 				F8641CA119BF662400C4E8AF /* 1287-youtube@2x.png in Resources */,
+				F88B191519ED3A0100FC7542 /* 719-alarm-clock@2x.png in Resources */,
 				F89C556119CAEB5B00E61A1E /* 874-newspaper@3x.png in Resources */,
 				F8641C8719BF549400C4E8AF /* 858-line-chart@2x.png in Resources */,
 				F8EA44FC19DDD12600BB254A /* 852-map@3x.png in Resources */,
@@ -835,6 +862,7 @@
 				F80C47E019D5CC9D00186ED8 /* Match.swift in Sources */,
 				F802194419DD3E35006D4E6A /* BannerViewController.m in Sources */,
 				F80C47DB19D5C48100186ED8 /* TopScorersViewController.swift in Sources */,
+				F88B191919ED7A0500FC7542 /* AppDelegate+Notifications.swift in Sources */,
 				F844FBAE19D0315A0079555D /* RssLink.swift in Sources */,
 				F8ED42FB19C852B3007FD7F8 /* ChannelsViewController.swift in Sources */,
 				F8D2F86A19DC0B13000A1478 /* Ranking.swift in Sources */,
