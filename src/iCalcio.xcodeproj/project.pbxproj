@@ -90,7 +90,6 @@
 		F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */; };
 		F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */; };
 		F8D2F86A19DC0B13000A1478 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D2F86919DC0B13000A1478 /* Ranking.swift */; };
-		F8EA44EA19DDAEBA00BB254A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EA44E919DDAEBA00BB254A /* MapKit.framework */; };
 		F8EA44F419DDD12600BB254A /* 722-location-pin-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EA44EB19DDD12600BB254A /* 722-location-pin-toolbar.png */; };
 		F8EA44F519DDD12600BB254A /* 722-location-pin-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EA44EC19DDD12600BB254A /* 722-location-pin-toolbar@2x.png */; };
 		F8EA44F619DDD12600BB254A /* 722-location-pin-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EA44ED19DDD12600BB254A /* 722-location-pin-toolbar@3x.png */; };
@@ -281,6 +280,7 @@
 		F8F3246F19B8C6D4002F93CF /* iCalcioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCalcioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F3247419B8C6D4002F93CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCalcioTests.swift; sourceTree = "<group>"; };
+		F8F8F8DF19EECCAE00780067 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		F8FF1D9619DEB9230070DA08 /* about-team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about-team.png"; path = "../../iCalcioSwift/resources/images/about-team.png"; sourceTree = "<group>"; };
 		F8FF1DA419DF04530070DA08 /* 730-envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "730-envelope.png"; path = "../../iCalcioSwift/resources/images/730-envelope.png"; sourceTree = "<group>"; };
 		F8FF1DA519DF04530070DA08 /* 730-envelope@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "730-envelope@2x.png"; path = "../../iCalcioSwift/resources/images/730-envelope@2x.png"; sourceTree = "<group>"; };
@@ -295,7 +295,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8EA44EA19DDAEBA00BB254A /* MapKit.framework in Frameworks */,
 				F8FF1D9119DE803F0070DA08 /* Alamofire.framework in Frameworks */,
 				5C924DF630A14031852F7F74 /* libPods.a in Frameworks */,
 			);
@@ -314,6 +313,7 @@
 		47FE327F5A664C7FB398C774 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8F8F8DF19EECCAE00780067 /* EventKitUI.framework */,
 				F8EA44E919DDAEBA00BB254A /* MapKit.framework */,
 				F8516CF419C0451200761A6B /* Alamofire.xcodeproj */,
 				8F7183084E45485AAF92B2A9 /* libPods.a */,

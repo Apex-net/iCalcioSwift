@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import EventKit
+import EventKitUI
 
-class DetailMatchViewController: UITableViewController {
+class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate {
 
     var match: Match!
     
@@ -98,8 +100,7 @@ class DetailMatchViewController: UITableViewController {
         switch actionItem.action {
         case Actions.AddToCalendar:
             // Add a Calendar event
-            // [!] todo
-            println("TODO AddToCalendar")
+            self.addMatchEventToCalendar()
         case Actions.AddNotification:
             // Add a scheduled Notification
             self.scheduleLocalNotification()
@@ -154,6 +155,70 @@ class DetailMatchViewController: UITableViewController {
             
         }
         
+        
+    }
+    
+    private func addMatchEventToCalendar() {
+        
+        // create an EKEventStore object
+        var store:EKEventStore = EKEventStore()
+        
+        // check for permissions
+        store.requestAccessToEntityType(EKEntityTypeEvent) {
+            (success: Bool, error: NSError!) in
+            println("EKEventStore: got permission = \(success); error = \(error)")
+            
+            if (success == true) {
+                // create new event
+                var theEvent = EKEvent(eventStore: store)
+                theEvent.title = self.match.description
+                theEvent.timeZone = NSTimeZone.defaultTimeZone()
+                // Combine Date + hour
+                let dateTimeFormatter = NSDateFormatter()
+                dateTimeFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+                let myStringDateTime = "\(self.match.date) \(self.match.hour)"
+                var dateTimeEvent = dateTimeFormatter.dateFromString(myStringDateTime)
+                // Event Dates
+                theEvent.startDate = dateTimeEvent
+                theEvent.endDate = dateTimeEvent?.dateByAddingTimeInterval(105*60)
+                theEvent.calendar = store.defaultCalendarForNewEvents
+                
+                // Set a event edit controller
+                let vc:EKEventEditViewController = EKEventEditViewController()
+                vc.eventStore = store
+                vc.event = theEvent
+                vc.editViewDelegate = self
+                self.presentViewController(vc, animated:true, completion: nil)
+                
+            }
+            
+        }
+        
+    }
+    
+    // MARK: - EKEventEditViewDelegate
+    func eventEditViewController(controller: EKEventEditViewController,
+            didCompleteWithAction action: EKEventEditViewAction){
+
+        println("EKEventEditViewDelegate.didCompleteWithAction: \(action) \(action.value)")
+        
+        var error : NSError? = nil
+        var thisEvent:EKEvent = controller.event
+        switch action.value {
+            case EKEventEditViewActionCanceled.value:
+                println("EKEventEditViewDelegate.didCompleteWithAction: EKEventEditViewActionCanceled")
+            case EKEventEditViewActionSaved.value:
+                // save event
+                println("EKEventEditViewDelegate.didCompleteWithAction: EKEventEditViewActionSaved")
+                controller.eventStore.saveEvent(thisEvent, span:EKSpanThisEvent, error: &error)
+            case EKEventEditViewActionDeleted.value:
+                println("EKEventEditViewDelegate.didCompleteWithAction: EKEventEditViewActionDeleted")
+            default:
+                break
+        }
+        
+        // dismiss
+        controller.dismissViewControllerAnimated(true, completion:nil)
         
     }
     
