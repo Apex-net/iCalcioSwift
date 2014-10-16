@@ -107,8 +107,8 @@
 		F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3246019B8C6D4002F93CF /* AppDelegate.swift */; };
 		F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F3246619B8C6D4002F93CF /* Main.storyboard */; };
 		F8F3247619B8C6D4002F93CF /* iCalcioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */; };
+		F8FD201019F03EBA00B6BC22 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F8516D0419C0453B00761A6B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8FF1D9119DE803F0070DA08 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8516D0419C0453B00761A6B /* Alamofire.framework */; };
-		F8FF1D9219DE803F0070DA08 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8516D0419C0453B00761A6B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8FF1D9719DEB9230070DA08 /* about-team.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1D9619DEB9230070DA08 /* about-team.png */; };
 		F8FF1DAA19DF04530070DA08 /* 730-envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1DA419DF04530070DA08 /* 730-envelope.png */; };
 		F8FF1DAB19DF04530070DA08 /* 730-envelope@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1DA519DF04530070DA08 /* 730-envelope@2x.png */; };
@@ -157,15 +157,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F8FF1D9519DE803F0070DA08 /* Embed Frameworks */ = {
+		F8FD200F19F03D1C00B6BC22 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F8FF1D9219DE803F0070DA08 /* Alamofire.framework in Embed Frameworks */,
+				F8FD201019F03EBA00B6BC22 /* Alamofire.framework in Copy Frameworks */,
 			);
-			name = "Embed Frameworks";
+			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -627,7 +627,7 @@
 				F8F3245819B8C6D4002F93CF /* Frameworks */,
 				F8F3245919B8C6D4002F93CF /* Resources */,
 				7395C4A668C64F8D8B489198 /* Copy Pods Resources */,
-				F8FF1D9519DE803F0070DA08 /* Embed Frameworks */,
+				F8FD200F19F03D1C00B6BC22 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
