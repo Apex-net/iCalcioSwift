@@ -18,15 +18,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 
-        // only for debug:
-        println("app name: \(appName)")
-        println("base url: \(apiBaseUrl)")
+        #if DEBUG
+            println("app name: \(appName)")
+            println("base url: \(apiBaseUrl)")
+        #endif
         
         // Get Team Info general
         self.getTeamInfo()
         
-        // init Local Notifications
+        // init Local Notifications and User various kinds of notifications
         self.initLocalNotifications(application)
+        
+        // init Push Notification
+        self.initPushNotifications()
+
+        // todo Google Analytics
+
+        // todo customUISettings - appearance
         
         return true
     }

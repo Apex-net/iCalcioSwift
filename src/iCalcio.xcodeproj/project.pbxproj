@@ -67,6 +67,8 @@
 		F88B191519ED3A0100FC7542 /* 719-alarm-clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B190F19ED3A0100FC7542 /* 719-alarm-clock@2x.png */; };
 		F88B191619ED3A0100FC7542 /* 719-alarm-clock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B191019ED3A0100FC7542 /* 719-alarm-clock@3x.png */; };
 		F88B191919ED7A0500FC7542 /* AppDelegate+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88B191819ED7A0500FC7542 /* AppDelegate+Notifications.swift */; };
+		F88D110219EFA58700A3E644 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EA44E919DDAEBA00BB254A /* MapKit.framework */; };
+		F88D110419EFAC5300A3E644 /* Urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8ED42FE19C878E0007FD7F8 /* Urls.plist */; };
 		F89C555519CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555419CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png */; };
 		F89C555719CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555619CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png */; };
 		F89C555919CAEAB900E61A1E /* 715-globe@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555819CAEAB900E61A1E /* 715-globe@3x.png */; };
@@ -101,7 +103,6 @@
 		F8EA44FC19DDD12600BB254A /* 852-map@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EA44F319DDD12600BB254A /* 852-map@3x.png */; };
 		F8ED42FB19C852B3007FD7F8 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED42FA19C852B3007FD7F8 /* ChannelsViewController.swift */; };
 		F8ED42FD19C87693007FD7F8 /* YoutubeChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED42FC19C87693007FD7F8 /* YoutubeChannel.swift */; };
-		F8ED42FF19C878E0007FD7F8 /* Urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8ED42FE19C878E0007FD7F8 /* Urls.plist */; };
 		F8ED430119C87AB9007FD7F8 /* ChannelVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED430019C87AB9007FD7F8 /* ChannelVideosViewController.swift */; };
 		F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3246019B8C6D4002F93CF /* AppDelegate.swift */; };
 		F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F3246619B8C6D4002F93CF /* Main.storyboard */; };
@@ -271,7 +272,7 @@
 		F8EA44F319DDD12600BB254A /* 852-map@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "852-map@3x.png"; path = "../../iCalcioSwift/resources/images/852-map@3x.png"; sourceTree = "<group>"; };
 		F8ED42FA19C852B3007FD7F8 /* ChannelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
 		F8ED42FC19C87693007FD7F8 /* YoutubeChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeChannel.swift; sourceTree = "<group>"; };
-		F8ED42FE19C878E0007FD7F8 /* Urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Urls.plist; path = ../iCalcioSwift/resources/Urls.plist; sourceTree = "<group>"; };
+		F8ED42FE19C878E0007FD7F8 /* Urls.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Urls.plist; path = ../resources/Urls.plist; sourceTree = SOURCE_ROOT; };
 		F8ED430019C87AB9007FD7F8 /* ChannelVideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelVideosViewController.swift; sourceTree = "<group>"; };
 		F8F3245B19B8C6D4002F93CF /* iCalcio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCalcio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F3245F19B8C6D4002F93CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -296,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8FF1D9119DE803F0070DA08 /* Alamofire.framework in Frameworks */,
+				F88D110219EFA58700A3E644 /* MapKit.framework in Frameworks */,
 				5C924DF630A14031852F7F74 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -775,7 +777,6 @@
 				F8EA44FB19DDD12600BB254A /* 852-map@2x.png in Resources */,
 				F8FF1DAD19DF04530070DA08 /* 1289-appstore.png in Resources */,
 				F8FF1DAE19DF04530070DA08 /* 1289-appstore@2x.png in Resources */,
-				F8ED42FF19C878E0007FD7F8 /* Urls.plist in Resources */,
 				F89C555519CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png in Resources */,
 				F8641C7319BF16B700C4E8AF /* 750-home.png in Resources */,
 				F81BF39019C74F55005C12D4 /* 766-arrow-right-toolbar.png in Resources */,
@@ -796,6 +797,7 @@
 				F88B191419ED3A0100FC7542 /* 719-alarm-clock.png in Resources */,
 				F8641C7419BF16B700C4E8AF /* 750-home@2x.png in Resources */,
 				F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */,
+				F88D110419EFAC5300A3E644 /* Urls.plist in Resources */,
 				F8FF1DAB19DF04530070DA08 /* 730-envelope@2x.png in Resources */,
 				F89C556719CAEBAE00E61A1E /* 858-line-chart@3x.png in Resources */,
 				F8641CA119BF662400C4E8AF /* 1287-youtube@2x.png in Resources */,
@@ -961,6 +963,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "iCalcio/iCalcio-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1018,7 +1021,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b1f8e5be-2741-4c59-9bd1-4632b78bba0c";
+				PROVISIONING_PROFILE = "05d825bf-9400-47b0-80e6-d8c9631e689a";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1031,12 +1034,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Apex-net Srl (LVD55J8NH8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Apex-net Srl (LVD55J8NH8)";
 				INFOPLIST_FILE = iCalcio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b1f8e5be-2741-4c59-9bd1-4632b78bba0c";
+				PROVISIONING_PROFILE = "95a6fed9-54e3-4abb-a567-c40f28d5b58a";
 			};
 			name = Release;
 		};

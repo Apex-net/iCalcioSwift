@@ -44,8 +44,6 @@ class TopScorersViewController: UITableViewController {
         // reset temp array
         topScorersList.removeAll()
         
-        // todo
-        
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)

@@ -20,8 +20,6 @@ class DetailPlayerViewController: UITableViewController {
         // title
         self.navigationItem.title = self.player.name
         
-        // todo : fill tableview cells with Player
-        
         // Set Data
         self.prepareArrayForTable()
 

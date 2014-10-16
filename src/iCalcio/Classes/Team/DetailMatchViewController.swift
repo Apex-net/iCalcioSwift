@@ -126,8 +126,7 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
         var dateTimeEvent = dateTimeFormatter.dateFromString(myStringDateTime)
         if (dateTimeEvent != nil) {
             
-            // only for debug:
-            // let fireDate = NSDate().dateByAddingTimeInterval(10)
+            // only for debug: let fireDate = NSDate().dateByAddingTimeInterval(10)
             let fireDate = dateTimeEvent?.dateByAddingTimeInterval(-(15*60))
             localNotification.fireDate = fireDate
             localNotification.timeZone = NSTimeZone.defaultTimeZone()

@@ -64,6 +64,18 @@ extension AppDelegate
             return stringNative + "/" + stringNativeInfo;
     }
 
+    var apnsBaseUrl : String{
+        let path = NSBundle.mainBundle().pathForResource("Urls", ofType: "plist")
+            let dict = NSDictionary(contentsOfFile: path!)
+            let keyValue : AnyObject = dict.valueForKey("ANApnsBaseUrl")!
+            var stringNative :String = String()
+            if let nsString:NSString = keyValue as? NSString{
+                stringNative = nsString as String
+            }
+            
+            return stringNative;
+    }
+    
     var teamName : String{
             let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)

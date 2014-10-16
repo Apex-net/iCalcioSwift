@@ -100,7 +100,6 @@ class PlayersViewController: UITableViewController {
 
     // MARK: - Utilities
     func formatPlayerName(playerName: String) -> String {
-        // todo
         
         let stringToSearch = "\t"
         let dirtystring = playerName
