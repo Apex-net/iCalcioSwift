@@ -32,7 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // init Push Notification
         self.initPushNotifications()
 
-        // todo Google Analytics
+        // init Google Analytics
+        self.initGoogleAnalytics()
 
         // todo customUISettings - appearance
         

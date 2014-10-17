@@ -12,6 +12,8 @@
 	<string>$(URL_TEAM_NAME)</string>
 	<key>AppStoreURL</key>
 	<string>${APP_STORE_URL}</string>
+	<key>AppGAAccountID</key>
+	<string>$(APP_GA_ID)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>it_IT</string>
 	<key>CFBundleDisplayName</key>

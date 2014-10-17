@@ -16,3 +16,8 @@
 #import "NSString+HTML.h"
 
 #import "BannerViewController.h"
+
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAILogger.h"

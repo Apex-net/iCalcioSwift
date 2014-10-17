@@ -120,5 +120,16 @@ extension AppDelegate
         }
         return teamInfo
     }
+    
+    var appGAAccountID : String{
+        let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
+            let dict = NSDictionary(contentsOfFile: path!)
+            let keyValue : AnyObject = dict.valueForKey("AppGAAccountID")!
+            var stringNative :String = String()
+            if let nsString:NSString = keyValue as? NSString{
+                stringNative = nsString as String
+            }
+            return stringNative;
+    }
 
 }

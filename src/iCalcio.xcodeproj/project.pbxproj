@@ -47,6 +47,7 @@
 		F8641C9F19BF662400C4E8AF /* 755-filing-cabinet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9519BF662400C4E8AF /* 755-filing-cabinet@2x.png */; };
 		F8641CA019BF662400C4E8AF /* 1287-youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9619BF662400C4E8AF /* 1287-youtube.png */; };
 		F8641CA119BF662400C4E8AF /* 1287-youtube@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9719BF662400C4E8AF /* 1287-youtube@2x.png */; };
+		F8701BE919F11E1C006A648C /* AppDelegate+GoogleAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8701BE819F11E1C006A648C /* AppDelegate+GoogleAnalytics.swift */; };
 		F87617AA19D45E5C00D3B947 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617A919D45E5C00D3B947 /* MatchesViewController.swift */; };
 		F87617AD19D45EB100D3B947 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617AC19D45EB100D3B947 /* PlayersViewController.swift */; };
 		F87617AF19D45EFC00D3B947 /* StadiumMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617AE19D45EFC00D3B947 /* StadiumMapViewController.swift */; };
@@ -214,6 +215,7 @@
 		F8641C9519BF662400C4E8AF /* 755-filing-cabinet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "755-filing-cabinet@2x.png"; path = "../../iCalcioSwift/resources/images/755-filing-cabinet@2x.png"; sourceTree = "<group>"; };
 		F8641C9619BF662400C4E8AF /* 1287-youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1287-youtube.png"; path = "../../iCalcioSwift/resources/images/1287-youtube.png"; sourceTree = "<group>"; };
 		F8641C9719BF662400C4E8AF /* 1287-youtube@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1287-youtube@2x.png"; path = "../../iCalcioSwift/resources/images/1287-youtube@2x.png"; sourceTree = "<group>"; };
+		F8701BE819F11E1C006A648C /* AppDelegate+GoogleAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+GoogleAnalytics.swift"; sourceTree = "<group>"; };
 		F87617A919D45E5C00D3B947 /* MatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
 		F87617AC19D45EB100D3B947 /* PlayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		F87617AE19D45EFC00D3B947 /* StadiumMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StadiumMapViewController.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */,
 				F89D686B19D963E2008F8B8E /* TeamInfo.swift */,
 				F88B191819ED7A0500FC7542 /* AppDelegate+Notifications.swift */,
+				F8701BE819F11E1C006A648C /* AppDelegate+GoogleAnalytics.swift */,
 			);
 			name = AppDelegate;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8701BE919F11E1C006A648C /* AppDelegate+GoogleAnalytics.swift in Sources */,
 				F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */,
 				F89D686F19D9B735008F8B8E /* DetailMatchViewController.swift in Sources */,
 				F880B3C519C99F72000E1F62 /* PlayVideoViewController.swift in Sources */,
