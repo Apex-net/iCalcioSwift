@@ -48,6 +48,7 @@
 		F8641CA019BF662400C4E8AF /* 1287-youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9619BF662400C4E8AF /* 1287-youtube.png */; };
 		F8641CA119BF662400C4E8AF /* 1287-youtube@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8641C9719BF662400C4E8AF /* 1287-youtube@2x.png */; };
 		F8701BE919F11E1C006A648C /* AppDelegate+GoogleAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8701BE819F11E1C006A648C /* AppDelegate+GoogleAnalytics.swift */; };
+		F8701BED19F158BC006A648C /* AppDelegate+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8701BEC19F158BC006A648C /* AppDelegate+UI.swift */; };
 		F87617AA19D45E5C00D3B947 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617A919D45E5C00D3B947 /* MatchesViewController.swift */; };
 		F87617AD19D45EB100D3B947 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617AC19D45EB100D3B947 /* PlayersViewController.swift */; };
 		F87617AF19D45EFC00D3B947 /* StadiumMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617AE19D45EFC00D3B947 /* StadiumMapViewController.swift */; };
@@ -216,6 +217,7 @@
 		F8641C9619BF662400C4E8AF /* 1287-youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1287-youtube.png"; path = "../../iCalcioSwift/resources/images/1287-youtube.png"; sourceTree = "<group>"; };
 		F8641C9719BF662400C4E8AF /* 1287-youtube@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1287-youtube@2x.png"; path = "../../iCalcioSwift/resources/images/1287-youtube@2x.png"; sourceTree = "<group>"; };
 		F8701BE819F11E1C006A648C /* AppDelegate+GoogleAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+GoogleAnalytics.swift"; sourceTree = "<group>"; };
+		F8701BEC19F158BC006A648C /* AppDelegate+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UI.swift"; sourceTree = "<group>"; };
 		F87617A919D45E5C00D3B947 /* MatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
 		F87617AC19D45EB100D3B947 /* PlayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		F87617AE19D45EFC00D3B947 /* StadiumMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StadiumMapViewController.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 				F89D686B19D963E2008F8B8E /* TeamInfo.swift */,
 				F88B191819ED7A0500FC7542 /* AppDelegate+Notifications.swift */,
 				F8701BE819F11E1C006A648C /* AppDelegate+GoogleAnalytics.swift */,
+				F8701BEC19F158BC006A648C /* AppDelegate+UI.swift */,
 			);
 			name = AppDelegate;
 			sourceTree = "<group>";
@@ -883,6 +886,7 @@
 				F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */,
 				F87617AF19D45EFC00D3B947 /* StadiumMapViewController.swift in Sources */,
 				F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */,
+				F8701BED19F158BC006A648C /* AppDelegate+UI.swift in Sources */,
 				F8590C4F19DAF6A7000D6F67 /* DetailPlayerViewController.swift in Sources */,
 				F87617AA19D45E5C00D3B947 /* MatchesViewController.swift in Sources */,
 				F8ED430119C87AB9007FD7F8 /* ChannelVideosViewController.swift in Sources */,
@@ -1023,6 +1027,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = iCalcio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "05d825bf-9400-47b0-80e6-d8c9631e689a";
@@ -1041,6 +1046,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Apex-net Srl (LVD55J8NH8)";
 				INFOPLIST_FILE = iCalcio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "95a6fed9-54e3-4abb-a567-c40f28d5b58a";

@@ -4,16 +4,12 @@
 <dict>
 	<key>ANTeamName</key>
 	<string>$(TEAM_NAME)</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Location is required to find out where you are</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Location is required to find out where you are</string>
 	<key>ANUrlTeamName</key>
 	<string>$(URL_TEAM_NAME)</string>
-	<key>AppStoreURL</key>
-	<string>${APP_STORE_URL}</string>
 	<key>AppGAAccountID</key>
 	<string>$(APP_GA_ID)</string>
+	<key>AppStoreURL</key>
+	<string>${APP_STORE_URL}</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>it_IT</string>
 	<key>CFBundleDisplayName</key>
@@ -61,12 +57,20 @@
 		<string>MKDirectionsModeTaxi</string>
 		<string>MKDirectionsModeTrain</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location is required to find out where you are</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location is required to find out where you are</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
 		<key>UINavigationBar</key>

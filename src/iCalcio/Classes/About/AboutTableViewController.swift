@@ -33,7 +33,9 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         }
         self.mailto.setTitle(NSLocalizedString("Contattaci", comment: ""), forState: UIControlState.Normal)
         self.appStore.setTitle(NSLocalizedString("Vai sull'App Store", comment: ""), forState: UIControlState.Normal)
-        
+        self.mailto.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        self.appStore.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+            
         // GA tracking
         appDelegate.trackScreen("/Info")
         
