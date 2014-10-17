@@ -91,7 +91,7 @@ NSString * const BannerViewActionDidFinish = @"BannerViewActionDidFinish";
 
 - (void)viewDidLayoutSubviews
 {
-    // offset for tabbar [!]
+    // offset for tabbar - Calisesi A.
     CGFloat offsetHeightTabBar = 50;
     
     CGRect contentFrame = self.view.bounds, bannerFrame = CGRectZero;
