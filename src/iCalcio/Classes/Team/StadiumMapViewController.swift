@@ -39,6 +39,10 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         // init map type management
         self.initMapTypeNavBar()
         
+        // GA tracking
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.trackScreen("/StadiumMap")
+        
     }
 
     override func didReceiveMemoryWarning() {

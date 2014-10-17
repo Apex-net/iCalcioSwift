@@ -32,6 +32,9 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
         
         // refresh data
         self.refreshData()
+        
+        // GA tracking
+        appDelegate.trackScreen("/News")
 
     }
 

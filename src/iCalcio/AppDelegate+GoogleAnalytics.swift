@@ -21,7 +21,7 @@ extension AppDelegate
         GAI.sharedInstance().dispatchInterval = defaultGANDispatchPeriodSec
         GAI.sharedInstance().trackUncaughtExceptions = true
         #if DEBUG
-            GAI.sharedInstance().logger.logLevel = GAILogLevel.Error
+            GAI.sharedInstance().logger.logLevel = GAILogLevel.Info
         #endif
         // Track event for the App Load
         var tracker = GAI.sharedInstance().trackerWithTrackingId(GAAccountID)

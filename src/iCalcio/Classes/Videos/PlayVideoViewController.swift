@@ -36,6 +36,10 @@ class PlayVideoViewController: UIViewController, YTPlayerViewDelegate {
         // load video on player
         let returnValue = self.playerView.loadWithVideoId(VideoId, playerVars: playerVars)
         
+        // GA tracking
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.trackScreen("/VideoDetail")
+        
     }
 
     override func didReceiveMemoryWarning() {

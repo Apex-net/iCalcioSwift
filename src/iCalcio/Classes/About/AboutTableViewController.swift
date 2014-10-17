@@ -34,6 +34,9 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         self.mailto.setTitle(NSLocalizedString("Contattaci", comment: ""), forState: UIControlState.Normal)
         self.appStore.setTitle(NSLocalizedString("Vai sull'App Store", comment: ""), forState: UIControlState.Normal)
         
+        // GA tracking
+        appDelegate.trackScreen("/Info")
+        
     }
 
     override func didReceiveMemoryWarning() {

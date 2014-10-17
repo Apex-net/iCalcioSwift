@@ -30,6 +30,10 @@ class ChannelVideosViewController: UITableViewController {
         
         // refresh data
         self.refresh("30")
+        
+        // GA tracking
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.trackScreen("/ChannelVideos")
 
     }
 

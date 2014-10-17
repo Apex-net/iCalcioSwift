@@ -23,7 +23,7 @@ class HomeViewController: UITableViewController {
         self.prepareArrayForTable()
         
         // GA tracking
-        appDelegate.trackScreen("Home")
+        appDelegate.trackScreen("/Home")
     }
 
     override func didReceiveMemoryWarning() {

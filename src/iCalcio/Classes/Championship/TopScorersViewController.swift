@@ -27,6 +27,10 @@ class TopScorersViewController: UITableViewController {
         // refresh data
         self.refreshData()
         
+        // GA tracking
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.trackScreen("/TopScorers")
+        
     }
 
     override func didReceiveMemoryWarning() {

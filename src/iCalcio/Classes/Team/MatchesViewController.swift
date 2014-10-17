@@ -38,6 +38,10 @@ class MatchesViewController: UITableViewController {
         // refresh data
         self.refreshData()
         
+        // GA tracking
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.trackScreen("/Matches")
+        
     }
 
     override func didReceiveMemoryWarning() {

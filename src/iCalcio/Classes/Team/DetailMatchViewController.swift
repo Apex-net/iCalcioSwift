@@ -32,6 +32,10 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
         // Reloadata
         self.tableView.reloadData()
         
+        // GA tracking
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.trackScreen("/MatchesDetail")
+        
     }
 
     override func didReceiveMemoryWarning() {

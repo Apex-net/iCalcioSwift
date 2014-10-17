@@ -22,6 +22,10 @@ class DetailPlayerViewController: UITableViewController {
         
         // Set Data
         self.prepareArrayForTable()
+        
+        // GA tracking
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.trackScreen("/PlayerDetail")
 
     }
 

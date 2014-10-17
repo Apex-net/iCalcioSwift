@@ -32,6 +32,10 @@ class PlayersViewController: UITableViewController {
         // refresh data
         self.refreshData()
 
+        // GA tracking
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.trackScreen("/Players")
+
     }
 
     override func didReceiveMemoryWarning() {

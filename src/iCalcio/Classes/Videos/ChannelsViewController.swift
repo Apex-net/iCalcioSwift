@@ -29,6 +29,9 @@ class ChannelsViewController: UITableViewController {
         // refresh data
         self.refreshData()
         
+        // GA tracking
+        appDelegate.trackScreen("/Channels")
+        
     }
 
     override func didReceiveMemoryWarning() {
