@@ -89,18 +89,18 @@ class RankingsViewController: UITableViewController {
         let ranking = self.rankings[indexPath.row]
         
         // set texts
-        cell.textLabel!.text = ranking.description
-        cell.detailTextLabel!.text = ranking.points
+        cell.textLabel.text = ranking.description
+        cell.detailTextLabel?.text = ranking.points
         
         // set font for my team
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let teamName:String = appDelegate.teamName
         let currentTeamName:String = ranking.description
         if currentTeamName.lowercaseString.rangeOfString(teamName.lowercaseString) != nil {
-            cell.textLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+            cell.textLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
             cell.detailTextLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         } else {
-            cell.textLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+            cell.textLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
             cell.detailTextLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         }
 

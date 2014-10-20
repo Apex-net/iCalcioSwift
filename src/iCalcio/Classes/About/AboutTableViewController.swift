@@ -81,7 +81,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
     @IBAction func didAppleStore(sender: AnyObject) {
         // go to Apple store
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        UIApplication.sharedApplication().openURL(NSURL(string: appDelegate.appAppleStoreURL))
+        UIApplication.sharedApplication().openURL(NSURL(string: appDelegate.appAppleStoreURL)!)
     }
 
     // MARK: MFMailComposeViewControllerDelegate Method

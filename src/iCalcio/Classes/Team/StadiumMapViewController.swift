@@ -53,17 +53,16 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     // MARK: - NavBar map zoom managment
     private func initRightNavBar()
     {
-        let images: [UIImage] = [
-            UIImage(named: "722-location-pin-toolbar"),
-            UIImage(named: "845-location-target-toolbar")
-        ]
-        self.segmentControl = UISegmentedControl(items: images)
-        self.segmentControl.addTarget(self, action: "selectedSegmentDidChange:", forControlEvents: UIControlEvents.ValueChanged)
-        self.segmentControl.selectedSegmentIndex = 0
-        
-        let segmentBarItem : UIBarButtonItem = UIBarButtonItem(customView: self.segmentControl)
-        self.navigationItem.rightBarButtonItem = segmentBarItem
-        
+        if let image1 = UIImage(named: "722-location-pin-toolbar") {
+            if let image2 = UIImage(named: "845-location-target-toolbar") {
+                let images: [UIImage] = [image1, image2]
+                self.segmentControl = UISegmentedControl(items: images)
+                self.segmentControl.addTarget(self, action: "selectedSegmentDidChange:", forControlEvents: UIControlEvents.ValueChanged)
+                self.segmentControl.selectedSegmentIndex = 0
+                let segmentBarItem : UIBarButtonItem = UIBarButtonItem(customView: self.segmentControl)
+                self.navigationItem.rightBarButtonItem = segmentBarItem
+            }
+        }
     }
     
     func selectedSegmentDidChange(sender:UISegmentedControl!)
@@ -164,11 +163,16 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     private func initMapTypeNavBar()
     {
-        let images: [UIImage] = [
-            UIImage(named: "715-globe-toolbar"),
-            UIImage(named: "816-satellite-toolbar"),
-            UIImage(named: "881-globe-toolbar")
-        ]
+        var images: [UIImage] = []
+        if let image = UIImage(named: "715-globe-toolbar"){
+            images.append(image)
+        }
+        if let image = UIImage(named: "816-satellite-toolbar"){
+            images.append(image)
+        }
+        if let image = UIImage(named: "881-globe-toolbar"){
+            images.append(image)
+        }
         self.segmentControlMapType = UISegmentedControl(items: images)
         self.segmentControlMapType.addTarget(self, action: "selectedSegmentMapTypeDidChange:", forControlEvents: UIControlEvents.ValueChanged)
         self.segmentControlMapType.selectedSegmentIndex = 0

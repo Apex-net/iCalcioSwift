@@ -15,7 +15,7 @@ extension AppDelegate
     var appName : String{
             let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)
-            let keyValue : AnyObject = dict.valueForKey("CFBundleDisplayName")!
+            let keyValue : AnyObject? = dict?.valueForKey("CFBundleDisplayName")
             var stringNative :String = String()
             if let nsString:NSString = keyValue as? NSString{
                 stringNative = nsString as String
@@ -26,7 +26,7 @@ extension AppDelegate
     var appVersion : String{
         let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)
-            let keyValue : AnyObject = dict.valueForKey("CFBundleVersion")!
+            let keyValue : AnyObject? = dict?.valueForKey("CFBundleVersion")
             var stringNative :String = String()
             if let nsString:NSString = keyValue as? NSString{
                 stringNative = nsString as String
@@ -37,7 +37,7 @@ extension AppDelegate
     var appAppleStoreURL : String{
         let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)
-            let keyValue : AnyObject = dict.valueForKey("AppStoreURL")!
+            let keyValue : AnyObject? = dict?.valueForKey("AppStoreURL")
             var stringNative :String = String()
             if let nsString:NSString = keyValue as? NSString{
                 stringNative = nsString as String
@@ -48,14 +48,14 @@ extension AppDelegate
     var apiBaseUrl : String{
             let path = NSBundle.mainBundle().pathForResource("Urls", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)
-            let keyValue : AnyObject = dict.valueForKey("ANBaseUrl")!
+            let keyValue : AnyObject? = dict?.valueForKey("ANBaseUrl")
             var stringNative :String = String()
             if let nsString:NSString = keyValue as? NSString{
                 stringNative = nsString as String
             }
             let pathInfo = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
             let dictInfo = NSDictionary(contentsOfFile: pathInfo!)
-            let keyValueInfo : AnyObject = dictInfo.valueForKey("ANUrlTeamName")!
+            let keyValueInfo : AnyObject? = dictInfo?.valueForKey("ANUrlTeamName")
             var stringNativeInfo :String = String()
             if let nsStringInfo:NSString = keyValueInfo as? NSString{
                 stringNativeInfo = nsStringInfo as String
@@ -67,7 +67,7 @@ extension AppDelegate
     var apnsBaseUrl : String{
         let path = NSBundle.mainBundle().pathForResource("Urls", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)
-            let keyValue : AnyObject = dict.valueForKey("ANApnsBaseUrl")!
+            let keyValue : AnyObject? = dict?.valueForKey("ANApnsBaseUrl")
             var stringNative :String = String()
             if let nsString:NSString = keyValue as? NSString{
                 stringNative = nsString as String
@@ -79,7 +79,7 @@ extension AppDelegate
     var teamName : String{
             let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)
-            let keyValue : AnyObject = dict.valueForKey("ANTeamName")!
+            let keyValue : AnyObject? = dict?.valueForKey("ANTeamName")
             var stringNative :String = String()
             if let nsString:NSString = keyValue as? NSString{
                 stringNative = nsString as String
@@ -124,7 +124,7 @@ extension AppDelegate
     var appGAAccountID : String{
         let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)
-            let keyValue : AnyObject = dict.valueForKey("AppGAAccountID")!
+            let keyValue : AnyObject? = dict?.valueForKey("AppGAAccountID")
             var stringNative :String = String()
             if let nsString:NSString = keyValue as? NSString{
                 stringNative = nsString as String

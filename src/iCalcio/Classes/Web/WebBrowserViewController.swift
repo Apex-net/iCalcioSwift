@@ -16,7 +16,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
     
     var isNavBarEnabled: Bool = false
     
-    private var segmentControl : UISegmentedControl!
+    private var segmentControl : UISegmentedControl?
     
     @IBOutlet weak var webView: UIWebView!
     
@@ -32,7 +32,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
         
         // load request
         var url = NSURL(string:self.navigationUrl)
-        var req = NSURLRequest(URL: url)
+        var req = NSURLRequest(URL: url!)
         self.webView!.loadRequest(req)
         self.webView!.scalesPageToFit = true
         
@@ -65,18 +65,16 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
     private func initNavBar()
     {
         if self.isNavBarEnabled {
-            let images: [UIImage] = [
-                UIImage(named: "765-arrow-left-toolbar.png"),
-                UIImage(named: "766-arrow-right-toolbar.png")
-            ]
-            self.segmentControl = UISegmentedControl(items: images)
-            self.segmentControl.addTarget(self, action: "selectedSegmentDidChange:", forControlEvents: UIControlEvents.ValueChanged)
-            
-            let segmentBarItem : UIBarButtonItem = UIBarButtonItem(customView: self.segmentControl)
-            self.navigationItem.rightBarButtonItem = segmentBarItem
-            
+            if let image1: UIImage = UIImage(named: "765-arrow-left-toolbar") {
+                if let image2: UIImage = UIImage(named: "766-arrow-right-toolbar") {
+                    let images: [UIImage] = [image1, image2]
+                    self.segmentControl = UISegmentedControl(items: images)
+                    self.segmentControl?.addTarget(self, action: "selectedSegmentDidChange:", forControlEvents: UIControlEvents.ValueChanged)
+                    let segmentBarItem : UIBarButtonItem = UIBarButtonItem(customView: self.segmentControl!)
+                    self.navigationItem.rightBarButtonItem = segmentBarItem
+                }
+            }
         }
-    
     }
 
     func selectedSegmentDidChange(sender:UISegmentedControl!)
@@ -101,10 +99,11 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
     private func enableSegmentNavItems() {
         
         if self.isNavBarEnabled {
-            self.segmentControl.setEnabled(self.webView.canGoBack, forSegmentAtIndex: 0)
-            self.segmentControl.setEnabled(self.webView.canGoForward, forSegmentAtIndex: 1)
+            if let segment = self.segmentControl {
+                segment.setEnabled(self.webView.canGoBack, forSegmentAtIndex: 0)
+                segment.setEnabled(self.webView.canGoForward, forSegmentAtIndex: 1)
+            }
         }
-        
     }
     
     // MARK: - webView Delegate

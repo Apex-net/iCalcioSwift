@@ -92,7 +92,7 @@ class DetailPlayerViewController: UITableViewController {
         let dict = self.sectionsList[indexPath.section][indexPath.row]
         
         // set text
-        cell.textLabel!.text = dict["text"]
+        cell.textLabel.text = dict["text"]!
 
         cell.detailTextLabel!.text = dict["detailText"]
         cell.detailTextLabel?.numberOfLines = 1

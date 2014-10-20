@@ -65,13 +65,13 @@ class PlayersViewController: UITableViewController {
                             var itemRole:Roles = Roles.Indefinito
                             if let role:String = item.valueForKeyPath("role") as? String{
                                 switch role {
-                                case Roles.Portiere.toRaw():
+                                case Roles.Portiere.rawValue:
                                     itemRole = Roles.Portiere
-                                case Roles.Difensore.toRaw():
+                                case Roles.Difensore.rawValue:
                                     itemRole = Roles.Difensore
-                                case Roles.Centrocampista.toRaw():
+                                case Roles.Centrocampista.rawValue:
                                     itemRole = Roles.Centrocampista
-                                case Roles.Attaccante.toRaw():
+                                case Roles.Attaccante.rawValue:
                                     itemRole = Roles.Attaccante
                                 default:
                                     break
@@ -143,7 +143,7 @@ class PlayersViewController: UITableViewController {
         let player = self.playersList[indexPath.section].players[indexPath.row]
         
         // set texts
-        cell.textLabel!.text = self.formatPlayerName(player.name)
+        cell.textLabel.text = self.formatPlayerName(player.name)
         
         return cell
     }
@@ -152,7 +152,7 @@ class PlayersViewController: UITableViewController {
         var title = String()
         if self.playersList.count > 0 {
             let titleSection: Roles = self.playersList[section].role
-            title = titleSection.toRaw()
+            title = titleSection.rawValue
         }
         return title
     }

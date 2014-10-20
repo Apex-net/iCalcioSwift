@@ -91,12 +91,12 @@ class HomeViewController: UITableViewController {
         let dict = self.sectionsList[indexPath.section][indexPath.row]
         
         // set text
-        cell.textLabel!.text = dict["text"]
+        cell.textLabel.text = dict["text"]!
 
         // set image
         var imageName : String =  dict["image"]!
-        var image : UIImage = UIImage(named:imageName)
-        cell.imageView!.image = image
+        var image : UIImage? = UIImage(named:imageName)
+        cell.imageView.image = image
         
         return cell
     }
