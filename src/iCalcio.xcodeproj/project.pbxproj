@@ -90,6 +90,7 @@
 		F89D686C19D963E2008F8B8E /* TeamInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D686B19D963E2008F8B8E /* TeamInfo.swift */; };
 		F89D686F19D9B735008F8B8E /* DetailMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89D686E19D9B735008F8B8E /* DetailMatchViewController.swift */; };
 		F8A7F0C119C0AEB30062DDA8 /* WebBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7F0C019C0AEB30062DDA8 /* WebBrowserViewController.swift */; };
+		F8A8C80719F6E88500AACC1F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A8C80619F6E88500AACC1F /* iAd.framework */; };
 		F8ADE7FF19DE12B10035D64E /* 706-cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = F8ADE7FC19DE12B10035D64E /* 706-cloud.png */; };
 		F8ADE80019DE12B10035D64E /* 706-cloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8ADE7FD19DE12B10035D64E /* 706-cloud@2x.png */; };
 		F8ADE80119DE12B10035D64E /* 706-cloud@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8ADE7FE19DE12B10035D64E /* 706-cloud@3x.png */; };
@@ -262,6 +263,7 @@
 		F89D686B19D963E2008F8B8E /* TeamInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamInfo.swift; sourceTree = "<group>"; };
 		F89D686E19D9B735008F8B8E /* DetailMatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMatchViewController.swift; sourceTree = "<group>"; };
 		F8A7F0C019C0AEB30062DDA8 /* WebBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebBrowserViewController.swift; sourceTree = "<group>"; };
+		F8A8C80619F6E88500AACC1F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		F8ADE7FC19DE12B10035D64E /* 706-cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "706-cloud.png"; path = "../../iCalcioSwift/resources/images/706-cloud.png"; sourceTree = "<group>"; };
 		F8ADE7FD19DE12B10035D64E /* 706-cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "706-cloud@2x.png"; path = "../../iCalcioSwift/resources/images/706-cloud@2x.png"; sourceTree = "<group>"; };
 		F8ADE7FE19DE12B10035D64E /* 706-cloud@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "706-cloud@3x.png"; path = "../../iCalcioSwift/resources/images/706-cloud@3x.png"; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8A8C80719F6E88500AACC1F /* iAd.framework in Frameworks */,
 				F8FF1D9119DE803F0070DA08 /* Alamofire.framework in Frameworks */,
 				F88D110219EFA58700A3E644 /* MapKit.framework in Frameworks */,
 				5C924DF630A14031852F7F74 /* libPods.a in Frameworks */,
@@ -325,6 +328,7 @@
 		47FE327F5A664C7FB398C774 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8A8C80619F6E88500AACC1F /* iAd.framework */,
 				F8F8F8DF19EECCAE00780067 /* EventKitUI.framework */,
 				F8EA44E919DDAEBA00BB254A /* MapKit.framework */,
 				F8516CF419C0451200761A6B /* Alamofire.xcodeproj */,
