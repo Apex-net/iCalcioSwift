@@ -30,7 +30,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
             self.appName.text = appDelegate.appName
         }
         if !appDelegate.appVersion.isEmpty {
-            self.version.text = NSLocalizedString("Versione", comment: "") + ": " + appDelegate.appVersion
+            self.version.text = NSLocalizedString("Build", comment: "") + ": " + appDelegate.appVersion
         }
         self.mailto.setTitle(NSLocalizedString("Contattaci", comment: ""), forState: UIControlState.Normal)
         self.appStore.setTitle(NSLocalizedString("Su Apple Store", comment: ""), forState: UIControlState.Normal)
