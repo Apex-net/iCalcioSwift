@@ -720,7 +720,6 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="didAppleStore:" destination="jjF-1q-FnL" eventType="touchUpInside" id="iXy-Jf-McE"/>
                                                         <action selector="didFacebook:" destination="jjF-1q-FnL" eventType="touchUpInside" id="Xxb-Pq-E5K"/>
                                                     </connections>
                                                 </button>
