@@ -16,6 +16,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
     
     @IBOutlet weak var mailto: UIButton!
     @IBOutlet weak var appStore: UIButton!
+    @IBOutlet weak var facebookButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +33,12 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
             self.version.text = NSLocalizedString("Versione", comment: "") + ": " + appDelegate.appVersion
         }
         self.mailto.setTitle(NSLocalizedString("Contattaci", comment: ""), forState: UIControlState.Normal)
-        self.appStore.setTitle(NSLocalizedString("Vai sull'App Store", comment: ""), forState: UIControlState.Normal)
+        self.appStore.setTitle(NSLocalizedString("Su Apple Store", comment: ""), forState: UIControlState.Normal)
         self.mailto.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
         self.appStore.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
-            
+        self.facebookButton.setTitle(NSLocalizedString("Su Facebook", comment: ""), forState: UIControlState.Normal)
+        self.facebookButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        
         // GA tracking
         appDelegate.trackScreen("/Info")
         
@@ -78,6 +81,11 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         sendMailErrorAlert.show()
     }
 
+    @IBAction func didFacebook(sender: AnyObject) {
+        // open page facebook
+        self.performSegueWithIdentifier("toFacebook", sender: nil)
+    }
+    
     @IBAction func didAppleStore(sender: AnyObject) {
         // go to Apple store
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -88,15 +96,23 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
-
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        if segue.identifier == "toFacebook" {
+            let vc = segue.destinationViewController as WebBrowserViewController
+            vc.browserTitle = NSLocalizedString("Apexnet", comment: "")
+            vc.navigationUrl = appDelegate.appFacebookURL
+            vc.isNavBarEnabled = true
+         }
+        
     }
-    */
 
 }

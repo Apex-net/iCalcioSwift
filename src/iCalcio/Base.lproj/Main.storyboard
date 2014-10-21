@@ -706,6 +706,27 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Facebook" rowHeight="64" id="xlM-2h-czz">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xlM-2h-czz" id="WJw-mO-gIM">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1260-facebook@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="uJe-la-NBc">
+                                                    <rect key="frame" x="27" y="10" width="44" height="44"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFy-Hm-SYM">
+                                                    <rect key="frame" x="125" y="17" width="129" height="30"/>
+                                                    <state key="normal" title="Facebook">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didAppleStore:" destination="jjF-1q-FnL" eventType="touchUpInside" id="iXy-Jf-McE"/>
+                                                        <action selector="didFacebook:" destination="jjF-1q-FnL" eventType="touchUpInside" id="Xxb-Pq-E5K"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -718,8 +739,10 @@
                     <connections>
                         <outlet property="appName" destination="nqx-Kb-fBz" id="Hzy-EP-9HN"/>
                         <outlet property="appStore" destination="Zuw-u8-ZIs" id="Eo7-Dp-KFZ"/>
+                        <outlet property="facebookButton" destination="KFy-Hm-SYM" id="j3G-ru-XkC"/>
                         <outlet property="mailto" destination="L4f-fh-J8k" id="eLG-r3-3UJ"/>
                         <outlet property="version" destination="2Yq-Y5-KJg" id="iUd-5S-5d8"/>
+                        <segue destination="f9a-b2-6eQ" kind="show" identifier="toFacebook" id="RFv-Zb-AcV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xHd-bI-tVc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -933,6 +956,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1260-facebook@3x.png" width="84" height="84"/>
         <image name="1287-youtube" width="250" height="40"/>
         <image name="1289-appstore@3x.png" width="84" height="84"/>
         <image name="706-cloud" width="30" height="30"/>
@@ -944,7 +968,7 @@
         <image name="about-team.png" width="152" height="152"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="RFv-Zb-AcV"/>
         <segue reference="n9U-l5-OGz"/>
-        <segue reference="dRi-S3-cLM"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,5 +17,6 @@ URL_TEAM_NAME = Cesena
 
 SLASH = /
 APP_STORE_URL = itms-apps:${SLASH}/itunes.com/apps/ApexnetSrl
+APP_FACEBOOK_URL = https:${SLASH}/www.facebook.com/apexnetsrl
 
 APP_GA_ID = UA-20354938-1

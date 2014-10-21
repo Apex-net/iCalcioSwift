@@ -44,7 +44,18 @@ extension AppDelegate
             }
             return stringNative;
     }
-    
+
+    var appFacebookURL : String{
+        let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
+        let dict = NSDictionary(contentsOfFile: path!)
+        let keyValue : AnyObject? = dict?.valueForKey("AppFacebookURL")
+        var stringNative :String = String()
+        if let nsString:NSString = keyValue as? NSString{
+            stringNative = nsString as String
+        }
+        return stringNative;
+    }
+
     var apiBaseUrl : String{
             let path = NSBundle.mainBundle().pathForResource("Urls", ofType: "plist")
             let dict = NSDictionary(contentsOfFile: path!)

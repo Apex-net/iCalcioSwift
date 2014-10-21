@@ -53,6 +53,9 @@
 		F87617AD19D45EB100D3B947 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617AC19D45EB100D3B947 /* PlayersViewController.swift */; };
 		F87617AF19D45EFC00D3B947 /* StadiumMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87617AE19D45EFC00D3B947 /* StadiumMapViewController.swift */; };
 		F880B3C519C99F72000E1F62 /* PlayVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F880B3C419C99F72000E1F62 /* PlayVideoViewController.swift */; };
+		F880E56719F6745E00AC53A1 /* 1260-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F880E56419F6745E00AC53A1 /* 1260-facebook.png */; };
+		F880E56819F6745E00AC53A1 /* 1260-facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F880E56519F6745E00AC53A1 /* 1260-facebook@2x.png */; };
+		F880E56919F6745E00AC53A1 /* 1260-facebook@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F880E56619F6745E00AC53A1 /* 1260-facebook@3x.png */; };
 		F88615E119DE0F53000D1611 /* 715-globe-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615D819DE0F53000D1611 /* 715-globe-toolbar.png */; };
 		F88615E219DE0F53000D1611 /* 715-globe-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615D919DE0F53000D1611 /* 715-globe-toolbar@2x.png */; };
 		F88615E319DE0F53000D1611 /* 715-globe-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615DA19DE0F53000D1611 /* 715-globe-toolbar@3x.png */; };
@@ -223,6 +226,9 @@
 		F87617AE19D45EFC00D3B947 /* StadiumMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StadiumMapViewController.swift; sourceTree = "<group>"; };
 		F880B3C319C99844000E1F62 /* iCalcio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iCalcio-Bridging-Header.h"; sourceTree = "<group>"; };
 		F880B3C419C99F72000E1F62 /* PlayVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVideoViewController.swift; sourceTree = "<group>"; };
+		F880E56419F6745E00AC53A1 /* 1260-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1260-facebook.png"; path = "../../iCalcioSwift/resources/images/1260-facebook.png"; sourceTree = "<group>"; };
+		F880E56519F6745E00AC53A1 /* 1260-facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1260-facebook@2x.png"; path = "../../iCalcioSwift/resources/images/1260-facebook@2x.png"; sourceTree = "<group>"; };
+		F880E56619F6745E00AC53A1 /* 1260-facebook@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1260-facebook@3x.png"; path = "../../iCalcioSwift/resources/images/1260-facebook@3x.png"; sourceTree = "<group>"; };
 		F88615D819DE0F53000D1611 /* 715-globe-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "715-globe-toolbar.png"; path = "../../iCalcioSwift/resources/images/715-globe-toolbar.png"; sourceTree = "<group>"; };
 		F88615D919DE0F53000D1611 /* 715-globe-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "715-globe-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/715-globe-toolbar@2x.png"; sourceTree = "<group>"; };
 		F88615DA19DE0F53000D1611 /* 715-globe-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "715-globe-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/715-globe-toolbar@3x.png"; sourceTree = "<group>"; };
@@ -460,6 +466,9 @@
 		F8BFE87719BDB24D003BB4AC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F880E56419F6745E00AC53A1 /* 1260-facebook.png */,
+				F880E56519F6745E00AC53A1 /* 1260-facebook@2x.png */,
+				F880E56619F6745E00AC53A1 /* 1260-facebook@3x.png */,
 				F88B190B19ED3A0100FC7542 /* 701-location.png */,
 				F88B190C19ED3A0100FC7542 /* 701-location@2x.png */,
 				F88B190D19ED3A0100FC7542 /* 701-location@3x.png */,
@@ -789,6 +798,7 @@
 				F88615E719DE0F53000D1611 /* 881-globe-toolbar.png in Resources */,
 				F8FF1DAC19DF04530070DA08 /* 730-envelope@3x.png in Resources */,
 				F8641C9919BF662400C4E8AF /* 715-globe@2x.png in Resources */,
+				F880E56819F6745E00AC53A1 /* 1260-facebook@2x.png in Resources */,
 				F8641C9B19BF662400C4E8AF /* 723-location-arrow@2x.png in Resources */,
 				F8FF1DAA19DF04530070DA08 /* 730-envelope.png in Resources */,
 				F8641C8619BF549400C4E8AF /* 858-line-chart.png in Resources */,
@@ -797,8 +807,10 @@
 				F8641C8219BF549400C4E8AF /* 784-target.png in Resources */,
 				F8641C8419BF549400C4E8AF /* 851-calendar.png in Resources */,
 				F8641C8C19BF5BEA00C4E8AF /* 874-newspaper.png in Resources */,
+				F880E56719F6745E00AC53A1 /* 1260-facebook.png in Resources */,
 				F89C556919CAEBF900E61A1E /* 895-user-group@3x.png in Resources */,
 				F89C556D19CAEC5500E61A1E /* 1287-youtube@3x.png in Resources */,
+				F880E56919F6745E00AC53A1 /* 1260-facebook@3x.png in Resources */,
 				F8641C8319BF549400C4E8AF /* 784-target@2x.png in Resources */,
 				F88B191419ED3A0100FC7542 /* 719-alarm-clock.png in Resources */,
 				F8641C7419BF16B700C4E8AF /* 750-home@2x.png in Resources */,
@@ -1049,7 +1061,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "95a6fed9-54e3-4abb-a567-c40f28d5b58a";
+				PROVISIONING_PROFILE = "b1f8e5be-2741-4c59-9bd1-4632b78bba0c";
 			};
 			name = Release;
 		};
