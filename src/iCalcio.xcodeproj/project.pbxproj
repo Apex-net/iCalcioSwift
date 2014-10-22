@@ -98,6 +98,9 @@
 		F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */; };
 		F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */; };
 		F8D2F86A19DC0B13000A1478 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D2F86919DC0B13000A1478 /* Ranking.swift */; };
+		F8E34D2919F7257200205F72 /* 702-share-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F8E34D2619F7257200205F72 /* 702-share-toolbar.png */; };
+		F8E34D2A19F7257200205F72 /* 702-share-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8E34D2719F7257200205F72 /* 702-share-toolbar@2x.png */; };
+		F8E34D2B19F7257200205F72 /* 702-share-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8E34D2819F7257200205F72 /* 702-share-toolbar@3x.png */; };
 		F8EA44F419DDD12600BB254A /* 722-location-pin-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EA44EB19DDD12600BB254A /* 722-location-pin-toolbar.png */; };
 		F8EA44F519DDD12600BB254A /* 722-location-pin-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EA44EC19DDD12600BB254A /* 722-location-pin-toolbar@2x.png */; };
 		F8EA44F619DDD12600BB254A /* 722-location-pin-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8EA44ED19DDD12600BB254A /* 722-location-pin-toolbar@3x.png */; };
@@ -272,6 +275,9 @@
 		F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Settings.swift"; sourceTree = "<group>"; };
 		F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeVideo.swift; sourceTree = "<group>"; };
 		F8D2F86919DC0B13000A1478 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
+		F8E34D2619F7257200205F72 /* 702-share-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "702-share-toolbar.png"; path = "../../iCalcioSwift/resources/images/702-share-toolbar.png"; sourceTree = "<group>"; };
+		F8E34D2719F7257200205F72 /* 702-share-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "702-share-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/702-share-toolbar@2x.png"; sourceTree = "<group>"; };
+		F8E34D2819F7257200205F72 /* 702-share-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "702-share-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/702-share-toolbar@3x.png"; sourceTree = "<group>"; };
 		F8EA44E919DDAEBA00BB254A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F8EA44EB19DDD12600BB254A /* 722-location-pin-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "722-location-pin-toolbar.png"; path = "../../iCalcioSwift/resources/images/722-location-pin-toolbar.png"; sourceTree = "<group>"; };
 		F8EA44EC19DDD12600BB254A /* 722-location-pin-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "722-location-pin-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/722-location-pin-toolbar@2x.png"; sourceTree = "<group>"; };
@@ -470,6 +476,9 @@
 		F8BFE87719BDB24D003BB4AC /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F8E34D2619F7257200205F72 /* 702-share-toolbar.png */,
+				F8E34D2719F7257200205F72 /* 702-share-toolbar@2x.png */,
+				F8E34D2819F7257200205F72 /* 702-share-toolbar@3x.png */,
 				F880E56419F6745E00AC53A1 /* 1260-facebook.png */,
 				F880E56519F6745E00AC53A1 /* 1260-facebook@2x.png */,
 				F880E56619F6745E00AC53A1 /* 1260-facebook@3x.png */,
@@ -751,6 +760,8 @@
 				F81BF38E19C74F55005C12D4 /* 765-arrow-left-toolbar.png in Resources */,
 				F8641C9F19BF662400C4E8AF /* 755-filing-cabinet@2x.png in Resources */,
 				F89C556519CAEB9700E61A1E /* 851-calendar@3x.png in Resources */,
+				F8E34D2B19F7257200205F72 /* 702-share-toolbar@3x.png in Resources */,
+				F8E34D2919F7257200205F72 /* 702-share-toolbar.png in Resources */,
 				F89C555719CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png in Resources */,
 				F8ADE80019DE12B10035D64E /* 706-cloud@2x.png in Resources */,
 				F8EA44FA19DDD12600BB254A /* 852-map.png in Resources */,
@@ -769,6 +780,7 @@
 				F8ADE80119DE12B10035D64E /* 706-cloud@3x.png in Resources */,
 				F81BF39119C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png in Resources */,
 				F89C555D19CAEAFE00E61A1E /* 724-info@3x.png in Resources */,
+				F8E34D2A19F7257200205F72 /* 702-share-toolbar@2x.png in Resources */,
 				F88615E219DE0F53000D1611 /* 715-globe-toolbar@2x.png in Resources */,
 				F89C555F19CAEB3200E61A1E /* 755-filing-cabinet@3x.png in Resources */,
 				F8FF1DAF19DF04530070DA08 /* 1289-appstore@3x.png in Resources */,

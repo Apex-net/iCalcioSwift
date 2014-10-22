@@ -34,10 +34,10 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         }
         self.mailto.setTitle(NSLocalizedString("Contattaci", comment: ""), forState: UIControlState.Normal)
         self.appStore.setTitle(NSLocalizedString("Su Apple Store", comment: ""), forState: UIControlState.Normal)
-        self.mailto.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
-        self.appStore.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        //self.mailto.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        //self.appStore.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
         self.facebookButton.setTitle(NSLocalizedString("Su Facebook", comment: ""), forState: UIControlState.Normal)
-        self.facebookButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        //self.facebookButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
         
         // GA tracking
         appDelegate.trackScreen("/Info")

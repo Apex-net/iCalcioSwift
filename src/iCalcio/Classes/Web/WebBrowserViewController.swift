@@ -17,6 +17,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
     var isNavBarEnabled: Bool = false
     
     private var segmentControl : UISegmentedControl?
+    private var sharingBarItem : UIBarButtonItem?
     
     @IBOutlet weak var webView: UIWebView!
     
@@ -65,15 +66,25 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
     private func initNavBar()
     {
         if self.isNavBarEnabled {
-            if let image1: UIImage = UIImage(named: "765-arrow-left-toolbar") {
-                if let image2: UIImage = UIImage(named: "766-arrow-right-toolbar") {
-                    let images: [UIImage] = [image1, image2]
-                    self.segmentControl = UISegmentedControl(items: images)
-                    self.segmentControl?.addTarget(self, action: "selectedSegmentDidChange:", forControlEvents: UIControlEvents.ValueChanged)
-                    let segmentBarItem : UIBarButtonItem = UIBarButtonItem(customView: self.segmentControl!)
-                    self.navigationItem.rightBarButtonItem = segmentBarItem
-                }
+            var buttons: [UIBarButtonItem] = []
+            // sharing
+            if let image = UIImage(named: "702-share-toolbar"){
+                self.sharingBarItem = UIBarButtonItem(image: image, style: UIBarButtonItemStyle.Plain, target: self, action: "sharingAction:")
+                buttons.append(sharingBarItem!)
             }
+            // segment for web navigation bar
+            var images: [UIImage] = []
+            if let image = UIImage(named: "765-arrow-left-toolbar"){
+                images.append(image)
+            }
+            if let image = UIImage(named: "766-arrow-right-toolbar"){
+                images.append(image)
+            }
+            self.segmentControl = UISegmentedControl(items: images)
+            self.segmentControl?.addTarget(self, action: "selectedSegmentDidChange:", forControlEvents: UIControlEvents.ValueChanged)
+            let segmentBarItem : UIBarButtonItem = UIBarButtonItem(customView: self.segmentControl!)
+            buttons.append(segmentBarItem)
+            self.navigationItem.rightBarButtonItems = buttons
         }
     }
 
@@ -94,6 +105,45 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
             break
         }
         
+    }
+    
+    func sharingAction(sender:AnyObject) {
+        // share url
+        if let url = NSURL(string:self.navigationUrl) {
+            let items:[NSURL] = [url]
+            // let's add a String and an NSURL
+            let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            activityViewController.excludedActivityTypes =  [
+                UIActivityTypePostToWeibo,
+                UIActivityTypePrint,
+                UIActivityTypeAssignToContact,
+                UIActivityTypeSaveToCameraRoll,
+                UIActivityTypeAddToReadingList,
+                UIActivityTypePostToFlickr,
+                UIActivityTypePostToVimeo,
+                UIActivityTypePostToTencentWeibo,
+                UIActivityTypeAirDrop
+            ]
+            activityViewController.completionHandler = {(activityType, completed:Bool) in
+                if !completed {
+                    println("Cancelled activity")
+                    return
+                }
+                if activityType == UIActivityTypePostToFacebook {
+                    println("Facebook activity")
+                }
+                if activityType == UIActivityTypePostToTwitter {
+                    println("Twitter activity")
+                }
+            }
+            
+            let presentationController = activityViewController.popoverPresentationController
+            presentationController?.barButtonItem = self.sharingBarItem
+            
+            self.presentViewController(activityViewController,
+                animated: true, completion: nil)
+            
+        }
     }
     
     private func enableSegmentNavItems() {
