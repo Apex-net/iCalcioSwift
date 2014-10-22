@@ -15,7 +15,6 @@ extension AppDelegate
     func customizeAppearance() {
 
         // Window Settings
-        //self.window?.tintColor = UIColor.whiteColor()
         self.window?.tintAdjustmentMode = UIViewTintAdjustmentMode.Normal
         
         // status bar style is lightContent by default
