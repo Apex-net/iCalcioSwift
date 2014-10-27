@@ -138,7 +138,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6d-6E-ChI">
-                                <rect key="frame" x="-4" y="0.0" width="608" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="608" height="551"/>
                                 <connections>
                                     <segue destination="hDV-Ng-kmc" kind="embed" identifier="embedWeb" id="b99-FW-siA"/>
                                 </connections>
@@ -146,10 +146,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="c6d-6E-ChI" firstAttribute="top" secondItem="CGX-MG-cdl" secondAttribute="topMargin" id="E7t-Ve-HTF"/>
-                            <constraint firstItem="3Tb-JU-e5y" firstAttribute="top" secondItem="c6d-6E-ChI" secondAttribute="bottom" id="erB-d4-08F"/>
-                            <constraint firstItem="c6d-6E-ChI" firstAttribute="leading" secondItem="CGX-MG-cdl" secondAttribute="leadingMargin" constant="-20" id="lsx-4a-VEF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="c6d-6E-ChI" secondAttribute="trailing" constant="-20" id="vJl-A2-0P6"/>
+                            <constraint firstItem="c6d-6E-ChI" firstAttribute="bottom" secondItem="3Tb-JU-e5y" secondAttribute="top" id="0Ax-aQ-r70"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="c6d-6E-ChI" secondAttribute="trailing" constant="-24" id="Vf2-ck-VJr"/>
+                            <constraint firstItem="c6d-6E-ChI" firstAttribute="top" secondItem="CGX-MG-cdl" secondAttribute="top" id="ebe-EB-msH"/>
+                            <constraint firstItem="c6d-6E-ChI" firstAttribute="leading" secondItem="CGX-MG-cdl" secondAttribute="leading" id="l0j-Fe-goj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Web" image="706-cloud" id="4hY-r6-b7O"/>
@@ -211,11 +211,11 @@
                         <viewControllerLayoutGuide type="bottom" id="BYi-9m-hr3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uvk-jP-Jww">
-                        <rect key="frame" x="0.0" y="0.0" width="608" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6P2-SL-dwp">
-                                <rect key="frame" x="-4" y="0.0" width="616" height="551"/>
+                                <rect key="frame" x="-4" y="0.0" width="608" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="f9a-b2-6eQ" id="DzY-kj-3N5"/>
@@ -244,7 +244,7 @@
             <objects>
                 <tableViewController title="Channels" id="78a-A7-W0R" customClass="ChannelsViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bLA-gS-nkM">
-                        <rect key="frame" x="0.0" y="0.0" width="608" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -288,7 +288,7 @@
             <objects>
                 <tableViewController title="ChannelVideos" id="0lt-lI-VYJ" customClass="ChannelVideosViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oIN-HM-Jti">
-                        <rect key="frame" x="0.0" y="0.0" width="608" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -335,11 +335,11 @@
                         <viewControllerLayoutGuide type="bottom" id="GLG-lx-Pl8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LHN-MC-ols">
-                        <rect key="frame" x="0.0" y="0.0" width="608" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdt-yL-q0h" customClass="YTPlayerView">
-                                <rect key="frame" x="-4" y="0.0" width="616" height="551"/>
+                                <rect key="frame" x="-4" y="0.0" width="608" height="551"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -634,7 +634,7 @@
             <objects>
                 <tableViewController title="About" id="jjF-1q-FnL" customClass="AboutTableViewController" customModule="iCalcio" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Rnr-L2-MN3">
-                        <rect key="frame" x="0.0" y="0.0" width="608" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -761,7 +761,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocD-Na-6hq">
-                                <rect key="frame" x="-4" y="0.0" width="608" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <connections>
                                     <segue destination="89j-ep-TbF" kind="embed" identifier="embedAbout" id="1g8-qx-ykB"/>
                                 </connections>
@@ -769,10 +769,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ocD-Na-6hq" firstAttribute="leading" secondItem="ZGf-3j-60T" secondAttribute="leadingMargin" constant="-20" id="GVx-DJ-c7B"/>
-                            <constraint firstItem="Lxw-eg-qNf" firstAttribute="top" secondItem="ocD-Na-6hq" secondAttribute="bottom" id="PlV-pV-QMc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ocD-Na-6hq" secondAttribute="trailing" constant="-20" id="tEo-D6-1Fw"/>
-                            <constraint firstItem="ocD-Na-6hq" firstAttribute="top" secondItem="ZGf-3j-60T" secondAttribute="topMargin" id="yJC-vZ-Ea9"/>
+                            <constraint firstItem="ocD-Na-6hq" firstAttribute="top" secondItem="ZGf-3j-60T" secondAttribute="top" id="O7m-wW-K70"/>
+                            <constraint firstItem="ocD-Na-6hq" firstAttribute="leading" secondItem="ZGf-3j-60T" secondAttribute="leading" id="OIu-Vm-Q3t"/>
+                            <constraint firstAttribute="trailing" secondItem="ocD-Na-6hq" secondAttribute="trailing" id="TUi-1B-s1S"/>
+                            <constraint firstItem="ocD-Na-6hq" firstAttribute="bottom" secondItem="Lxw-eg-qNf" secondAttribute="top" id="xMU-9e-LZl"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="724-info" id="0nx-Dh-T1w"/>
@@ -811,7 +811,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTZ-d9-2hd">
-                                <rect key="frame" x="-4" y="0.0" width="608" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <connections>
                                     <segue destination="k4u-rJ-z9s" kind="embed" identifier="embedVideo" id="UEu-He-fus"/>
                                 </connections>
@@ -819,10 +819,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TTZ-d9-2hd" firstAttribute="leading" secondItem="2B4-r9-tma" secondAttribute="leadingMargin" constant="-20" id="O9Z-7s-2VN"/>
-                            <constraint firstItem="5Qy-5l-cwz" firstAttribute="top" secondItem="TTZ-d9-2hd" secondAttribute="bottom" id="Rgv-Xt-tz3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TTZ-d9-2hd" secondAttribute="trailing" constant="-20" id="cXx-HM-vAx"/>
-                            <constraint firstItem="TTZ-d9-2hd" firstAttribute="top" secondItem="2B4-r9-tma" secondAttribute="topMargin" id="kkG-pQ-SiW"/>
+                            <constraint firstItem="TTZ-d9-2hd" firstAttribute="bottom" secondItem="5Qy-5l-cwz" secondAttribute="top" id="3vB-VS-tuM"/>
+                            <constraint firstAttribute="trailing" secondItem="TTZ-d9-2hd" secondAttribute="trailing" id="FXg-0M-oJm"/>
+                            <constraint firstItem="TTZ-d9-2hd" firstAttribute="leading" secondItem="2B4-r9-tma" secondAttribute="leading" id="HxP-vF-xlO"/>
+                            <constraint firstItem="TTZ-d9-2hd" firstAttribute="top" secondItem="2B4-r9-tma" secondAttribute="top" id="pTT-uD-nA0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Video" image="1287-youtube" id="il1-FT-wdc"/>
@@ -878,7 +878,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Wi-Ud-n5m">
-                                <rect key="frame" x="-4" y="0.0" width="608" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="608" height="551"/>
                                 <connections>
                                     <segue destination="8Tx-gA-8ky" kind="embed" identifier="embedHome" id="vBr-Zm-tFX"/>
                                 </connections>
@@ -886,10 +886,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="9Wi-Ud-n5m" secondAttribute="trailing" constant="-20" id="HPh-x1-FWm"/>
-                            <constraint firstItem="9Wi-Ud-n5m" firstAttribute="top" secondItem="REO-Ji-FqO" secondAttribute="topMargin" id="JOE-mz-ffM"/>
-                            <constraint firstItem="89E-vy-bhM" firstAttribute="top" secondItem="9Wi-Ud-n5m" secondAttribute="bottom" id="du9-mo-jdW"/>
-                            <constraint firstItem="9Wi-Ud-n5m" firstAttribute="leading" secondItem="REO-Ji-FqO" secondAttribute="leadingMargin" constant="-20" id="u6s-tY-s3o"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9Wi-Ud-n5m" secondAttribute="trailing" constant="-24" id="MPW-YO-ROL"/>
+                            <constraint firstItem="9Wi-Ud-n5m" firstAttribute="leading" secondItem="REO-Ji-FqO" secondAttribute="leading" id="aGm-wR-XGu"/>
+                            <constraint firstItem="9Wi-Ud-n5m" firstAttribute="bottom" secondItem="89E-vy-bhM" secondAttribute="top" id="dDP-3P-LiU"/>
+                            <constraint firstItem="9Wi-Ud-n5m" firstAttribute="top" secondItem="REO-Ji-FqO" secondAttribute="top" id="uoF-d0-A3r"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="750-home" id="9W5-mz-aQd"/>
@@ -933,7 +933,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFa-Hf-Fdh">
-                                <rect key="frame" x="-4" y="0.0" width="608" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="608" height="551"/>
                                 <connections>
                                     <segue destination="Z8v-dZ-Efy" kind="embed" identifier="embedNews" id="5Zk-Ve-yL4"/>
                                 </connections>
@@ -941,10 +941,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="CFa-Hf-Fdh" secondAttribute="trailing" constant="-20" id="VPZ-Lz-dHA"/>
-                            <constraint firstItem="CFa-Hf-Fdh" firstAttribute="leading" secondItem="sZE-0a-pi4" secondAttribute="leadingMargin" constant="-20" id="rUv-71-k7b"/>
-                            <constraint firstItem="2fm-4D-JRi" firstAttribute="top" secondItem="CFa-Hf-Fdh" secondAttribute="bottom" id="w6i-ze-Wee"/>
-                            <constraint firstItem="CFa-Hf-Fdh" firstAttribute="top" secondItem="sZE-0a-pi4" secondAttribute="topMargin" id="yTj-TP-wEJ"/>
+                            <constraint firstItem="CFa-Hf-Fdh" firstAttribute="leading" secondItem="sZE-0a-pi4" secondAttribute="leading" id="59P-Ee-FVf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CFa-Hf-Fdh" secondAttribute="trailing" constant="-24" id="CEQ-iS-iUg"/>
+                            <constraint firstItem="CFa-Hf-Fdh" firstAttribute="bottom" secondItem="2fm-4D-JRi" secondAttribute="top" id="J7E-ee-sDm"/>
+                            <constraint firstItem="CFa-Hf-Fdh" firstAttribute="top" secondItem="sZE-0a-pi4" secondAttribute="top" id="j2V-2d-TMn"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="News" image="874-newspaper" id="nt3-94-CoV"/>
