@@ -72,7 +72,6 @@
 		F88B191519ED3A0100FC7542 /* 719-alarm-clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B190F19ED3A0100FC7542 /* 719-alarm-clock@2x.png */; };
 		F88B191619ED3A0100FC7542 /* 719-alarm-clock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B191019ED3A0100FC7542 /* 719-alarm-clock@3x.png */; };
 		F88B191919ED7A0500FC7542 /* AppDelegate+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88B191819ED7A0500FC7542 /* AppDelegate+Notifications.swift */; };
-		F88D110219EFA58700A3E644 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8EA44E919DDAEBA00BB254A /* MapKit.framework */; };
 		F88D110419EFAC5300A3E644 /* Urls.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8ED42FE19C878E0007FD7F8 /* Urls.plist */; };
 		F89C555519CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555419CAEA8400E61A1E /* 765-arrow-left-toolbar@3x.png */; };
 		F89C555719CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F89C555619CAEA8E00E61A1E /* 766-arrow-right-toolbar@3x.png */; };
@@ -278,7 +277,6 @@
 		F8E34D2619F7257200205F72 /* 702-share-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "702-share-toolbar.png"; path = "../../iCalcioSwift/resources/images/702-share-toolbar.png"; sourceTree = "<group>"; };
 		F8E34D2719F7257200205F72 /* 702-share-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "702-share-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/702-share-toolbar@2x.png"; sourceTree = "<group>"; };
 		F8E34D2819F7257200205F72 /* 702-share-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "702-share-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/702-share-toolbar@3x.png"; sourceTree = "<group>"; };
-		F8EA44E919DDAEBA00BB254A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F8EA44EB19DDD12600BB254A /* 722-location-pin-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "722-location-pin-toolbar.png"; path = "../../iCalcioSwift/resources/images/722-location-pin-toolbar.png"; sourceTree = "<group>"; };
 		F8EA44EC19DDD12600BB254A /* 722-location-pin-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "722-location-pin-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/722-location-pin-toolbar@2x.png"; sourceTree = "<group>"; };
 		F8EA44ED19DDD12600BB254A /* 722-location-pin-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "722-location-pin-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/722-location-pin-toolbar@3x.png"; sourceTree = "<group>"; };
@@ -316,7 +314,6 @@
 			files = (
 				F8A8C80719F6E88500AACC1F /* iAd.framework in Frameworks */,
 				F8FF1D9119DE803F0070DA08 /* Alamofire.framework in Frameworks */,
-				F88D110219EFA58700A3E644 /* MapKit.framework in Frameworks */,
 				5C924DF630A14031852F7F74 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,7 +333,6 @@
 			children = (
 				F8A8C80619F6E88500AACC1F /* iAd.framework */,
 				F8F8F8DF19EECCAE00780067 /* EventKitUI.framework */,
-				F8EA44E919DDAEBA00BB254A /* MapKit.framework */,
 				F8516CF419C0451200761A6B /* Alamofire.xcodeproj */,
 				8F7183084E45485AAF92B2A9 /* libPods.a */,
 			);
@@ -700,7 +696,7 @@
 						DevelopmentTeam = LVD55J8NH8;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
