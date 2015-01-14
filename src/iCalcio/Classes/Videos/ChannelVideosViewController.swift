@@ -100,14 +100,14 @@ class ChannelVideosViewController: UITableViewController {
         let video = self.youtubeVideos[indexPath.row]
         
         // set texts
-        cell.textLabel.text = video.title
-        cell.detailTextLabel!.text = video.updated.substringToIndex(advance(video.updated.startIndex, 10)) + " " + video.category!
+        cell.textLabel?.text = video.title
+        cell.detailTextLabel?.text = video.updated.substringToIndex(advance(video.updated.startIndex, 10)) + " " + video.category!
         
         // init image management
         let urlString = video.thumbnailURLString
         
         // set a placeholder for image
-        cell.imageView.image = UIImage(named: "thumbnail_placeholder")
+        cell.imageView?.image = UIImage(named: "thumbnail_placeholder")
         
         // Check our image cache for the existing key. This is just a dictionary of UIImages
         var image = self.imageCache[urlString]
@@ -124,7 +124,7 @@ class ChannelVideosViewController: UITableViewController {
                         // Store the image in to our cache
                         self.imageCache[urlString] = image
                         if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                            cellToUpdate.imageView.image = image
+                            cellToUpdate.imageView?.image = image
                         }
                     }
                     else {
@@ -136,7 +136,7 @@ class ChannelVideosViewController: UITableViewController {
         else {
             dispatch_async(dispatch_get_main_queue(), {
                 if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                    cellToUpdate.imageView.image = image
+                    cellToUpdate.imageView?.image = image
                 }
             })
         }

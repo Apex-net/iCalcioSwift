@@ -77,14 +77,14 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
         let actionItem = self.actionsList[indexPath.row]
         
         // set texts
-        cell.textLabel.text = actionItem.text
-        cell.textLabel.textAlignment = NSTextAlignment.Center
-        cell.textLabel.textColor = UIColor.blueColor()
+        cell.textLabel?.text = actionItem.text
+        cell.textLabel?.textAlignment = NSTextAlignment.Center
+        cell.textLabel?.textColor = UIColor.blueColor()
         
         // set image
         var imageName : String =  actionItem.image
         var image : UIImage? = UIImage(named:imageName)
-        cell.imageView.image = image
+        cell.imageView?.image = image
         
         return cell
     }

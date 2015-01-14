@@ -176,8 +176,8 @@ class MatchesViewController: UITableViewController {
         let match = self.legTeamMatches[indexPath.row]
         
         // set texts
-        cell.textLabel.text = match.description
-        cell.detailTextLabel!.text = "\(match.date) \(match.hour) " + NSLocalizedString("Risultato", comment: "") + ": \(match.result)"
+        cell.textLabel?.text = match.description
+        cell.detailTextLabel?.text = "\(match.date) \(match.hour) " + NSLocalizedString("Risultato", comment: "") + ": \(match.result)"
         
         return cell
     }

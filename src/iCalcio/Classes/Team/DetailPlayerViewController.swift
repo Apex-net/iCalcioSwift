@@ -92,14 +92,14 @@ class DetailPlayerViewController: UITableViewController {
         let dict = self.sectionsList[indexPath.section][indexPath.row]
         
         // set text
-        cell.textLabel.text = dict["text"]!
+        cell.textLabel?.text = dict["text"]!
 
-        cell.detailTextLabel!.text = dict["detailText"]
+        cell.detailTextLabel?.text = dict["detailText"]
         cell.detailTextLabel?.numberOfLines = 1
         if dict["iSNote"] == "Yes" {
             cell.detailTextLabel?.numberOfLines = 6
             let detailText : NSString = dict["detailText"]!
-            cell.detailTextLabel!.text = detailText.stringByConvertingHTMLToPlainText()
+            cell.detailTextLabel?.text = detailText.stringByConvertingHTMLToPlainText()
             cell.detailTextLabel?.sizeToFit()
         }
         

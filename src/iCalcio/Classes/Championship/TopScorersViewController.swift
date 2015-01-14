@@ -129,19 +129,19 @@ class TopScorersViewController: UITableViewController {
         }
         
         // set texts
-        cell.textLabel.text = player?.name
-        cell.detailTextLabel!.text = player?.team
+        cell.textLabel?.text = player?.name
+        cell.detailTextLabel?.text = player?.team
         
         // set font for my team
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let teamName:String = appDelegate.teamName
         let currentTeamName:String? = player?.team
         if currentTeamName?.lowercaseString.rangeOfString(teamName.lowercaseString) != nil {
-            cell.textLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
-            cell.detailTextLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+            cell.textLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+            cell.detailTextLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         } else {
-            cell.textLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-            cell.detailTextLabel!.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+            cell.textLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+            cell.detailTextLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         }
 
 

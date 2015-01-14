@@ -103,8 +103,8 @@ class WebLinksViewController: UITableViewController {
         let webLink = self.webLinks[indexPath.row]
         
         // set texts
-        cell.textLabel.text = webLink.title
-        cell.detailTextLabel!.text = webLink.subTitle
+        cell.textLabel?.text = webLink.title
+        cell.detailTextLabel?.text = webLink.subTitle
 
         return cell
     }

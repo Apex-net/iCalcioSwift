@@ -200,8 +200,8 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
         }
         
         // set texts
-        cell.textLabel.text = feedItem.title != nil ? feedItem.title.stringByConvertingHTMLToPlainText() : "[No Title]"
-        cell.detailTextLabel!.text = feedItem.summary != nil ? feedItem.summary.stringByConvertingHTMLToPlainText() : "[No Summary]"
+        cell.textLabel?.text = feedItem.title != nil ? feedItem.title.stringByConvertingHTMLToPlainText() : "[No Title]"
+        cell.detailTextLabel?.text = feedItem.summary != nil ? feedItem.summary.stringByConvertingHTMLToPlainText() : "[No Summary]"
         cell.detailTextLabel?.numberOfLines = 2
         cell.detailTextLabel?.sizeToFit()
 

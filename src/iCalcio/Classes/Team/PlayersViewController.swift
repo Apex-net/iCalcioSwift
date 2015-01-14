@@ -143,7 +143,7 @@ class PlayersViewController: UITableViewController {
         let player = self.playersList[indexPath.section].players[indexPath.row]
         
         // set texts
-        cell.textLabel.text = self.formatPlayerName(player.name)
+        cell.textLabel?.text = self.formatPlayerName(player.name)
         
         return cell
     }

@@ -91,8 +91,8 @@ class ChannelsViewController: UITableViewController {
         let channel = self.youtubeChannels[indexPath.row]
         
         // set texts
-        cell.textLabel.text = channel.title
-        cell.detailTextLabel!.text = channel.subTitle
+        cell.textLabel?.text = channel.title
+        cell.detailTextLabel?.text = channel.subTitle
 
         return cell
     }
