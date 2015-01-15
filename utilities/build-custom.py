@@ -120,7 +120,7 @@ def check_target(target_path, config_pathname=None):
         return False
     configs = [os.path.basename(x) for x in glob.glob(os.path.join(target_path, config_pathname or '*.xcconfig'))]
     if configs:
-        if len(configs) > 1:
+        if len(configs) > 2:
             sys.stderr.write('Too many configuration files in %s: "%s".\n' % (os.path.abspath(target_path), '", "'.join(configs)))
             return False
     else:
