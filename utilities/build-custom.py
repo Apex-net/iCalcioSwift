@@ -158,7 +158,7 @@ def configureTarget(target):
     target_path = os.path.join(TARGETS_DIR_PATH, target)
 
     # Check if specified target is valid
-    if not check_target(target_path, 'Config.xcconfig'):
+    if not check_target(target_path):
         sys.stderr.write("%s: invalid target.\n" % filename)
         return os.EX_CONFIG
 
@@ -181,7 +181,7 @@ def configureTarget(target):
         raise
 
     # copy configuration file
-    shutil.copy2(glob.glob(os.path.join(target_path, '*.xcconfig'))[0], os.path.join(os.pardir, 'src', 'igamma'))
+    shutil.copy2(glob.glob(os.path.join(target_path, '*.xcconfig'))[0], os.path.join(os.pardir, 'src', 'iCalcio'))
 
     #sys.stdout.write('trace After copy configuration file \n')
 
@@ -338,10 +338,10 @@ def main():
 
         # Check if current directory is under version control and that the working directory is clean
         try:
-            #sys.stdout.write('TODO: Uncommnet check_git \n')
-            if not check_git():
-                sys.stderr.write("%s: invalid version control status.\n" % filename)
-                return os.EX_CONFIG
+            sys.stdout.write('TODO: Uncommnet check_git \n')
+            #if not check_git():
+            #    sys.stderr.write("%s: invalid version control status.\n" % filename)
+            #    return os.EX_CONFIG
         except VCSError:
             sys.stderr.write("%s: no valid version control system is found.\n" % filename)
             return os.EX_CONFIG
