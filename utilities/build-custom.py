@@ -180,8 +180,9 @@ def configureTarget(target):
     if not copyImages(source_images_path, target_images_path):
         raise
 
-    # copy configuration file
+    # copy configuration files
     shutil.copy2(glob.glob(os.path.join(target_path, '*.xcconfig'))[0], os.path.join(os.pardir, 'src', 'iCalcio'))
+    shutil.copy2(glob.glob(os.path.join(target_path, '*.xcconfig'))[1], os.path.join(os.pardir, 'src', 'iCalcio'))    
 
     #sys.stdout.write('trace After copy configuration file \n')
 
