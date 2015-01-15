@@ -10,7 +10,7 @@
 
 PRODUCT_NAME = Jvts
 BUNDLE_IDENTIFIER = com.apexnet.JvtsTest
-BUNDLE_DISPLAY_NAME = Jvts
+BUNDLE_DISPLAY_NAME = JvtsTest
 
 TEAM_NAME = Juventus
 URL_TEAM_NAME = Juventus
