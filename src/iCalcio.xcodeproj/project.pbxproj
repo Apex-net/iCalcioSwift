@@ -148,6 +148,13 @@
 			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
 			remoteInfo = Alamofire;
 		};
+		F8C0C37E1A67CE6800D0FCBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8516CF419C0451200761A6B /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
 		F8F3247019B8C6D4002F93CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8F3245319B8C6D4002F93CF /* Project object */;
@@ -360,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				F8516D0419C0453B00761A6B /* Alamofire.framework */,
+				F8C0C37F1A67CE6800D0FCBB /* Alamofire.framework */,
 				F8516D0619C0453B00761A6B /* AlamofireTests.xctest */,
 			);
 			name = Products;
@@ -746,6 +754,13 @@
 			remoteRef = F8516D0519C0453B00761A6B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F8C0C37F1A67CE6800D0FCBB /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = F8C0C37E1A67CE6800D0FCBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1054,7 +1069,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "05d825bf-9400-47b0-80e6-d8c9631e689a";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1066,15 +1081,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Apex-net Srl (LVD55J8NH8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Apex-net Srl (LVD55J8NH8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = iCalcio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b1f8e5be-2741-4c59-9bd1-4632b78bba0c";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
