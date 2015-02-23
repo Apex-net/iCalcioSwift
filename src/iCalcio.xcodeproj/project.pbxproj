@@ -115,6 +115,7 @@
 		F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3246019B8C6D4002F93CF /* AppDelegate.swift */; };
 		F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F3246619B8C6D4002F93CF /* Main.storyboard */; };
 		F8F3247619B8C6D4002F93CF /* iCalcioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */; };
+		F8F96E241A9B91A7009C0481 /* UIColor+ANAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F96E231A9B91A7009C0481 /* UIColor+ANAdditions.m */; };
 		F8FD201019F03EBA00B6BC22 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F8516D0419C0453B00761A6B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8FF1D9719DEB9230070DA08 /* about-team.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1D9619DEB9230070DA08 /* about-team.png */; };
 		F8FF1DAA19DF04530070DA08 /* 730-envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1DA419DF04530070DA08 /* 730-envelope.png */; };
@@ -304,6 +305,8 @@
 		F8F3247419B8C6D4002F93CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCalcioTests.swift; sourceTree = "<group>"; };
 		F8F8F8DF19EECCAE00780067 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		F8F96E221A9B91A7009C0481 /* UIColor+ANAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ANAdditions.h"; sourceTree = "<group>"; };
+		F8F96E231A9B91A7009C0481 /* UIColor+ANAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ANAdditions.m"; sourceTree = "<group>"; };
 		F8FF1D9619DEB9230070DA08 /* about-team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about-team.png"; path = "../../iCalcioSwift/resources/images/about-team.png"; sourceTree = "<group>"; };
 		F8FF1DA419DF04530070DA08 /* 730-envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "730-envelope.png"; path = "../../iCalcioSwift/resources/images/730-envelope.png"; sourceTree = "<group>"; };
 		F8FF1DA519DF04530070DA08 /* 730-envelope@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "730-envelope@2x.png"; path = "../../iCalcioSwift/resources/images/730-envelope@2x.png"; sourceTree = "<group>"; };
@@ -610,6 +613,7 @@
 				F8ED42F819C8521B007FD7F8 /* Videos */,
 				F8BFE86319B9B505003BB4AC /* About */,
 				F8BFE86A19B9BAC1003BB4AC /* AppDelegate */,
+				F8F96E211A9B91A7009C0481 /* Utilities */,
 				F8BFE86719B9B6F8003BB4AC /* Resources */,
 				F8BFE85B19B9B38E003BB4AC /* Storyboard */,
 				F8F3245E19B8C6D4002F93CF /* Supporting Files */,
@@ -643,6 +647,16 @@
 				F8F3247419B8C6D4002F93CF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F8F96E211A9B91A7009C0481 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F8F96E221A9B91A7009C0481 /* UIColor+ANAdditions.h */,
+				F8F96E231A9B91A7009C0481 /* UIColor+ANAdditions.m */,
+			);
+			name = Utilities;
+			path = Classes/Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -921,6 +935,7 @@
 				F8516D0D19C0652100761A6B /* WebLink.swift in Sources */,
 				F8ED42FD19C87693007FD7F8 /* YoutubeChannel.swift in Sources */,
 				F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */,
+				F8F96E241A9B91A7009C0481 /* UIColor+ANAdditions.m in Sources */,
 				F87617AF19D45EFC00D3B947 /* StadiumMapViewController.swift in Sources */,
 				F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */,
 				F8701BED19F158BC006A648C /* AppDelegate+UI.swift in Sources */,

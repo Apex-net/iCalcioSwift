@@ -4,6 +4,10 @@
 <dict>
 	<key>ANTeamName</key>
 	<string>$(TEAM_NAME)</string>
+	<key>AppMainTintColor</key>
+	<string>$(APP_MAIN_TINT_COLOR)</string>
+	<key>AppBarTintColor</key>
+	<string>$(APP_BAR_TINT_COLOR)</string>
 	<key>ANUrlTeamName</key>
 	<string>$(URL_TEAM_NAME)</string>
 	<key>AppFacebookURL</key>
