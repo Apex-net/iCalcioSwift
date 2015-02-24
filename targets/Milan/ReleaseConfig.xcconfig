@@ -22,5 +22,5 @@ APP_FACEBOOK_URL = https:${SLASH}/www.facebook.com/apexnetsrl
 APP_GA_ID = UA-20354938-1
 
 // RGBA (167, 0, 10, 255)
-APP_MAIN_TINT_COLOR = [0.894, 0.227, 0.192, 1.000] // white
+APP_MAIN_TINT_COLOR = [0.894, 0.227, 0.192, 1.000] // red
 APP_BAR_TINT_COLOR = [0.000, 0.000, 0.000, 1.000] // black
