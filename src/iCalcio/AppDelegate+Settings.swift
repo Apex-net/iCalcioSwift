@@ -106,13 +106,13 @@ extension AppDelegate
     
     func getTeamInfo() {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/GeneralInfo.txt"
         
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
-                if let err = error? {
+                if let err = error {
                     println("Error: " + err.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
                     if let parsedTeamInfomations = JsonArray as? [AnyObject] {

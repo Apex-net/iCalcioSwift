@@ -18,8 +18,8 @@ class Ranking{
     let defeats: String?
     
     init(attributes: AnyObject) {
-        self.description = attributes.valueForKeyPath("description") as String
-        self.points = attributes.valueForKeyPath("point") as String
+        self.description = attributes.valueForKeyPath("description") as! String
+        self.points = attributes.valueForKeyPath("point") as! String
 
         self.games = attributes.valueForKeyPath("play") as? String
         self.wins = attributes.valueForKeyPath("wins") as? String

@@ -24,7 +24,7 @@ class DetailPlayerViewController: UITableViewController {
         self.prepareArrayForTable()
         
         // GA tracking
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.trackScreen("/PlayerDetail")
 
     }
@@ -84,7 +84,7 @@ class DetailPlayerViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("DetailPlayer", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("DetailPlayer", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
 

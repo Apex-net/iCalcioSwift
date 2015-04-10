@@ -17,7 +17,7 @@ class ChannelsViewController: UITableViewController {
         super.viewDidLoad()
         
         // title
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.navigationItem.title = NSLocalizedString("Youtube ", comment: "") + appDelegate.teamName
         
         // init refresh control
@@ -43,13 +43,13 @@ class ChannelsViewController: UITableViewController {
     
     private func refreshData() {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/YouTubeChannels.txt"
         
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
-                if let err = error? {
+                if let err = error {
                     println("Error: " + err.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
                     if let parsedChannels = JsonArray as? [AnyObject] {
@@ -85,7 +85,7 @@ class ChannelsViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Channel", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Channel", forIndexPath: indexPath) as! UITableViewCell
                 
         // Configure the cell...
         let channel = self.youtubeChannels[indexPath.row]
@@ -106,7 +106,7 @@ class ChannelsViewController: UITableViewController {
         let indexPath = self.tableView.indexPathForSelectedRow()
         let channel = self.youtubeChannels[indexPath!.row]
         if segue.identifier == "toChannelVideo" {
-            let vc = segue.destinationViewController as ChannelVideosViewController
+            let vc = segue.destinationViewController as! ChannelVideosViewController
             vc.youtubeChannel = channel
         }
         

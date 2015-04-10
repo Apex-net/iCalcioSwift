@@ -21,7 +21,7 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
         super.viewDidLoad()
         
         // title
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.navigationItem.title = NSLocalizedString("News ", comment: "") + appDelegate.teamName
 
         // init refresh control
@@ -47,7 +47,7 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
     
     private func refreshData() {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/feeds.txt"
         
         // reset temp array
@@ -60,8 +60,8 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
         // call feeds API
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
-                if let err = error? {
-                    println("Error: " + err.localizedDescription)
+                if (error != nil) {
+                    println("Error: " + error!.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
                     if let parsedLinks = JsonArray as? [AnyObject] {
                         self.rssLinks = parsedLinks
@@ -184,7 +184,7 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("News", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("News", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
         
@@ -243,7 +243,7 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
         }
         
         if segue.identifier == "toWebBrowser" {
-            let vc = segue.destinationViewController as WebBrowserViewController
+            let vc = segue.destinationViewController as! WebBrowserViewController
             vc.browserTitle = feedItem.title
             vc.navigationUrl = feedItem.link
             vc.isNavBarEnabled = true

@@ -37,7 +37,7 @@ class PlayVideoViewController: UIViewController, YTPlayerViewDelegate {
         let returnValue = self.playerView.loadWithVideoId(VideoId, playerVars: playerVars)
         
         // GA tracking
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.trackScreen("/VideoDetail")
         
     }

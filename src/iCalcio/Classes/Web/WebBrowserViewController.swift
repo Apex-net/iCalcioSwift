@@ -41,7 +41,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
         self.initNavBar()
         
         // GA tracking
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.trackScreen("/MyWebBrowser")
         
     }
