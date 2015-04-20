@@ -1,0 +1,26 @@
+//
+//  Config.xcconfig
+//  iCalcio
+//
+//  Created by Andrea Calisesi on 05/09/14.
+//  Copyright (c) 2014 Andrea Calisesi. All rights reserved.
+//
+
+#include "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"
+
+PRODUCT_NAME = iSampdoriaFc
+BUNDLE_IDENTIFIER = com.apexnet.iSampdoriaFcTest
+BUNDLE_DISPLAY_NAME = iSampdoriaTest
+
+TEAM_NAME = Sampdoria
+URL_TEAM_NAME = Sampdoria
+
+SLASH = /
+APP_STORE_URL = itms-apps:${SLASH}/itunes.com/apps/ApexnetSrl
+APP_FACEBOOK_URL = https:${SLASH}/www.facebook.com/apexnetsrl
+
+APP_GA_ID = UA-20354938-1
+
+APP_MAIN_TINT_COLOR = [1.000, 1.000, 1.000, 1.000] // white
+// RGBA (60, 87, 181, 255)
+APP_BAR_TINT_COLOR = [0.235, 0.341, 0.710, 1.000] // blue
