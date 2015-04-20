@@ -17,7 +17,7 @@ class WebLinksViewController: UITableViewController {
         super.viewDidLoad()
         
         // title
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.navigationItem.title = NSLocalizedString("Web ", comment: "") + appDelegate.teamName
 
         // init refresh control
@@ -48,13 +48,13 @@ class WebLinksViewController: UITableViewController {
     
     private func refreshData() {
  
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/WebLinks.txt"
         
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
-                if let err = error? {
+                if let err = error {
                     println("Error: " + err.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
                     //println("Array json:")
@@ -97,7 +97,7 @@ class WebLinksViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Web", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Web", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
         let webLink = self.webLinks[indexPath.row]
@@ -152,7 +152,7 @@ class WebLinksViewController: UITableViewController {
         let indexPath = tableView.indexPathForSelectedRow()
         let webLink = self.webLinks[indexPath!.row]
         if segue.identifier == "toWebBrowser" {
-            let vc = segue.destinationViewController as WebBrowserViewController
+            let vc = segue.destinationViewController as! WebBrowserViewController
             vc.browserTitle = webLink.title
             vc.navigationUrl = webLink.link
             vc.isNavBarEnabled = true

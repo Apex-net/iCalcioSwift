@@ -54,19 +54,19 @@ extension AppDelegate
         
     }
     
-    func application(application: UIApplication!, didFailToRegisterForRemoteNotificationsWithError error: NSError!) {
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         // Called when registering for remote notifications doesn't work for some reason 
         println("Failed to register for push notifications! \(error)")
     }
     
-    func application(application: UIApplication!,
-        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData!) {
+    func application(application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         // Called when we've successfully registered for remote notifications.
         // Send the deviceToken to a server you control; it uses that token
         // to send pushes to this specific device.
         
         // Call APNS Server
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let endpointBaseUrl = appDelegate.apnsBaseUrl
             
         // Add query string CMD
@@ -83,7 +83,8 @@ extension AppDelegate
         //println("endpointUrl: " + endpointUrl)
         Alamofire.request(.GET, endpointUrl)
             .responseString {(request, response, string, error) in
-                if let err = error? {
+                //
+                if let err = error {
                     println("Error: " + err.localizedDescription)
                 }
                 else {
@@ -91,8 +92,9 @@ extension AppDelegate
                 }
         }
     }
-    
-    func application(application: UIApplication!,
+
+    /* [!]
+    func application(application: UIApplication,
         didReceiveRemoteNotification userInfo: NSDictionary!) {
         // Called when a remote notification arrives, but no action was selected 
         // or the notification came in while using the app
@@ -102,8 +104,8 @@ extension AppDelegate
         let state:UIApplicationState = application.applicationState
         // alert management for app in active state
         if (state == UIApplicationState.Active) {
-            let notification:NSDictionary = userInfo.objectForKey("aps") as NSDictionary
-            let alertBody : String = notification.objectForKey("alert") as String
+            let notification:NSDictionary = userInfo.objectForKey("aps") as! NSDictionary
+            let alertBody : String = notification.objectForKey("alert") as! String
             let alertController = UIAlertController(title: NSLocalizedString("Avviso", comment: ""), message:alertBody, preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                     // messsage
@@ -113,6 +115,7 @@ extension AppDelegate
         }
 
     }
+*/
     
     
 }

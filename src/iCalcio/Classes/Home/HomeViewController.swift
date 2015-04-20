@@ -16,7 +16,7 @@ class HomeViewController: UITableViewController {
         super.viewDidLoad()
         
         // title
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.navigationItem.title = !appDelegate.appName.isEmpty ? appDelegate.appName : NSLocalizedString("Home", comment: "")
         
         // Set Data
@@ -83,7 +83,7 @@ class HomeViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Home", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Home", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
         
@@ -107,7 +107,7 @@ class HomeViewController: UITableViewController {
         
         switch section {
             case 0:
-                let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 title = appDelegate.teamName
             case 1:
                 title = NSLocalizedString("Campionato", comment: "")

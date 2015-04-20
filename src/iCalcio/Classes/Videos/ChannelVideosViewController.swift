@@ -32,7 +32,7 @@ class ChannelVideosViewController: UITableViewController {
         self.refresh("30")
         
         // GA tracking
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.trackScreen("/ChannelVideos")
 
     }
@@ -48,7 +48,7 @@ class ChannelVideosViewController: UITableViewController {
         
         // Call Youtube API
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let endpointUrl = appDelegate.youtubeBaseUrl + "/" + "\(youtubeChannel.channel)"
             + "/uploads?alt=jsonc&v=2&orderby=updated&start-index=1&max-results=" + maxResults
         //println("endpointUrl youtube API upload videos:  \(endpointUrl)")
@@ -56,7 +56,7 @@ class ChannelVideosViewController: UITableViewController {
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
-                if let err = error? {
+                if let err = error {
                     println("Error: " + err.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data.items"){
                     if let parsedVideos = JsonArray as? [AnyObject] {
@@ -94,7 +94,7 @@ class ChannelVideosViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ChannelVideo", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ChannelVideo", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
         let video = self.youtubeVideos[indexPath.row]
@@ -154,7 +154,7 @@ class ChannelVideosViewController: UITableViewController {
         let indexPath = self.tableView.indexPathForSelectedRow()
         let video = self.youtubeVideos[indexPath!.row]
         if segue.identifier == "toPlayVideo" {
-            let vc = segue.destinationViewController as PlayVideoViewController
+            let vc = segue.destinationViewController as! PlayVideoViewController
             vc.youtubeVideo = video
         }
         

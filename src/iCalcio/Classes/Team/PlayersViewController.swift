@@ -33,7 +33,7 @@ class PlayersViewController: UITableViewController {
         self.refreshData()
 
         // GA tracking
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.trackScreen("/Players")
 
     }
@@ -47,7 +47,7 @@ class PlayersViewController: UITableViewController {
     
     private func refreshData() {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/Players.txt"
         
         // reset temp array
@@ -56,7 +56,7 @@ class PlayersViewController: UITableViewController {
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
-                if let err = error? {
+                if let err = error {
                     println("Error: " + err.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
                     if let parsedDicts = JsonArray as? [AnyObject] {
@@ -136,7 +136,7 @@ class PlayersViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Player", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Player", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
         
@@ -167,7 +167,7 @@ class PlayersViewController: UITableViewController {
         let indexPath:NSIndexPath = self.tableView.indexPathForSelectedRow()!
         let player = self.playersList[indexPath.section].players[indexPath.row]
         if segue.identifier == "toDetailMatch" {
-            let vc = segue.destinationViewController as DetailPlayerViewController
+            let vc = segue.destinationViewController as! DetailPlayerViewController
             vc.player = player
         }
         

@@ -25,7 +25,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         self.navigationItem.title = NSLocalizedString("About", comment: "")
         
         // init cell values
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if !appDelegate.appName.isEmpty {
             self.appName.text = appDelegate.appName
         }
@@ -88,7 +88,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
     
     @IBAction func didAppleStore(sender: AnyObject) {
         // go to Apple store
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         UIApplication.sharedApplication().openURL(NSURL(string: appDelegate.appAppleStoreURL)!)
     }
 
@@ -104,10 +104,10 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
 
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         if segue.identifier == "toFacebook" {
-            let vc = segue.destinationViewController as WebBrowserViewController
+            let vc = segue.destinationViewController as! WebBrowserViewController
             vc.browserTitle = NSLocalizedString("Apexnet", comment: "")
             vc.navigationUrl = appDelegate.appFacebookURL
             vc.isNavBarEnabled = true

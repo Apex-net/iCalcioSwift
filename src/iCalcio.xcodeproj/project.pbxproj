@@ -95,6 +95,7 @@
 		F8ADE80119DE12B10035D64E /* 706-cloud@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8ADE7FE19DE12B10035D64E /* 706-cloud@3x.png */; };
 		F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */; };
 		F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */; };
+		F8C9C28B1AE58F6200EF6153 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F8C9C2821AE58EDE00EF6153 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */; };
 		F8D2F86A19DC0B13000A1478 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D2F86919DC0B13000A1478 /* Ranking.swift */; };
 		F8E34D2919F7257200205F72 /* 702-share-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F8E34D2619F7257200205F72 /* 702-share-toolbar.png */; };
@@ -114,9 +115,7 @@
 		F8ED430119C87AB9007FD7F8 /* ChannelVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED430019C87AB9007FD7F8 /* ChannelVideosViewController.swift */; };
 		F8F3246119B8C6D4002F93CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3246019B8C6D4002F93CF /* AppDelegate.swift */; };
 		F8F3246819B8C6D4002F93CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F3246619B8C6D4002F93CF /* Main.storyboard */; };
-		F8F3247619B8C6D4002F93CF /* iCalcioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */; };
 		F8F96E241A9B91A7009C0481 /* UIColor+ANAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F96E231A9B91A7009C0481 /* UIColor+ANAdditions.m */; };
-		F8FD201019F03EBA00B6BC22 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = F8516D0419C0453B00761A6B /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8FF1D9719DEB9230070DA08 /* about-team.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1D9619DEB9230070DA08 /* about-team.png */; };
 		F8FF1DAA19DF04530070DA08 /* 730-envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1DA419DF04530070DA08 /* 730-envelope.png */; };
 		F8FF1DAB19DF04530070DA08 /* 730-envelope@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FF1DA519DF04530070DA08 /* 730-envelope@2x.png */; };
@@ -127,47 +126,40 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F8516D0319C0453B00761A6B /* PBXContainerItemProxy */ = {
+		F8C9C2811AE58EDE00EF6153 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F8516CF419C0451200761A6B /* Alamofire.xcodeproj */;
+			containerPortal = F8C9C27A1AE58EDE00EF6153 /* Alamofire.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
-			remoteInfo = Alamofire;
+			remoteInfo = "Alamofire iOS";
 		};
-		F8516D0519C0453B00761A6B /* PBXContainerItemProxy */ = {
+		F8C9C2831AE58EDE00EF6153 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F8516CF419C0451200761A6B /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
-			remoteInfo = AlamofireTests;
-		};
-		F8516D0A19C04CD400761A6B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8516CF419C0451200761A6B /* Alamofire.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
-			remoteInfo = Alamofire;
-		};
-		F8C0C37E1A67CE6800D0FCBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8516CF419C0451200761A6B /* Alamofire.xcodeproj */;
+			containerPortal = F8C9C27A1AE58EDE00EF6153 /* Alamofire.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
 			remoteInfo = "Alamofire OSX";
 		};
-		F8F3247019B8C6D4002F93CF /* PBXContainerItemProxy */ = {
+		F8C9C2851AE58EDE00EF6153 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F8F3245319B8C6D4002F93CF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F8F3245A19B8C6D4002F93CF;
-			remoteInfo = iCalcio;
+			containerPortal = F8C9C27A1AE58EDE00EF6153 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
 		};
-		F8FF1D9319DE803F0070DA08 /* PBXContainerItemProxy */ = {
+		F8C9C2871AE58EDE00EF6153 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F8516CF419C0451200761A6B /* Alamofire.xcodeproj */;
+			containerPortal = F8C9C27A1AE58EDE00EF6153 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		F8C9C2891AE58F2C00EF6153 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8C9C27A1AE58EDE00EF6153 /* Alamofire.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
-			remoteInfo = Alamofire;
+			remoteInfo = "Alamofire iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -178,7 +170,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F8FD201019F03EBA00B6BC22 /* Alamofire.framework in Copy Frameworks */,
+				F8C9C28B1AE58F6200EF6153 /* Alamofire.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,7 +192,6 @@
 		F81BF38C19C74F55005C12D4 /* 766-arrow-right-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "766-arrow-right-toolbar.png"; path = "../../iCalcioSwift/resources/images/766-arrow-right-toolbar.png"; sourceTree = "<group>"; };
 		F81BF38D19C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "766-arrow-right-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/766-arrow-right-toolbar@2x.png"; sourceTree = "<group>"; };
 		F844FBAD19D0315A0079555D /* RssLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssLink.swift; sourceTree = "<group>"; };
-		F8516CF419C0451200761A6B /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../libs/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		F8516D0819C0461000761A6B /* WebLinksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLinksViewController.swift; sourceTree = "<group>"; };
 		F8516D0C19C0652100761A6B /* WebLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLink.swift; sourceTree = "<group>"; };
 		F8551FFB19CC29B300ACBAC9 /* AboutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +270,7 @@
 		F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F8BFE87019B9E1AE003BB4AC /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Settings.swift"; sourceTree = "<group>"; };
+		F8C9C27A1AE58EDE00EF6153 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = ../lib/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeVideo.swift; sourceTree = "<group>"; };
 		F8D2F86919DC0B13000A1478 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		F8E34D2619F7257200205F72 /* 702-share-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "702-share-toolbar.png"; path = "../../iCalcioSwift/resources/images/702-share-toolbar.png"; sourceTree = "<group>"; };
@@ -301,7 +293,6 @@
 		F8F3245F19B8C6D4002F93CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F3246019B8C6D4002F93CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8F3246719B8C6D4002F93CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F8F3246F19B8C6D4002F93CF /* iCalcioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCalcioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F3247419B8C6D4002F93CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F3247519B8C6D4002F93CF /* iCalcioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCalcioTests.swift; sourceTree = "<group>"; };
 		F8F8F8DF19EECCAE00780067 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
@@ -326,22 +317,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F8F3246C19B8C6D4002F93CF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		47FE327F5A664C7FB398C774 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8C9C27A1AE58EDE00EF6153 /* Alamofire.xcodeproj */,
 				F8A8C80619F6E88500AACC1F /* iAd.framework */,
 				F8F8F8DF19EECCAE00780067 /* EventKitUI.framework */,
-				F8516CF419C0451200761A6B /* Alamofire.xcodeproj */,
 				8F7183084E45485AAF92B2A9 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -362,16 +346,6 @@
 			);
 			name = Banners;
 			path = Classes/Banners;
-			sourceTree = "<group>";
-		};
-		F8516CFF19C0453B00761A6B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F8516D0419C0453B00761A6B /* Alamofire.framework */,
-				F8C0C37F1A67CE6800D0FCBB /* Alamofire.framework */,
-				F8516D0619C0453B00761A6B /* AlamofireTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		F8516D0719C045DD00761A6B /* Web */ = {
@@ -567,6 +541,17 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		F8C9C27B1AE58EDE00EF6153 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8C9C2821AE58EDE00EF6153 /* Alamofire.framework */,
+				F8C9C2841AE58EDE00EF6153 /* Alamofire.framework */,
+				F8C9C2861AE58EDE00EF6153 /* Alamofire iOS Tests.xctest */,
+				F8C9C2881AE58EDE00EF6153 /* Alamofire OSX Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F8ED42F819C8521B007FD7F8 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
@@ -596,7 +581,6 @@
 			isa = PBXGroup;
 			children = (
 				F8F3245B19B8C6D4002F93CF /* iCalcio.app */,
-				F8F3246F19B8C6D4002F93CF /* iCalcioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -676,31 +660,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				F8516D0B19C04CD400761A6B /* PBXTargetDependency */,
-				F8FF1D9419DE803F0070DA08 /* PBXTargetDependency */,
+				F8C9C28A1AE58F2C00EF6153 /* PBXTargetDependency */,
 			);
 			name = iCalcio;
 			productName = iCalcio;
 			productReference = F8F3245B19B8C6D4002F93CF /* iCalcio.app */;
 			productType = "com.apple.product-type.application";
-		};
-		F8F3246E19B8C6D4002F93CF /* iCalcioTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F8F3247C19B8C6D4002F93CF /* Build configuration list for PBXNativeTarget "iCalcioTests" */;
-			buildPhases = (
-				F8F3246B19B8C6D4002F93CF /* Sources */,
-				F8F3246C19B8C6D4002F93CF /* Frameworks */,
-				F8F3246D19B8C6D4002F93CF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F8F3247119B8C6D4002F93CF /* PBXTargetDependency */,
-			);
-			name = iCalcioTests;
-			productName = iCalcioTests;
-			productReference = F8F3246F19B8C6D4002F93CF /* iCalcioTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -720,10 +685,6 @@
 							};
 						};
 					};
-					F8F3246E19B8C6D4002F93CF = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = F8F3245A19B8C6D4002F93CF;
-					};
 				};
 			};
 			buildConfigurationList = F8F3245619B8C6D4002F93CF /* Build configuration list for PBXProject "iCalcio" */;
@@ -739,38 +700,44 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = F8516CFF19C0453B00761A6B /* Products */;
-					ProjectRef = F8516CF419C0451200761A6B /* Alamofire.xcodeproj */;
+					ProductGroup = F8C9C27B1AE58EDE00EF6153 /* Products */;
+					ProjectRef = F8C9C27A1AE58EDE00EF6153 /* Alamofire.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
 				F8F3245A19B8C6D4002F93CF /* iCalcio */,
-				F8F3246E19B8C6D4002F93CF /* iCalcioTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		F8516D0419C0453B00761A6B /* Alamofire.framework */ = {
+		F8C9C2821AE58EDE00EF6153 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Alamofire.framework;
-			remoteRef = F8516D0319C0453B00761A6B /* PBXContainerItemProxy */;
+			remoteRef = F8C9C2811AE58EDE00EF6153 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F8516D0619C0453B00761A6B /* AlamofireTests.xctest */ = {
+		F8C9C2841AE58EDE00EF6153 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = F8C9C2831AE58EDE00EF6153 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F8C9C2861AE58EDE00EF6153 /* Alamofire iOS Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = AlamofireTests.xctest;
-			remoteRef = F8516D0519C0453B00761A6B /* PBXContainerItemProxy */;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = F8C9C2851AE58EDE00EF6153 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F8C0C37F1A67CE6800D0FCBB /* Alamofire.framework */ = {
+		F8C9C2881AE58EDE00EF6153 /* Alamofire OSX Tests.xctest */ = {
 			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = F8C0C37E1A67CE6800D0FCBB /* PBXContainerItemProxy */;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = F8C9C2871AE58EDE00EF6153 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -866,13 +833,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F8F3246D19B8C6D4002F93CF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -946,31 +906,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F8F3246B19B8C6D4002F93CF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F8F3247619B8C6D4002F93CF /* iCalcioTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F8516D0B19C04CD400761A6B /* PBXTargetDependency */ = {
+		F8C9C28A1AE58F2C00EF6153 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Alamofire;
-			targetProxy = F8516D0A19C04CD400761A6B /* PBXContainerItemProxy */;
-		};
-		F8F3247119B8C6D4002F93CF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F8F3245A19B8C6D4002F93CF /* iCalcio */;
-			targetProxy = F8F3247019B8C6D4002F93CF /* PBXContainerItemProxy */;
-		};
-		F8FF1D9419DE803F0070DA08 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Alamofire;
-			targetProxy = F8FF1D9319DE803F0070DA08 /* PBXContainerItemProxy */;
+			name = "Alamofire iOS";
+			targetProxy = F8C9C2891AE58F2C00EF6153 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1106,42 +1048,6 @@
 			};
 			name = Release;
 		};
-		F8F3247D19B8C6D4002F93CF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8BFE87019B9E1AE003BB4AC /* DebugConfig.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = iCalcioTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iCalcio.app/iCalcio";
-			};
-			name = Debug;
-		};
-		F8F3247E19B8C6D4002F93CF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8180C7D19BDCA2D008975BC /* ReleaseConfig.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = iCalcioTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iCalcio.app/iCalcio";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1159,15 +1065,6 @@
 			buildConfigurations = (
 				F8F3247A19B8C6D4002F93CF /* Debug */,
 				F8F3247B19B8C6D4002F93CF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F8F3247C19B8C6D4002F93CF /* Build configuration list for PBXNativeTarget "iCalcioTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F8F3247D19B8C6D4002F93CF /* Debug */,
-				F8F3247E19B8C6D4002F93CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
