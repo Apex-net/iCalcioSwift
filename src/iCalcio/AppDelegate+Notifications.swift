@@ -55,7 +55,7 @@ extension AppDelegate
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        // Called when registering for remote notifications doesn't work for some reason 
+        // Called when registering for remote notifications doesn't work for some reason
         println("Failed to register for push notifications! \(error)")
     }
     
