@@ -54,13 +54,12 @@ extension AppDelegate
         
     }
     
-    func application(application: UIApplication!, didFailToRegisterForRemoteNotificationsWithError error: NSError!) {
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         // Called when registering for remote notifications doesn't work for some reason 
         println("Failed to register for push notifications! \(error)")
     }
     
-    func application(application: UIApplication!,
-        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData!) {
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         // Called when we've successfully registered for remote notifications.
         // Send the deviceToken to a server you control; it uses that token
         // to send pushes to this specific device.
@@ -92,9 +91,7 @@ extension AppDelegate
         }
     }
     
-/* [!]
-    func application(application: UIApplication!,
-        didReceiveRemoteNotification userInfo: NSDictionary!) {
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]){
         // Called when a remote notification arrives, but no action was selected 
         // or the notification came in while using the app
         // Do something with the information stored in userInfo
@@ -103,8 +100,8 @@ extension AppDelegate
         let state:UIApplicationState = application.applicationState
         // alert management for app in active state
         if (state == UIApplicationState.Active) {
-            let notification:NSDictionary = userInfo.objectForKey("aps") as! NSDictionary
-            let alertBody : String = notification.objectForKey("alert") as! String
+            let notification:[NSObject : AnyObject] = userInfo["aps"] as! [NSObject : AnyObject]
+            let alertBody : String = notification["alert"] as! String
             let alertController = UIAlertController(title: NSLocalizedString("Avviso", comment: ""), message:alertBody, preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                     // messsage
@@ -114,6 +111,5 @@ extension AppDelegate
         }
 
     }
-*/
     
 }
