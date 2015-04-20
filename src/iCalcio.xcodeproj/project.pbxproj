@@ -158,6 +158,7 @@
 		F855200019CC335C00ACBAC9 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		F8590C4B19DAA455000D6F67 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F8590C4E19DAF6A7000D6F67 /* DetailPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPlayerViewController.swift; sourceTree = "<group>"; };
+		F85AA3F01AE5264900E66327 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		F8641C6F19BF16B700C4E8AF /* 750-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "750-home.png"; path = "../../iCalcioSwift/resources/images/750-home.png"; sourceTree = "<group>"; };
 		F8641C7019BF16B700C4E8AF /* 750-home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "750-home@2x.png"; path = "../../iCalcioSwift/resources/images/750-home@2x.png"; sourceTree = "<group>"; };
 		F8641C7A19BF549400C4E8AF /* 784-target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "784-target.png"; path = "../../iCalcioSwift/resources/images/784-target.png"; sourceTree = "<group>"; };
@@ -282,6 +283,7 @@
 		47FE327F5A664C7FB398C774 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F85AA3F01AE5264900E66327 /* libsqlite3.0.dylib */,
 				F8A8C80619F6E88500AACC1F /* iAd.framework */,
 				F8F8F8DF19EECCAE00780067 /* EventKitUI.framework */,
 				5B30B44974A8ECAEAC19DA5F /* Pods.framework */,
@@ -940,6 +942,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(PODS_ROOT)/Headers/**",
+					"$(SDKROOT)/usr/include/libz",
 				);
 				INFOPLIST_FILE = iCalcio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -959,7 +962,13 @@
 					"\"MWFeedParser\"",
 					"-framework",
 					"\"youtube_ios_player_helper\"",
-					"-all_load",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-l\"GoogleAnalyticsServices\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -981,6 +990,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(PODS_ROOT)/Headers/**",
+					"$(SDKROOT)/usr/include/libz",
 				);
 				INFOPLIST_FILE = iCalcio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1000,7 +1010,13 @@
 					"\"MWFeedParser\"",
 					"-framework",
 					"\"youtube_ios_player_helper\"",
-					"-all_load",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-l\"GoogleAnalyticsServices\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
