@@ -39,7 +39,7 @@ class MatchesViewController: UITableViewController {
         self.refreshData()
         
         // GA tracking
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.trackScreen("/Matches")
         
     }
@@ -53,7 +53,7 @@ class MatchesViewController: UITableViewController {
     
     private func initLegSettings() {
 
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let teamInformation = appDelegate.teamInformation
         
         if let ti = teamInformation {
@@ -126,14 +126,14 @@ class MatchesViewController: UITableViewController {
     
     private func refreshData() {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/Matches.txt"
         
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
-                if let err = error? {
-                    println("Error: " + err.localizedDescription)
+                if (error != nil) {
+                    println("Error: " + error!.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
                     if let parsedMatches = JsonArray as? [AnyObject] {
                         self.teamMatches = parsedMatches
@@ -170,7 +170,7 @@ class MatchesViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Match", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Match", forIndexPath: indexPath) as! UITableViewCell
         
         // Configure the cell...
         let match = self.legTeamMatches[indexPath.row]
@@ -192,7 +192,7 @@ class MatchesViewController: UITableViewController {
         let indexPath = self.tableView.indexPathForSelectedRow()
         let match = self.legTeamMatches[indexPath!.row]
         if segue.identifier == "toDetailMatch" {
-            let vc = segue.destinationViewController as DetailMatchViewController
+            let vc = segue.destinationViewController as! DetailMatchViewController
             vc.match = match
         }
         

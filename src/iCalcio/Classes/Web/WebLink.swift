@@ -14,9 +14,9 @@ class WebLink{
     let link: String
     
     init(attributes: AnyObject) {
-        self.title = attributes.valueForKeyPath("title") as String
-        self.subTitle = attributes.valueForKeyPath("subtitle") as String
-        self.link = attributes.valueForKeyPath("link") as String
+        self.title = attributes.valueForKeyPath("title") as! String
+        self.subTitle = attributes.valueForKeyPath("subtitle") as! String
+        self.link = attributes.valueForKeyPath("link") as! String
     }
     
 }

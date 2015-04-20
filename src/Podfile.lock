@@ -1,9 +1,12 @@
 PODS:
-  - GoogleAnalytics-iOS-SDK (3.0.6)
+  - Alamofire (1.2.0)
+  - GoogleAnalytics-iOS-SDK (3.10):
+    - GoogleAnalytics-iOS-SDK/Core (= 3.10)
+  - GoogleAnalytics-iOS-SDK/Core (3.10)
   - MWFeedParser (1.0.1):
-    - MWFeedParser/FeedParser
-    - MWFeedParser/NSDate+InternetDateTime
-    - MWFeedParser/NSString+HTML
+    - MWFeedParser/FeedParser (= 1.0.1)
+    - MWFeedParser/NSDate+InternetDateTime (= 1.0.1)
+    - MWFeedParser/NSString+HTML (= 1.0.1)
   - MWFeedParser/FeedParser (1.0.1):
     - MWFeedParser/NSDate+InternetDateTime
     - MWFeedParser/NSString+HTML
@@ -12,13 +15,15 @@ PODS:
   - youtube-ios-player-helper (0.1.1)
 
 DEPENDENCIES:
-  - GoogleAnalytics-iOS-SDK (= 3.0.6)
+  - Alamofire (~> 1.2)
+  - GoogleAnalytics-iOS-SDK (~> 3.1)
   - MWFeedParser (~> 1.0)
   - youtube-ios-player-helper (~> 0.1)
 
 SPEC CHECKSUMS:
-  GoogleAnalytics-iOS-SDK: 4577fb25381a71c5beac455b18ebb288fc4f44e9
-  MWFeedParser: 003cbf5398e99a7f2057fbe9583054fd1b84be72
-  youtube-ios-player-helper: 53aecd0b4763a77e6890e9a7c55abb7b5c4bedea
+  Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
+  GoogleAnalytics-iOS-SDK: 4f98a376c1d61e6ac4ca47951655820314856eef
+  MWFeedParser: 2cf646014c1baf6ad1b08c480b40a08180079247
+  youtube-ios-player-helper: d7350b9f9070edf482e5d0bd5e8948c0ba1437f3
 
-COCOAPODS: 0.34.2
+COCOAPODS: 0.36.3

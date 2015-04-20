@@ -12,7 +12,7 @@ class RssLink{
     let link: String
     
     init(attributes: AnyObject) {
-        self.link = attributes.valueForKeyPath("link") as String
+        self.link = attributes.valueForKeyPath("link") as! String
     }
     
 }

@@ -28,7 +28,7 @@ class RankingsViewController: UITableViewController {
         self.refreshData()
         
         // GA tracking
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.trackScreen("/Rankings")
     }
 
@@ -41,14 +41,14 @@ class RankingsViewController: UITableViewController {
     
     private func refreshData() {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/Rankings.txt"
         
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
-                if let err = error? {
-                    println("Error: " + err.localizedDescription)
+                if (error != nil) {
+                    println("Error: " + error!.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
                     if let parsedRankings = JsonArray as? [AnyObject] {
                         self.rankings = parsedRankings
@@ -83,7 +83,7 @@ class RankingsViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Ranking", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Ranking", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
         let ranking = self.rankings[indexPath.row]
@@ -93,7 +93,7 @@ class RankingsViewController: UITableViewController {
         cell.detailTextLabel?.text = ranking.points
         
         // set font for my team
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let teamName:String = appDelegate.teamName
         let currentTeamName:String = ranking.description
         if currentTeamName.lowercaseString.rangeOfString(teamName.lowercaseString) != nil {

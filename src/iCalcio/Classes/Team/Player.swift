@@ -23,7 +23,7 @@ class Player {
     
     init(attributes: AnyObject) {
         
-        self.name = attributes.valueForKeyPath("name") as String
+        self.name = attributes.valueForKeyPath("name") as! String
 
         self.picture = attributes.valueForKeyPath("picture") as? String
         self.link = attributes.valueForKeyPath("link") as? String

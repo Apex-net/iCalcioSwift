@@ -14,9 +14,9 @@ class YoutubeChannel{
     let channel: String
     
     init(attributes: AnyObject) {
-        self.title = attributes.valueForKeyPath("title") as String
-        self.subTitle = attributes.valueForKeyPath("subtitle") as String
-        self.channel = attributes.valueForKeyPath("channel") as String
+        self.title = attributes.valueForKeyPath("title") as! String
+        self.subTitle = attributes.valueForKeyPath("subtitle") as! String
+        self.channel = attributes.valueForKeyPath("channel") as! String
     }
     
 }
