@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2BF1E8038D98D7586E5B3AA0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B30B44974A8ECAEAC19DA5F /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E9C48B2A37616825DE367DDF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B680C275644278577577C99 /* libPods.a */; };
 		F802194419DD3E35006D4E6A /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F802194319DD3E35006D4E6A /* BannerViewController.m */; };
 		F80C47DB19D5C48100186ED8 /* TopScorersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C47DA19D5C48100186ED8 /* TopScorersViewController.swift */; };
 		F80C47DE19D5C4C300186ED8 /* RankingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80C47DD19D5C4C300186ED8 /* RankingsViewController.swift */; };
@@ -138,7 +138,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5B30B44974A8ECAEAC19DA5F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B680C275644278577577C99 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F802194219DD3E35006D4E6A /* BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
 		F802194319DD3E35006D4E6A /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
 		F80C47DA19D5C48100186ED8 /* TopScorersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScorersViewController.swift; sourceTree = "<group>"; };
@@ -273,7 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8A8C80719F6E88500AACC1F /* iAd.framework in Frameworks */,
-				2BF1E8038D98D7586E5B3AA0 /* Pods.framework in Frameworks */,
+				E9C48B2A37616825DE367DDF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +286,7 @@
 				F85AA3F01AE5264900E66327 /* libsqlite3.0.dylib */,
 				F8A8C80619F6E88500AACC1F /* iAd.framework */,
 				F8F8F8DF19EECCAE00780067 /* EventKitUI.framework */,
-				5B30B44974A8ECAEAC19DA5F /* Pods.framework */,
+				5B680C275644278577577C99 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -605,7 +605,6 @@
 				F8F3245919B8C6D4002F93CF /* Resources */,
 				7395C4A668C64F8D8B489198 /* Copy Pods Resources */,
 				F8FD200F19F03D1C00B6BC22 /* Copy Frameworks */,
-				2AE1AE96DBF61E2D68EC9096 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -748,21 +747,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2AE1AE96DBF61E2D68EC9096 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7395C4A668C64F8D8B489198 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
