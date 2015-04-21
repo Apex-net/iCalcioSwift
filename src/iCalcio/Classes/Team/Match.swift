@@ -22,10 +22,10 @@ class Match {
     
     init(attributes: AnyObject) {
         
-        self.date = attributes.valueForKeyPath("date") as String
-        self.hour = attributes.valueForKeyPath("hour") as String
-        self.description = attributes.valueForKeyPath("description") as String
-        self.result = attributes.valueForKeyPath("result") as String
+        self.date = attributes.valueForKeyPath("date") as! String
+        self.hour = attributes.valueForKeyPath("hour") as! String
+        self.description = attributes.valueForKeyPath("description") as! String
+        self.result = attributes.valueForKeyPath("result") as! String
         
         self.leg = attributes.valueForKeyPath("leg") as? String
         self.latitude = attributes.valueForKeyPath("latitude") as? String

@@ -10,13 +10,13 @@ import Foundation
 
 class TeamInfo {
     
-    let legDate: NSDate?
+    var legDate: NSDate?
     
-    let version: String
+    var version: String
 
-    let stadiumLatitude: String?
-    let stadiumLongitude: String?
-    let stadiumName: String?
+    var stadiumLatitude: String?
+    var stadiumLongitude: String?
+    var stadiumName: String?
     
     init(attributes: AnyObject) {
         
@@ -28,7 +28,7 @@ class TeamInfo {
             self.legDate = date
         }
         
-        self.version = attributes.valueForKeyPath("version") as String
+        self.version = attributes.valueForKeyPath("version") as! String
         
         self.stadiumLatitude = attributes.valueForKeyPath("stadium_latitude") as? String
         self.stadiumLongitude = attributes.valueForKeyPath("stadium_longitude") as? String

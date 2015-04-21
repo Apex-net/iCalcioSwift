@@ -40,7 +40,7 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         self.initMapTypeNavBar()
         
         // GA tracking
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.trackScreen("/StadiumMap")
         
     }
@@ -115,7 +115,7 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         // set defaults
         if mapTitle == String() {
-            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let teamInformation = appDelegate.teamInformation
             if let stadiumName = teamInformation?.stadiumName {
                 self.mapTitle = stadiumName

@@ -28,7 +28,7 @@ class TopScorersViewController: UITableViewController {
         self.refreshData()
         
         // GA tracking
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.trackScreen("/TopScorers")
         
     }
@@ -42,7 +42,7 @@ class TopScorersViewController: UITableViewController {
     
     private func refreshData() {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/TopScorers.txt"
         
         // reset temp array
@@ -51,7 +51,7 @@ class TopScorersViewController: UITableViewController {
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
-                if let err = error? {
+                if let err = error {
                     println("Error: " + err.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
                     if let parsedArray = JsonArray as? [AnyObject] {
@@ -119,7 +119,7 @@ class TopScorersViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TopScorer", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TopScorer", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
         
@@ -133,7 +133,7 @@ class TopScorersViewController: UITableViewController {
         cell.detailTextLabel?.text = player?.team
         
         // set font for my team
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let teamName:String = appDelegate.teamName
         let currentTeamName:String? = player?.team
         if currentTeamName?.lowercaseString.rangeOfString(teamName.lowercaseString) != nil {

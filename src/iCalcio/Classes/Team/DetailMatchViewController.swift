@@ -33,7 +33,7 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
         self.tableView.reloadData()
         
         // GA tracking
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.trackScreen("/MatchesDetail")
         
     }
@@ -70,7 +70,7 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("DetailMatch", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("DetailMatch", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
         
@@ -235,7 +235,7 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
         let indexPath = self.tableView.indexPathForSelectedRow()
         let actionItem = self.actionsList[indexPath!.row]
         if segue.identifier == "toStadiumMap" {
-            let vc = segue.destinationViewController as StadiumMapViewController
+            let vc = segue.destinationViewController as! StadiumMapViewController
             vc.mapTitle = self.match.stadiumName!
             vc.mapLatitude = self.match.latitude!
             vc.mapLongitude = self.match.longitude!

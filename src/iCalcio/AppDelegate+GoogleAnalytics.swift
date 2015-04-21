@@ -14,6 +14,7 @@ extension AppDelegate
     // MARK: GoogleAnalytics tracking
     
     func initGoogleAnalytics() {
+
         // Init Google Analytics Tracker
         let GAAccountID = self.appGAAccountID
         //println("GAAccountID: \(GAAccountID)")
@@ -28,7 +29,9 @@ extension AppDelegate
         let label = "\(self.teamName) - \(self.appVersion)"
         let category = "New app with Swift code"
         let action = "app_loaded"
-        tracker.send(GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: label, value: -1).build())
+        
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory(category, action: action, label: label, value: -1).build()  as [NSObject : AnyObject])
+        
     }
     
     func stopGoogleAnalytics() {
@@ -41,7 +44,10 @@ extension AppDelegate
         // Manually send a screen view for tracking
         var tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: screenName)
-        tracker.send(GAIDictionaryBuilder.createAppView().build())
+        var build = GAIDictionaryBuilder.createAppView().build() as [NSObject : AnyObject]
+        tracker.send(build)
+        
+        
     }
     
 }

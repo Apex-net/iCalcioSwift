@@ -27,8 +27,8 @@ class YoutubeVideo{
     
     init(attributes: AnyObject) {
 
-        self.idVideo = attributes.valueForKeyPath("id") as String
-        self.title = attributes.valueForKeyPath("title") as String
+        self.idVideo = attributes.valueForKeyPath("id") as! String
+        self.title = attributes.valueForKeyPath("title") as! String
         
         self.description = attributes.valueForKeyPath("description") as? String
         self.category = attributes.valueForKeyPath("category") as? String
@@ -37,10 +37,10 @@ class YoutubeVideo{
         self.rating = attributes.valueForKeyPath("rating") as? Double
         self.viewCount = attributes.valueForKeyPath("viewCount") as? Double
         
-        self.updated = attributes.valueForKeyPath("updated") as String
+        self.updated = attributes.valueForKeyPath("updated") as! String
         
-        self.thumbnailURLString = attributes.valueForKeyPath("thumbnail.sqDefault") as String
-        self.videoURLString = attributes.valueForKeyPath("player.default") as String
+        self.thumbnailURLString = attributes.valueForKeyPath("thumbnail.sqDefault") as! String
+        self.videoURLString = attributes.valueForKeyPath("player.default") as! String
         
     }
     
