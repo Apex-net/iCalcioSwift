@@ -93,10 +93,8 @@ extension AppDelegate
         }
     }
 
-    /* [!]
-    func application(application: UIApplication,
-        didReceiveRemoteNotification userInfo: NSDictionary!) {
-        // Called when a remote notification arrives, but no action was selected 
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]){
+        // Called when a remote notification arrives, but no action was selected
         // or the notification came in while using the app
         // Do something with the information stored in userInfo
         
@@ -104,18 +102,15 @@ extension AppDelegate
         let state:UIApplicationState = application.applicationState
         // alert management for app in active state
         if (state == UIApplicationState.Active) {
-            let notification:NSDictionary = userInfo.objectForKey("aps") as! NSDictionary
-            let alertBody : String = notification.objectForKey("alert") as! String
+            let notification:[NSObject : AnyObject] = userInfo["aps"] as! [NSObject : AnyObject]
+            let alertBody : String = notification["alert"] as! String
             let alertController = UIAlertController(title: NSLocalizedString("Avviso", comment: ""), message:alertBody, preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                    // messsage
+                // messsage
             }
             alertController.addAction(OKAction)
             self.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
         }
-
     }
-*/
-    
-    
+
 }

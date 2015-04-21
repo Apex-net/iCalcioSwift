@@ -124,15 +124,16 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
                 UIActivityTypePostToTencentWeibo,
                 UIActivityTypeAirDrop
             ]
-            activityViewController.completionHandler = {(activityType, completed:Bool) in
-                if !completed {
+            activityViewController.completionWithItemsHandler = { (activity, success, items, error) in
+                // println("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
+                if !success {
                     println("Cancelled activity")
                     return
                 }
-                if activityType == UIActivityTypePostToFacebook {
+                if activity == UIActivityTypePostToFacebook {
                     println("Facebook activity")
                 }
-                if activityType == UIActivityTypePostToTwitter {
+                if activity == UIActivityTypePostToTwitter {
                     println("Twitter activity")
                 }
             }
