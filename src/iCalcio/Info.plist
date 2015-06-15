@@ -14,6 +14,8 @@
 	<string>$(APP_FACEBOOK_URL)</string>
 	<key>AppGAAccountID</key>
 	<string>$(APP_GA_ID)</string>
+	<key>AppYoutubeID</key>
+	<string>$(APP_YOUTUBE_ID)</string>
 	<key>AppStoreURL</key>
 	<string>${APP_STORE_URL}</string>
 	<key>CFBundleDevelopmentRegion</key>

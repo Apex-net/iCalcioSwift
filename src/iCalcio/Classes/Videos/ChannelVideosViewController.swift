@@ -13,6 +13,7 @@ class ChannelVideosViewController: UITableViewController {
 
     var youtubeChannel: YoutubeChannel!
     private var youtubeVideos: Array<YoutubeVideo> = Array()
+    private var youtubeChannelID: String = String()
     
     private var imageCache = [String : UIImage]()
     
@@ -29,7 +30,7 @@ class ChannelVideosViewController: UITableViewController {
         self.refreshControl = refreshControl
         
         // refresh data
-        self.refresh("30")
+        self.refreshAllData("25")
         
         // GA tracking
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -43,8 +44,42 @@ class ChannelVideosViewController: UITableViewController {
     }
     
     // MARK: - Get Data for Table view
+
+    private func refreshAllData(maxResults: String) {
+        
+        // Call Youtube API for channel ID
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let endpointUrl = appDelegate.youtubeBaseUrl + "/channels?" +
+            "forUsername=\(youtubeChannel.channel)" +
+            "key=\(appDelegate.appYoutubeID)" +
+            "part=id"
+        //println("endpointUrl youtube API upload videos:  \(endpointUrl)")
+        
+        Alamofire.request(.GET, endpointUrl)
+            .responseJSON {(request, response, JSON, error) in
+                //println(JSON)
+                if let err = error {
+                    println("Error: " + err.localizedDescription)
+                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("items"){
+                    if let parsedItems = JsonArray as? [AnyObject] {
+                       // todo [!]
+                       // set channel ID
+                       // ...
+                       // get all videos
+                       // ...
+                    }
+                }
+                // end refreshing
+                if self.refreshControl?.refreshing == true {
+                    self.refreshControl?.endRefreshing()
+                }
+        }
+    }
     
-    private func refresh(maxResults: String) {
+    private func getAllVideos(maxResults: String) {
+        
+        // todo [!]
         
         // Call Youtube API
         
@@ -66,18 +101,13 @@ class ChannelVideosViewController: UITableViewController {
                     self.tableView.reloadData()
                     
                 }
-                // end refreshing
-                if self.refreshControl?.refreshing == true {
-                    self.refreshControl?.endRefreshing()
-                }
-
         }
     }
     
     func refreshAction(sender:AnyObject!)
     {
         println("refreshChannelVideos: method called")
-        self.refresh("50")
+        self.refreshAllData("50")
         
     }
 
