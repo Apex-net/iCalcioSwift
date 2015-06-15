@@ -13,7 +13,6 @@ class ChannelVideosViewController: UITableViewController {
 
     var youtubeChannel: YoutubeChannel!
     private var youtubeVideos: Array<YoutubeVideo> = Array()
-    private var youtubeChannelID: String = String()
     
     private var imageCache = [String : UIImage]()
     
@@ -52,9 +51,9 @@ class ChannelVideosViewController: UITableViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let endpointUrl = appDelegate.youtubeBaseUrl + "/channels?" +
             "forUsername=\(youtubeChannel.channel)" +
-            "key=\(appDelegate.appYoutubeID)" +
-            "part=id"
-        //println("endpointUrl youtube API upload videos:  \(endpointUrl)")
+            "&key=\(appDelegate.appYoutubeID)" +
+            "&part=id"
+        //println("endpointUrl youtube API channel ID:  \(endpointUrl)")
         
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
@@ -63,11 +62,11 @@ class ChannelVideosViewController: UITableViewController {
                     println("Error: " + err.localizedDescription)
                 } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("items"){
                     if let parsedItems = JsonArray as? [AnyObject] {
-                       // todo [!]
-                       // set channel ID
-                       // ...
-                       // get all videos
-                       // ...
+                        //println(parsedItems)
+                        if let channelID = parsedItems[0].valueForKeyPath("id") as? String {
+                            // get all videos
+                            self.getAllVideos(maxResults, forChannelID: channelID)
+                        }
                     }
                 }
                 // end refreshing
@@ -77,29 +76,29 @@ class ChannelVideosViewController: UITableViewController {
         }
     }
     
-    private func getAllVideos(maxResults: String) {
+    private func getAllVideos(maxResults: String, forChannelID: String) {
         
-        // todo [!]
-        
-        // Call Youtube API
-        
+        // Call Youtube API for videos in a channel
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let endpointUrl = appDelegate.youtubeBaseUrl + "/" + "\(youtubeChannel.channel)"
-            + "/uploads?alt=jsonc&v=2&orderby=updated&start-index=1&max-results=" + maxResults
-        //println("endpointUrl youtube API upload videos:  \(endpointUrl)")
+        let endpointUrl = appDelegate.youtubeBaseUrl + "/search?" +
+            "channelId=\(forChannelID)" +
+            "&key=\(appDelegate.appYoutubeID)" +
+            "&part=snippet" +
+            "&order=date" +
+            "&maxResults=\(maxResults)"
+        //println("endpointUrl youtube API videos for channel:  \(endpointUrl)")
 
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
                 if let err = error {
                     println("Error: " + err.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data.items"){
+                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("items"){
                     if let parsedVideos = JsonArray as? [AnyObject] {
                         self.youtubeVideos = parsedVideos
                             .map({ obj in YoutubeVideo(attributes: obj) })
                     }
                     self.tableView.reloadData()
-                    
                 }
         }
     }
@@ -131,7 +130,7 @@ class ChannelVideosViewController: UITableViewController {
         
         // set texts
         cell.textLabel?.text = video.title
-        cell.detailTextLabel?.text = video.updated.substringToIndex(advance(video.updated.startIndex, 10)) + " " + video.category!
+        cell.detailTextLabel?.text = video.updated.substringToIndex(advance(video.updated.startIndex, 10))
         
         // init image management
         let urlString = video.thumbnailURLString
