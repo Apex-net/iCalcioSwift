@@ -99,9 +99,20 @@ extension AppDelegate
     }
     
     var youtubeBaseUrl : String {
-        let stringNative: String = "http://gdata.youtube.com/feeds/api/users"
+        let stringNative: String = "https://www.googleapis.com/youtube/v3"
                 
         return stringNative
+    }
+    
+    var appYoutubeID : String{
+        let path = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")
+        let dict = NSDictionary(contentsOfFile: path!)
+        let keyValue : AnyObject? = dict?.valueForKey("AppYoutubeID")
+        var stringNative :String = String()
+        if let nsString:NSString = keyValue as? NSString{
+            stringNative = nsString as String
+        }
+        return stringNative;
     }
     
     func getTeamInfo() {

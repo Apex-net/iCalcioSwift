@@ -29,7 +29,7 @@ class ChannelVideosViewController: UITableViewController {
         self.refreshControl = refreshControl
         
         // refresh data
-        self.refresh("30")
+        self.refreshAllData("25")
         
         // GA tracking
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -43,41 +43,71 @@ class ChannelVideosViewController: UITableViewController {
     }
     
     // MARK: - Get Data for Table view
-    
-    private func refresh(maxResults: String) {
+
+    private func refreshAllData(maxResults: String) {
         
-        // Call Youtube API
+        // Call Youtube API for channel ID
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let endpointUrl = appDelegate.youtubeBaseUrl + "/" + "\(youtubeChannel.channel)"
-            + "/uploads?alt=jsonc&v=2&orderby=updated&start-index=1&max-results=" + maxResults
-        //println("endpointUrl youtube API upload videos:  \(endpointUrl)")
+        let endpointUrl = appDelegate.youtubeBaseUrl + "/channels?" +
+            "forUsername=\(youtubeChannel.channel)" +
+            "&key=\(appDelegate.appYoutubeID)" +
+            "&part=id"
+        //println("endpointUrl youtube API channel ID:  \(endpointUrl)")
+        
+        Alamofire.request(.GET, endpointUrl)
+            .responseJSON {(request, response, JSON, error) in
+                //println(JSON)
+                if let err = error {
+                    println("Error: " + err.localizedDescription)
+                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("items"){
+                    if let parsedItems = JsonArray as? [AnyObject] {
+                        //println(parsedItems)
+                        if let channelID = parsedItems[0].valueForKeyPath("id") as? String {
+                            // get all videos
+                            self.getAllVideos(maxResults, forChannelID: channelID)
+                        }
+                    }
+                }
+                // end refreshing
+                if self.refreshControl?.refreshing == true {
+                    self.refreshControl?.endRefreshing()
+                }
+        }
+    }
+    
+    private func getAllVideos(maxResults: String, forChannelID: String) {
+        
+        // Call Youtube API for videos in a channel
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let endpointUrl = appDelegate.youtubeBaseUrl + "/search?" +
+            "channelId=\(forChannelID)" +
+            "&key=\(appDelegate.appYoutubeID)" +
+            "&part=snippet" +
+            "&order=date" +
+            "&maxResults=\(maxResults)" +
+            "&type=video"
+        //println("endpointUrl youtube API videos for channel:  \(endpointUrl)")
 
         Alamofire.request(.GET, endpointUrl)
             .responseJSON {(request, response, JSON, error) in
                 //println(JSON)
                 if let err = error {
                     println("Error: " + err.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data.items"){
+                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("items"){
                     if let parsedVideos = JsonArray as? [AnyObject] {
                         self.youtubeVideos = parsedVideos
                             .map({ obj in YoutubeVideo(attributes: obj) })
                     }
                     self.tableView.reloadData()
-                    
                 }
-                // end refreshing
-                if self.refreshControl?.refreshing == true {
-                    self.refreshControl?.endRefreshing()
-                }
-
         }
     }
     
     func refreshAction(sender:AnyObject!)
     {
         println("refreshChannelVideos: method called")
-        self.refresh("50")
+        self.refreshAllData("50")
         
     }
 
@@ -101,7 +131,9 @@ class ChannelVideosViewController: UITableViewController {
         
         // set texts
         cell.textLabel?.text = video.title
-        cell.detailTextLabel?.text = video.updated.substringToIndex(advance(video.updated.startIndex, 10)) + " " + video.category!
+        cell.textLabel?.numberOfLines = 2
+        cell.textLabel?.sizeToFit()
+        cell.detailTextLabel?.text = video.updated.substringToIndex(advance(video.updated.startIndex, 10))
         
         // init image management
         let urlString = video.thumbnailURLString
@@ -143,6 +175,12 @@ class ChannelVideosViewController: UITableViewController {
 
         return cell
     }
+    
+    // MARK: - Table view delegate
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
+    
 
     // MARK: - Navigation
 

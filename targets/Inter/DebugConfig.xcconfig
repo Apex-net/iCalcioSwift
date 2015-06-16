@@ -20,6 +20,7 @@ APP_STORE_URL = itms-apps:${SLASH}/itunes.com/apps/ApexnetSrl
 APP_FACEBOOK_URL = https:${SLASH}/www.facebook.com/apexnetsrl
 
 APP_GA_ID = UA-20354938-1
+APP_YOUTUBE_ID = AIzaSyBdMmkSh3vhgYwjjEZvxBF3CZQwuX_8TSo
 
 // RGBA (21, 105, 167, 255)
 APP_MAIN_TINT_COLOR = [0.082, 0.412, 0.655, 1.000] // blue
