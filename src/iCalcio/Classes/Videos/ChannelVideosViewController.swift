@@ -85,7 +85,8 @@ class ChannelVideosViewController: UITableViewController {
             "&key=\(appDelegate.appYoutubeID)" +
             "&part=snippet" +
             "&order=date" +
-            "&maxResults=\(maxResults)"
+            "&maxResults=\(maxResults)" +
+            "&type=video"
         //println("endpointUrl youtube API videos for channel:  \(endpointUrl)")
 
         Alamofire.request(.GET, endpointUrl)
@@ -130,6 +131,8 @@ class ChannelVideosViewController: UITableViewController {
         
         // set texts
         cell.textLabel?.text = video.title
+        cell.textLabel?.numberOfLines = 2
+        cell.textLabel?.sizeToFit()
         cell.detailTextLabel?.text = video.updated.substringToIndex(advance(video.updated.startIndex, 10))
         
         // init image management
@@ -172,6 +175,12 @@ class ChannelVideosViewController: UITableViewController {
 
         return cell
     }
+    
+    // MARK: - Table view delegate
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
+    
 
     // MARK: - Navigation
 

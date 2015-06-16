@@ -99,8 +99,6 @@ extension AppDelegate
     }
     
     var youtubeBaseUrl : String {
-        // [!] old:
-        //let stringNative: String = "http://gdata.youtube.com/feeds/api/users"
         let stringNative: String = "https://www.googleapis.com/youtube/v3"
                 
         return stringNative

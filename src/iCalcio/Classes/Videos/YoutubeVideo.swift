@@ -16,13 +16,10 @@ class YoutubeVideo{
     let description: String?
     
     let updated: String
-    
     let thumbnailURLString: String
     
     init(attributes: AnyObject) {
 
-        // [!] todo
-        // id.videoId (yes) or id.playlistId (no)
         self.idVideo = attributes.valueForKeyPath("id.videoId") as! String
         
         self.title = attributes.valueForKeyPath("snippet.title") as! String
