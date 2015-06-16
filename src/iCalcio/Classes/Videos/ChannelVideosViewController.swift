@@ -106,7 +106,7 @@ class ChannelVideosViewController: UITableViewController {
     
     func refreshAction(sender:AnyObject!)
     {
-        println("refreshChannelVideos: method called")
+        //println("refreshChannelVideos: method called")
         self.refreshAllData("50")
         
     }
