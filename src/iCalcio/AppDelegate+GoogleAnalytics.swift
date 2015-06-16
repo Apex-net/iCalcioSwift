@@ -44,7 +44,7 @@ extension AppDelegate
         // Manually send a screen view for tracking
         var tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: screenName)
-        var build = GAIDictionaryBuilder.createAppView().build() as [NSObject : AnyObject]
+        var build = GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]
         tracker.send(build)
         
         

@@ -49,14 +49,12 @@ class PlayVideoViewController: UIViewController, YTPlayerViewDelegate {
 
     // MARK: - YTPlayerView Delegate
     func playerView(playerView: YTPlayerView!, didChangeToState state: YTPlayerState) {
-        let c: uint = state.value
-        let i: Int = Int(c)
+        let i: Int = state.rawValue
         println("playerView didChangeToState YTPlayerState: \(i)")
     }
 
     func playerView(playerView: YTPlayerView!, receivedError error: YTPlayerError) {
-        let c: uint = error.value
-        let i: Int = Int(c)
+        let i: Int = error.rawValue
         println("playerView error YTPlayerError: \(i)")
     }
     
