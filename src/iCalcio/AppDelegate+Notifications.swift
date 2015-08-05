@@ -17,7 +17,7 @@ extension AppDelegate
     func initLocalNotifications(application: UIApplication) {
         
         // registering for sending user various kinds of notifications
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert|UIUserNotificationType.Badge,categories:nil))
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound],categories:nil))
         
     }
     
@@ -45,9 +45,9 @@ extension AppDelegate
     func initPushNotifications() {
         
         #if (arch(i386) || arch(x86_64)) && os(iOS)
-            println("this is a simulator")
+            print("this is a simulator")
         #else
-            println("this is a device")
+            print("this is a device")
             // registering for push notification
             UIApplication.sharedApplication().registerForRemoteNotifications()
         #endif
@@ -56,7 +56,7 @@ extension AppDelegate
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         // Called when registering for remote notifications doesn't work for some reason
-        println("Failed to register for push notifications! \(error)")
+        print("Failed to register for push notifications! \(error)")
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
@@ -75,20 +75,23 @@ extension AppDelegate
         #endif
         let tokenDescription = deviceToken.description
         let tokenTrimmed = tokenDescription.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
-        let tokenWithoutSpaces = tokenTrimmed.stringByReplacingOccurrencesOfString(" ", withString: "", options: nil, range: nil)
+        let tokenWithoutSpaces = tokenTrimmed.stringByReplacingOccurrencesOfString(" ", withString: "", options: NSStringCompareOptions.LiteralSearch , range: nil)
         let token = tokenWithoutSpaces
         let version = appDelegate.appVersion
         let endpointUrl = "\(endpointBaseUrl)?CMD=initapp&appkey=\(apnsTeamName)&devtoken=\(token)&custom=\(version)"
         //println("endpointUrl: " + endpointUrl)
         Alamofire.request(.GET, endpointUrl)
-            .responseString {(request, response, string, error) in
-                if (error != nil) {
-                    println("Error: " + error!.localizedDescription)
+            .responseString {request, response, result in
+                switch result {
+                case .Success(let stringResult):
+                    print("APNS - responseString: \(stringResult)")
+                case .Failure(let data, let error):
+                    print("Request failed with error: \(error)")
+                    if let dataFailure = data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
+                    }
                 }
-                else {
-                    println("APNS - responseString: " + string!)
-                }
-        }
+            }
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]){

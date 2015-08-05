@@ -56,10 +56,10 @@ class MatchesViewController: UITableViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let teamInformation = appDelegate.teamInformation
         
-        if let ti = teamInformation {
+        if teamInformation != nil {
             let dateInitSecondLeg = teamInformation?.legDate
             //println(dateInitSecondLeg)
-            var now = NSDate()
+            let now = NSDate()
             
             /*
             // only for test
@@ -130,24 +130,28 @@ class MatchesViewController: UITableViewController {
         let endpointUrl = appDelegate.apiBaseUrl + "/Matches.txt"
         
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
-                if (error != nil) {
-                    println("Error: " + error!.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    if let parsedMatches = JsonArray as? [AnyObject] {
+            .responseJSON {request, response, result in
+                switch result {
+                case .Success(let JSON):
+                    //print("Success with JSON: \(JSON)")
+                    if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedMatches = JsonArray as? [AnyObject] {
                         self.teamMatches = parsedMatches
                             .map({ obj in Match(attributes: obj) })
                     }
                     // filter and tableview reloading
                     self.filterContentForLeg()
-                    
+
+                case .Failure(let data, let error):
+                    print("Request failed with error: \(error)")
+                    if let dataFailure = data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
+                    }
                 }
                 // end refreshing
                 if self.refreshControl?.refreshing == true {
                     self.refreshControl?.endRefreshing()
                 }
-        }
+            }
     }
     
     // RefreshControl selector
@@ -170,7 +174,7 @@ class MatchesViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Match", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Match", forIndexPath: indexPath) 
         
         // Configure the cell...
         let match = self.legTeamMatches[indexPath.row]
@@ -189,8 +193,8 @@ class MatchesViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        let indexPath = self.tableView.indexPathForSelectedRow()
-        let match = self.legTeamMatches[indexPath!.row]
+        let indexPath = self.tableView.indexPathForSelectedRow!
+        let match = self.legTeamMatches[indexPath.row]
         if segue.identifier == "toDetailMatch" {
             let vc = segue.destinationViewController as! DetailMatchViewController
             vc.match = match

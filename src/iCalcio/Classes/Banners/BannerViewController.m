@@ -84,7 +84,7 @@ NSString * const BannerViewActionDidFinish = @"BannerViewActionDidFinish";
     return [self.contentController preferredInterfaceOrientationForPresentation];
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return [self.contentController supportedInterfaceOrientations];
 }

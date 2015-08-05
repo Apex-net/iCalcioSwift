@@ -49,15 +49,14 @@ class TopScorersViewController: UITableViewController {
         topScorersList.removeAll()
         
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
-                if let err = error {
-                    println("Error: " + err.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    if let parsedArray = JsonArray as? [AnyObject] {
+            .responseJSON {request, response, result in
+                switch result {
+                case .Success(let JSON):
+                    //print("Success with JSON: \(JSON)")
+                    if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedArray = JsonArray as? [AnyObject] {
                         let topScorers = parsedArray
                             .map({ obj in Player(attributes: obj) })
-                        let sortedTopScorers = sorted(topScorers){$0.goals > $1.goals}
+                        let sortedTopScorers = topScorers.sort{$0.goals > $1.goals}
                         var tempItems:Array<Player> = []
                         var oldGoals:String = String()
                         for item in sortedTopScorers{
@@ -84,16 +83,19 @@ class TopScorersViewController: UITableViewController {
                             self.topScorersList.append(newData)
                         }
                     }
-                    
                     // tableview reloading
                     self.tableView.reloadData()
-                    
+                case .Failure(let data, let error):
+                    print("Request failed with error: \(error)")
+                    if let dataFailure = data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
+                    }
                 }
                 // end refreshing
                 if self.refreshControl?.refreshing == true {
                     self.refreshControl?.endRefreshing()
                 }
-        }
+            }
     }
     
     // RefreshControl selector
@@ -119,7 +121,7 @@ class TopScorersViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TopScorer", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TopScorer", forIndexPath: indexPath)
 
         // Configure the cell...
         

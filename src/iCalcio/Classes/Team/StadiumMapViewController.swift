@@ -103,7 +103,7 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
         // go to my position
         if isUpdateUserLocation {
             // Map zoom in my position
-            let region:MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: mapView.userLocation.location.coordinate.latitude, longitude: mapView.userLocation.location.coordinate.longitude), span: MKCoordinateSpanMake(0.030, 0.030))
+            let region:MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: mapView.userLocation.location!.coordinate.latitude, longitude: mapView.userLocation.location!.coordinate.longitude), span: MKCoordinateSpanMake(0.030, 0.030))
             mapView.setRegion(region, animated: true)
             mapView.regionThatFits(region)
         }
@@ -152,7 +152,7 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
             // Stadium Annotation
             let stadiumLatitude = NSString(string:self.mapLatitude).doubleValue
             let stadiumLongitude = NSString(string:self.mapLongitude).doubleValue
-            var myHomePin = MKPointAnnotation()
+            let myHomePin = MKPointAnnotation()
             myHomePin.coordinate = CLLocationCoordinate2D(latitude: stadiumLatitude, longitude: stadiumLongitude)
             myHomePin.title = self.mapTitle
             myHomePin.subtitle = NSLocalizedString("Stadio", comment: "")
@@ -203,22 +203,22 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
     
      // MARK: - MKMapView delegate
-    func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!){
-        //println("MKMapView.didUpdateUserLocation: Ok")
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation){
+        //print("MKMapView.didUpdateUserLocation: Ok")
         self.isUpdateUserLocation = true
     }
     
-    func mapView(mapView: MKMapView!, didFailToLocateUserWithError error: NSError!){
-        println("MKMapView.didFailToLocateUserWithError: " + error.localizedDescription)
+    func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError){
+        print("MKMapView.didFailToLocateUserWithError: " + error.localizedDescription)
     }
     
     // MARK: - CLLocationManager delegate
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!){
-        //println("CLLocationManager.didUpdateLocations: Ok")
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        //print("CLLocationManager.didUpdateLocations: Ok")
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("CLLocationManager.didFailWithError: " + error.localizedDescription)
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("CLLocationManager.didFailWithError: " + error.localizedDescription)
     }
     
     

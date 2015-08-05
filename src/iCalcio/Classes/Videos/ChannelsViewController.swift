@@ -47,24 +47,28 @@ class ChannelsViewController: UITableViewController {
         let endpointUrl = appDelegate.apiBaseUrl + "/YouTubeChannels.txt"
         
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
-                if let err = error {
-                    println("Error: " + err.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    if let parsedChannels = JsonArray as? [AnyObject] {
+            .responseJSON {request, response, result in
+                switch result {
+                case .Success(let JSON):
+                    //print("Success with JSON: \(JSON)")
+                    if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedChannels = JsonArray as? [AnyObject] {
                         self.youtubeChannels = parsedChannels
                             .map({ obj in YoutubeChannel(attributes: obj) })
                     }
                     // tableview reloading
                     self.tableView.reloadData()
-                    
+                case .Failure(let data, let error):
+                    print("Request failed with error: \(error)")
+                    if let dataFailure = data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
+                    }
                 }
                 // end refreshing
                 if self.refreshControl?.refreshing == true {
                     self.refreshControl?.endRefreshing()
                 }
-        }
+            }
+
     }
 
     // RefreshControl selector
@@ -85,7 +89,7 @@ class ChannelsViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Channel", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Channel", forIndexPath: indexPath) 
                 
         // Configure the cell...
         let channel = self.youtubeChannels[indexPath.row]
@@ -103,7 +107,7 @@ class ChannelsViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        let indexPath = self.tableView.indexPathForSelectedRow()
+        let indexPath = self.tableView.indexPathForSelectedRow
         let channel = self.youtubeChannels[indexPath!.row]
         if segue.identifier == "toChannelVideo" {
             let vc = segue.destinationViewController as! ChannelVideosViewController

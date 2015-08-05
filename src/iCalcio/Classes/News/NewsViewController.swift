@@ -59,22 +59,26 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
 
         // call feeds API
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                if (error != nil) {
-                    println("Error: " + error!.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    if let parsedLinks = JsonArray as? [AnyObject] {
+            .responseJSON {request, response, result in
+                switch result {
+                case .Success(let JSON):
+                    //print("Success with JSON: \(JSON)")
+                    if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedLinks = JsonArray as? [AnyObject] {
                         self.rssLinks = parsedLinks
                             .map({ obj in RssLink(attributes: obj) })
                     }
-                    
                     // Parse collection of feed urls
                     self.countParsedFeeds = 0
                     for item in self.rssLinks{
                         self.parseFeed(item.link)
                     }
+                case .Failure(let data, let error):
+                    print("Request failed with error: \(error)")
+                    if let dataFailure = data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
+                    }
                 }
-        }
+            }
     }
     
     // RefreshControl selector
@@ -95,9 +99,9 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
         
         // ordering feed items
         var tempItems:[MWFeedItem] = []
-        let sortedResults = sorted(self.feedItems, {
+        let sortedResults = self.feedItems.sort{
             $0.date.compare($1.date) == NSComparisonResult.OrderedDescending
-        })
+        }
 
         // date formatter for NSDate
         let dateStringFormatter = NSDateFormatter()
@@ -142,11 +146,11 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
     // MARK: - MWFeedParser Delegate
     
     func feedParserDidStart(parser: MWFeedParser) {
-        println("feedParserDidStart")
+        print("feedParserDidStart")
     }
     
     func feedParserDidFinish(parser: MWFeedParser) {
-        println("feedParserDidFinish")
+        print("feedParserDidFinish")
         self.countParsedFeeds++
         if self.countParsedFeeds == self.rssLinks.count {
             // it is the last feed
@@ -162,7 +166,7 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
     }
     
     func feedParser(parser: MWFeedParser!, didFailWithError error: NSError!) {
-        println("MWFeedParser error: \(error.localizedDescription)")
+        print("MWFeedParser error: \(error.localizedDescription)")
     }
     
     // MARK: - Table view data source
@@ -184,7 +188,7 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("News", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("News", forIndexPath: indexPath) 
 
         // Configure the cell...
         
@@ -231,15 +235,15 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        let indexPath = tableView.indexPathForSelectedRow()
+        let indexPath = tableView.indexPathForSelectedRow!
         var feedItems = [MWFeedItem]()
         var feedItem = MWFeedItem()
         if self.sectionsList.count > 0 {
-            let arrayFeeds: AnyObject? = self.sectionsList[indexPath!.section]["data"]
+            let arrayFeeds: AnyObject? = self.sectionsList[indexPath.section]["data"]
             if let arrayMWFeedItem = arrayFeeds as? [MWFeedItem] {
                 feedItems = arrayMWFeedItem
             }
-            feedItem = feedItems[indexPath!.row]
+            feedItem = feedItems[indexPath.row]
         }
         
         if segue.identifier == "toWebBrowser" {

@@ -121,14 +121,17 @@ extension AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/GeneralInfo.txt"
         
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
-                if let err = error {
-                    println("Error: " + err.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    if let parsedTeamInfomations = JsonArray as? [AnyObject] {
-                        self.teamInfomations = parsedTeamInfomations
-                            .map({ obj in TeamInfo(attributes: obj) })
+            .responseJSON {request, response, result in
+                switch result {
+                case .Success(let JSON):
+                    //print("Success with JSON: \(JSON)")
+                    if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedTeamInfomations = JsonArray as? [AnyObject] {
+                        self.teamInfomations = parsedTeamInfomations.map({ obj in TeamInfo(attributes: obj) })
+                    }
+                case .Failure(let data, let error):
+                    print("Request failed with error: \(error)")
+                    if let dataFailure = data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
                     }
                 }
         }

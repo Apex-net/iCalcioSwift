@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         #if DEBUG
-            println("app name: \(appName)")
-            println("base url: \(apiBaseUrl)")
+            print("app name: \(appName)")
+            print("base url: \(apiBaseUrl)")
         #endif
         
         // Get Team Info general

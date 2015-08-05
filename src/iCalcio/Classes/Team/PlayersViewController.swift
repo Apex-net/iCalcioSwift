@@ -54,12 +54,11 @@ class PlayersViewController: UITableViewController {
         playersList.removeAll()
         
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
-                if let err = error {
-                    println("Error: " + err.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    if let parsedDicts = JsonArray as? [AnyObject] {
+            .responseJSON {request, response, result in
+                switch result {
+                case .Success(let JSON):
+                    //print("Success with JSON: \(JSON)")
+                    if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedDicts = JsonArray as? [AnyObject] {
                         //println(parsedDicts)
                         for item in parsedDicts{
                             var itemRole:Roles = Roles.Indefinito
@@ -84,17 +83,21 @@ class PlayersViewController: UITableViewController {
                             let newData = (role: itemRole, players:itemPlayers)
                             self.playersList.append(newData)
                         }
+                        // tableview reloading
+                        self.tableView.reloadData()
                     }
-                    
-                    // tableview reloading
-                    self.tableView.reloadData()
-                    
+                case .Failure(let data, let error):
+                    print("Request failed with error: \(error)")
+                    if let dataFailure = data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
+                    }
                 }
                 // end refreshing
                 if self.refreshControl?.refreshing == true {
                     self.refreshControl?.endRefreshing()
                 }
-        }
+            }
+
     }
     
     // RefreshControl selector
@@ -136,7 +139,7 @@ class PlayersViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Player", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Player", forIndexPath: indexPath)
 
         // Configure the cell...
         
@@ -164,7 +167,7 @@ class PlayersViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        let indexPath:NSIndexPath = self.tableView.indexPathForSelectedRow()!
+        let indexPath:NSIndexPath = self.tableView.indexPathForSelectedRow!
         let player = self.playersList[indexPath.section].players[indexPath.row]
         if segue.identifier == "toDetailMatch" {
             let vc = segue.destinationViewController as! DetailPlayerViewController

@@ -52,30 +52,29 @@ class WebLinksViewController: UITableViewController {
         let endpointUrl = appDelegate.apiBaseUrl + "/WebLinks.txt"
         
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
-                if (error != nil) {
-                    println("Error: " + error!.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    //println("Array json:")
-                    //println(JsonArray)
-
-                    if let parsedWebLinks = JsonArray as? [AnyObject] {
+            .responseJSON {request, response, result in
+                switch result {
+                case .Success(let JSON):
+                    //print("Success with JSON: \(JSON)")
+                    if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedWebLinks = JsonArray as? [AnyObject] {
                         self.webLinks = parsedWebLinks
                             .map({ obj in WebLink(attributes: obj) })
                     }
-                    //println("WebLink 0 link:")
-                    //println(self.webLinks[0].link)
                     
                     self.tableView.reloadData()
                     
+                case .Failure(let data, let error):
+                    print("Request failed with error: \(error)")
+                    if let dataFailure = data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
+                    }
                 }
                 // end refreshing
                 if self.refreshControl?.refreshing == true {
                     self.refreshControl?.endRefreshing()
                 }
-
             }
+        
     }
     
     // RefreshControl selector
@@ -97,7 +96,7 @@ class WebLinksViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Web", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Web", forIndexPath: indexPath) 
 
         // Configure the cell...
         let webLink = self.webLinks[indexPath.row]
@@ -149,8 +148,8 @@ class WebLinksViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        let indexPath = tableView.indexPathForSelectedRow()
-        let webLink = self.webLinks[indexPath!.row]
+        let indexPath = tableView.indexPathForSelectedRow!
+        let webLink = self.webLinks[indexPath.row]
         if segue.identifier == "toWebBrowser" {
             let vc = segue.destinationViewController as! WebBrowserViewController
             vc.browserTitle = webLink.title

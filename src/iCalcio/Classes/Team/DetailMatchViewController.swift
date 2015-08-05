@@ -51,9 +51,9 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
         self.actionsList.removeAll()
         
         // Append tuples to arrays
-        self.actionsList.append(text:NSLocalizedString("Aggiungi al calendario", comment: ""), action: Actions.AddToCalendar, image:"851-calendar")
-        self.actionsList.append(text:NSLocalizedString("Aggiungi notifica", comment: ""), action: Actions.AddNotification, image:"719-alarm-clock")
-        self.actionsList.append(text:NSLocalizedString("Allo stadio", comment: ""), action: Actions.toStadium, image:"701-location")
+        self.actionsList += [(text:NSLocalizedString("Aggiungi al calendario", comment: ""), action: Actions.AddToCalendar, image:"851-calendar")]
+        self.actionsList += [(text:NSLocalizedString("Aggiungi notifica", comment: ""), action: Actions.AddNotification, image:"719-alarm-clock")]
+        self.actionsList += [(text:NSLocalizedString("Allo stadio", comment: ""), action: Actions.toStadium, image:"701-location")]
     
     }
 
@@ -70,8 +70,7 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("DetailMatch", forIndexPath: indexPath) as! UITableViewCell
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("DetailMatch", forIndexPath: indexPath)
         // Configure the cell...
         
         let actionItem = self.actionsList[indexPath.row]
@@ -82,8 +81,8 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
         cell.textLabel?.textColor = UIColor.blueColor()
         
         // set image
-        var imageName : String =  actionItem.image
-        var image : UIImage? = UIImage(named:imageName)
+        let imageName : String =  actionItem.image
+        let image : UIImage? = UIImage(named:imageName)
         cell.imageView?.image = image
         
         return cell
@@ -111,8 +110,6 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
         case Actions.toStadium:
             // Navigation to Stadium
             self.performSegueWithIdentifier("toStadiumMap", sender: nil)
-        default:
-            break
         }
         
     }
@@ -121,13 +118,13 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
     private func scheduleLocalNotification() {
         
         // init UILocalNotification
-        var localNotification:UILocalNotification = UILocalNotification()
+        let localNotification:UILocalNotification = UILocalNotification()
         
         // Local notification management
         let dateTimeFormatter = NSDateFormatter()
         dateTimeFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         let myStringDateTime = "\(self.match.date) \(self.match.hour)"
-        var dateTimeEvent = dateTimeFormatter.dateFromString(myStringDateTime)
+        let dateTimeEvent = dateTimeFormatter.dateFromString(myStringDateTime)
         if (dateTimeEvent != nil) {
             
             // only for debug: let fireDate = NSDate().dateByAddingTimeInterval(10)
@@ -143,13 +140,13 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
                 // Nothing
                 UIApplication.sharedApplication().cancelLocalNotification(localNotification)
-                println("Local notification: canceled")
+                print("Local notification: canceled")
             }
             alertController.addAction(cancelAction)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                 // Add local notification
                 UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-                println("Local notification: inserted")
+                print("Local notification: inserted")
             }
             alertController.addAction(OKAction)
             self.presentViewController(alertController, animated: true){
@@ -164,26 +161,26 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
     private func addMatchEventToCalendar() {
         
         // create an EKEventStore object
-        var store:EKEventStore = EKEventStore()
+        let store : EKEventStore = EKEventStore()
         
-        // check for permissions
-        store.requestAccessToEntityType(EKEntityTypeEvent) {
-            (success: Bool, error: NSError!) in
-            println("EKEventStore: got permission = \(success); error = \(error)")
-            
+        store.requestAccessToEntityType(EKEntityType.Event, completion: {
+                success, error in
+ 
+            print("EKEventStore: got permission = \(success); error = \(error)")
+            // put your handler code here
             if (success == true) {
                 // create new event
-                var theEvent = EKEvent(eventStore: store)
+                let theEvent = EKEvent(eventStore: store)
                 theEvent.title = self.match.description
                 theEvent.timeZone = NSTimeZone.defaultTimeZone()
                 // Combine Date + hour
                 let dateTimeFormatter = NSDateFormatter()
                 dateTimeFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                 let myStringDateTime = "\(self.match.date) \(self.match.hour)"
-                var dateTimeEvent = dateTimeFormatter.dateFromString(myStringDateTime)
+                let dateTimeEvent = dateTimeFormatter.dateFromString(myStringDateTime)
                 // Event Dates
-                theEvent.startDate = dateTimeEvent
-                theEvent.endDate = dateTimeEvent?.dateByAddingTimeInterval(105*60)
+                theEvent.startDate = dateTimeEvent!
+                theEvent.endDate = (dateTimeEvent?.dateByAddingTimeInterval(105*60))!
                 theEvent.calendar = store.defaultCalendarForNewEvents
                 
                 // Set a event edit controller
@@ -195,7 +192,7 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
                 
             }
             
-        }
+        })
         
     }
     
@@ -203,21 +200,22 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
     func eventEditViewController(controller: EKEventEditViewController,
             didCompleteWithAction action: EKEventEditViewAction){
 
-        println("EKEventEditViewDelegate.didCompleteWithAction: \(action) \(action.value)")
+        print("EKEventEditViewDelegate.didCompleteWithAction: \(action) \(action.rawValue)")
         
-        var error : NSError? = nil
-        var thisEvent:EKEvent = controller.event
-        switch action.value {
-            case EKEventEditViewActionCanceled.value:
-                println("EKEventEditViewDelegate.didCompleteWithAction: EKEventEditViewActionCanceled")
-            case EKEventEditViewActionSaved.value:
+        let thisEvent:EKEvent = controller.event!
+        switch action {
+            case .Canceled:
+                print("EKEventEditViewDelegate.didCompleteWithAction: EKEventEditViewActionCanceled")
+            case .Saved:
                 // save event
-                println("EKEventEditViewDelegate.didCompleteWithAction: EKEventEditViewActionSaved")
-                controller.eventStore.saveEvent(thisEvent, span:EKSpanThisEvent, error: &error)
-            case EKEventEditViewActionDeleted.value:
-                println("EKEventEditViewDelegate.didCompleteWithAction: EKEventEditViewActionDeleted")
-            default:
-                break
+                do {
+                    try controller.eventStore.saveEvent(thisEvent, span:EKSpan.ThisEvent)
+                    print("EKEventEditViewDelegate.didCompleteWithAction: EKEventEditViewActionSaved")
+                } catch let error as NSError {
+                    print("EKEventEditViewDelegate.didCompleteWithAction: Not EKEventEditViewActionSaved - \(error.localizedDescription)")
+                }
+            case .Deleted:
+                print("EKEventEditViewDelegate.didCompleteWithAction: EKEventEditViewActionDeleted")
         }
         
         // dismiss
@@ -232,8 +230,6 @@ class DetailMatchViewController: UITableViewController, EKEventEditViewDelegate 
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        let indexPath = self.tableView.indexPathForSelectedRow()
-        let actionItem = self.actionsList[indexPath!.row]
         if segue.identifier == "toStadiumMap" {
             let vc = segue.destinationViewController as! StadiumMapViewController
             vc.mapTitle = self.match.stadiumName!

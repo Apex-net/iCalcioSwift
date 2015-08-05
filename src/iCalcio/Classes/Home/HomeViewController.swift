@@ -83,7 +83,7 @@ class HomeViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Home", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Home", forIndexPath: indexPath) 
 
         // Configure the cell...
         
@@ -94,8 +94,8 @@ class HomeViewController: UITableViewController {
         cell.textLabel?.text = dict["text"]!
 
         // set image
-        var imageName : String =  dict["image"]!
-        var image : UIImage? = UIImage(named:imageName)
+        let imageName : String =  dict["image"]!
+        let image : UIImage? = UIImage(named:imageName)
         cell.imageView?.image = image
         
         return cell
