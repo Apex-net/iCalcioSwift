@@ -245,8 +245,11 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
         if segue.identifier == "toWebBrowser" {
             let vc = segue.destinationViewController as! WebBrowserViewController
             vc.browserTitle = feedItem.title
-            vc.navigationUrl = feedItem.link
+            vc.navigationUrl = "http://mobilizer.instapaper.com/m?u=\(feedItem.link)" //feedItem.link
             vc.isNavBarEnabled = true
+            
+            vc.isWebLinkActionEnabled = true
+            vc.webLinkNavigationUrl = feedItem.link
         }
     }
 

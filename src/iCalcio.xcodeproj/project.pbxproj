@@ -66,6 +66,7 @@
 		F88615E719DE0F53000D1611 /* 881-globe-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615DE19DE0F53000D1611 /* 881-globe-toolbar.png */; };
 		F88615E819DE0F53000D1611 /* 881-globe-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615DF19DE0F53000D1611 /* 881-globe-toolbar@2x.png */; };
 		F88615E919DE0F53000D1611 /* 881-globe-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88615E019DE0F53000D1611 /* 881-globe-toolbar@3x.png */; };
+		F8881E071B7396A800695166 /* ActivityViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8881E061B7396A800695166 /* ActivityViewCustom.swift */; };
 		F88B191119ED3A0100FC7542 /* 701-location.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B190B19ED3A0100FC7542 /* 701-location.png */; };
 		F88B191219ED3A0100FC7542 /* 701-location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B190C19ED3A0100FC7542 /* 701-location@2x.png */; };
 		F88B191319ED3A0100FC7542 /* 701-location@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F88B190D19ED3A0100FC7542 /* 701-location@3x.png */; };
@@ -241,6 +242,7 @@
 		F88615DE19DE0F53000D1611 /* 881-globe-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "881-globe-toolbar.png"; path = "../../iCalcioSwift/resources/images/881-globe-toolbar.png"; sourceTree = "<group>"; };
 		F88615DF19DE0F53000D1611 /* 881-globe-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "881-globe-toolbar@2x.png"; path = "../../iCalcioSwift/resources/images/881-globe-toolbar@2x.png"; sourceTree = "<group>"; };
 		F88615E019DE0F53000D1611 /* 881-globe-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "881-globe-toolbar@3x.png"; path = "../../iCalcioSwift/resources/images/881-globe-toolbar@3x.png"; sourceTree = "<group>"; };
+		F8881E061B7396A800695166 /* ActivityViewCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewCustom.swift; sourceTree = "<group>"; };
 		F88B190B19ED3A0100FC7542 /* 701-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "701-location.png"; path = "../../iCalcioSwift/resources/images/701-location.png"; sourceTree = "<group>"; };
 		F88B190C19ED3A0100FC7542 /* 701-location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "701-location@2x.png"; path = "../../iCalcioSwift/resources/images/701-location@2x.png"; sourceTree = "<group>"; };
 		F88B190D19ED3A0100FC7542 /* 701-location@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "701-location@3x.png"; path = "../../iCalcioSwift/resources/images/701-location@3x.png"; sourceTree = "<group>"; };
@@ -640,6 +642,7 @@
 			children = (
 				F8F96E221A9B91A7009C0481 /* UIColor+ANAdditions.h */,
 				F8F96E231A9B91A7009C0481 /* UIColor+ANAdditions.m */,
+				F8881E061B7396A800695166 /* ActivityViewCustom.swift */,
 			);
 			name = Utilities;
 			path = Classes/Utilities;
@@ -882,6 +885,7 @@
 				F80C47DE19D5C4C300186ED8 /* RankingsViewController.swift in Sources */,
 				F8590C4C19DAA455000D6F67 /* Player.swift in Sources */,
 				F80C47E019D5CC9D00186ED8 /* Match.swift in Sources */,
+				F8881E071B7396A800695166 /* ActivityViewCustom.swift in Sources */,
 				F802194419DD3E35006D4E6A /* BannerViewController.m in Sources */,
 				F80C47DB19D5C48100186ED8 /* TopScorersViewController.swift in Sources */,
 				F88B191919ED7A0500FC7542 /* AppDelegate+Notifications.swift in Sources */,
