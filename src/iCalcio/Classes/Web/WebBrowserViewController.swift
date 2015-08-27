@@ -127,7 +127,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
             activityViewController.completionWithItemsHandler = { (activity, success, items, error) in
                 // println("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
                 if !success {
-                    print("Cancelled activity")
+                    print("Cancelled activity", terminator: "\n")
                     return
                 }
                 /*
@@ -136,10 +136,10 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
                 }
                 */
                 if activity == UIActivityTypePostToFacebook {
-                    print("Facebook activity")
+                    print("Facebook activity", terminator: "\n")
                 }
                 if activity == UIActivityTypePostToTwitter {
-                    print("Twitter activity")
+                    print("Twitter activity", terminator: "\n")
                 }
             }
             
@@ -191,7 +191,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
         // Back-Forward buttons management
         self.enableSegmentNavItems()
         
-        print("Error webView: \(error?.localizedDescription)")
+        print("Error webView: \(error?.localizedDescription)", terminator: "\n")
     }
     /*
     // MARK: - Navigation

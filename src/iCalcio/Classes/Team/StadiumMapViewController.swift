@@ -209,7 +209,7 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
     
     func mapView(mapView: MKMapView, didFailToLocateUserWithError error: NSError){
-        print("MKMapView.didFailToLocateUserWithError: " + error.localizedDescription)
+        print("MKMapView.didFailToLocateUserWithError: " + error.localizedDescription, terminator: "\n")
     }
     
     // MARK: - CLLocationManager delegate
@@ -218,7 +218,7 @@ class StadiumMapViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("CLLocationManager.didFailWithError: " + error.localizedDescription)
+        print("CLLocationManager.didFailWithError: " + error.localizedDescription, terminator: "\n")
     }
     
     

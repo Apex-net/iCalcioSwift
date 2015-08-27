@@ -126,6 +126,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F85A54741B8F512B002747E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F86758D11AE64992008C2971 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4202FE01B667AA100C997FB;
+			remoteInfo = "Alamofire watchOS";
+		};
 		F86758D81AE64992008C2971 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F86758D11AE64992008C2971 /* Alamofire.xcodeproj */;
@@ -391,6 +398,7 @@
 			children = (
 				F86758D91AE64992008C2971 /* Alamofire.framework */,
 				F86758DB1AE64992008C2971 /* Alamofire.framework */,
+				F85A54751B8F512B002747E8 /* Alamofire.framework */,
 				F86758DD1AE64992008C2971 /* Alamofire iOS Tests.xctest */,
 				F86758DF1AE64992008C2971 /* Alamofire OSX Tests.xctest */,
 			);
@@ -675,6 +683,7 @@
 		F8F3245319B8C6D4002F93CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Andrea Calisesi";
 				TargetAttributes = {
@@ -714,6 +723,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		F85A54751B8F512B002747E8 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = F85A54741B8F512B002747E8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F86758D91AE64992008C2971 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;

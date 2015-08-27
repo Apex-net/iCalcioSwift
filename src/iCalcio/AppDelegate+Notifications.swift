@@ -45,9 +45,9 @@ extension AppDelegate
     func initPushNotifications() {
         
         #if (arch(i386) || arch(x86_64)) && os(iOS)
-            print("this is a simulator")
+            print("this is a simulator", terminator: "\n")
         #else
-            print("this is a device")
+            print("this is a device", terminator: "\n")
             // registering for push notification
             UIApplication.sharedApplication().registerForRemoteNotifications()
         #endif
@@ -56,7 +56,7 @@ extension AppDelegate
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         // Called when registering for remote notifications doesn't work for some reason
-        print("Failed to register for push notifications! \(error)")
+        print("Failed to register for push notifications! \(error)", terminator: "\n")
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {

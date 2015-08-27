@@ -171,7 +171,7 @@ class ChannelVideosViewController: UITableViewController {
                             }
                         }
                         else {
-                            print("Error: \(error?.localizedDescription)")
+                            print("Error: \(error?.localizedDescription)", terminator: "\n")
                         }
                 }
             }

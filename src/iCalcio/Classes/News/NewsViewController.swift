@@ -146,11 +146,11 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
     // MARK: - MWFeedParser Delegate
     
     func feedParserDidStart(parser: MWFeedParser) {
-        print("feedParserDidStart")
+        print("feedParserDidStart", terminator: "\n")
     }
     
     func feedParserDidFinish(parser: MWFeedParser) {
-        print("feedParserDidFinish")
+        print("feedParserDidFinish", terminator: "\n")
         self.countParsedFeeds++
         if self.countParsedFeeds == self.rssLinks.count {
             // it is the last feed
@@ -166,7 +166,7 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
     }
     
     func feedParser(parser: MWFeedParser!, didFailWithError error: NSError!) {
-        print("MWFeedParser error: \(error.localizedDescription)")
+        print("MWFeedParser error: \(error.localizedDescription)", terminator: "\n")
     }
     
     // MARK: - Table view data source
