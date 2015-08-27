@@ -13,8 +13,9 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
 
     var browserTitle: String = ""
     var navigationUrl: String = ""
-    
     var isNavBarEnabled: Bool = false
+    var isWebLinkActionEnabled: Bool = false
+    var webLinkNavigationUrl: String = ""
     
     private var segmentControl : UISegmentedControl?
     private var sharingBarItem : UIBarButtonItem?
@@ -108,11 +109,34 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
     }
     
     func sharingAction(sender:AnyObject) {
-        // share url
+        
+        // sharing and app actions
         if let url = NSURL(string:self.navigationUrl) {
+            
+            //
+            var appActivities:[ActivityViewCustom] = []
+            if (self.isWebLinkActionEnabled) {
+                let webCustomActivity = ActivityViewCustom(title: NSLocalizedString("Web link", comment: ""), imageName: "715-globe") {
+                    // open web browser for the web link
+                    let vc = self.storyboard?.instantiateViewControllerWithIdentifier("WebViewController") as! WebBrowserViewController
+                    vc.browserTitle = NSLocalizedString("Web link", comment: "")
+                    vc.navigationUrl = self.webLinkNavigationUrl
+                    vc.isNavBarEnabled = true
+                    
+                    let navigationController = UINavigationController(rootViewController: vc)
+                    let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "closeWebLinkAction:")
+                    vc.navigationItem.leftBarButtonItem = cancelButton
+                    self.presentViewController(navigationController, animated: true, completion: nil)
+                }
+                // Add app activity for web link
+                appActivities.append(webCustomActivity)
+            }
+            
+            
+            //
             let items:[NSURL] = [url]
             // let's add a String and an NSURL
-            let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: items, applicationActivities: appActivities)
             activityViewController.excludedActivityTypes =  [
                 UIActivityTypePostToWeibo,
                 UIActivityTypePrint,
@@ -122,7 +146,8 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
                 UIActivityTypePostToFlickr,
                 UIActivityTypePostToVimeo,
                 UIActivityTypePostToTencentWeibo,
-                UIActivityTypeAirDrop
+                UIActivityTypeAirDrop,
+                UIActivityTypeCopyToPasteboard
             ]
             activityViewController.completionWithItemsHandler = { (activity, success, items, error) in
                 // println("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
@@ -160,6 +185,10 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
                 segment.setEnabled(self.webView.canGoForward, forSegmentAtIndex: 1)
             }
         }
+    }
+    
+    func closeWebLinkAction(sender:AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - webView Delegate
