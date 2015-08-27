@@ -115,7 +115,7 @@ class TopScorersViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         let sectionTupla = self.topScorersList[section]
-        var topScorers = sectionTupla.players
+        let topScorers = sectionTupla.players
         
         return topScorers.count
     }

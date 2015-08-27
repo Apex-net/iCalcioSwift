@@ -141,7 +141,7 @@ class ChannelVideosViewController: UITableViewController {
         cell.textLabel?.text = video.title
         cell.textLabel?.numberOfLines = 2
         cell.textLabel?.sizeToFit()
-        cell.detailTextLabel?.text = video.updated.substringToIndex(advance(video.updated.startIndex, 10))
+        cell.detailTextLabel?.text = video.updated.substringToIndex(video.updated.startIndex.advancedBy(10))
         
         // init image management
         let urlString = video.thumbnailURLString

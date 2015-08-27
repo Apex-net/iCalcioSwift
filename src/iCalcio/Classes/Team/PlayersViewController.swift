@@ -113,8 +113,8 @@ class PlayersViewController: UITableViewController {
         var startIndex = dirtystring.startIndex
         var endIndex = dirtystring.endIndex
         if dirtystring.rangeOfString(stringToSearch) != nil {
-            startIndex = advance(startIndex, 1)
-            endIndex = advance(endIndex, -1)
+            startIndex = startIndex.advancedBy(1)
+            endIndex = endIndex.advancedBy(-1)
         }
         let range = startIndex..<endIndex
         let cleanString = dirtystring.substringWithRange( range )
@@ -133,7 +133,7 @@ class PlayersViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         let sectionTupla = self.playersList[section]
-        var players = sectionTupla.players
+        let players = sectionTupla.players
         
         return players.count
     }
