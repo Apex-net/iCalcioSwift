@@ -98,6 +98,7 @@
 		F8ADE80119DE12B10035D64E /* 706-cloud@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8ADE7FE19DE12B10035D64E /* 706-cloud@3x.png */; };
 		F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */; };
 		F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */; };
+		F8CE1A7A1BA3053100B0C163 /* ANFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CE1A791BA3053100B0C163 /* ANFeedItem.swift */; settings = {ASSET_TAGS = (); }; };
 		F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */; };
 		F8D2F86A19DC0B13000A1478 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D2F86919DC0B13000A1478 /* Ranking.swift */; };
 		F8E34D2919F7257200205F72 /* 702-share-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F8E34D2619F7257200205F72 /* 702-share-toolbar.png */; };
@@ -283,6 +284,7 @@
 		F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F8BFE87019B9E1AE003BB4AC /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Settings.swift"; sourceTree = "<group>"; };
+		F8CE1A791BA3053100B0C163 /* ANFeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ANFeedItem.swift; sourceTree = "<group>"; };
 		F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeVideo.swift; sourceTree = "<group>"; };
 		F8D2F86919DC0B13000A1478 /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		F8E34D2619F7257200205F72 /* 702-share-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "702-share-toolbar.png"; path = "../../iCalcioSwift/resources/images/702-share-toolbar.png"; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 			children = (
 				F855200019CC335C00ACBAC9 /* NewsViewController.swift */,
 				F844FBAD19D0315A0079555D /* RssLink.swift */,
+				F8CE1A791BA3053100B0C163 /* ANFeedItem.swift */,
 			);
 			name = News;
 			path = Classes/News;
@@ -927,6 +930,7 @@
 				F8701BED19F158BC006A648C /* AppDelegate+UI.swift in Sources */,
 				F8590C4F19DAF6A7000D6F67 /* DetailPlayerViewController.swift in Sources */,
 				F87617AA19D45E5C00D3B947 /* MatchesViewController.swift in Sources */,
+				F8CE1A7A1BA3053100B0C163 /* ANFeedItem.swift in Sources */,
 				F8ED430119C87AB9007FD7F8 /* ChannelVideosViewController.swift in Sources */,
 				F8551FFC19CC29B300ACBAC9 /* AboutTableViewController.swift in Sources */,
 			);
