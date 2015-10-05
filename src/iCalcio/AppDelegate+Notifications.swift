@@ -49,6 +49,7 @@ extension AppDelegate
         #else
             print("this is a device", terminator: "\n")
             // registering for push notification
+            //[!] todo
             UIApplication.sharedApplication().registerForRemoteNotifications()
         #endif
         
