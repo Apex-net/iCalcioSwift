@@ -49,7 +49,8 @@ extension AppDelegate
         #else
             print("this is a device", terminator: "\n")
             // registering for push notification
-            //[!] todo
+            let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+            UIApplication.sharedApplication().registerUserNotificationSettings(settings)
             UIApplication.sharedApplication().registerForRemoteNotifications()
         #endif
         
