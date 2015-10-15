@@ -82,18 +82,21 @@ extension AppDelegate
         let version = appDelegate.appVersion
         let endpointUrl = "\(endpointBaseUrl)?CMD=initapp&appkey=\(apnsTeamName)&devtoken=\(token)&custom=\(version)"
         //println("endpointUrl: " + endpointUrl)
+        
         Alamofire.request(.GET, endpointUrl)
-            .responseString {request, response, result in
-                switch result {
-                case .Success(let stringResult):
-                    print("APNS - responseString: \(stringResult)")
-                case .Failure(let data, let error):
-                    print("Request failed with error: \(error)")
-                    if let dataFailure = data {
+            .responseString{response in
+                if response.result.isSuccess {
+                    if let stringResult = response.result.value {
+                        print("APNS - responseString: \(stringResult)")
+                    }
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
                         print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
                     }
                 }
-            }
+        }
+        
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]){

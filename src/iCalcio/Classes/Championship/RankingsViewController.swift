@@ -45,19 +45,20 @@ class RankingsViewController: UITableViewController {
         let endpointUrl = appDelegate.apiBaseUrl + "/Rankings.txt"
         
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {request, response, result in
-                switch result {
-                case .Success(let JSON):
-                    //print("Success with JSON: \(JSON)")
-                    if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedRankings = JsonArray as? [AnyObject] {
-                        self.rankings = parsedRankings
-                            .map({ obj in Ranking(attributes: obj) })
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedRankings = JsonArray as? [AnyObject] {
+                            self.rankings = parsedRankings
+                                .map({ obj in Ranking(attributes: obj) })
+                        }
+                        // tableview reloading
+                        self.tableView.reloadData()
                     }
-                    // tableview reloading
-                    self.tableView.reloadData()
-                case .Failure(let data, let error):
-                    print("Request failed with error: \(error)")
-                    if let dataFailure = data {
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
                         print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
                     }
                 }
@@ -65,7 +66,7 @@ class RankingsViewController: UITableViewController {
                 if self.refreshControl?.refreshing == true {
                     self.refreshControl?.endRefreshing()
                 }
-            }
+        }
     }
     
     // RefreshControl selector

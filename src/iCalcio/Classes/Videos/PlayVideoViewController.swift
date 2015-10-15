@@ -8,6 +8,8 @@
 
 import UIKit
 
+import youtube_ios_player_helper
+
 class PlayVideoViewController: UIViewController, YTPlayerViewDelegate {
     
     var youtubeVideo: YoutubeVideo!

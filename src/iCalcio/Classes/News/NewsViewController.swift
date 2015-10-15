@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 
+import MWFeedParser
+
 class NewsViewController: UITableViewController, MWFeedParserDelegate {
 
     private var rssLinks: Array<RssLink> = Array()
@@ -60,26 +62,27 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
 
         // call feeds API
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {request, response, result in
-                switch result {
-                case .Success(let JSON):
-                    //print("Success with JSON: \(JSON)")
-                    if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedLinks = JsonArray as? [AnyObject] {
-                        self.rssLinks = parsedLinks
-                            .map({ obj in RssLink(attributes: obj) })
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedLinks = JsonArray as? [AnyObject] {
+                            self.rssLinks = parsedLinks
+                                .map({ obj in RssLink(attributes: obj) })
+                        }
+                        // Parse collection of feed urls
+                        self.countParsedFeeds = 0
+                        for item in self.rssLinks{
+                            self.parseFeed(item.link)
+                        }
                     }
-                    // Parse collection of feed urls
-                    self.countParsedFeeds = 0
-                    for item in self.rssLinks{
-                        self.parseFeed(item.link)
-                    }
-                case .Failure(let data, let error):
-                    print("Request failed with error: \(error)")
-                    if let dataFailure = data {
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
                         print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
                     }
                 }
-            }
+        }
     }
     
     // RefreshControl selector

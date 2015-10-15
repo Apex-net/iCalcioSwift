@@ -8,6 +8,8 @@
 
 import Foundation
 
+import MWFeedParser
+
 class ANFeedItem: MWFeedItem {
 
     var currentFeedInfo: MWFeedInfo?

@@ -56,20 +56,21 @@ class ChannelVideosViewController: UITableViewController {
         //println("endpointUrl youtube API channel ID:  \(endpointUrl)")
         
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {request, response, result in
-                switch result {
-                case .Success(let JSON):
-                    //print("Success with JSON: \(JSON)")
-                    if let JsonArray:AnyObject = JSON.valueForKeyPath("items"), parsedItems = JsonArray as? [AnyObject] {
-                        //println(parsedItems)
-                        if let channelID = parsedItems[0].valueForKeyPath("id") as? String {
-                            // get all videos
-                            self.getAllVideos(maxResults, forChannelID: channelID)
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("items"), parsedItems = JsonArray as? [AnyObject] {
+                            //println(parsedItems)
+                            if let channelID = parsedItems[0].valueForKeyPath("id") as? String {
+                                // get all videos
+                                self.getAllVideos(maxResults, forChannelID: channelID)
+                            }
                         }
                     }
-                case .Failure(let data, let error):
-                    print("Request failed with error: \(error)")
-                    if let dataFailure = data {
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
                         print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
                     }
                 }
@@ -77,7 +78,8 @@ class ChannelVideosViewController: UITableViewController {
                 if self.refreshControl?.refreshing == true {
                     self.refreshControl?.endRefreshing()
                 }
-            }
+        }
+        
     }
     
     private func getAllVideos(maxResults: String, forChannelID: String) {
@@ -93,19 +95,21 @@ class ChannelVideosViewController: UITableViewController {
             "&type=video"
         //println("endpointUrl youtube API videos for channel:  \(endpointUrl)")
 
+        
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {request, response, result in
-                switch result {
-                case .Success(let JSON):
-                    //print("Success with JSON: \(JSON)")
-                    if let JsonArray:AnyObject = JSON.valueForKeyPath("items"), parsedVideos = JsonArray as? [AnyObject] {
-                        self.youtubeVideos = parsedVideos
-                            .map({ obj in YoutubeVideo(attributes: obj) })
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("items"), parsedVideos = JsonArray as? [AnyObject] {
+                            self.youtubeVideos = parsedVideos
+                                .map({ obj in YoutubeVideo(attributes: obj) })
+                        }
+                        self.tableView.reloadData()
                     }
-                    self.tableView.reloadData()
-                case .Failure(let data, let error):
-                    print("Request failed with error: \(error)")
-                    if let dataFailure = data {
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
                         print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
                     }
                 }

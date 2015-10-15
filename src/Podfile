@@ -1,8 +1,13 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.0'
-inhibit_all_warnings!
+platform :ios, '8.0'
+use_frameworks!
 
-pod 'youtube-ios-player-helper', '~> 0.1'
-pod 'MWFeedParser', '~> 1.0'
-pod 'GoogleAnalytics', '~> 3.1'
+target 'iCalcio' do
+
+  pod 'Alamofire', '~> 3.0'
+  pod 'youtube-ios-player-helper', '~> 0.1'
+  pod 'MWFeedParser', '~> 1.0'
+  pod 'GoogleAnalytics', '~> 3.1'
+
+end

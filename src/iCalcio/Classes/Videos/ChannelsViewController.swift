@@ -47,19 +47,20 @@ class ChannelsViewController: UITableViewController {
         let endpointUrl = appDelegate.apiBaseUrl + "/YouTubeChannels.txt"
         
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {request, response, result in
-                switch result {
-                case .Success(let JSON):
-                    //print("Success with JSON: \(JSON)")
-                    if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedChannels = JsonArray as? [AnyObject] {
-                        self.youtubeChannels = parsedChannels
-                            .map({ obj in YoutubeChannel(attributes: obj) })
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedChannels = JsonArray as? [AnyObject] {
+                            self.youtubeChannels = parsedChannels
+                                .map({ obj in YoutubeChannel(attributes: obj) })
+                        }
+                        // tableview reloading
+                        self.tableView.reloadData()
                     }
-                    // tableview reloading
-                    self.tableView.reloadData()
-                case .Failure(let data, let error):
-                    print("Request failed with error: \(error)")
-                    if let dataFailure = data {
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
                         print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
                     }
                 }
@@ -68,7 +69,6 @@ class ChannelsViewController: UITableViewController {
                     self.refreshControl?.endRefreshing()
                 }
             }
-
     }
 
     // RefreshControl selector

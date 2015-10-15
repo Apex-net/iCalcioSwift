@@ -52,43 +52,44 @@ class PlayersViewController: UITableViewController {
         
         // reset temp array
         playersList.removeAll()
-        
+
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {request, response, result in
-                switch result {
-                case .Success(let JSON):
-                    //print("Success with JSON: \(JSON)")
-                    if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedDicts = JsonArray as? [AnyObject] {
-                        //println(parsedDicts)
-                        for item in parsedDicts{
-                            var itemRole:Roles = Roles.Indefinito
-                            if let role:String = item.valueForKeyPath("role") as? String{
-                                switch role {
-                                case Roles.Portiere.rawValue:
-                                    itemRole = Roles.Portiere
-                                case Roles.Difensore.rawValue:
-                                    itemRole = Roles.Difensore
-                                case Roles.Centrocampista.rawValue:
-                                    itemRole = Roles.Centrocampista
-                                case Roles.Attaccante.rawValue:
-                                    itemRole = Roles.Attaccante
-                                default:
-                                    break
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedDicts = JsonArray as? [AnyObject] {
+                            //println(parsedDicts)
+                            for item in parsedDicts{
+                                var itemRole:Roles = Roles.Indefinito
+                                if let role:String = item.valueForKeyPath("role") as? String{
+                                    switch role {
+                                    case Roles.Portiere.rawValue:
+                                        itemRole = Roles.Portiere
+                                    case Roles.Difensore.rawValue:
+                                        itemRole = Roles.Difensore
+                                    case Roles.Centrocampista.rawValue:
+                                        itemRole = Roles.Centrocampista
+                                    case Roles.Attaccante.rawValue:
+                                        itemRole = Roles.Attaccante
+                                    default:
+                                        break
+                                    }
                                 }
+                                var itemPlayers: Array<Player> = []
+                                if let players:[AnyObject] = item.valueForKeyPath("players") as? [AnyObject] {
+                                    itemPlayers = players.map({ obj in Player(attributes: obj) })
+                                }
+                                let newData = (role: itemRole, players:itemPlayers)
+                                self.playersList.append(newData)
                             }
-                            var itemPlayers: Array<Player> = []
-                            if let players:[AnyObject] = item.valueForKeyPath("players") as? [AnyObject] {
-                                itemPlayers = players.map({ obj in Player(attributes: obj) })
-                            }
-                            let newData = (role: itemRole, players:itemPlayers)
-                            self.playersList.append(newData)
+                            // tableview reloading
+                            self.tableView.reloadData()
                         }
-                        // tableview reloading
-                        self.tableView.reloadData()
                     }
-                case .Failure(let data, let error):
-                    print("Request failed with error: \(error)")
-                    if let dataFailure = data {
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
                         print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
                     }
                 }
@@ -96,8 +97,7 @@ class PlayersViewController: UITableViewController {
                 if self.refreshControl?.refreshing == true {
                     self.refreshControl?.endRefreshing()
                 }
-            }
-
+        }
     }
     
     // RefreshControl selector
