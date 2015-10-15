@@ -24,7 +24,7 @@ extension AppDelegate
         #if DEBUG
             GAI.sharedInstance().logger.logLevel = GAILogLevel.Error
         #endif
-        var tracker = GAI.sharedInstance().trackerWithTrackingId(GAAccountID)
+        let tracker = GAI.sharedInstance().trackerWithTrackingId(GAAccountID)
         // Track event for the App Load
         let label = "\(self.teamName) - \(self.appVersion)"
         let category = "New app with Swift code"
@@ -36,15 +36,15 @@ extension AppDelegate
     
     func stopGoogleAnalytics() {
         // stop Google Analytics Tracker
-        var tracker = GAI.sharedInstance().defaultTracker
+        let tracker = GAI.sharedInstance().defaultTracker
         GAI.sharedInstance().removeTrackerByName(tracker.name)
     }
     
     func trackScreen(screenName: String) {
         // Manually send a screen view for tracking
-        var tracker = GAI.sharedInstance().defaultTracker
+        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: screenName)
-        var build = GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]
+        let build = GAIDictionaryBuilder.createScreenView().build() as [NSObject : AnyObject]
         tracker.send(build)
         
         

@@ -9,13 +9,16 @@
 import UIKit
 import Alamofire
 
+import MWFeedParser
+
 class NewsViewController: UITableViewController, MWFeedParserDelegate {
 
     private var rssLinks: Array<RssLink> = Array()
-    private var feedItems = [MWFeedItem]()
+    private var feedItems = [ANFeedItem]()
     private var countParsedFeeds:Int = 0
     private var sectionsList : [[String:AnyObject]] = []
     private var feedParser : MWFeedParser!
+    private var currentFeedInfo: MWFeedInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,19 +62,24 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
 
         // call feeds API
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                if (error != nil) {
-                    println("Error: " + error!.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    if let parsedLinks = JsonArray as? [AnyObject] {
-                        self.rssLinks = parsedLinks
-                            .map({ obj in RssLink(attributes: obj) })
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedLinks = JsonArray as? [AnyObject] {
+                            self.rssLinks = parsedLinks
+                                .map({ obj in RssLink(attributes: obj) })
+                        }
+                        // Parse collection of feed urls
+                        self.countParsedFeeds = 0
+                        for item in self.rssLinks{
+                            self.parseFeed(item.link)
+                        }
                     }
-                    
-                    // Parse collection of feed urls
-                    self.countParsedFeeds = 0
-                    for item in self.rssLinks{
-                        self.parseFeed(item.link)
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
                     }
                 }
         }
@@ -94,10 +102,10 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
     private func reloadTableViewWithParsedItems () {
         
         // ordering feed items
-        var tempItems:[MWFeedItem] = []
-        let sortedResults = sorted(self.feedItems, {
+        var tempItems:[ANFeedItem] = []
+        let sortedResults = self.feedItems.sort{
             $0.date.compare($1.date) == NSComparisonResult.OrderedDescending
-        })
+        }
 
         // date formatter for NSDate
         let dateStringFormatter = NSDateFormatter()
@@ -142,11 +150,13 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
     // MARK: - MWFeedParser Delegate
     
     func feedParserDidStart(parser: MWFeedParser) {
-        println("feedParserDidStart")
+        print("feedParserDidStart", terminator: "\n")
+        
+        self.currentFeedInfo = nil
     }
     
     func feedParserDidFinish(parser: MWFeedParser) {
-        println("feedParserDidFinish")
+        print("feedParserDidFinish", terminator: "\n")
         self.countParsedFeeds++
         if self.countParsedFeeds == self.rssLinks.count {
             // it is the last feed
@@ -155,14 +165,29 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
     }
     
     func feedParser(parser: MWFeedParser, didParseFeedInfo info: MWFeedInfo) {
+        self.currentFeedInfo = info
     }
     
     func feedParser(parser: MWFeedParser, didParseFeedItem item: MWFeedItem) {
-        self.feedItems.append(item)
+
+        let myItem = ANFeedItem()
+        myItem.identifier = item.identifier
+        myItem.title = item.title
+        myItem.link = item.link
+        myItem.date = item.date
+        myItem.updated = item.updated
+        myItem.summary = item.summary
+        myItem.content = item.content
+        myItem.author = item.author
+        if let info = self.currentFeedInfo {
+            myItem.currentFeedInfo = info
+        }
+        self.feedItems.append(myItem)
+        
     }
     
     func feedParser(parser: MWFeedParser!, didFailWithError error: NSError!) {
-        println("MWFeedParser error: \(error.localizedDescription)")
+        print("MWFeedParser error: \(error.localizedDescription)", terminator: "\n")
     }
     
     // MARK: - Table view data source
@@ -175,34 +200,40 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        var feedItems = [MWFeedItem]()
+        var feedItems = [ANFeedItem]()
         let arrayFeeds: AnyObject? = self.sectionsList[section]["data"]
-        if let lfeeds = arrayFeeds as? [MWFeedItem] {
+        if let lfeeds = arrayFeeds as? [ANFeedItem] {
             feedItems = lfeeds
         }
         return feedItems.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("News", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("News", forIndexPath: indexPath) 
 
         // Configure the cell...
         
-        // get data for the cell
-        var feedItems = [MWFeedItem]()
-        var feedItem = MWFeedItem()
+        var feedItems = [ANFeedItem]()
+        var feedItem = ANFeedItem()
         if self.sectionsList.count > 0 {
             let arrayFeeds: AnyObject? = self.sectionsList[indexPath.section]["data"]
-            if let arrayMWFeedItem = arrayFeeds as? [MWFeedItem] {
-                feedItems = arrayMWFeedItem
+            if let arrayANFeedItem = arrayFeeds as? [ANFeedItem] {
+                feedItems = arrayANFeedItem
             }
             feedItem = feedItems[indexPath.row]
         }
+        var feedTitle:String = String()
+        if let feedInfoTitle = feedItem.currentFeedInfo?.title {
+            feedTitle = feedInfoTitle
+        }
+        let titleCell = feedItem.title != nil ? feedItem.title.stringByConvertingHTMLToPlainText() : "[No Title]"
+        var subtitleCell = "\(feedTitle) \n"
+        subtitleCell += feedItem.summary != nil ? feedItem.summary.stringByConvertingHTMLToPlainText() : "[No Summary]"
         
         // set texts
-        cell.textLabel?.text = feedItem.title != nil ? feedItem.title.stringByConvertingHTMLToPlainText() : "[No Title]"
-        cell.detailTextLabel?.text = feedItem.summary != nil ? feedItem.summary.stringByConvertingHTMLToPlainText() : "[No Summary]"
-        cell.detailTextLabel?.numberOfLines = 2
+        cell.textLabel?.text = titleCell
+        cell.detailTextLabel?.text = subtitleCell
+        cell.detailTextLabel?.numberOfLines = 3
         cell.detailTextLabel?.sizeToFit()
 
         return cell
@@ -221,7 +252,7 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
     
     // MARK: - Table view delegate
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
+        return 70
     }
 
     // MARK: - Navigation
@@ -231,25 +262,22 @@ class NewsViewController: UITableViewController, MWFeedParserDelegate {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        let indexPath = tableView.indexPathForSelectedRow()
-        var feedItems = [MWFeedItem]()
-        var feedItem = MWFeedItem()
+        let indexPath = tableView.indexPathForSelectedRow!
+        var feedItems = [ANFeedItem]()
+        var feedItem = ANFeedItem()
         if self.sectionsList.count > 0 {
-            let arrayFeeds: AnyObject? = self.sectionsList[indexPath!.section]["data"]
-            if let arrayMWFeedItem = arrayFeeds as? [MWFeedItem] {
-                feedItems = arrayMWFeedItem
+            let arrayFeeds: AnyObject? = self.sectionsList[indexPath.section]["data"]
+            if let arrayANFeedItem = arrayFeeds as? [ANFeedItem] {
+                feedItems = arrayANFeedItem
             }
-            feedItem = feedItems[indexPath!.row]
+            feedItem = feedItems[indexPath.row]
         }
         
         if segue.identifier == "toWebBrowser" {
             let vc = segue.destinationViewController as! WebBrowserViewController
             vc.browserTitle = feedItem.title
-            vc.navigationUrl = "http://mobilizer.instapaper.com/m?u=\(feedItem.link)" //feedItem.link
+            vc.navigationUrl = feedItem.link
             vc.isNavBarEnabled = true
-            
-            vc.isWebLinkActionEnabled = true
-            vc.webLinkNavigationUrl = feedItem.link
         }
     }
 

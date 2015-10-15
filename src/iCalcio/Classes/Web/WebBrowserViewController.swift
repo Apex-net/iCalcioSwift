@@ -33,8 +33,8 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
         self.navigationItem.title = !self.browserTitle.isEmpty ? self.browserTitle : NSLocalizedString("Web Browser", comment: "")
         
         // load request
-        var url = NSURL(string:self.navigationUrl)
-        var req = NSURLRequest(URL: url!)
+        let url = NSURL(string:self.navigationUrl)
+        let req = NSURLRequest(URL: url!)
         self.webView!.loadRequest(req)
         self.webView!.scalesPageToFit = true
         
@@ -152,7 +152,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
             activityViewController.completionWithItemsHandler = { (activity, success, items, error) in
                 // println("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
                 if !success {
-                    println("Cancelled activity")
+                    print("Cancelled activity", terminator: "\n")
                     return
                 }
                 /*
@@ -161,10 +161,10 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
                 }
                 */
                 if activity == UIActivityTypePostToFacebook {
-                    println("Facebook activity")
+                    print("Facebook activity", terminator: "\n")
                 }
                 if activity == UIActivityTypePostToTwitter {
-                    println("Twitter activity")
+                    print("Twitter activity", terminator: "\n")
                 }
             }
             
@@ -212,7 +212,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
         
     }
 
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         
         self.navigationItem.title = self.browserTitle
@@ -220,7 +220,7 @@ class WebBrowserViewController: UIViewController, UIWebViewDelegate{
         // Back-Forward buttons management
         self.enableSegmentNavItems()
         
-        println("Error webView: " + error.localizedDescription)
+        print("Error webView: \(error?.localizedDescription)", terminator: "\n")
     }
     /*
     // MARK: - Navigation

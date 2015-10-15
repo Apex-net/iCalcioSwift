@@ -21,10 +21,10 @@ class TeamInfo {
     init(attributes: AnyObject) {
         
         let dateString = attributes.valueForKeyPath("dat_ritorno") as? String
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "YYYYMMDD"
         if let ds = dateString {
-            var date = dateFormatter.dateFromString(ds)
+            let date = dateFormatter.dateFromString(ds)
             self.legDate = date
         }
         

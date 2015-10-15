@@ -8,6 +8,8 @@
 
 import UIKit
 
+import youtube_ios_player_helper
+
 class PlayVideoViewController: UIViewController, YTPlayerViewDelegate {
     
     var youtubeVideo: YoutubeVideo!
@@ -34,7 +36,7 @@ class PlayVideoViewController: UIViewController, YTPlayerViewDelegate {
         let VideoId = youtubeVideo.idVideo
         self.playerView.delegate = self
         // load video on player
-        let returnValue = self.playerView.loadWithVideoId(VideoId, playerVars: playerVars)
+        self.playerView.loadWithVideoId(VideoId, playerVars: playerVars)
         
         // GA tracking
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -50,12 +52,12 @@ class PlayVideoViewController: UIViewController, YTPlayerViewDelegate {
     // MARK: - YTPlayerView Delegate
     func playerView(playerView: YTPlayerView!, didChangeToState state: YTPlayerState) {
         let i: Int = state.rawValue
-        println("playerView didChangeToState YTPlayerState: \(i)")
+        print("playerView didChangeToState YTPlayerState: \(i)", terminator: "\n")
     }
 
     func playerView(playerView: YTPlayerView!, receivedError error: YTPlayerError) {
         let i: Int = error.rawValue
-        println("playerView error YTPlayerError: \(i)")
+        print("playerView error YTPlayerError: \(i)", terminator: "\n")
     }
     
     /*

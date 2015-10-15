@@ -50,32 +50,31 @@ class WebLinksViewController: UITableViewController {
  
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let endpointUrl = appDelegate.apiBaseUrl + "/WebLinks.txt"
-        
-        Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
-                if (error != nil) {
-                    println("Error: " + error!.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    //println("Array json:")
-                    //println(JsonArray)
 
-                    if let parsedWebLinks = JsonArray as? [AnyObject] {
-                        self.webLinks = parsedWebLinks
-                            .map({ obj in WebLink(attributes: obj) })
+        Alamofire.request(.GET, endpointUrl)
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedWebLinks = JsonArray as? [AnyObject] {
+                            self.webLinks = parsedWebLinks
+                                .map({ obj in WebLink(attributes: obj) })
+                        }
+                        
+                        self.tableView.reloadData()
                     }
-                    //println("WebLink 0 link:")
-                    //println(self.webLinks[0].link)
-                    
-                    self.tableView.reloadData()
-                    
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
+                    }
                 }
                 // end refreshing
                 if self.refreshControl?.refreshing == true {
                     self.refreshControl?.endRefreshing()
                 }
-
-            }
+        }
+        
     }
     
     // RefreshControl selector
@@ -97,7 +96,7 @@ class WebLinksViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Web", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Web", forIndexPath: indexPath) 
 
         // Configure the cell...
         let webLink = self.webLinks[indexPath.row]
@@ -149,8 +148,8 @@ class WebLinksViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        let indexPath = tableView.indexPathForSelectedRow()
-        let webLink = self.webLinks[indexPath!.row]
+        let indexPath = tableView.indexPathForSelectedRow!
+        let webLink = self.webLinks[indexPath.row]
         if segue.identifier == "toWebBrowser" {
             let vc = segue.destinationViewController as! WebBrowserViewController
             vc.browserTitle = webLink.title

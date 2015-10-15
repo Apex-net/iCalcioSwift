@@ -56,17 +56,22 @@ class ChannelVideosViewController: UITableViewController {
         //println("endpointUrl youtube API channel ID:  \(endpointUrl)")
         
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
-                if let err = error {
-                    println("Error: " + err.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("items"){
-                    if let parsedItems = JsonArray as? [AnyObject] {
-                        //println(parsedItems)
-                        if let channelID = parsedItems[0].valueForKeyPath("id") as? String {
-                            // get all videos
-                            self.getAllVideos(maxResults, forChannelID: channelID)
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("items"), parsedItems = JsonArray as? [AnyObject] {
+                            //println(parsedItems)
+                            if let channelID = parsedItems[0].valueForKeyPath("id") as? String {
+                                // get all videos
+                                self.getAllVideos(maxResults, forChannelID: channelID)
+                            }
                         }
+                    }
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
                     }
                 }
                 // end refreshing
@@ -74,6 +79,7 @@ class ChannelVideosViewController: UITableViewController {
                     self.refreshControl?.endRefreshing()
                 }
         }
+        
     }
     
     private func getAllVideos(maxResults: String, forChannelID: String) {
@@ -89,19 +95,25 @@ class ChannelVideosViewController: UITableViewController {
             "&type=video"
         //println("endpointUrl youtube API videos for channel:  \(endpointUrl)")
 
+        
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
-                if let err = error {
-                    println("Error: " + err.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("items"){
-                    if let parsedVideos = JsonArray as? [AnyObject] {
-                        self.youtubeVideos = parsedVideos
-                            .map({ obj in YoutubeVideo(attributes: obj) })
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("items"), parsedVideos = JsonArray as? [AnyObject] {
+                            self.youtubeVideos = parsedVideos
+                                .map({ obj in YoutubeVideo(attributes: obj) })
+                        }
+                        self.tableView.reloadData()
                     }
-                    self.tableView.reloadData()
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
+                    }
                 }
-        }
+            }
     }
     
     func refreshAction(sender:AnyObject!)
@@ -124,7 +136,7 @@ class ChannelVideosViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ChannelVideo", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ChannelVideo", forIndexPath: indexPath) 
 
         // Configure the cell...
         let video = self.youtubeVideos[indexPath.row]
@@ -133,7 +145,7 @@ class ChannelVideosViewController: UITableViewController {
         cell.textLabel?.text = video.title
         cell.textLabel?.numberOfLines = 2
         cell.textLabel?.sizeToFit()
-        cell.detailTextLabel?.text = video.updated.substringToIndex(advance(video.updated.startIndex, 10))
+        cell.detailTextLabel?.text = video.updated.substringToIndex(video.updated.startIndex.advancedBy(10))
         
         // init image management
         let urlString = video.thumbnailURLString
@@ -149,20 +161,23 @@ class ChannelVideosViewController: UITableViewController {
             if let imgURL: NSURL = NSURL(string: urlString) {
                 // Download an NSData representation of the image at the URL
                 let request: NSURLRequest = NSURLRequest(URL: imgURL)
-                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
-                    if error == nil {
-                        image = UIImage(data: data)
-                        
-                        // Store the image in to our cache
-                        self.imageCache[urlString] = image
-                        if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                            cellToUpdate.imageView?.image = image
+                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue())
+                    {(response: NSURLResponse?,data: NSData?,error: NSError?) in
+                        if error == nil {
+                            if let dataImage = data {
+                                image = UIImage(data: dataImage)
+                                
+                                // Store the image in to our cache
+                                self.imageCache[urlString] = image
+                                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
+                                    cellToUpdate.imageView?.image = image
+                                }
+                            }
                         }
-                    }
-                    else {
-                        println("Error: \(error.localizedDescription)")
-                    }
-                })
+                        else {
+                            print("Error: \(error?.localizedDescription)", terminator: "\n")
+                        }
+                }
             }
         }
         else {
@@ -189,8 +204,8 @@ class ChannelVideosViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        let indexPath = self.tableView.indexPathForSelectedRow()
-        let video = self.youtubeVideos[indexPath!.row]
+        let indexPath = self.tableView.indexPathForSelectedRow!
+        let video = self.youtubeVideos[indexPath.row]
         if segue.identifier == "toPlayVideo" {
             let vc = segue.destinationViewController as! PlayVideoViewController
             vc.youtubeVideo = video

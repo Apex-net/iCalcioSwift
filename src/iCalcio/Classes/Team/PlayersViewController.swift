@@ -52,43 +52,46 @@ class PlayersViewController: UITableViewController {
         
         // reset temp array
         playersList.removeAll()
-        
+
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
-                if let err = error {
-                    println("Error: " + err.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    if let parsedDicts = JsonArray as? [AnyObject] {
-                        //println(parsedDicts)
-                        for item in parsedDicts{
-                            var itemRole:Roles = Roles.Indefinito
-                            if let role:String = item.valueForKeyPath("role") as? String{
-                                switch role {
-                                case Roles.Portiere.rawValue:
-                                    itemRole = Roles.Portiere
-                                case Roles.Difensore.rawValue:
-                                    itemRole = Roles.Difensore
-                                case Roles.Centrocampista.rawValue:
-                                    itemRole = Roles.Centrocampista
-                                case Roles.Attaccante.rawValue:
-                                    itemRole = Roles.Attaccante
-                                default:
-                                    break
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedDicts = JsonArray as? [AnyObject] {
+                            //println(parsedDicts)
+                            for item in parsedDicts{
+                                var itemRole:Roles = Roles.Indefinito
+                                if let role:String = item.valueForKeyPath("role") as? String{
+                                    switch role {
+                                    case Roles.Portiere.rawValue:
+                                        itemRole = Roles.Portiere
+                                    case Roles.Difensore.rawValue:
+                                        itemRole = Roles.Difensore
+                                    case Roles.Centrocampista.rawValue:
+                                        itemRole = Roles.Centrocampista
+                                    case Roles.Attaccante.rawValue:
+                                        itemRole = Roles.Attaccante
+                                    default:
+                                        break
+                                    }
                                 }
+                                var itemPlayers: Array<Player> = []
+                                if let players:[AnyObject] = item.valueForKeyPath("players") as? [AnyObject] {
+                                    itemPlayers = players.map({ obj in Player(attributes: obj) })
+                                }
+                                let newData = (role: itemRole, players:itemPlayers)
+                                self.playersList.append(newData)
                             }
-                            var itemPlayers: Array<Player> = []
-                            if let players:[AnyObject] = item.valueForKeyPath("players") as? [AnyObject] {
-                                itemPlayers = players.map({ obj in Player(attributes: obj) })
-                            }
-                            let newData = (role: itemRole, players:itemPlayers)
-                            self.playersList.append(newData)
+                            // tableview reloading
+                            self.tableView.reloadData()
                         }
                     }
-                    
-                    // tableview reloading
-                    self.tableView.reloadData()
-                    
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
+                    }
                 }
                 // end refreshing
                 if self.refreshControl?.refreshing == true {
@@ -110,8 +113,8 @@ class PlayersViewController: UITableViewController {
         var startIndex = dirtystring.startIndex
         var endIndex = dirtystring.endIndex
         if dirtystring.rangeOfString(stringToSearch) != nil {
-            startIndex = advance(startIndex, 1)
-            endIndex = advance(endIndex, -1)
+            startIndex = startIndex.advancedBy(1)
+            endIndex = endIndex.advancedBy(-1)
         }
         let range = startIndex..<endIndex
         let cleanString = dirtystring.substringWithRange( range )
@@ -130,13 +133,13 @@ class PlayersViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         let sectionTupla = self.playersList[section]
-        var players = sectionTupla.players
+        let players = sectionTupla.players
         
         return players.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Player", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Player", forIndexPath: indexPath)
 
         // Configure the cell...
         
@@ -164,7 +167,7 @@ class PlayersViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        let indexPath:NSIndexPath = self.tableView.indexPathForSelectedRow()!
+        let indexPath:NSIndexPath = self.tableView.indexPathForSelectedRow!
         let player = self.playersList[indexPath.section].players[indexPath.row]
         if segue.identifier == "toDetailMatch" {
             let vc = segue.destinationViewController as! DetailPlayerViewController

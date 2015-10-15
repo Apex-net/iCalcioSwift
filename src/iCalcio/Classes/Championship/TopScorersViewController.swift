@@ -49,51 +49,54 @@ class TopScorersViewController: UITableViewController {
         topScorersList.removeAll()
         
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
-                if let err = error {
-                    println("Error: " + err.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    if let parsedArray = JsonArray as? [AnyObject] {
-                        let topScorers = parsedArray
-                            .map({ obj in Player(attributes: obj) })
-                        let sortedTopScorers = sorted(topScorers){$0.goals > $1.goals}
-                        var tempItems:Array<Player> = []
-                        var oldGoals:String = String()
-                        for item in sortedTopScorers{
-                            let newGoals = item.goals
-                            if newGoals == oldGoals {
-                                // add to old section
-                                tempItems.append(item)
-                            }
-                            else {
-                                // close old section
-                                if tempItems.count > 0 {
-                                    let newData = (goals: oldGoals, players: tempItems)
-                                    self.topScorersList.append(newData)
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedArray = JsonArray as? [AnyObject] {
+                            let topScorers = parsedArray
+                                .map({ obj in Player(attributes: obj) })
+                            let sortedTopScorers = topScorers.sort{$0.goals > $1.goals}
+                            var tempItems:Array<Player> = []
+                            var oldGoals:String = String()
+                            for item in sortedTopScorers{
+                                let newGoals = item.goals
+                                if newGoals == oldGoals {
+                                    // add to old section
+                                    tempItems.append(item)
                                 }
-                                // init new section
-                                tempItems.removeAll()
-                                tempItems.append(item)
-                                // set oldGoals
-                                oldGoals = newGoals!
+                                else {
+                                    // close old section
+                                    if tempItems.count > 0 {
+                                        let newData = (goals: oldGoals, players: tempItems)
+                                        self.topScorersList.append(newData)
+                                    }
+                                    // init new section
+                                    tempItems.removeAll()
+                                    tempItems.append(item)
+                                    // set oldGoals
+                                    oldGoals = newGoals!
+                                }
+                            }
+                            if tempItems.count > 0 {
+                                let newData = (goals: oldGoals, players: tempItems)
+                                self.topScorersList.append(newData)
                             }
                         }
-                        if tempItems.count > 0 {
-                            let newData = (goals: oldGoals, players: tempItems)
-                            self.topScorersList.append(newData)
-                        }
+                        // tableview reloading
+                        self.tableView.reloadData()
                     }
-                    
-                    // tableview reloading
-                    self.tableView.reloadData()
-                    
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
+                    }
                 }
                 // end refreshing
                 if self.refreshControl?.refreshing == true {
                     self.refreshControl?.endRefreshing()
                 }
-        }
+            }
     }
     
     // RefreshControl selector
@@ -113,13 +116,13 @@ class TopScorersViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         let sectionTupla = self.topScorersList[section]
-        var topScorers = sectionTupla.players
+        let topScorers = sectionTupla.players
         
         return topScorers.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TopScorer", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TopScorer", forIndexPath: indexPath)
 
         // Configure the cell...
         

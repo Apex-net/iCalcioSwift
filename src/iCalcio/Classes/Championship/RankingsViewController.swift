@@ -45,18 +45,22 @@ class RankingsViewController: UITableViewController {
         let endpointUrl = appDelegate.apiBaseUrl + "/Rankings.txt"
         
         Alamofire.request(.GET, endpointUrl)
-            .responseJSON {(request, response, JSON, error) in
-                //println(JSON)
-                if (error != nil) {
-                    println("Error: " + error!.localizedDescription)
-                } else if let JsonArray:AnyObject = JSON?.valueForKeyPath("data"){
-                    if let parsedRankings = JsonArray as? [AnyObject] {
-                        self.rankings = parsedRankings
-                            .map({ obj in Ranking(attributes: obj) })
+            .responseJSON {response in
+                if response.result.isSuccess {
+                    if let JSON = response.result.value {
+                        //print("Success with JSON: \(JSON)")
+                        if let JsonArray:AnyObject = JSON.valueForKeyPath("data"), parsedRankings = JsonArray as? [AnyObject] {
+                            self.rankings = parsedRankings
+                                .map({ obj in Ranking(attributes: obj) })
+                        }
+                        // tableview reloading
+                        self.tableView.reloadData()
                     }
-                    // tableview reloading
-                    self.tableView.reloadData()
-                    
+                } else {
+                    print("Request failed with error: \(response.result.error)")
+                    if let dataFailure = response.data {
+                        print("Response data: \(NSString(data: dataFailure, encoding: NSUTF8StringEncoding)!)")
+                    }
                 }
                 // end refreshing
                 if self.refreshControl?.refreshing == true {
@@ -83,7 +87,7 @@ class RankingsViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Ranking", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Ranking", forIndexPath: indexPath)
 
         // Configure the cell...
         let ranking = self.rankings[indexPath.row]
