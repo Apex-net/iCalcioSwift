@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Andrea Calisesi. All rights reserved.
 //
 
-#include "../Pods/Target Support Files/Pods/Pods.release.xcconfig"
+#include "../Pods/Target Support Files/Pods-iCalcio/Pods-iCalcio.release.xcconfig"
 
 PRODUCT_NAME = iInterFc
 BUNDLE_IDENTIFIER = com.apexnet.iInterFc
