@@ -202,47 +202,32 @@ def buildTarget(target):
         out_file = ("%s/out" % current_build_dir)
         err_file = ("%s/err" % current_build_dir)
 
-        # provisioning profile for target, in profiles folder
-        profiles_dir = './profiles'
-        profile_name = "%s.mobileprovision" % target_profile_name
-
-        if not os.path.isdir(profiles_dir):
-            sys.stdout.write("Warning: profiles dir is missing.\n")
-
+        ipaFileName = "%s.ipa" % target_profile_name
+        ipaPath = "%s/%s" % (current_build_dir, ipaFileName)
+        
         # Call CLI Nomad tool for build
         dis_command = [
             "ipa",
             "build",
-            "--scheme", "igamma",
+            "--scheme", "iCalcio",
             "--configuration", "Release",
             "--destination", current_build_dir,
             "--clean",
-            "--archive",
-            "--embed", "%s/%s" % (profiles_dir, profile_name),
-            "--identity", "iPhone Distribution: Apex-net Srl (LVD55J8NH8)",
-            "--verbose",
+            "--ipa", ipaFileName,
+            "--verbose"
         ]
         sys.stdout.write("dis_command (print list): %s \n"  % ' '.join(dis_command))
         subprocess.check_call(dis_command, stdout=open(out_file,"a"), stderr=open(err_file,"a"))
-
-
-        for file in os.listdir(current_build_dir):
-          if file.endswith(".ipa"):
-              #rename generated ipa to '<target>.ipa'
-              ipaFileName = "%s.ipa" % target_profile_name
-              ipaFilePath = "%s/%s" % (current_build_dir, file)
-              ipaPath = "%s/%s" % (current_build_dir, ipaFileName)
-
-              os.rename(ipaFilePath, ipaPath)
-
-              #print ipa info
-              dis_command = [
-                  "ipa",
-                  "info",
-                  ipaPath
-              ]
-              sys.stdout.write("dis_command (print list): %s \n"  % ' '.join(dis_command))
-              subprocess.check_call(dis_command, stdout=sys.stdout, stderr=sys.stdout)
+                           
+        #print ipa info
+        dis_command = [
+            "ipa",
+            "info",
+            ipaPath
+        ]
+                               
+        sys.stdout.write("dis_command (print list): %s \n"  % ' '.join(dis_command))
+        subprocess.check_call(dis_command, stdout=sys.stdout, stderr=sys.stdout)       
 
     except subprocess.CalledProcessError as e:
         sys.stderr.write("Error ipa build code: %s \n"  % e.returncode)
@@ -339,10 +324,10 @@ def main():
 
         # Check if current directory is under version control and that the working directory is clean
         try:
-            #sys.stdout.write('TODO: Uncommnet check_git \n')
-            if not check_git():
-                sys.stderr.write("%s: invalid version control status.\n" % filename)
-                return os.EX_CONFIG
+            sys.stdout.write('TODO: Uncommnet check_git \n')
+            #if not check_git():
+            #    sys.stderr.write("%s: invalid version control status.\n" % filename)
+            #    return os.EX_CONFIG
         except VCSError:
             sys.stderr.write("%s: no valid version control system is found.\n" % filename)
             return os.EX_CONFIG
