@@ -324,10 +324,10 @@ def main():
 
         # Check if current directory is under version control and that the working directory is clean
         try:
-            sys.stdout.write('TODO: Uncommnet check_git \n')
-            #if not check_git():
-            #    sys.stderr.write("%s: invalid version control status.\n" % filename)
-            #    return os.EX_CONFIG
+            #sys.stdout.write('TODO: Uncommnet check_git \n')
+            if not check_git():
+                sys.stderr.write("%s: invalid version control status.\n" % filename)
+                return os.EX_CONFIG
         except VCSError:
             sys.stderr.write("%s: no valid version control system is found.\n" % filename)
             return os.EX_CONFIG
