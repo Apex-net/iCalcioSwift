@@ -254,7 +254,7 @@ def distributeTarget(target):
     # Call CLI Nomad tool for distribute to iTunes Connect
     sys.stdout.write("Init distribute of %s.. \n" % target)
     try:
-        appSkus = {"Cesena":"400463494", "Bologna":"", "Fiorentina":"", "Inter":"","Juventus":"", "Milan":"", "Sampdoria":""}
+        appSkus = {"Cesena":"400463494", "Bologna":"412625557", "Fiorentina":"411642947", "Inter":"417735262","Juventus":"", "Milan":"", "Sampdoria":""}
         skuNumber = appSkus[target]
         
         sys.stdout.write('AppName: %s sku: %s\n' % (target, skuNumber))
