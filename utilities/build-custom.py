@@ -245,58 +245,40 @@ def distributeTarget(target):
     build_path = "../../build/%s/%s" % (target, build_to_distribute)
     out_file = ("%s/out" % build_path)
     err_file = ("%s/err" % build_path)
-
+    
+    ipaFileName = "%s.ipa" % (target)
+    ipaPath = "%s/%s" % (build_path, ipaFileName)
+    
     sys.stdout.write("Going to distribute build %s \n" % build_to_distribute)
-
+    
     # Call CLI Nomad tool for distribute to iTunes Connect
     sys.stdout.write("Init distribute of %s.. \n" % target)
     try:
-        ipaFileName = "%s.ipa" % (target)
-        ipaFile = "%s/%s" % (build_path, ipaFileName)
-        dym = "%s/%s.app.dSYM.zip" % (build_path, target)
-        iTMSFolder = "%s/%s" % (build_path, target)
-        iTMSFile = "%s.itmsp" % (iTMSFolder)
-        ipaXmlFile = "%s/metadata.xml" % (iTMSFolder)
-
-        appSkus = {"DiWine":"838123903", "iB":"544373413", "iCommerce":"567772952", "iGamma":"417013645","AtipicoOrder":"700693596", "BtsrManager":"834330091", "iBIZ":"871060765", "wTrendy":"642932906", "iZeta":"700840887"}
+        appSkus = {"Cesena":"400463494", "Bologna":"", "Fiorentina":"", "Inter":"","Juventus":"", "Milan":"", "Sampdoria":""}
         skuNumber = appSkus[target]
-        ipaName = "%s.ipa" % (target)
-        md5 = hashlib.md5(open(ipaFile, 'rb').read()).hexdigest()
-        ipaSize = os.path.getsize(ipaFile)
-
-        sys.stdout.write('ipaFileName: %s ipaFile: %s iTMSFolder: %s\n iTMSFile: %s ipaXmlFile: %s\n' % (ipaFileName, ipaFile, iTMSFolder, iTMSFile, ipaXmlFile))
-        sys.stdout.write('sku: %s ipaname: %s md5: %s ipaSize:%s \n' % (skuNumber, ipaName, md5, ipaSize))
-
-        xmlFileContent = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><package version=\"software4.7\" xmlns=\"http://apple.com/itunes/importer\"><software_assets apple_id=\"%s\"><asset type=\"bundle\"><data_file><file_name>%s</file_name><checksum type=\"md5\">%s</checksum><size>%s</size></data_file></asset></software_assets></package>" % (skuNumber, ipaName, md5, ipaSize)
-
-        #create a folder to contain ipa and xml
-        os.makedirs(iTMSFolder)
-
-        xmlFile = open(ipaXmlFile, "w")
-        xmlFile.write(xmlFileContent)
-        xmlFile.close()
-
-        #move ipa
-        os.rename(ipaFile, "%s/%s" % (iTMSFolder, ipaFileName))
-
-        #move ipa
-        os.rename(iTMSFolder, iTMSFile)
-
+        
+        sys.stdout.write('AppName: %s sku: %s\n' % (target, skuNumber))
+        
         dis_command = [
-            "/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/MacOS/itms/bin/iTMSTransporter",
-            "-u", "a.calisesi@apexnet.it",
-            "-m", "upload",
-            "-p", "Apexdev51",
-            "-f", iTMSFile
-        ]
+                       "ipa",
+                       "distribute:itunesconnect",
+                       "-a", "a.calisesi@apexnet.it",
+                       "-p", "Apexdev51",
+                       "-i", skuNumber,
+                       "-f", ipaPath,
+                       "--upload",
+                       "--verbose"
+                       ]
+            
         sys.stdout.write("dis_command (print list): %s \n"  % ' '.join(dis_command))
         subprocess.check_call(dis_command, stdout=open(out_file,"a"), stderr=open(err_file,"a"))
     except subprocess.CalledProcessError as e:
         sys.stderr.write("Error ipa distribute code: %s.\n"  % (e.returncode))
         return os.EX_CONFIG
-
+    
     clean_git()
     sys.stdout.write("End distribute of %s. \n" % target)
+
     return os.EX_OK
 
 def main():
