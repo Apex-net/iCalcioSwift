@@ -18,7 +18,7 @@
 		F81BF38F19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38B19C74F55005C12D4 /* 765-arrow-left-toolbar@2x.png */; };
 		F81BF39019C74F55005C12D4 /* 766-arrow-right-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38C19C74F55005C12D4 /* 766-arrow-right-toolbar.png */; };
 		F81BF39119C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F81BF38D19C74F55005C12D4 /* 766-arrow-right-toolbar@2x.png */; };
-		F823AA8C1B95BED70099F247 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F823AA8B1B95BED70099F247 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		F823AA8C1B95BED70099F247 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F823AA8B1B95BED70099F247 /* LaunchScreen.storyboard */; };
 		F844FBAE19D0315A0079555D /* RssLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F844FBAD19D0315A0079555D /* RssLink.swift */; };
 		F8516D0919C0461000761A6B /* WebLinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8516D0819C0461000761A6B /* WebLinksViewController.swift */; };
 		F8516D0D19C0652100761A6B /* WebLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8516D0C19C0652100761A6B /* WebLink.swift */; };
@@ -97,7 +97,7 @@
 		F8ADE80119DE12B10035D64E /* 706-cloud@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8ADE7FE19DE12B10035D64E /* 706-cloud@3x.png */; };
 		F8BFE86E19B9BB53003BB4AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE86D19B9BB53003BB4AC /* HomeViewController.swift */; };
 		F8BFE87419BD9A45003BB4AC /* AppDelegate+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BFE87319BD9A45003BB4AC /* AppDelegate+Settings.swift */; };
-		F8CE1A7A1BA3053100B0C163 /* ANFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CE1A791BA3053100B0C163 /* ANFeedItem.swift */; settings = {ASSET_TAGS = (); }; };
+		F8CE1A7A1BA3053100B0C163 /* ANFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CE1A791BA3053100B0C163 /* ANFeedItem.swift */; };
 		F8D270DD19C89E63001448F5 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D270DC19C89E63001448F5 /* YoutubeVideo.swift */; };
 		F8D2F86A19DC0B13000A1478 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D2F86919DC0B13000A1478 /* Ranking.swift */; };
 		F8E34D2919F7257200205F72 /* 702-share-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F8E34D2619F7257200205F72 /* 702-share-toolbar.png */; };
@@ -634,7 +634,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastUpgradeCheck = 0600;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Andrea Calisesi";
 				TargetAttributes = {
 					F8F3245A19B8C6D4002F93CF = {
@@ -882,6 +883,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -956,6 +958,7 @@
 				INFOPLIST_FILE = iCalcio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -975,6 +978,7 @@
 				INFOPLIST_FILE = iCalcio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
